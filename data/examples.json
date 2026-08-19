@@ -712,7 +712,7 @@
     "cssFeature": "position: sticky + animation-timeline: view()",
     "demo": {
       "html": "<div class=\"stack-scroll\">\n  <div class=\"card card-1\">Card 1</div>\n  <div class=\"card card-2\">Card 2</div>\n  <div class=\"card card-3\">Card 3</div>\n  <div class=\"spacer\"></div>\n</div>",
-      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.stack-scroll { height: 220px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; }\n.card {\n  position: sticky;\n  height: 120px;\n  margin-bottom: 1rem;\n  border-radius: 12px;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  animation: stack-recede linear both;\n  animation-timeline: view(nearest);\n  animation-range: exit -60px exit 0px;\n}\n.card-1 { top: 0; background: #2563eb; }\n.card-2 { top: 12px; background: #7c3aed; }\n.card-3 { top: 24px; background: #db2777; }\n@keyframes stack-recede { to { transform: scale(0.92); filter: brightness(0.85); } }\n.spacer { height: 220px; }"
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.stack-scroll { height: 220px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; }\n.card {\n  position: sticky;\n  height: 120px;\n  margin-bottom: 1rem;\n  border-radius: 12px;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  animation: stack-recede linear both;\n  animation-timeline: view();\n  animation-range: exit -60px exit 0px;\n}\n.card-1 { top: 0; background: #2563eb; }\n.card-2 { top: 12px; background: #7c3aed; }\n.card-3 { top: 24px; background: #db2777; }\n@keyframes stack-recede { to { transform: scale(0.92); filter: brightness(0.85); } }\n.spacer { height: 220px; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
     "sourceName": "Modern CSS Features (sorknes.github.io)",
@@ -1155,6 +1155,29 @@
       "firefox": "147",
       "safari": "26",
       "edge": "125"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "scroll-reveal-boxes",
+    "title": "Revealing boxes as they scroll into view",
+    "description": "animation-timeline: view() ties a keyframe animation to how far an element has scrolled through its nearest scrollable ancestor, so each box can fade and slide in exactly as it enters the viewport — a common scroll-reveal effect that used to need an IntersectionObserver, now built entirely in CSS.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "animation-timeline: view()",
+    "demo": {
+      "html": "<div class=\"scroller\">\n  <p class=\"hint\">Scroll down ↓</p>\n  <div class=\"spacer-top\"></div>\n  <div class=\"box\">1</div>\n  <div class=\"box\">2</div>\n  <div class=\"box\">3</div>\n  <div class=\"box\">4</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 0; background: #fff; }\n.scroller {\n  height: 240px;\n  overflow-y: auto;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 0 1rem;\n  box-sizing: border-box;\n}\n.hint { margin: 0.75rem 0; color: #6b7280; font-size: 0.85rem; text-align: center; }\n.spacer-top { height: 220px; }\n.box {\n  height: 70px;\n  margin-bottom: 1rem;\n  border-radius: 10px;\n  background: #2563eb;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  animation-name: reveal;\n  animation-duration: 1ms; /* the scroll timeline drives progress, not this duration — some engines need a nonzero value to run the animation at all */\n  animation-timing-function: linear;\n  animation-fill-mode: both;\n  animation-timeline: view();\n  animation-range: entry 0% entry 100%;\n}\n@keyframes reveal {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}"
+    },
+    "sourceUrl": "https://theosoti.com/blog/scroll-driven-animation/",
+    "sourceName": "Theo Soti's Blog",
+    "publishedDate": "2025-01-06",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
     },
     "tailwindEquivalent": null
   }
