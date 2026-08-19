@@ -192,14 +192,6 @@
     "excerpt": "True container queries are a much asked for CSS feature that would be a complement to media queries but be placed on container elements instead of the viewport.\nExperimental CSS container queries are here! Here's Miriam Suzanne's container queries proposal explainer which has an experimental prototy"
   },
   {
-    "url": "https://theosoti.com/blog/css-anchor-positioning-without-javascript/",
-    "title": "CSS Anchor Positioning: Tooltips and Dropdowns Without JavaScript Math   16 Jun 2026  - 8 min read",
-    "sourceName": "Theo Soti's Blog",
-    "discoveredAt": "2026-08-18",
-    "publishedDate": null,
-    "excerpt": null
-  },
-  {
     "url": "https://theosoti.com/blog/html-command-commandfor-without-javascript/",
     "title": "Open Dialogs and Popovers Without JavaScript Using commandfor   8 Jun 2026  - 8 min read",
     "sourceName": "Theo Soti's Blog",

@@ -1134,5 +1134,28 @@
     "caniuseSlug": null,
     "browserSupport": null,
     "tailwindEquivalent": null
+  },
+  {
+    "id": "anchor-positioning-dropdown",
+    "title": "A dropdown menu with anchor positioning and automatic flipping",
+    "description": "Pairing the popover attribute with anchor-name, position-anchor, and position-try-fallbacks builds a dropdown menu that opens directly below its trigger button and automatically flips above it when there's no room below — all without a single line of positioning JavaScript.",
+    "category": "components-interactivity",
+    "cssFeature": "anchor-name, position-try-fallbacks",
+    "demo": {
+      "html": "<div class=\"wrap\">\n  <button popovertarget=\"menu\" id=\"menu-btn\" class=\"menu-btn\">Options ▾</button>\n  <div id=\"menu\" popover class=\"menu\">\n    <button class=\"menu-item\">Edit</button>\n    <button class=\"menu-item\">Duplicate</button>\n    <button class=\"menu-item\">Archive</button>\n    <button class=\"menu-item\">Delete</button>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 0; background: #fff; color: #111827; height: 240px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2rem; }\n.menu-btn {\n  anchor-name: --menu-btn;\n  padding: 0.6rem 1.2rem;\n  border: none;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.menu {\n  position: fixed;\n  position-anchor: --menu-btn;\n  inset: auto;\n  top: anchor(bottom);\n  left: anchor(left);\n  position-try-fallbacks: flip-block;\n  margin: 0.4rem 0 0;\n  padding: 0.4rem;\n  min-width: 160px;\n  border: none;\n  border-radius: 8px;\n  background: #fff;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);\n  flex-direction: column;\n  gap: 2px;\n}\n.menu:popover-open {\n  display: flex;\n}\n.menu-item {\n  padding: 0.5rem 0.75rem;\n  border: none;\n  background: none;\n  text-align: left;\n  font: inherit;\n  border-radius: 6px;\n  cursor: pointer;\n}\n.menu-item:hover { background: #f1f5f9; }"
+    },
+    "sourceUrl": "https://theosoti.com/blog/css-anchor-positioning-without-javascript/",
+    "sourceName": "Theo Soti's Blog",
+    "publishedDate": "2026-06-16",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "css-anchor-positioning",
+    "browserSupport": {
+      "chrome": "125",
+      "firefox": "147",
+      "safari": "26",
+      "edge": "125"
+    },
+    "tailwindEquivalent": null
   }
 ]
