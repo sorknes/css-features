@@ -1157,5 +1157,28 @@
       "edge": "125"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "scroll-reveal-boxes",
+    "title": "Revealing boxes as they scroll into view",
+    "description": "animation-timeline: view() ties a keyframe animation to how far an element has scrolled through its nearest scrollable ancestor, so each box can fade and slide in exactly as it enters the viewport — a common scroll-reveal effect that used to need an IntersectionObserver, now built entirely in CSS.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "animation-timeline: view()",
+    "demo": {
+      "html": "<div class=\"scroller\">\n  <p class=\"hint\">Scroll down ↓</p>\n  <div class=\"spacer-top\"></div>\n  <div class=\"box\">1</div>\n  <div class=\"box\">2</div>\n  <div class=\"box\">3</div>\n  <div class=\"box\">4</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 0; background: #fff; }\n.scroller {\n  height: 240px;\n  overflow-y: auto;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 0 1rem;\n  box-sizing: border-box;\n}\n.hint { margin: 0.75rem 0; color: #6b7280; font-size: 0.85rem; text-align: center; }\n.spacer-top { height: 220px; }\n.box {\n  height: 70px;\n  margin-bottom: 1rem;\n  border-radius: 10px;\n  background: #2563eb;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  animation: reveal linear both;\n  animation-timeline: view(nearest);\n  animation-range: entry 0% entry 100%;\n}\n@keyframes reveal {\n  from { opacity: 0; translate: 0 40px; }\n  to { opacity: 1; translate: 0 0; }\n}"
+    },
+    "sourceUrl": "https://theosoti.com/blog/scroll-driven-animation/",
+    "sourceName": "Theo Soti's Blog",
+    "publishedDate": "2025-01-06",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
   }
 ]
