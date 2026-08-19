@@ -1,0 +1,79 @@
+name: Weekly CSS feature maintenance
+
+on:
+  schedule:
+    # 08:00 UTC every Monday
+    - cron: "0 8 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      # Updates caniuse-lite's bundled dataset (and package.json/package-lock.json)
+      # so the refresh step below can pick up newly-shipped browser versions.
+      - name: Update caniuse-lite data
+        run: npx update-browserslist-db@latest
+
+      - name: Discover new candidate articles
+        run: node scripts/discover.mjs
+
+      - name: Refresh browser-support numbers on existing examples
+        run: node scripts/refresh-browser-support.mjs
+
+      - name: Lint
+        id: lint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build
+        id: build
+        run: npm run build
+        continue-on-error: true
+
+      - name: Write PR body
+        run: |
+          {
+            echo "Automated weekly maintenance run."
+            echo ""
+            echo "- Lint: ${{ steps.lint.outcome == 'success' && '✅ passed' || '❌ FAILED — check the workflow log before merging' }}"
+            echo "- Build: ${{ steps.build.outcome == 'success' && '✅ passed' || '❌ FAILED — check the workflow log before merging' }}"
+            echo ""
+            echo "### Data changes"
+            echo '```'
+            git diff --stat -- data/ package.json package-lock.json
+            echo '```'
+            echo ""
+            echo "New candidates land in \`data/pending.json\` for a later manual/Claude Code pass — this PR does not turn them into gallery examples by itself. Review the diff, then merge to deploy."
+          } > /tmp/pr-body.md
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: weekly CSS feature maintenance"
+          title: "Weekly CSS feature maintenance"
+          body-path: /tmp/pr-body.md
+          branch: automated/weekly-maintenance
+          delete-branch: true
+          add-paths: |
+            data/pending.json
+            data/seen-urls.json
+            data/examples.json
+            package.json
+            package-lock.json
+
+      - name: Fail the run if lint or build broke
+        if: steps.lint.outcome != 'success' || steps.build.outcome != 'success'
+        run: exit 1

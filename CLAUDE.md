@@ -13,3 +13,5 @@ Full pipeline docs are in [README.md](README.md). The short version, for when th
    This looks up real browser-support numbers from `caniuse-lite`, appends to `data/examples.json`, and removes the matching entry from `data/pending.json` by `sourceUrl`.
 4. If the demo's effect only plays once on load (a one-shot animation, or a randomized result like `random()`), set `"replayable": true` on the draft so the card gets a Replay button.
 5. Verify the live demo actually renders in the browser preview before considering it done — some very new CSS features aren't supported by any browser yet, so the demo should degrade gracefully (e.g. via `@supports`) rather than showing nothing.
+
+A weekly GitHub Actions workflow (`.github/workflows/weekly-maintenance.yml`) runs discovery and `scripts/refresh-browser-support.mjs` automatically and opens a PR with the results — it never merges or touches `main` itself, and it doesn't turn pending candidates into examples (that's still the manual/LLM step above). If asked to look into that workflow's output, the PR it opens is the place to look, not a direct commit.
