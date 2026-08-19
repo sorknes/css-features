@@ -1,0 +1,802 @@
+[
+  {
+    "url": "https://web.dev/blog/baseline-navigation-api?hl=en",
+    "title": "Navigation API - a better way to navigate, is now Baseline Newly Available",
+    "sourceName": "web.dev Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-02-17",
+    "excerpt": "The Navigation API is now Baseline Newly available, providing a better way to handle navigation in single-page applications."
+  },
+  {
+    "url": "https://css-tricks.com/whats-important-16/",
+    "title": "What’s !important #16: sibling-index() Animations, Use Cases for the infinity Keyword, Container Stuck Queries, and More",
+    "sourceName": "CSS-Tricks",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-07-31",
+    "excerpt": "The soon-Baseline sibling-index() function for animations, CSS and the 2026 FIFA World Cup, use cases for the infinity keyword, container \"stuck\" queries, and more.\nWhat’s !important #16: sibling-index() Animations, Use Cases for the infinity Keyword, Container Stuck Queries, and More originally han"
+  },
+  {
+    "url": "https://www.bram.us/2026/06/25/cranking-view-transtions-up-to-11-2026-05-07-all-day-hey/",
+    "title": "Cranking View Transtions up to 11 (2026.05.07 @ All Day Hey!)",
+    "sourceName": "Bram.us",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-06-25",
+    "excerpt": "In May I spoke at the 10th (and final 😔) edition All Day Hey! in Leeds, UK. I opened the conference with a talk on View Transitions."
+  },
+  {
+    "url": "https://www.bram.us/2026/06/19/view-transition-name-attr-or-match-element/",
+    "title": "View Transitions: Use the new attr() or match-element for the view-transition-name?",
+    "sourceName": "Bram.us",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-06-19",
+    "excerpt": "At CSS Day, “YouTube guy” Kevin Powell showed a lot of demos that relied on the advanced attr() function. In one of the examples he used attr() to set view-transition-name values — a technique I covered in my article on advanced attr() function.\nBut then during the Q&A, Cyd Stumpel wondered if he co"
+  },
+  {
+    "url": "https://www.bram.us/2026/04/02/view-transitions-toolkit/",
+    "title": "Introducing view-transitions-toolkit, a collection of utility functions to more easily work with View Transitions.",
+    "sourceName": "Bram.us",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-04-02",
+    "excerpt": "In my work with View Transitions over the last several years, I’ve published everything from deep-dive articles, demos, and announcement videos at Google I/O. I’ve also done some more experimental things with it, such as optimizing the keyframes or driving a View Transition by scroll.\n\r\n\r\nTo turn th"
+  },
+  {
+    "url": "https://ishadeed.com/article/anchor-positioning/",
+    "title": "The Basics of Anchor Positioning",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2025-08-28",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/cascade-layers/",
+    "title": "Hello, CSS Cascade Layers",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2022-02-11",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/container-queries-are-finally-here/",
+    "title": "CSS container queries are finally here",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2022-08-30",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/container-queries-for-designers/",
+    "title": "CSS Container Queries For Designers",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2021-05-25",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/container-query-units/",
+    "title": "CSS Container Query Units",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2021-09-18",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-container-query-guide/",
+    "title": "An Interactive Guide to CSS Container Queries",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2024-04-02",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-has-guide/",
+    "title": "CSS :has() Interactive Guide",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2024-02-24",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-nesting-ux/",
+    "title": "CSS Nesting UX in DevTools",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2023-11-19",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-nesting/",
+    "title": "CSS Nesting",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2023-11-19",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-state-queries/",
+    "title": "Future CSS: State Container Queries",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2023-06-22",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/css-text-wrap-balance/",
+    "title": "CSS Text balancing with text-wrap:balance",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2023-04-09",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/fifa-layout/",
+    "title": "Rebuilding FIFA Standings Layout with CSS Subgrid",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-07-19",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/learn-css-subgrid/",
+    "title": "Learn CSS Subgrid",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2022-05-06",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/lh-unit/",
+    "title": "The CSS lh unit",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2026-07-31",
+    "excerpt": null
+  },
+  {
+    "url": "https://ishadeed.com/article/say-hello-to-css-container-queries/",
+    "title": "Say Hello To CSS Container Queries",
+    "sourceName": "Ahmad Shadeed",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2021-04-13",
+    "excerpt": null
+  },
+  {
+    "url": "https://kizu.dev/scroll-driven-state-transfer/",
+    "title": "Scroll-Driven State Transfer",
+    "sourceName": "Kizu.dev",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://kizu.dev/scroll-driven-animations/",
+    "title": "Future CSS: Wishes Granted by Scroll-driven Animations",
+    "sourceName": "Kizu.dev",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://kizu.dev/anchor-positioning-experiments/",
+    "title": "Future CSS: Anchor Positioning",
+    "sourceName": "Kizu.dev",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://moderncss.dev/container-query-solutions-with-css-grid-and-flexbox/",
+    "title": "Container Query Solutions with CSS Grid and Flexbox",
+    "sourceName": "Modern CSS",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": "2020-06-11",
+    "excerpt": "True container queries are a much asked for CSS feature that would be a complement to media queries but be placed on container elements instead of the viewport.\nExperimental CSS container queries are here! Here's Miriam Suzanne's container queries proposal explainer which has an experimental prototy"
+  },
+  {
+    "url": "https://theosoti.com/blog/css-anchor-positioning-without-javascript/",
+    "title": "CSS Anchor Positioning: Tooltips and Dropdowns Without JavaScript Math   16 Jun 2026  - 8 min read",
+    "sourceName": "Theo Soti's Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://theosoti.com/blog/html-command-commandfor-without-javascript/",
+    "title": "Open Dialogs and Popovers Without JavaScript Using commandfor   8 Jun 2026  - 8 min read",
+    "sourceName": "Theo Soti's Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://theosoti.com/blog/starting-style-css/",
+    "title": "How to Use @starting-style in CSS for Entry Transitions   10 May 2026  - 6 min read",
+    "sourceName": "Theo Soti's Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://theosoti.com/blog/container-queries/",
+    "title": "Learn Modern CSS Container Queries for Adaptive Layouts   4 Apr 2025  - 5 min read",
+    "sourceName": "Theo Soti's Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://theosoti.com/blog/scroll-driven-animation/",
+    "title": "How to Implement Scroll-Driven Animations Using Pure CSS   6 Jan 2025  - 10 min read",
+    "sourceName": "Theo Soti's Blog",
+    "discoveredAt": "2026-08-18",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://theosoti.com/short/css-only-dark-mode/",
+    "title": "Build dark mode with CSS only",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-08-09",
+    "excerpt": "Create a CSS-only dark mode with a checkbox and :has(), follow the system preference, or let light-dark() select theme-aware colors."
+  },
+  {
+    "url": "https://theosoti.com/blog/animated-gradient-borders/",
+    "title": "How to Create Animated Gradient Borders in CSS",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-04-02",
+    "excerpt": "Animated gradient borders are easier with modern CSS: conic gradients, pseudo-elements, and @property replace JavaScript-heavy tricks."
+  },
+  {
+    "url": "https://theosoti.com/short/scroll-animation/",
+    "title": "Scroll-Driven Animations in CSS with @starting-style",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-12-20",
+    "excerpt": "Learn how to combine entry animations and scroll-driven motion using modern CSS. Use @starting-style, custom properties, and scroll timelines."
+  },
+  {
+    "url": "https://theosoti.com/short/emoji-toggle-cq/",
+    "title": "Responsive Components with CSS Container Queries",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-09-20",
+    "excerpt": "Use CSS container queries to make components respond to their parent’s size, not the viewport. Create adaptive layouts and icons with clean, modern CSS."
+  },
+  {
+    "url": "https://theosoti.com/short/new-css-variables/",
+    "title": "CSS @property: Animate and Validate Custom Variables",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-08-17",
+    "excerpt": "Learn how CSS @property upgrades custom variables with validation, debugging, and animation support. A must-have feature for cleaner, more powerful CSS."
+  },
+  {
+    "url": "https://theosoti.com/short/native-css-nesting/",
+    "title": "Native CSS Nesting vs Preprocessors, no more excuses",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-08-16",
+    "excerpt": "CSS nesting is now natively supported with 91% browser coverage. Learn why you may not need Sass preprocessors anymore and how to switch smoothly."
+  },
+  {
+    "url": "https://theosoti.com/short/switching-layout-in-CSS/",
+    "title": "Dynamic Layouts with CSS :has() without JavaScript",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-08-15",
+    "excerpt": "Learn how to build interactive layouts using CSS :has() and :checked. Create dynamic grids, galleries, and dashboards without JavaScript."
+  },
+  {
+    "url": "https://theosoti.com/short/scope-property/",
+    "title": "CSS @scope: Encapsulated Styles Without CSS-in-JS",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-08-14",
+    "excerpt": "Discover how CSS @scope lets you limit style leakage, write cleaner HTML, and gain true encapsulation—no BEM, utility classes, or CSS-in-JS needed."
+  },
+  {
+    "url": "https://theosoti.com/short/html-popover-api/",
+    "title": "Create Accessible Popups with the Native HTML Popover API",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-07-10",
+    "excerpt": "Build tooltips, modals, and popups using the HTML Popover API—no JavaScript needed, fully accessible, and widely supported."
+  },
+  {
+    "url": "https://theosoti.com/short/container-queries/",
+    "title": "Build Smarter Layouts with CSS Container Queries",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-07-05",
+    "excerpt": "Make components truly responsive with CSS container queries. Style elements based on parent size, not screen width."
+  },
+  {
+    "url": "https://theosoti.com/short/view-transition/",
+    "title": "Add Smooth Page Transitions with CSS @view-transition",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-07-04",
+    "excerpt": "Use @view-transition to create crossfade effects between pages—no JavaScript, just clean, progressive CSS."
+  },
+  {
+    "url": "https://theosoti.com/short/native-field-sizing/",
+    "title": "Make Form Fields Auto-Resize with field-sizing: content",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-06-16",
+    "excerpt": "Let inputs and textareas resize to fit content automatically using field-sizing: content—no JavaScript needed, with growing browser support."
+  },
+  {
+    "url": "https://theosoti.com/short/list-css-color-functions/",
+    "title": "Modern CSS Color Functions You Should Be Using",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-06-15",
+    "excerpt": "Unlock the full power of modern CSS with color functions like oklab(), color-mix(), and color-contrast() for vibrant, accessible, future-ready designs."
+  },
+  {
+    "url": "https://theosoti.com/short/animations-without-keyframes/",
+    "title": "Animate in CSS without @keyframes using @starting-style",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-05-16",
+    "excerpt": "Discover how @starting-style enables keyframe-free CSS animations—even on DOM entry. Cleaner syntax, less JS, and smoother UI transitions."
+  },
+  {
+    "url": "https://theosoti.com/short/custom-hover-effect-with-has/",
+    "title": "Create an inverted hover effect with CSS :has()",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-03-28",
+    "excerpt": "Achieve a smooth inverted hover effect using CSS :has()—no JavaScript, no hacks! Style parent elements dynamically with clean, native CSS."
+  },
+  {
+    "url": "https://theosoti.com/short/balanced-and-pretty-texts/",
+    "title": "Improve text readability with CSS text-wrap",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-03-26",
+    "excerpt": "Say goodbye to awkward text wrapping! Use text-wrap: balance; for even lines and text-wrap: pretty; for better spacing."
+  },
+  {
+    "url": "https://theosoti.com/short/css-anchor-positioning/",
+    "title": "CSS Anchor Positioning: Simplify Dynamic UI Layouts",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-03-10",
+    "excerpt": "Learn how CSS Anchor Positioning makes UI layout easier by allowing elements to be positioned dynamically—no more complex JS or layout shifts!"
+  },
+  {
+    "url": "https://theosoti.com/short/css-subgrid-layout/",
+    "title": "How CSS subgrid fixes alignment issues for good",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-02-17",
+    "excerpt": "Master CSS Subgrid for perfect layout alignment! Build consistent pricing cards, blog listings, and dashboards with ease."
+  },
+  {
+    "url": "https://theosoti.com/short/css-container-queries/",
+    "title": "New way of declaring media queries",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-02-13",
+    "excerpt": "CSS container queries let elements adapt to their container, not just the viewport. Making layouts more flexible and reusable."
+  },
+  {
+    "url": "https://una.im/2025-10-29-anchored-queries/",
+    "title": "Detect fallback positions with anchored container queries from Chrome 143",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-10-29",
+    "excerpt": "Identify and style an anchored element in a fallback anchor position."
+  },
+  {
+    "url": "https://una.im/follow-the-anchor/",
+    "title": "Follow-the-leader pattern with CSS anchor positioning",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-09-11",
+    "excerpt": "Learn how to create a dynamically re-anchored pointer element."
+  },
+  {
+    "url": "https://una.im/scroll-target-group/",
+    "title": "Creating a scroll-spy with 2 lines of CSS",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-07-29",
+    "excerpt": "scroll-target-group is a new CSS feature that lets you create scroll-spy table of contents with basically 2 lines of CSS."
+  },
+  {
+    "url": "https://una.im/popover-hint/",
+    "title": "What is popover=hint?",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-07-07",
+    "excerpt": "Learn about what exactly this new popover feature does and how it relates to interest invokers."
+  },
+  {
+    "url": "https://una.im/2024-07-12-at-property-baseline/",
+    "title": "@property: Next-gen CSS variables now with universal browser support ",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-07-12",
+    "excerpt": "The CSS Anchor Positioning API is a game-changer in web development because it lets you natively position elements."
+  },
+  {
+    "url": "https://una.im/2024-05-10-anchor-pos-intro/",
+    "title": "Introducing the CSS anchor positioning API",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-05-10",
+    "excerpt": "The CSS Anchor Positioning API is a game-changer in web development because it lets you natively position elements."
+  },
+  {
+    "url": "https://una.im/2024-04-25-popover-baseline/",
+    "title": "Popover API lands in Baseline",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-04-25",
+    "excerpt": "Popover provides so many great developer affordances for building layered interfaces like tooltips, menus, teaching UIs, and more."
+  },
+  {
+    "url": "https://una.im/2023-08-16-entry-exit-animations/",
+    "title": "Four new CSS features for smooth entry and exit animations",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-08-16",
+    "excerpt": "These four new features include: animating display and content-visibility on a keyframe timeline, the transition-behavior property, the @starting-style rule, and the overlay property."
+  },
+  {
+    "url": "https://una.im/radial-menu/",
+    "title": "Building a no-JS radial menu with CSS trigonometry, popover, and anchor positioning",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-07-20",
+    "excerpt": "Learn how to build a fluid, modern radial menu leveraging new and upcoming CSS capabilities."
+  },
+  {
+    "url": "https://una.im/2023-05-23-popover/",
+    "title": "Introducing the popover API",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-05-23",
+    "excerpt": "Popovers are everywhere on the web platform. Learn how to use the new web platform primitives to take advantage of them today."
+  },
+  {
+    "url": "https://una.im/2023-05-11-new-in-web/",
+    "title": "What's new in CSS and UI: I/O 2023 Edition",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-05-11",
+    "excerpt": "Popovers are everywhere on the web platform. Learn how to use the new web platform primitives to take advantage of them today."
+  },
+  {
+    "url": "https://una.im/color-mix-opacity/",
+    "title": "Using color-mix() to create opacity variants",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-03-31",
+    "excerpt": "Build an alpha color system without splitting out channels using this one neat trick."
+  },
+  {
+    "url": "https://una.im/2023-02-14-cq-stable/",
+    "title": "Container queries land in stable browsers",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-02-14",
+    "excerpt": "Learn about working with container queries and the polyfill."
+  },
+  {
+    "url": "https://una.im/2022-09-15-cq-stable/",
+    "title": "Working with container queries today",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-09-15",
+    "excerpt": "Learn about working with container queries and the polyfill."
+  },
+  {
+    "url": "https://una.im/2022-08-03-cq/",
+    "title": "@container and :has(): two powerful new responsive APIs",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-08-03",
+    "excerpt": "Leverage the responsive UI power of container queries + :has()."
+  },
+  {
+    "url": "https://una.im/2022-02-01-cascade-layers/",
+    "title": "Cascade layers are coming to your browser",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-02-01",
+    "excerpt": "Learn about using cascade layers to control the CSS cascade for more targetted styles."
+  },
+  {
+    "url": "https://una.im/2021-02-22-animations/",
+    "title": "Updates in hardware-accelerated animation capabilities",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2021-02-22",
+    "excerpt": "Learn about using cascade layers to control the CSS cascade for more targetted styles."
+  },
+  {
+    "url": "https://una.im/2020-07-21-at-property/",
+    "title": "@property: giving superpowers to CSS variables",
+    "sourceName": "Una Kravets",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2020-07-21",
+    "excerpt": "The Houdini Properties and Values API is coming to your CSS file in Chromium 85."
+  },
+  {
+    "url": "https://css-irl.info/another-anchor-positioning-demo-multiple-anchors/",
+    "title": "Another Anchor Positioning Demo: Multiple Anchors",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-06-12",
+    "excerpt": "Here’s a new demo where we’re positioning article references for a body of text relative to two different anchors for the block and inline axes. Each reference is positioned so that it aligns vertically with the position it’s referred to in the text, but appears adjacent to the main content wrapper "
+  },
+  {
+    "url": "https://css-irl.info/progressively-enhanced-popover-toggletips/",
+    "title": "Progressively Enhanced Popover Toggletips",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-05-27",
+    "excerpt": "The CSS Anchor Positioning specification enables us to position elements relative to an anchor, wherever they are in our web page. As I wrote recently, one thing that particularly excites me is being able to combine anchor positioning with the Popover API to show and hide elements.\nAnchor positionin"
+  },
+  {
+    "url": "https://css-irl.info/anchor-positioning-and-the-popover-api/",
+    "title": "Anchor Positioning and the Popover API for a JS-Free Site Menu",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-05-14",
+    "excerpt": "Anchor positioning in CSS enables us to position an element relative to an anchor element anywhere on the page. Prior to this we could only position an element relative to its closest positioned ancestor, which sometimes meant doing some HTML and CSS gymnastics or, more often than not, resorting to "
+  },
+  {
+    "url": "https://css-irl.info/shades-of-grey-with-color-mix/",
+    "title": "Shades of Grey with color-mix()",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-05-04",
+    "excerpt": "Greys. Who doesn’t love ’em? When it comes to building websites, it can be handy having a few shades of grey at your disposal, no matter your colour palette. We use them for borders and subtle dividers, shadows, and to indicate state changes without overwhelming the user with colour. Some designers "
+  },
+  {
+    "url": "https://css-irl.info/creating-color-palettes-with-the-color-mix-function/",
+    "title": "Creating Color Palettes with the CSS color-mix() Function",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2024-03-08",
+    "excerpt": "Colors can sometimes get out of hand in a project. We often start with a few well-chosen brand colors, but over time, we may find ourselves adding variations as our project grows. Perhaps we realize that we need to adjust the lightness of a button color for accessibility reasons, or that we need a s"
+  },
+  {
+    "url": "https://css-irl.info/scroll-timeline-parallax-effect/",
+    "title": "Scroll Timeline Parallax Effect",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-11-21",
+    "excerpt": "I’ve been playing around with scroll-driven animations a bit lately. Scroll timelines allow us to link the progress of element’s animation to the progress of a scroll container, as I wrote about not long ago for MDN.\nIt’s remarkably easy to link an animation to the root scroller (which in most cases"
+  },
+  {
+    "url": "https://css-irl.info/getting-started-with-container-queries/",
+    "title": "Getting Started with Container Queries",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-11-16",
+    "excerpt": "As of this year, container queries are supported in all major browsers. But what are they, and how can we use them to build more robust, flexible layouts? Do we still need media queries? Let's find out.\nThis post for MDN includes everything you need to get started using container queries for buildin"
+  },
+  {
+    "url": "https://css-irl.info/css-nesting-is-here/",
+    "title": "CSS Nesting is Here",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-11-10",
+    "excerpt": "In case you missed it, nesting is now supported natively in CSS in all major browsers! Nesting is a popular feature of preprocessors like Sass and has been, in my opinion, on of the main reasons to keep using preprocessors. But with nesting supported natively, it might soon be time to consider dropp"
+  },
+  {
+    "url": "https://css-irl.info/scroll-progress-animations-in-css/",
+    "title": "Scroll Progress Animations in CSS",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-07-14",
+    "excerpt": "Scroll-linked animations can often add a touch of class to a website, but have long been the preserve of JavaScript. Now a brand new specification is being implemented to enable us to create rich scroll-driven experiences with CSS! In this article for MDN, we’ll explore scroll timelines — how to lin"
+  },
+  {
+    "url": "https://css-irl.info/exploring-has-again/",
+    "title": "Exploring :has() Again",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-04-16",
+    "excerpt": "It’s been a while since my last article on here (well, a month is a while for me, anyway 😅), as I’ve been busy with my head down preparing for my talk on modern CSS layout at Beyond Tellerand, which is (checks notes) tomorrow!\nAlthough I haven’t had much time for blogging, it has given me a chance "
+  },
+  {
+    "url": "https://css-irl.info/resizing-with-css/",
+    "title": "Resizing with CSS",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-02-17",
+    "excerpt": "In case you missed it, container queries landed in all stable browsers this week! It’s a pretty exciting time to be working with CSS, seeing this long-awaited feature finally become useable.\nUna’s post on web.dev includes a rundown of how to use container queries, as well as some nifty demos. By coi"
+  },
+  {
+    "url": "https://css-irl.info/interop-2023/",
+    "title": "Interop 2023",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-02-02",
+    "excerpt": "Last year, Interop 2022, a collaborative cross-browser initiative, was hugely successful in getting 15 key features implemented interoperably. As developers, we can enjoy the fruits of this collaboration, with features like container queries, cascade layers and dynamic viewport units going from litt"
+  },
+  {
+    "url": "https://css-irl.info/disentangling-frameworks/",
+    "title": "Disentangling Frameworks",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2023-01-17",
+    "excerpt": "The other day I came across a pretty much textbook use case for container queries in the web app I was working on. We have this card component that displays a health summary for the section of the app the user is currently inspecting (which could be a wind turbine, a system within that turbine, or t"
+  },
+  {
+    "url": "https://css-irl.info/a-handy-use-for-cascade-layers/",
+    "title": "A Handy Use For Cascade Layers",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-08-23",
+    "excerpt": "I was just preparing a demo for an upcoming talk and it suddenly occurred to me that cascade layers would be a perfect solution to a problem I was having.\nFor any element of live coding, I like to meticulously prepare my demos to prevent any moments of friction on the day. I wanted to apply a bunch "
+  },
+  {
+    "url": "https://css-irl.info/my-browser-support-strategy/",
+    "title": "My Browser Support Strategy",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-04-28",
+    "excerpt": "As I’ve written about recently, it’s super exciting to see a bunch of new CSS features landing in browsers, and who can blame us for wanting to get started using them straight away?! It’s great to see browsers working to support new CSS features quicker than ever before, and that pace should persist"
+  },
+  {
+    "url": "https://css-irl.info/animated-grid-tracks-with-has/",
+    "title": "Animated Grid Tracks with :has()",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-04-05",
+    "excerpt": "Screenshot from a Codepen demo. Hovering on a grid item expands the grid tracks.\n\nSomehow it’s already three months since I wrote about the CSS :has() pseudo-class landing in Safari Technology preview. The latest Safari (proper) release has just shipped with support, and can be enabled with a flag i"
+  },
+  {
+    "url": "https://css-irl.info/exciting-times-for-browsers-and-css/",
+    "title": "Exciting Times for Browsers (and CSS)",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-03-31",
+    "excerpt": "Last month I wrote about some of the exciting new CSS features you can expect to see coming to a browser near you in 2022 for Smashing Magazine. It’s certainly an exciting time to be working on the web right now, with browser support for new features moving along at lightning-fast pace! This month s"
+  },
+  {
+    "url": "https://css-irl.info/new-css-features-in-2022/",
+    "title": "New CSS Features In 2022",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-03-01",
+    "excerpt": "There are a lot of new CSS features in development as I write this. And 2022 is the year that some big ones will be landing in a browser near you, with the potential for big changes in the way we write CSS! I explored some of these new features for Smashing Magazine.\nRead the article"
+  },
+  {
+    "url": "https://css-irl.info/aspect-ratio-is-great/",
+    "title": "Aspect Ratio is Great",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2022-02-08",
+    "excerpt": "Maybe it’s just me, but I feel like a lot of the time learning new CSS features doesn’t involve just learning a what a single property does, more like getting to grips with a collection of properties and how they work together — even learning a whole specification. That’s certainly not a complaint f"
+  },
+  {
+    "url": "https://css-irl.info/has-has-landed-in-safari/",
+    "title": ":has() Has Landed in Safari",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2021-12-27",
+    "excerpt": "Just a few days ago Safari gave us all an early Christmas present: the latest Safari Technology Preview release includes support for the :has() pseudo-class! Otherwise known as the “parent selector”, (but officially termed in the the spec ‘The Relational Pseudo-class’) it allows us to style an eleme"
+  },
+  {
+    "url": "https://css-irl.info/favourite-things-02/",
+    "title": "Favourite Things 2: New CSS Features, JS Libraries and More",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2021-02-15",
+    "excerpt": "Here’s a short round-up of some of the web technologies and resources that are getting me excited right now. Having started with the best intentions to write one of these posts regular, it’s been several months since the first one.\nAspect Ratio\nChrome (and Edge by extension) just shipped support for"
+  },
+  {
+    "url": "https://css-irl.info/learning-about-css-3d-transforms/",
+    "title": "Learning About CSS 3D Transforms and Perspective",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2020-09-15",
+    "excerpt": "3D transforms, despite being available in CSS for a while, are one area I’ve never understood well. I think if they were new to CSS now, I’d spend a lot more time playing around with them, like I have with Motion Path and some other new CSS features. As things stand, I’ve never had much cause to use"
+  },
+  {
+    "url": "https://css-irl.info/irregular-shaped-links-with-subgrid/",
+    "title": "Irregular-shaped Links with Subgrid",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2020-06-24",
+    "excerpt": "Card-based UIs are commonly-used web design patterns, and it’s not unusual to build a UI that requires a hover (or focus) effect to be applied to an entire card. There are a few strategies for implementing this effect using CSS, and this CSS Tricks article covers some of them. (None of them is perfe"
+  },
+  {
+    "url": "https://css-irl.info/subgrid-is-here/",
+    "title": "Subgrid is here",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2019-05-26",
+    "excerpt": "Support for subgrid (part of the CSS Grid Level 2 specification) has just landed in Firefox Nightly! To start experimenting with it you’ll need to enable the feature by going to about:config in the browser, then searching for subgrid. Toggle layout.css.grid-template-subgrid-value.enabled and subgrid"
+  },
+  {
+    "url": "https://css-tip.com/hover-proximity/",
+    "title": "Hover Proximity with Scroll-Driven Animations",
+    "sourceName": "CSS-Tip (Temani Afif)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": null,
+    "excerpt": null
+  },
+  {
+    "url": "https://www.oddbird.net/2026/04/16/winging-it-31/",
+    "title": "Dos & Don'ts of Anchor Positioning",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-04-16",
+    "excerpt": "CSS anchor positioning isn’t baseline yet,\nand there’s good reason for that.\nYou can use it,\nbut it comes with some caveats.\nJames, Stacy, and Miriam\ncover new resources\nto make anchor positioning easier,\nand work through some demos\nto help you understand\nhow anchor positioning works.\nWe also look a"
+  },
+  {
+    "url": "https://www.oddbird.net/2026/04/13/baseline-in-action-dialog-popover/",
+    "title": "Baseline Layered UI Patterns: `<dialog>` and `popover`\n",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-04-13",
+    "excerpt": "Elements and windows that pop up on the screen are one of the most common patterns on the web. With use cases spanning from alerts and brief forms requesting data, to the now ubiquitous cookie settings prompt, these layered UI patterns are used frequently by developers.\nSee more at web.dev »\nMost of"
+  },
+  {
+    "url": "https://www.oddbird.net/2026/03/19/winging-it-30/",
+    "title": "Quick & Easy UI Wins (for real)",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-03-19",
+    "excerpt": "Join Stacy, James, and Miriam\nas we explore some hidden gems\nof UI development –\nfrom @starting-style\nfor smoother entry transitions\nto performance boosts with AVIF images\nand using the browser’s built-in lazy-loading.\nWe cover a variety of quick wins\nthat you can use\nto make your life easier\nand im"
+  },
+  {
+    "url": "https://www.oddbird.net/2026/02/18/queries-units-actions/",
+    "title": "Container Queries and Units in Action",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-02-18",
+    "excerpt": "One of the goals when writing CSS is to build component parts that will adapt well to different (and unexpected) contexts. Ideally, a component can be placed inside any “container” element without it feeling broken or out of place. How can you accomplish this in a complex layout like a store where t"
+  },
+  {
+    "url": "https://www.oddbird.net/2026/01/22/winging-it-28/",
+    "title": "CSS Scope & Mixins",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-01-22",
+    "excerpt": "At the end of 2025,\nFirefox added the CSS @scope rule –\nmaking the new feature available\nacross all major browsers!\nSince Chris Coyier has done\na fair amount of writing\nand speaking on the topic,\nwe wanted to talk with him\nabout what that means.\nChris has also been writing\nabout the future of CSS mi"
+  },
+  {
+    "url": "https://www.oddbird.net/2025/11/20/winging-it-26/",
+    "title": "Cross-Browser Anchor Positioning",
+    "sourceName": "OddBird Blog",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2025-11-20",
+    "excerpt": "It’s finally here!\nWith the release of Firefox 145,\nCSS anchor positioning is available\nin all browsers.\nIt’s still behind a flag in Firefox,\nso it isn’t Baseline Newly available\nquite yet.\nJoin James Stuckey Weber,\nMiriam Suzanne,\nand Eric Meyer of Igalia\nas they talk about\nthe emerging patterns,\nt"
+  },
+  {
+    "url": "https://www.smashingmagazine.com/2026/05/mathematical-layouts-sibling-index-sibling-count/",
+    "title": "Advanced Tree Counting: Mathematical Layouts With `sibling-index()` And `sibling-count()`",
+    "sourceName": "Smashing Magazine (CSS)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-05-21",
+    "excerpt": "Meet sibling-index() and sibling-count(). Staggered cascade effect in one line of CSS without :nth-child() rules or JS workarounds. Works for 5 items or 5,000."
+  },
+  {
+    "url": "https://www.smashingmagazine.com/2026/03/getting-started-popover-api/",
+    "title": "Getting Started With The Popover API",
+    "sourceName": "Smashing Magazine (CSS)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-03-02",
+    "excerpt": "What happens if you rebuild a single tooltip using the browser’s native model without the aid of a library? The Popover API turns tooltips from something you simulate into something the browser actually understands. Opening and closing, keyboard interaction, Escape handling, and much of the accessib"
+  },
+  {
+    "url": "https://www.smashingmagazine.com/2026/02/css-scope-alternative-naming-conventions/",
+    "title": "CSS <code>@scope</code>: An Alternative To Naming Conventions And Heavy Abstractions",
+    "sourceName": "Smashing Magazine (CSS)",
+    "discoveredAt": "2026-08-19",
+    "publishedDate": "2026-02-05",
+    "excerpt": "Prescriptive class name conventions are no longer enough to keep CSS maintainable in a world of increasingly complex interfaces. Can the new @scope rule finally give developers the confidence to write CSS that can keep up with modern front ends?"
+  }
+]

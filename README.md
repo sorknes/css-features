@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern CSS Features v. 2
 
-## Getting Started
+A gallery of new and emerging CSS features, crawled from a curated list of specs, browser blogs, and expert writeups. Every example gets a live demo, a category, browser-support tags, a "new" badge, a caniuse.com link (when one exists), and an "Updated" date from its source article.
 
-First, run the development server:
+## How it works
+
+The pipeline is split into two stages, because turning an article into a good example takes editorial judgment and an LLM, but discovering candidate articles doesn't:
+
+1. **Discover (automated, no LLM)** — [`scripts/discover.mjs`](scripts/discover.mjs) checks each source in [`data/sources.json`](data/sources.json) for its RSS/Atom feed (or scrapes links from the page if it has none), keeps items that mention a known new-CSS-feature keyword, and appends them to [`data/pending.json`](data/pending.json). It never re-queues a URL that's already in `data/seen-urls.json` or already published in `data/examples.json`. This runs on a daily schedule via [`.github/workflows/discover.yml`](.github/workflows/discover.yml), which commits the updated pending/seen files directly — no server or database needed.
+2. **Process (manual, LLM-in-the-loop)** — periodically, ask Claude Code (in this repo) to "process the pending items." Claude reads `data/pending.json`, fetches each article, decides whether it's genuinely about a new CSS feature worth showcasing, and writes a title, description, category, caniuse slug, and a small original demo. It then hands that draft to [`scripts/add-example.mjs`](scripts/add-example.mjs), which mechanically stamps the crawl date, looks up real browser-support numbers from `caniuse-lite`, appends the finished record to `data/examples.json`, and removes the item from `pending.json`.
+
+`developer.mozilla.org/.../Web/CSS` is a reference doc, not a dated post stream, so it's marked `"kind": "reference"` in `data/sources.json` and skipped by automated discovery — it's still a valid source to pull from during manual processing.
+
+### Why browser support is sometimes "not tracked"
+
+Browser-support tags come from the `caniuse-lite` package (via `caniuse-api`), which only bundles ~580 well-established features — not the full caniuse.com dataset. Bleeding-edge features (e.g. `@property`, `field-sizing`) often don't have local data yet even though caniuse.com has a page for them. In that case the card still links out to caniuse.com but shows "Browser support not yet tracked on caniuse" instead of guessing.
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running the crawler manually
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+node scripts/discover.mjs
+```
 
-## Learn More
+This is safe to re-run any time — it only appends genuinely new candidates.
 
-To learn more about Next.js, take a look at the following resources:
+## Adding an example by hand
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Write one or more draft objects (see `CssExample` minus `crawledDate`/`browserSupport` in [`lib/types.ts`](lib/types.ts)) to a JSON file, then:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+node scripts/add-example.mjs path/to/draft.json
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This app has no server-side state — `data/examples.json` is read at build time, so any static/Node host works. To use Vercel with the scheduled discovery workflow as designed:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repo to GitHub.
+2. Import the repo into [Vercel](https://vercel.com/new) — no extra configuration or Vercel Cron needed. Vercel redeploys automatically on every push to `main`, including the commits the discovery workflow makes.
+3. GitHub Actions needs no extra secrets — it uses the default `GITHUB_TOKEN` to push back to the repo. Confirm the repo's Settings → Actions → General → Workflow permissions is set to "Read and write permissions" so the commit step can push.

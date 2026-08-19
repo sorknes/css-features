@@ -1,0 +1,23 @@
+[
+  { "name": "MDN CSS", "url": "https://developer.mozilla.org/en-US/docs/Web/CSS", "kind": "reference" },
+  { "name": "Chrome for Developers Blog", "url": "https://developer.chrome.com/blog/", "kind": "rss" },
+  { "name": "web.dev Blog", "url": "https://web.dev/blog/", "kind": "rss" },
+  { "name": "CSS-Tricks", "url": "https://css-tricks.com/", "kind": "rss" },
+  { "name": "Bram.us", "url": "https://www.bram.us/", "kind": "rss" },
+  { "name": "Nerdy.dev (Adam Argyle)", "url": "https://nerdy.dev/", "kind": "rss" },
+  { "name": "Stefan Judis — Today I Learned", "url": "https://www.stefanjudis.com/today-i-learned/", "kind": "html" },
+  { "name": "Ahmad Shadeed", "url": "https://ishadeed.com/", "kind": "rss" },
+  { "name": "Kizu.dev", "url": "https://kizu.dev/", "kind": "html" },
+  { "name": "Modern CSS", "url": "https://moderncss.dev/", "kind": "rss" },
+  { "name": "Theo Soti's Blog (Theodore (Soti) L.)", "url": "https://theosoti.com/", "kind": "rss" },
+  { "name": "Builder.io Blog", "url": "https://www.builder.io/blog/", "kind": "rss" },
+  { "name": "Flexica Journey (Utsav M.)", "url": "https://flexicajourney.com/", "kind": "rss" },
+  { "name": "WebKit Blog", "url": "https://webkit.org/blog/", "kind": "rss" },
+  { "name": "Mozilla Hacks", "url": "https://hacks.mozilla.org/", "kind": "rss" },
+  { "name": "Una Kravets", "url": "https://una.im/", "kind": "rss" },
+  { "name": "CSS { In Real Life } (Michelle Barker)", "url": "https://css-irl.info/", "kind": "rss" },
+  { "name": "CSS-Tip (Temani Afif)", "url": "https://css-tip.com/", "kind": "html" },
+  { "name": "OddBird Blog", "url": "https://www.oddbird.net/blog/", "kind": "rss" },
+  { "name": "Smashing Magazine (CSS)", "url": "https://www.smashingmagazine.com/category/css/", "kind": "rss" },
+  { "name": "Igalia Blog", "url": "https://www.igalia.com/news/", "kind": "rss" }
+]

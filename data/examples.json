@@ -1,0 +1,1138 @@
+[
+  {
+    "id": "css-subgrid",
+    "title": "Aligning cards of different lengths with subgrid",
+    "description": "Lets a nested grid inherit its parent's row or column tracks, so cards with different amounts of content can still line up their headings, body text, and buttons on the same rows — no extra wrapper markup or JS measuring needed.",
+    "category": "layout",
+    "cssFeature": "grid-template-rows: subgrid",
+    "demo": {
+      "html": "<div class=\"cards\">\n  <article class=\"card\">\n    <h3>Starter</h3>\n    <p>Good for trying things out.</p>\n    <button>Choose plan</button>\n  </article>\n  <article class=\"card\">\n    <h3>Pro</h3>\n    <p>More storage, more seats, and priority support for growing teams that need it.</p>\n    <button>Choose plan</button>\n  </article>\n  <article class=\"card\">\n    <h3>Enterprise</h3>\n    <p>Custom limits and a dedicated account manager.</p>\n    <button>Choose plan</button>\n  </article>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.cards {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  grid-template-rows: repeat(3, auto);\n  gap: 1.5rem;\n}\n.card {\n  display: grid;\n  grid-row: span 3;\n  grid-template-rows: subgrid;\n  gap: 0.75rem;\n  border: 1px solid #d1d5db;\n  border-radius: 12px;\n  padding: 1.25rem;\n}\n.card h3 { margin: 0; }\n.card p { margin: 0; color: #4b5563; }\n.card button {\n  align-self: end;\n  padding: 0.6rem 1rem;\n  border: none;\n  border-radius: 6px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  font-weight: 600;\n  cursor: pointer;\n}\n.card button:hover { background: #1d4ed8; }"
+    },
+    "sourceUrl": "https://ishadeed.com/article/fifa-layout",
+    "sourceName": "Ahmad Shadeed",
+    "publishedDate": "2026-07-19",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-subgrid",
+    "browserSupport": {
+      "chrome": "117",
+      "firefox": "71",
+      "safari": "16",
+      "edge": "117"
+    },
+    "tailwindEquivalent": "v3.4+ col-subgrid and row-subgrid utilities"
+  },
+  {
+    "id": "lh-unit",
+    "title": "Font-size-proportional spacing with the lh unit",
+    "description": "A length unit equal to the element's own computed line-height, so margins scale automatically when font-size changes instead of needing separate spacing values per heading level.",
+    "category": "typography-text",
+    "cssFeature": "lh / rlh units",
+    "demo": {
+      "html": "<div class=\"rhythm\">\n  <h2>Small heading</h2>\n  <p>This paragraph sits exactly one line-height below the heading above it, no matter that heading's font size.</p>\n  <h2 class=\"big\">Big heading</h2>\n  <p>Same spacing rule, same visual rhythm — because the gap is defined in <code>lh</code>, not a fixed pixel value.</p>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.rhythm h2 {\n  margin: 0 0 1lh 0;\n  line-height: 1.2;\n}\n.rhythm h2.big { font-size: 2.5rem; }\n.rhythm p { margin: 0 0 2lh 0; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://ishadeed.com/article/lh-unit",
+    "sourceName": "Ahmad Shadeed",
+    "publishedDate": "2026-07-31",
+    "crawledDate": "2026-08-15",
+    "caniuseSlug": "mdn-css_types_length_lh",
+    "browserSupport": {
+      "chrome": "109",
+      "firefox": "120",
+      "safari": "16.4",
+      "edge": "109"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "at-property",
+    "title": "Animatable custom properties with @property",
+    "description": "Registers a custom property with a type, inheritance behavior, and initial value — which, among other benefits, finally makes CSS custom properties animate smoothly like built-in properties instead of jumping instantly.",
+    "category": "functions-values",
+    "cssFeature": "@property",
+    "demo": {
+      "html": "<div class=\"swatch\"></div>\n<p>Hover the box — the color transition is smooth because <code>--highlight</code> is a registered, typed custom property.</p>",
+      "css": "@property --highlight {\n  syntax: '<color>';\n  inherits: false;\n  initial-value: #2563eb;\n}\n\nbody { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.swatch {\n  width: 160px;\n  height: 100px;\n  border-radius: 12px;\n  background: var(--highlight);\n  transition: --highlight 0.6s ease;\n}\n.swatch:hover { --highlight: #dc2626; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://moderncss.dev/providing-type-definitions-for-css-with-at-property/",
+    "sourceName": "Modern CSS (Stephanie Eckles)",
+    "publishedDate": "2024-07-19",
+    "crawledDate": "2026-06-15",
+    "caniuseSlug": "mdn-css_at-rules_property",
+    "browserSupport": {
+      "chrome": "85",
+      "firefox": "128",
+      "safari": "16.4",
+      "edge": "85"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "container-query-units",
+    "title": "Fluid type sized to its container with cqi",
+    "description": "Units like cqi and cqw are sized relative to a query container's own dimensions rather than the viewport, so a component's type can scale fluidly based on the space it's actually given — a sidebar vs. a full-width card.",
+    "category": "responsive-container-queries",
+    "cssFeature": "cqi container query units",
+    "demo": {
+      "html": "<div class=\"resizable\">\n  <div class=\"card\">\n    <h3>Resize me</h3>\n    <p>Drag the bottom-right corner of the outer box. The heading font-size below is set in <code>cqi</code>, so it scales with this container's width — not the viewport.</p>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.resizable {\n  container-type: inline-size;\n  resize: horizontal;\n  overflow: auto;\n  width: 320px;\n  max-width: 100%;\n  border: 2px dashed #9ca3af;\n  padding: 1rem;\n}\n.card h3 {\n  font-size: clamp(1rem, 8cqi, 3rem);\n  margin: 0 0 0.5rem 0;\n}\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://moderncss.dev/container-query-units-and-fluid-typography/",
+    "sourceName": "Modern CSS (Stephanie Eckles)",
+    "publishedDate": "2023-06-04",
+    "crawledDate": "2026-05-01",
+    "caniuseSlug": "css-container-query-units",
+    "browserSupport": {
+      "chrome": "105",
+      "firefox": "110",
+      "safari": "16",
+      "edge": "105"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "field-sizing",
+    "title": "Auto-growing form fields with field-sizing",
+    "description": "Lets form controls like <input> and <textarea> grow or shrink to fit their content with a single CSS property, replacing a common JavaScript auto-resize hack.",
+    "category": "forms-ui",
+    "cssFeature": "field-sizing: content",
+    "demo": {
+      "html": "<form>\n  <label>Default sizing\n    <input type=\"text\" value=\"Type more, width stays fixed\">\n  </label>\n  <label>field-sizing: content\n    <input class=\"auto-size\" type=\"text\" value=\"This one grows as you type\">\n  </label>\n</form>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nform { display: flex; flex-direction: column; gap: 1rem; }\nlabel { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; color: #374151; }\ninput {\n  font: inherit;\n  padding: 0.5rem 0.75rem;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  width: 260px;\n}\ninput.auto-size {\n  field-sizing: content;\n  min-width: 140px;\n  max-width: 100%;\n  width: auto;\n}"
+    },
+    "sourceUrl": "https://ishadeed.com/article/field-sizing",
+    "sourceName": "Ahmad Shadeed",
+    "publishedDate": "2025-10-31",
+    "crawledDate": "2026-03-01",
+    "caniuseSlug": "mdn-css_properties_field-sizing",
+    "browserSupport": {
+      "chrome": "123",
+      "firefox": "152",
+      "safari": "26.2",
+      "edge": "123"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "css-has",
+    "title": "Styling a form row based on its own invalid input",
+    "description": "A relational pseudo-class that matches an element based on what's inside or after it, enabling long-requested 'parent selector' and 'previous sibling' style rules in plain CSS.",
+    "category": "selectors-combinators",
+    "cssFeature": ":has()",
+    "demo": {
+      "html": "<form>\n  <div class=\"row\">\n    <label for=\"email\">Email</label>\n    <input id=\"email\" type=\"email\" value=\"not-an-email\" required>\n  </div>\n  <div class=\"row\">\n    <label for=\"name\">Name</label>\n    <input id=\"name\" type=\"text\" value=\"Ada Lovelace\" required>\n  </div>\n</form>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nform { display: flex; flex-direction: column; gap: 1rem; max-width: 320px; }\n.row {\n  display: flex;\n  flex-direction: column;\n  gap: 0.35rem;\n  padding: 0.75rem;\n  border-radius: 8px;\n  border: 1px solid transparent;\n}\n.row:has(input:invalid) {\n  background: #fef2f2;\n  border-color: #fecaca;\n}\n.row:has(input:invalid) label { color: #b91c1c; }\ninput { font: inherit; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; }"
+    },
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
+    "sourceName": "MDN",
+    "publishedDate": "2026-08-11",
+    "crawledDate": "2026-08-12",
+    "caniuseSlug": "css-has",
+    "browserSupport": {
+      "chrome": "105",
+      "firefox": "121",
+      "safari": "15.4",
+      "edge": "105"
+    },
+    "tailwindEquivalent": "v3.4+ has-* variant, e.g. has-[input:checked]:bg-blue-500"
+  },
+  {
+    "id": "css-nesting",
+    "title": "Native CSS nesting with the & selector",
+    "description": "Lets you nest one style rule inside another using the & nesting selector, parsed directly by the browser — no Sass/Less build step required.",
+    "category": "selectors-combinators",
+    "cssFeature": "CSS Nesting",
+    "demo": {
+      "html": "<button class=\"btn\">Hover or click me</button>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; display: flex; justify-content: center; align-items: center; height: 160px; }\n.btn {\n  padding: 0.75rem 1.5rem;\n  border: none;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  font-weight: 600;\n  cursor: pointer;\n\n  &:hover {\n    background: #1d4ed8;\n  }\n\n  &:active {\n    transform: translateY(1px);\n  }\n}"
+    },
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting",
+    "sourceName": "MDN",
+    "publishedDate": "2025-11-18",
+    "crawledDate": "2026-07-01",
+    "caniuseSlug": "css-nesting",
+    "browserSupport": {
+      "chrome": "120",
+      "firefox": "117",
+      "safari": "17.2",
+      "edge": "120"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "container-queries",
+    "title": "Defining and querying a container's own size",
+    "description": "container-type turns an element into a query container, so descendants can respond with @container rules based on the container's own width — true component-driven responsiveness instead of viewport-only media queries.",
+    "category": "responsive-container-queries",
+    "cssFeature": "@container",
+    "demo": {
+      "html": "<div class=\"resizable\">\n  <div class=\"card\">\n    <div class=\"thumb\"></div>\n    <div class=\"body\">\n      <h3>Card title</h3>\n      <p>Layout switches to a row once this container is wide enough.</p>\n    </div>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.resizable { container-type: inline-size; resize: horizontal; overflow: auto; width: 220px; max-width: 100%; border: 2px dashed #9ca3af; padding: 1rem; }\n.card { display: flex; flex-direction: column; gap: 0.75rem; }\n.thumb { width: 100%; height: 60px; border-radius: 8px; background: #2563eb; }\n.card h3 { margin: 0; }\n.card p { margin: 0; color: #4b5563; font-size: 0.9rem; }\n@container (min-width: 380px) {\n  .card { flex-direction: row; align-items: center; }\n  .thumb { width: 90px; height: 90px; flex-shrink: 0; }\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-container-queries",
+    "browserSupport": {
+      "chrome": "106",
+      "firefox": "110",
+      "safari": "16",
+      "edge": "106"
+    },
+    "tailwindEquivalent": "v3.2+ container utility, plus @container responsive variants like @lg:flex"
+  },
+  {
+    "id": "cascade-layers",
+    "title": "Ordering the cascade explicitly with @layer",
+    "description": "Groups styles into named layers compared by declaration order first — a later layer always beats an earlier one regardless of selector specificity, making it far more predictable to override utility or third-party CSS.",
+    "category": "cascade",
+    "cssFeature": "@layer",
+    "demo": {
+      "html": "<button class=\"btn\">Layered button</button>",
+      "css": "@layer base, theme;\n\n@layer base {\n  .btn { background: #6b7280; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font: inherit; font-weight: 600; cursor: pointer; }\n}\n\n@layer theme {\n  /* Wins over base despite equal specificity, because \"theme\" is declared after \"base\" */\n  .btn { background: #2563eb; }\n}\n\nbody { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; display: flex; justify-content: center; align-items: center; height: 160px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2022-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-cascade-layers",
+    "browserSupport": {
+      "chrome": "99",
+      "firefox": "97",
+      "safari": "15.4",
+      "edge": "99"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "logical-properties",
+    "title": "Writing-direction-agnostic spacing with logical properties",
+    "description": "padding-inline, margin-block, border-inline-start and friends follow the document's writing direction instead of physical left/right/top/bottom, so the same rules work correctly in RTL and vertical writing modes for free.",
+    "category": "layout",
+    "cssFeature": "padding-inline, margin-block…",
+    "demo": {
+      "html": "<div class=\"demo\">\n  <div class=\"box ltr\">padding-inline / margin-block</div>\n  <div class=\"box rtl\" dir=\"rtl\">Same CSS, dir=\"rtl\"</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.demo { display: flex; gap: 1rem; flex-wrap: wrap; }\n.box {\n  padding-inline: 1.5rem;\n  padding-block: 0.75rem;\n  margin-block-end: 0.5rem;\n  border-inline-start: 4px solid #2563eb;\n  background: #f3f4f6;\n  border-radius: 0 8px 8px 0;\n  max-width: 220px;\n}\n.rtl { border-radius: 8px 0 0 8px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2022-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-logical-props",
+    "browserSupport": {
+      "chrome": "89",
+      "firefox": "66",
+      "safari": "15",
+      "edge": "89"
+    },
+    "tailwindEquivalent": "Used natively throughout — px/py map to padding-inline/padding-block, ps/pe to the logical start/end"
+  },
+  {
+    "id": "scroll-driven",
+    "title": "Linking an animation to scroll position",
+    "description": "A named scroll-timeline turns any scrollable element into an animation driver, so progress bars and reveal effects can track scroll position with zero JavaScript and zero scroll event listeners.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "animation-timeline: scroll()",
+    "demo": {
+      "html": "<div class=\"demo-wrap\">\n  <div class=\"bar\"><div class=\"fill\"></div></div>\n  <div class=\"scroller\">\n    <div class=\"track\">\n      <div class=\"chip\">container queries</div>\n      <div class=\"chip\">:has()</div>\n      <div class=\"chip\">@layer</div>\n      <div class=\"chip\">view transitions</div>\n      <div class=\"chip\">anchor positioning</div>\n      <div class=\"chip\">→ scroll me →</div>\n    </div>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.demo-wrap {\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  overflow: hidden;\n  /* Makes the named timeline declared inside .scroller visible to .fill, a sibling of .scroller */\n  timeline-scope: --track-scroll;\n}\n.bar { height: 6px; background: #e5e7eb; }\n.fill {\n  height: 100%;\n  background: #2563eb;\n  transform-origin: left;\n  animation: grow-bar linear;\n  animation-timeline: --track-scroll;\n}\n@keyframes grow-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }\n.scroller {\n  overflow-x: auto;\n  scroll-timeline-name: --track-scroll;\n  scroll-timeline-axis: x;\n}\n.track { display: flex; gap: 0.75rem; padding: 1rem; width: max-content; }\n.chip { background: #eff6ff; color: #1d4ed8; padding: 0.5rem 1rem; border-radius: 999px; font-size: 0.85rem; white-space: nowrap; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "view-transitions",
+    "title": "Morphing between UI states with the View Transitions API",
+    "description": "document.startViewTransition() plus a shared view-transition-name lets an element smoothly morph into its new position or appearance across a DOM update — the kind of transition that used to require a JS animation library.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "view-transition-name",
+    "demo": {
+      "html": "<div class=\"vt-demo\">\n  <div id=\"hero\" class=\"hero pos-a\">●</div>\n  <button id=\"toggle\">Toggle position</button>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.vt-demo { display: flex; flex-direction: column; gap: 1rem; height: 140px; position: relative; }\n.hero { width: 48px; height: 48px; border-radius: 50%; background: #2563eb; color: #fff; display: flex; align-items: center; justify-content: center; view-transition-name: hero; position: absolute; }\n.pos-a { left: 0; top: 0; }\n.pos-b { left: calc(100% - 48px); top: 60px; }\nbutton { position: absolute; bottom: 0; right: 0; padding: 0.5rem 1rem; border: none; border-radius: 6px; background: #111827; color: #fff; font: inherit; cursor: pointer; }",
+      "js": "const hero = document.getElementById('hero');\nconst btn = document.getElementById('toggle');\nbtn.addEventListener('click', () => {\n  const swap = () => hero.classList.toggle('pos-b');\n  if (document.startViewTransition) {\n    document.startViewTransition(swap);\n  } else {\n    swap();\n  }\n});"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "view-transitions",
+    "browserSupport": {
+      "chrome": "111",
+      "firefox": "144",
+      "safari": "18",
+      "edge": "111"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "anchor-positioning",
+    "title": "Anchoring a tooltip to any element with pure CSS",
+    "description": "anchor-name and position-anchor tether a positioned element to any other element on the page via anchor() functions — the CSS replacement for JS-based tooltip and popover positioning libraries.",
+    "category": "layout",
+    "cssFeature": "anchor-name, position-anchor",
+    "demo": {
+      "html": "<div class=\"wrap\">\n  <button id=\"anchor-btn\" class=\"anchor-btn\">Anchor element</button>\n  <div id=\"tooltip\" class=\"tooltip\" role=\"tooltip\">I'm anchored above the button</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; height: 160px; }\n.wrap { display: flex; justify-content: center; margin-top: 3rem; }\n.anchor-btn {\n  anchor-name: --btn;\n  padding: 0.6rem 1.2rem;\n  border: none;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.tooltip {\n  position: fixed;\n  position-anchor: --btn;\n  bottom: anchor(top);\n  left: anchor(center);\n  translate: -50% -8px;\n  background: #111827;\n  color: #fff;\n  padding: 0.4rem 0.75rem;\n  border-radius: 6px;\n  font-size: 0.8rem;\n  white-space: nowrap;\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-anchor-positioning",
+    "browserSupport": {
+      "chrome": "125",
+      "firefox": "147",
+      "safari": "26",
+      "edge": "125"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "starting-style",
+    "title": "Animating elements in with @starting-style",
+    "description": "Defines the 'before' state for an element that's just been inserted into the DOM (or switched from display:none), so entry transitions finally work with plain CSS transitions instead of a JS-timed class toggle.",
+    "category": "animation-transitions",
+    "cssFeature": "@starting-style",
+    "demo": {
+      "html": "<button id=\"add-btn\">Add a card</button>\n<div id=\"list\" class=\"list\"></div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.list { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }\n.toast {\n  padding: 0.75rem 1rem;\n  border-radius: 8px;\n  background: #eff6ff;\n  color: #1d4ed8;\n  opacity: 1;\n  transform: translateY(0);\n  transition: opacity 0.4s, transform 0.4s;\n\n  @starting-style {\n    opacity: 0;\n    transform: translateY(8px);\n  }\n}\nbutton { padding: 0.5rem 1rem; border: none; border-radius: 6px; background: #111827; color: #fff; font: inherit; cursor: pointer; }",
+      "js": "let n = 0;\ndocument.getElementById('add-btn').addEventListener('click', () => {\n  n++;\n  const div = document.createElement('div');\n  div.className = 'toast';\n  div.textContent = 'Card ' + n;\n  document.getElementById('list').appendChild(div);\n});"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_at-rules_starting-style",
+    "browserSupport": {
+      "chrome": "117",
+      "firefox": "129",
+      "safari": "17.5",
+      "edge": "117"
+    },
+    "tailwindEquivalent": "v4 starting: variant, e.g. starting:opacity-0"
+  },
+  {
+    "id": "text-wrap-balance",
+    "title": "Balancing headline line breaks automatically",
+    "description": "text-wrap: balance evens out the number of characters per line so multi-line headings don't end in a single lonely word — a one-line fix for a problem designers used to solve by hand with manual line breaks.",
+    "category": "typography-text",
+    "cssFeature": "text-wrap: balance | pretty",
+    "demo": {
+      "html": "<h2 class=\"balanced\">Design systems make teams faster and products more consistent</h2>\n<hr>\n<h2 class=\"unbalanced\">Design systems make teams faster and products more consistent</h2>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; max-width: 360px; }\nh2 { font-size: 1.4rem; line-height: 1.3; }\n.balanced { text-wrap: balance; }\n.unbalanced { text-wrap: wrap; }\nhr { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-text-wrap-balance",
+    "browserSupport": {
+      "chrome": "130",
+      "firefox": "121",
+      "safari": "17.5",
+      "edge": "130"
+    },
+    "tailwindEquivalent": "v3.4+ text-balance and text-pretty utilities"
+  },
+  {
+    "id": "dvh",
+    "title": "Fixing the mobile 100vh bug with dynamic viewport units",
+    "description": "svh, lvh and dvh give three explicit answers to 'how tall is the viewport': smallest, largest, and dynamically-updating-with-the-browser-UI — ending the classic issue where 100vh overshoots the visible area on mobile.",
+    "category": "layout",
+    "cssFeature": "dvh, svh, lvh, dvw",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"bar vh\">100vh</div>\n  <div class=\"bar svh\">100svh</div>\n  <div class=\"bar dvh\">100dvh</div>\n</div>\n<p class=\"note\">On a real mobile browser, the address bar showing/hiding changes <code>dvh</code> live while <code>vh</code> stays locked to the largest size.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.row { display: flex; gap: 1rem; height: 160px; }\n.bar { flex: 1; border-radius: 8px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 0.5rem; color: #fff; font-size: 0.8rem; font-weight: 600; }\n.vh { background: #9ca3af; height: 100%; }\n.svh { background: #60a5fa; height: 92%; }\n.dvh { background: #2563eb; height: 100%; }\n.note { font-size: 0.85rem; color: #4b5563; max-width: 360px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2022-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "viewport-unit-variants",
+    "browserSupport": {
+      "chrome": "108",
+      "firefox": "101",
+      "safari": "15.4",
+      "edge": "108"
+    },
+    "tailwindEquivalent": "v3.4+ h-dvh, h-svh, h-lvh (and matching min-h-*/max-h-* variants)"
+  },
+  {
+    "id": "font-size-adjust",
+    "title": "Keeping fallback fonts visually consistent",
+    "description": "Sets a target x-height ratio so a fallback font renders at a visually matched size to the intended web font, reducing the layout jump that happens while a custom font is still loading.",
+    "category": "typography-text",
+    "cssFeature": "font-size-adjust",
+    "demo": {
+      "html": "<p class=\"no-adjust\">Fallback font (no font-size-adjust)</p>\n<p class=\"adjusted\">Fallback font (font-size-adjust: 0.5)</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\np { font-size: 1.5rem; font-family: \"Some Custom Font\", Georgia, serif; margin: 0 0 1rem 0; }\n.adjusted { font-size-adjust: 0.5; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "font-size-adjust",
+    "browserSupport": {
+      "chrome": "127",
+      "firefox": "118",
+      "safari": "17",
+      "edge": "127"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "text-box",
+    "title": "Trimming invisible leading space above and below text",
+    "description": "text-box (a shorthand for text-box-trim and text-box-edge) removes the half-leading space baked into every line box, so icons, badges, and single-line labels can finally align on their actual glyph edges.",
+    "category": "typography-text",
+    "cssFeature": "text-box: cap alphabetic",
+    "demo": {
+      "html": "<div class=\"row\">\n  <span class=\"pill default\">SEND</span>\n  <span class=\"pill trimmed\">SEND</span>\n</div>\n<p class=\"note\">Same padding on both — the second uses <code>text-box: cap alphabetic</code> to remove the invisible space above/below the capital letters.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.row { display: flex; gap: 1rem; align-items: center; }\n.pill { display: inline-block; padding: 0.4rem 1rem; border-radius: 999px; background: #2563eb; color: #fff; font-weight: 700; outline: 1px dashed #93c5fd; outline-offset: -1px; }\n.trimmed { text-box: cap alphabetic; }\n.note { margin-top: 1rem; font-size: 0.85rem; color: #4b5563; max-width: 320px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-text-box-trim",
+    "browserSupport": {
+      "chrome": "133",
+      "firefox": "154",
+      "safari": "18.2",
+      "edge": "132"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "color-mix",
+    "title": "Mixing two colors natively in any color space",
+    "description": "color-mix() blends two colors by a percentage in a chosen color space (like oklch or srgb), replacing the Sass/JS color-math functions teams used to reach for to generate tints and shades.",
+    "category": "color-background",
+    "cssFeature": "color-mix()",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"swatch a\"></div>\n  <div class=\"swatch b\"></div>\n  <div class=\"swatch c\"></div>\n  <div class=\"swatch d\"></div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.row { display: flex; gap: 0.75rem; }\n.swatch { width: 64px; height: 64px; border-radius: 8px; }\n.a { background: royalblue; }\n.b { background: color-mix(in oklch, royalblue 75%, white); }\n.c { background: color-mix(in oklch, royalblue 50%, white); }\n.d { background: color-mix(in oklch, royalblue 25%, white); }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_types_color_color-mix",
+    "browserSupport": {
+      "chrome": "111",
+      "firefox": "113",
+      "safari": "16.2",
+      "edge": "111"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "oklch",
+    "title": "Perceptually uniform color with oklch()",
+    "description": "oklch(lightness chroma hue) keeps perceived brightness consistent as hue changes, unlike hsl() — which makes it much easier to build accessible color scales that don't have surprise-dark or surprise-bright entries.",
+    "category": "color-background",
+    "cssFeature": "oklch(), oklab()",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"swatch\" style=\"background:oklch(70% 0.2 20)\"></div>\n  <div class=\"swatch\" style=\"background:oklch(70% 0.2 90)\"></div>\n  <div class=\"swatch\" style=\"background:oklch(70% 0.2 160)\"></div>\n  <div class=\"swatch\" style=\"background:oklch(70% 0.2 230)\"></div>\n  <div class=\"swatch\" style=\"background:oklch(70% 0.2 300)\"></div>\n</div>\n<p class=\"note\">Same lightness (70%) and chroma (0.2) at five different hues — they all look equally bright.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.row { display: flex; gap: 0.5rem; }\n.swatch { width: 56px; height: 56px; border-radius: 8px; }\n.note { margin-top: 1rem; font-size: 0.85rem; color: #4b5563; max-width: 340px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_types_color_oklch",
+    "browserSupport": {
+      "chrome": "111",
+      "firefox": "113",
+      "safari": "15.4",
+      "edge": "111"
+    },
+    "tailwindEquivalent": "v4's entire default color palette is defined in oklch for consistent perceived brightness"
+  },
+  {
+    "id": "customizable-select",
+    "title": "Fully restyling <select> with appearance: base-select",
+    "description": "Opts a native <select> into a styleable rendering mode, including its dropdown picker and options, so teams can finally style a real <select> instead of reaching for a custom-built listbox component.",
+    "category": "forms-ui",
+    "cssFeature": "appearance: base-select",
+    "demo": {
+      "html": "<select class=\"base-select\">\n  <option>Customized ✓</option>\n  <option>Option two</option>\n  <option>Option three</option>\n</select>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nselect.base-select {\n  appearance: base-select;\n  padding: 0.6rem 1rem;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n  font: inherit;\n  background: #fff;\n}\nselect.base-select::picker(select) {\n  border-radius: 10px;\n  border: 1px solid #d1d5db;\n  padding: 0.25rem;\n}\nselect.base-select option {\n  padding: 0.5rem 0.75rem;\n  border-radius: 6px;\n}\nselect.base-select option:checked {\n  background: #eff6ff;\n  color: #1d4ed8;\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2025-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_appearance_base-select",
+    "browserSupport": {
+      "chrome": "135",
+      "firefox": false,
+      "safari": "27",
+      "edge": "135"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "invoker-commands",
+    "title": "Controlling dialogs declaratively with commandfor",
+    "description": "The commandfor and command attributes let a plain <button> show, close, or toggle a <dialog> or popover directly from HTML — no click listener or imperative .showModal() call needed.",
+    "category": "components-interactivity",
+    "cssFeature": "commandfor, command",
+    "demo": {
+      "html": "<button commandfor=\"dlg\" command=\"show-modal\">Show dialog (no JS!)</button>\n<dialog id=\"dlg\">\n  <p>Opened declaratively via <code>commandfor</code> + <code>command</code>.</p>\n  <button commandfor=\"dlg\" command=\"close\">Close</button>\n</dialog>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nbutton { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; background: #2563eb; color: #fff; font: inherit; cursor: pointer; }\ndialog { border: none; border-radius: 12px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }\ndialog::backdrop { background: rgba(17,24,39,0.4); }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2025-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-api_htmlbuttonelement_command",
+    "browserSupport": {
+      "chrome": "135",
+      "firefox": "144",
+      "safari": "26.2",
+      "edge": "135"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "popover-api",
+    "title": "Native popovers with the popover attribute",
+    "description": "popover and popovertarget give any element top-layer rendering, light-dismiss on outside click, Escape-to-close, and automatic focus handling — all the fiddly behavior a hand-rolled dropdown used to need JS for.",
+    "category": "components-interactivity",
+    "cssFeature": "popover, popovertarget",
+    "demo": {
+      "html": "<button popovertarget=\"pop\">Toggle popover</button>\n<div id=\"pop\" popover>\n  <p>I'm a native popover — top-layer, dismisses on outside click or Esc, no JS.</p>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nbutton { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; background: #2563eb; color: #fff; font: inherit; cursor: pointer; }\n[popover] { border: none; border-radius: 12px; padding: 1.25rem; max-width: 260px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }\n[popover]::backdrop { background: rgba(17,24,39,0.15); }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-html_global_attributes_popover",
+    "browserSupport": {
+      "chrome": "114",
+      "firefox": "125",
+      "safari": "17.0",
+      "edge": "114"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "user-valid-invalid",
+    "title": "Validating a field only after the user interacts",
+    "description": ":user-valid and :user-invalid match like :valid/:invalid, but only once the user has actually interacted with the field — so a required input doesn't show an alarming red error before anyone's had a chance to type.",
+    "category": "forms-ui",
+    "cssFeature": ":user-valid, :user-invalid",
+    "demo": {
+      "html": "<form>\n  <label>Phone number (10 digits)\n    <input type=\"tel\" pattern=\"[0-9]{10}\" placeholder=\"5551234567\" required>\n  </label>\n  <p class=\"msg invalid-msg\">✗ Enter exactly 10 digits</p>\n  <p class=\"msg valid-msg\">✓ Looks good!</p>\n</form>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nform { display: flex; flex-direction: column; gap: 0.5rem; max-width: 280px; }\nlabel { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; }\ninput { font: inherit; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; }\n.msg { margin: 0; font-size: 0.85rem; display: none; }\ninput:user-invalid ~ .invalid-msg { display: block; color: #b91c1c; }\ninput:user-valid ~ .valid-msg { display: block; color: #15803d; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_selectors_user-valid",
+    "browserSupport": {
+      "chrome": "119",
+      "firefox": "88",
+      "safari": "16.5",
+      "edge": "119"
+    },
+    "tailwindEquivalent": "v3.4+ user-valid: and user-invalid: variants"
+  },
+  {
+    "id": "scope",
+    "title": "Scoping styles to a subtree with @scope",
+    "description": "@scope (.root) limits a block of rules to matches inside that root — and can even carve out an inner boundary — giving plain CSS a form of the encapsulation Shadow DOM or naming conventions used to require.",
+    "category": "selectors-combinators",
+    "cssFeature": "@scope",
+    "demo": {
+      "html": "<div class=\"scope-a\">\n  <p>Blue text here (inside .scope-a)</p>\n</div>\n<div class=\"scope-b\">\n  <p>Pink text here (inside .scope-b)</p>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n@scope (.scope-a) {\n  p { color: #2563eb; font-weight: 600; }\n}\n@scope (.scope-b) {\n  p { color: #db2777; font-weight: 600; }\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-cascade-scope",
+    "browserSupport": {
+      "chrome": "118",
+      "firefox": "146",
+      "safari": "17.4",
+      "edge": "118"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "accent-color",
+    "title": "Recoloring native form controls in one line",
+    "description": "accent-color restyles the checked state of checkboxes, radio buttons, range sliders, and progress bars to match a brand color, without abandoning the browser's native, accessible control rendering.",
+    "category": "forms-ui",
+    "cssFeature": "accent-color",
+    "demo": {
+      "html": "<label><input type=\"checkbox\" checked class=\"branded\"> Branded checkbox</label>\n<label><input type=\"radio\" name=\"r\" checked class=\"branded\"> Option A</label>\n<label><input type=\"radio\" name=\"r\" class=\"branded\"> Option B</label>\n<input type=\"range\" class=\"branded\" value=\"60\">",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }\n.branded { accent-color: #db2777; }\nlabel { display: flex; align-items: center; gap: 0.5rem; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2022-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_accent-color",
+    "browserSupport": {
+      "chrome": "93",
+      "firefox": "92",
+      "safari": "26.2",
+      "edge": "93"
+    },
+    "tailwindEquivalent": "v3.2+ accent-* utilities, e.g. accent-blue-500"
+  },
+  {
+    "id": "nesting-math",
+    "title": "Deriving per-item values with mod() and calc()",
+    "description": "mod() and rem() join calc() as real CSS math functions, so patterns like alternating row shades or repeating layouts can be computed from an index directly in CSS instead of a build-time loop.",
+    "category": "functions-values",
+    "cssFeature": "mod(), rem()",
+    "demo": {
+      "html": "<div class=\"grid\">\n  <div class=\"cell\" style=\"--i:0\">0</div>\n  <div class=\"cell\" style=\"--i:1\">1</div>\n  <div class=\"cell\" style=\"--i:2\">2</div>\n  <div class=\"cell\" style=\"--i:3\">3</div>\n  <div class=\"cell\" style=\"--i:4\">4</div>\n  <div class=\"cell\" style=\"--i:5\">5</div>\n  <div class=\"cell\" style=\"--i:6\">6</div>\n  <div class=\"cell\" style=\"--i:7\">7</div>\n  <div class=\"cell\" style=\"--i:8\">8</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.grid { display: grid; grid-template-columns: repeat(3, 48px); gap: 0.5rem; }\n.cell {\n  height: 48px;\n  display: flex; align-items: center; justify-content: center;\n  border-radius: 6px;\n  color: #fff;\n  font-weight: 700;\n  background: hsl(220 80% calc(35% + mod(var(--i), 3) * 15%));\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-math-functions",
+    "browserSupport": {
+      "chrome": "79",
+      "firefox": "75",
+      "safari": "13.1",
+      "edge": "79"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "css-accordion",
+    "title": "An animated accordion with zero JavaScript",
+    "description": "Native <details>/<summary> plus a transition from grid-template-rows: 0fr to 1fr collapses and reveals content smoothly — CSS can interpolate fr track sizes even though it still can't transition height: auto. Giving each <details> the same name attribute also turns them into an exclusive group, so opening one closes the others with zero JavaScript.",
+    "category": "animation-transitions",
+    "cssFeature": "details[name] + grid-template-rows: 0fr → 1fr",
+    "demo": {
+      "html": "<div class=\"accordion\">\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        What is the 0fr &rarr; 1fr trick?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Wrapping the content in a grid row and transitioning <code>grid-template-rows</code> from <code>0fr</code> to <code>1fr</code> collapses and reveals it smoothly — CSS can interpolate <code>fr</code> track sizes even though it still can't transition <code>height: auto</code>.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        Why put the content outside &lt;details&gt;?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Placing the animated div as a sibling of <code>&lt;details&gt;</code> sidesteps Chrome's <code>::details-content</code> / <code>content-visibility</code> mechanism, which would otherwise block a custom height transition from running.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        How do exclusive groups work?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Give each <code>&lt;details&gt;</code> element the same <code>name</code> attribute and the browser enforces that only one can be open at a time — try opening this one, the others will close automatically, no JavaScript required.\n      </div>\n    </div>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #1f1f1f; }\n.accordion { max-width: 320px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }\n.accordion-item + .accordion-item { border-top: 1px solid #e0e0e0; }\n\nsummary {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  list-style: none;\n  cursor: pointer;\n  user-select: none;\n  padding: 0.625rem 1rem;\n  font-weight: 500;\n  transition: background-color 0.15s ease, color 0.15s ease;\n}\nsummary::-webkit-details-marker { display: none; }\nsummary:hover,\ndetails[open] summary {\n  background: #171717;\n  color: #fff;\n}\nsummary:focus-visible {\n  outline: 2px solid #171717;\n  outline-offset: -2px;\n}\n\n.chevron {\n  margin-left: auto;\n  flex-shrink: 0;\n  transition: rotate 0.3s ease;\n}\ndetails[open] .chevron {\n  rotate: 180deg;\n}\n\n/* Animated div is a sibling of <details>, not inside it — this sidesteps */\n/* Chrome's ::details-content / content-visibility mechanism, which would */\n/* otherwise block a custom height transition. */\n.content {\n  display: grid;\n  grid-template-rows: 0fr;\n  transition: grid-template-rows 0.3s ease;\n}\ndetails[open] + .content {\n  grid-template-rows: 1fr;\n  border-top: 1px solid #e0e0e0;\n}\n.body { overflow: hidden; padding: 0 1rem; font-size: 0.9rem; color: #4b4b4b; }\ndetails[open] + .content .body { padding-block: 0.75rem; }\n\ncode { background: #eeeeee; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": "grid-rows-[0fr] + peer-open:grid-rows-[1fr] on the sibling element"
+  },
+  {
+    "id": "search-text",
+    "title": "Styling the browser's own Find-in-Page matches",
+    "description": "::search-text and ::search-text:current let a page style the highlight the browser draws around a user's Ctrl/Cmd+F search matches, distinguishing the currently-focused match from the rest.",
+    "category": "selectors-combinators",
+    "cssFeature": "::search-text, ::search-text:current",
+    "demo": {
+      "html": "<p>The <span class=\"match\">accent-color</span> property. Current match: <span class=\"match current\">accent</span> styled with <code>:current</code>.</p>\n<p class=\"note\">These highlights are simulated here — <code>::search-text</code> only applies to real matches from the browser's Ctrl/Cmd+F Find in Page.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; max-width: 360px; }\n/* Real usage (applies to actual Find in Page matches):\n::search-text { background: yellow; }\n::search-text:current { background: orange; }\n*/\n.match { background: #fef08a; border-radius: 2px; padding: 0 2px; }\n.match.current { background: #fb923c; color: #fff; }\n.note { font-size: 0.8rem; color: #6b7280; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2025-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "sticky-shrink-nav",
+    "title": "Shrinking a sticky header as the page scrolls",
+    "description": "A scroll-driven animation tied to a named scroll-timeline shrinks a position: sticky header's padding over the first stretch of scroll — a common product-site effect that used to need a scroll event listener.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "animation-timeline: scroll(root) + position: sticky",
+    "demo": {
+      "html": "<div class=\"scroll-area\">\n  <header class=\"site-header\">\n    <span class=\"logo\">BRAND</span>\n    <span class=\"hint\">Scroll down ↓</span>\n  </header>\n  <div class=\"content\">\n    <p>The header above is <code>position: sticky</code>.</p>\n    <p>Its padding shrinks as you scroll, driven by <code>scroll(nearest block)</code> — no JS.</p>\n    <p>Scroll back up to watch it expand again.</p>\n    <p>Works on any scrollable container, not just the page root.</p>\n    <p>Keep scrolling to see the full effect play out smoothly.</p>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.scroll-area { height: 220px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; }\n.site-header {\n  position: sticky;\n  top: 0;\n  background: #111827;\n  color: #fff;\n  padding-block: 1.25rem;\n  padding-inline: 1rem;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  /* scroll(nearest block) finds the nearest scrollable ancestor automatically — no named timeline needed */\n  animation: shrink-nav linear both;\n  animation-timeline: scroll(nearest block);\n  animation-range: 0px 120px;\n}\n.logo { font-weight: 700; letter-spacing: 0.05em; }\n.hint { font-size: 0.75rem; color: #9ca3af; }\n@keyframes shrink-nav {\n  to { padding-block: 0.5rem; }\n}\n.content { padding: 1rem; min-height: 420px; }\n.content p { font-size: 0.9rem; color: #4b5563; margin: 0 0 1.25rem 0; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "scroll-spy-toc",
+    "title": "A scroll-spy table of contents with view-timeline",
+    "description": "Each section declares a named view-timeline; the matching table-of-contents link consumes that timeline to animate its own active state as the section scrolls through the viewport — no IntersectionObserver required.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "view-timeline-name, animation-timeline",
+    "demo": {
+      "html": "<div class=\"layout\">\n  <nav class=\"toc\">\n    <a href=\"#s1\" class=\"toc-link\">① Intro</a>\n    <a href=\"#s2\" class=\"toc-link\">② Methods</a>\n    <a href=\"#s3\" class=\"toc-link\">③ Results</a>\n  </nav>\n  <div class=\"sections\">\n    <section class=\"section\">\n      <strong>Introduction</strong>\n      <p>Scroll down — the active link updates with no JavaScript at all.</p>\n    </section>\n    <section class=\"section\">\n      <strong>Methods</strong>\n      <p>Each section has a named <code>view-timeline-name</code>. The wrapper shares it with <code>timeline-scope</code>.</p>\n    </section>\n    <section class=\"section\">\n      <strong>Results</strong>\n      <p>The matching nav link consumes the timeline via <code>animation-timeline</code>.</p>\n    </section>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.layout {\n  display: flex;\n  gap: 1rem;\n  /* Common ancestor of both the nav links (consumers) and sections (sources) */\n  timeline-scope: --s1-visible, --s2-visible, --s3-visible;\n}\n.toc { display: flex; flex-direction: column; gap: 0.35rem; min-width: 90px; flex-shrink: 0; }\n.toc-link {\n  padding: 0.3rem 0.5rem;\n  border-radius: 4px;\n  border-left: 2px solid transparent;\n  color: #9ca3af;\n  text-decoration: none;\n  font-size: 0.85rem;\n  animation: mark-active linear both;\n  animation-range: entry 0% exit 100%;\n}\n.toc-link:nth-child(1) { animation-timeline: --s1-visible; }\n.toc-link:nth-child(2) { animation-timeline: --s2-visible; }\n.toc-link:nth-child(3) { animation-timeline: --s3-visible; }\n@keyframes mark-active {\n  0%, 100% { color: #9ca3af; font-weight: 400; border-left-color: transparent; }\n  20%, 80% { color: #2563eb; font-weight: 700; border-left-color: #2563eb; }\n}\n.sections { flex: 1; height: 200px; overflow-y: auto; border-left: 1px solid #e5e7eb; padding-left: 1rem; }\n.section { display: block; min-height: 180px; padding-block: 0.5rem; border-bottom: 1px dashed #e5e7eb; }\n.section:nth-child(1) { view-timeline-name: --s1-visible; }\n.section:nth-child(2) { view-timeline-name: --s2-visible; }\n.section:nth-child(3) { view-timeline-name: --s3-visible; }\n.section strong { display: block; margin-bottom: 0.35rem; }\n.section p { margin: 0; font-size: 0.85rem; color: #4b5563; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "stacking-cards",
+    "title": "A stacking-cards scroll effect with pure CSS",
+    "description": "position: sticky with staggered offsets piles cards on top of each other as the user scrolls, while a view() animation-timeline scales each card down as the next one slides over it.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "position: sticky + animation-timeline: view()",
+    "demo": {
+      "html": "<div class=\"stack-scroll\">\n  <div class=\"card card-1\">Card 1</div>\n  <div class=\"card card-2\">Card 2</div>\n  <div class=\"card card-3\">Card 3</div>\n  <div class=\"spacer\"></div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.stack-scroll { height: 220px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; }\n.card {\n  position: sticky;\n  height: 120px;\n  margin-bottom: 1rem;\n  border-radius: 12px;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  animation: stack-recede linear both;\n  animation-timeline: view(nearest);\n  animation-range: exit -60px exit 0px;\n}\n.card-1 { top: 0; background: #2563eb; }\n.card-2 { top: 12px; background: #7c3aed; }\n.card-3 { top: 24px; background: #db2777; }\n@keyframes stack-recede { to { transform: scale(0.92); filter: brightness(0.85); } }\n.spacer { height: 220px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2024-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "css-masonry",
+    "title": "Native masonry layout for grid items",
+    "description": "A masonry-style grid track lets items of different heights pack tightly into the next available slot, matching the classic Pinterest-style layout without a JavaScript layout library.",
+    "category": "layout",
+    "cssFeature": "grid-template-rows: masonry",
+    "demo": {
+      "html": "<div class=\"masonry\">\n  <div class=\"tile\" style=\"height:60px\">1</div>\n  <div class=\"tile\" style=\"height:100px\">2</div>\n  <div class=\"tile\" style=\"height:40px\">3</div>\n  <div class=\"tile\" style=\"height:80px\">4</div>\n  <div class=\"tile\" style=\"height:50px\">5</div>\n  <div class=\"tile\" style=\"height:70px\">6</div>\n</div>\n<p class=\"note\">Uses <code>column-count</code> as a universal fallback so it always looks right, then upgrades to real masonry where <code>grid-template-rows: masonry</code> or <code>display: grid-lanes</code> is supported.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.masonry {\n  column-count: 3;\n  column-gap: 0.75rem;\n}\n.tile {\n  break-inside: avoid;\n  margin-bottom: 0.75rem;\n  background: #2563eb;\n  color: #fff;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n}\n@supports (grid-template-rows: masonry) {\n  .masonry { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: masonry; gap: 0.75rem; column-count: initial; }\n  .tile { margin-bottom: 0; }\n}\n@supports (display: grid-lanes) {\n  .masonry { display: grid-lanes; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; column-count: initial; }\n  .tile { margin-bottom: 0; }\n}\n.note { margin-top: 1rem; font-size: 0.8rem; color: #6b7280; max-width: 320px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2025-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-grid-lanes",
+    "browserSupport": {
+      "chrome": false,
+      "firefox": false,
+      "safari": "26.4",
+      "edge": false
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "border-shape",
+    "title": "Organic borders and cut-outs with shape()",
+    "description": "The shape() function draws an arbitrary border or background outline from move/line/curve commands — blob shapes, notches, and cut-outs that used to require an SVG or clip-path hack.",
+    "category": "color-background",
+    "cssFeature": "border-shape: shape(...)",
+    "demo": {
+      "html": "<div class=\"shapes\">\n  <div class=\"shape blob\"></div>\n  <div class=\"shape outline\"></div>\n  <div class=\"shape cutout\"></div>\n</div>\n<p class=\"note\">Same organic path, three ways: a filled blob, a stroked outline, and a square-outside/organic-inside cut-out. Requires browser support for <code>border-shape</code> — shows as plain boxes otherwise.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #1f1f1f; display: flex; flex-direction: column; align-items: center; gap: 1rem; }\n.shapes { display: flex; gap: 1rem; align-items: center; }\n.shape { width: 90px; height: 90px; }\n\n/* 1. Solid blob — background follows the shape */\n.blob {\n  background: rebeccapurple;\n  border-shape: shape(from 50% 0%, curve to 100% 40% with 100% 0%, curve to 60% 100% with 100% 80%, curve to 0% 60% with 30% 100%, curve to 50% 0% with 0% 30%, close);\n}\n\n/* 2. Organic outline — border hugs the shape */\n.outline {\n  border: 8px solid rebeccapurple;\n  border-shape: shape(from 50% 0%, curve to 100% 40% with 100% 0%, curve to 60% 100% with 100% 80%, curve to 0% 60% with 30% 100%, curve to 50% 0% with 0% 30%, close);\n}\n\n/* 3. Inner cut-out — square outside, organic inside */\n.cutout {\n  border: 12px solid rebeccapurple;\n  border-shape: inset(0) shape(from 50% 0%, curve to 100% 40% with 100% 0%, curve to 60% 100% with 100% 80%, curve to 0% 60% with 30% 100%, curve to 50% 0% with 0% 30%, close);\n}\n\n.note { max-width: 320px; text-align: center; font-size: 0.8rem; color: #6b6b6b; }\ncode { background: #eeeeee; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2025-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "reading-progress-bar",
+    "title": "A scroll-linked reading progress bar",
+    "description": "A fixed bar's scaleX is driven directly by a named scroll-timeline, so it grows in perfect sync with how far the user has scrolled — a page-level reading indicator with no scroll event listener at all.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "animation-timeline: scroll(root)",
+    "demo": {
+      "html": "<div class=\"page\">\n  <div class=\"bar\"><div class=\"fill\"></div></div>\n  <div class=\"content\">\n    <p>Scroll down to fill the bar ↓</p>\n    <p>The bar grows in sync with your scroll position, using a named scroll timeline — no JavaScript.</p>\n    <p>The timeline is declared on this scrollable area and shared with the bar outside it via <code>timeline-scope</code>.</p>\n    <p>Scroll back up to watch it shrink.</p>\n    <p>Keep scrolling…</p>\n    <p>Almost there…</p>\n    <p>End of content.</p>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.page {\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  overflow: hidden;\n  /* Makes the named timeline declared on .content visible to .fill, a sibling of .content */\n  timeline-scope: --page-scroll;\n}\n.bar { height: 5px; background: #e5e7eb; }\n.fill {\n  height: 100%;\n  background: #2563eb;\n  transform-origin: left;\n  animation: fill-bar linear both;\n  animation-timeline: --page-scroll;\n}\n@keyframes fill-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }\n.content {\n  height: 200px;\n  overflow-y: auto;\n  padding: 1rem;\n  scroll-timeline-name: --page-scroll;\n  scroll-timeline-axis: block;\n}\n.content p { font-size: 0.9rem; color: #4b5563; margin: 0 0 2rem 0; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2023-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_properties_animation-timeline",
+    "browserSupport": {
+      "chrome": "115",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "115"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "position-sticky-single-axis",
+    "title": "Sticky positioning across independent scroll axes",
+    "description": "Lets a sticky element track a different scroll container per axis, so more flexible split-pane and dashboard layouts can each keep their own header pinned independently.",
+    "category": "layout",
+    "cssFeature": "position: sticky",
+    "demo": {
+      "html": "<div class=\"grid-2\">\n  <div class=\"col\">\n    <div class=\"sticky-item\">Sticky in this column</div>\n    <div class=\"filler\"></div>\n  </div>\n  <div class=\"col\">\n    <div class=\"filler tall\"></div>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.grid-2 { display: flex; gap: 1rem; height: 180px; }\n.col { flex: 1; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.5rem; }\n.sticky-item { position: sticky; top: 0; background: #2563eb; color: #fff; padding: 0.5rem; border-radius: 6px; font-size: 0.85rem; }\n.filler { height: 80px; }\n.filler.tall { height: 400px; background: repeating-linear-gradient(0deg, #f3f4f6, #f3f4f6 20px, #fff 20px, #fff 40px); }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "light-dark-images",
+    "title": "Theme-aware images with light-dark()",
+    "description": "light-dark() now accepts image values — gradients, url() references — not just colors, so a single declaration can swap an entire background image between a light and dark variant automatically.",
+    "category": "color-background",
+    "cssFeature": "light-dark()",
+    "demo": {
+      "html": "<button id=\"theme-toggle\" type=\"button\">Toggle theme</button>\n<div class=\"swatch\" id=\"swatch\"></div>\n<p class=\"note\">If the box above doesn't visibly change, your browser doesn't yet support <code>light-dark()</code> with image values — this is one of the newest, least-supported capabilities in the gallery.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nbutton { margin-bottom: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 6px; background: #111827; color: #fff; font: inherit; cursor: pointer; }\n.swatch {\n  width: 200px;\n  height: 120px;\n  border-radius: 12px;\n  border: 1px solid #e5e7eb;\n  background: #dbeafe; /* fallback if light-dark() with image values is unsupported */\n  background: light-dark(\n    linear-gradient(135deg, #dbeafe, #bfdbfe),\n    linear-gradient(135deg, #1e3a8a, #1e293b)\n  );\n}\n:root.force-dark { color-scheme: dark; }\n.note { margin-top: 1rem; font-size: 0.8rem; color: #6b7280; max-width: 300px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }",
+      "js": "document.getElementById('theme-toggle').addEventListener('click', () => {\n  document.documentElement.classList.toggle('force-dark');\n});"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "at-supports-at-rule",
+    "title": "Feature-detecting at-rules before using them",
+    "description": "@supports at-rule(@layer) tests whether the browser understands a given at-rule before you rely on it, extending progressive enhancement to newer at-rules like @layer, @property, and @scope.",
+    "category": "functions-values",
+    "cssFeature": "@supports at-rule(@keyword)",
+    "demo": {
+      "html": "<ul class=\"checks\">\n  <li>@keyframes <span class=\"badge\"></span></li>\n  <li>@layer <span class=\"badge\"></span></li>\n  <li>@scope <span class=\"badge\"></span></li>\n</ul>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.checks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-family: ui-monospace, monospace; }\n.badge::after { content: \"?\"; color: #9ca3af; }\n\n@supports at-rule(@keyframes) {\n  .checks li:nth-child(1) .badge::after { content: \"✓\"; color: #15803d; }\n}\n@supports at-rule(@layer) {\n  .checks li:nth-child(2) .badge::after { content: \"✓\"; color: #15803d; }\n}\n@supports at-rule(@scope) {\n  .checks li:nth-child(3) .badge::after { content: \"✓\"; color: #15803d; }\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "mdn-css_at-rules_supports_at-rule",
+    "browserSupport": {
+      "chrome": "148",
+      "firefox": false,
+      "safari": false,
+      "edge": "148"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "flex-wrap-balance",
+    "title": "Evenly distributing wrapped flex items",
+    "description": "flex-wrap: balance spreads items across wrapped rows more evenly than the default greedy wrap, so the last row doesn't end up with a single lonely leftover item.",
+    "category": "layout",
+    "cssFeature": "flex-wrap: balance",
+    "demo": {
+      "html": "<div class=\"flex-demo\">\n  <span class=\"tag\">1</span>\n  <span class=\"tag\">2</span>\n  <span class=\"tag\">3</span>\n  <span class=\"tag\">4</span>\n  <span class=\"tag\">5</span>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.flex-demo {\n  display: flex;\n  flex-wrap: wrap; /* fallback if balance is unsupported */\n  flex-wrap: balance;\n  gap: 0.5rem;\n  width: 220px;\n}\n.tag { flex: 1 1 60px; background: #2563eb; color: #fff; border-radius: 8px; padding: 0.75rem; text-align: center; font-weight: 700; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "relative-alpha",
+    "title": "Deriving transparent variants with relative color syntax",
+    "description": "oklch(from color l c h / alpha) reads a color's own channels back out and lets you recompute just one of them — here, deriving four opacity levels of the same hue without four separate rgba() variables.",
+    "category": "color-background",
+    "cssFeature": "oklch(from color l c h / α)",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"chip\" style=\"background: var(--base)\"></div>\n  <div class=\"chip\" style=\"background: oklch(from var(--base) l c h / 0.7)\"></div>\n  <div class=\"chip\" style=\"background: oklch(from var(--base) l c h / 0.4)\"></div>\n  <div class=\"chip\" style=\"background: oklch(from var(--base) l c h / 0.15)\"></div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n:root { --base: oklch(60% 0.19 280); }\n.row { display: flex; gap: 0.5rem; }\n.chip { width: 56px; height: 56px; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08); }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-relative-colors",
+    "browserSupport": {
+      "chrome": "131",
+      "firefox": "133",
+      "safari": "18",
+      "edge": "131"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "media-queries-range-syntax",
+    "title": "Writing range media queries with comparison operators",
+    "description": "@media (400px <= width <= 700px) reads like an actual inequality instead of two separate min-width/max-width declarations — a small but genuinely more readable syntax for range-based breakpoints.",
+    "category": "responsive-container-queries",
+    "cssFeature": "@media (width >= 600px) and (width <= 1200px)",
+    "demo": {
+      "html": "<div class=\"box\">Resize the preview panel — I only turn blue between 400px and 700px wide.</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.box { padding: 1.5rem; border-radius: 8px; background: #f3f4f6; font-size: 0.9rem; }\n\n@media (400px <= width <= 700px) {\n  .box { background: #2563eb; color: #fff; }\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-media-range-syntax",
+    "browserSupport": {
+      "chrome": "104",
+      "firefox": "63",
+      "safari": "16.4",
+      "edge": "104"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "round-function",
+    "title": "Snapping values to a grid with round()",
+    "description": "round() snaps a value to the nearest multiple of a step — with nearest, up, and down strategies — useful for aligning computed sizes to a pixel or spacing grid without a build-time calculation.",
+    "category": "functions-values",
+    "cssFeature": "round()",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"bar\" style=\"width: round(up, 68%, 25%)\">round(up, 68%, 25%)</div>\n  <div class=\"bar\" style=\"width: round(nearest, 68%, 25%)\">round(nearest, 68%, 25%)</div>\n  <div class=\"bar\" style=\"width: round(down, 68%, 25%)\">round(down, 68%, 25%)</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.row { display: flex; flex-direction: column; gap: 0.5rem; max-width: 320px; }\n.bar { background: #2563eb; color: #fff; font-size: 0.75rem; padding: 0.5rem; border-radius: 6px; white-space: nowrap; }"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": "css-math-functions",
+    "browserSupport": {
+      "chrome": "79",
+      "firefox": "75",
+      "safari": "13.1",
+      "edge": "79"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "nth-letter",
+    "title": "Styling individual letters by position",
+    "description": "::nth-letter targets a specific letter within an element's text by its position, enabling drop-cap and per-letter text effects without wrapping each character in its own <span>.",
+    "category": "typography-text",
+    "cssFeature": "::nth-letter",
+    "demo": {
+      "html": "<p class=\"dropcap\">Hello World</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.dropcap { font-size: 1.75rem; }\n.dropcap::nth-letter(1) {\n  font-size: 3rem;\n  color: #2563eb;\n  font-weight: 700;\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "checkmark-pseudo-element",
+    "title": "Customizing the checkbox tick with ::checkmark",
+    "description": "::checkmark exposes the checkmark/tick glyph inside a native checkbox or radio button as a styleable pseudo-element, so its shape and color can be customized without discarding native accessibility.",
+    "category": "forms-ui",
+    "cssFeature": "::checkmark",
+    "demo": {
+      "html": "<label class=\"check-row\"><input type=\"checkbox\" checked class=\"custom-check\"> Check me</label>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.check-row { display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; }\n.custom-check { width: 22px; height: 22px; accent-color: #2563eb; }\n.custom-check::checkmark {\n  color: #fff;\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-01-01",
+    "crawledDate": "2026-08-18",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "css-blob-shapes",
+    "title": "Organic Blob Shapes",
+    "description": "Creates organic blob shapes from a single div using the multi-value border-radius shorthand — the slash separates horizontal radii from vertical radii, and animating between value sets makes the blob feel alive.",
+    "category": "animation-transitions",
+    "cssFeature": "border-radius: 40% 60% / 35% 65%",
+    "demo": {
+      "html": "<div class=\"blob\"></div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; display: flex; justify-content: center; align-items: center; height: 200px; }\n\n/* Horizontal radii / Vertical radii              */\n/* top-left  top-right  bottom-right  bottom-left */\n.blob {\n  width: 180px;\n  height: 180px;\n  background: #2563eb;\n  border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%;\n  animation: blob-morph 6s ease-in-out infinite;\n}\n\n/* Morph between shapes with a keyframe animation */\n@keyframes blob-morph {\n  0%, 100% { border-radius: 40% 60% 65% 35% / 40% 35% 65% 60%; }\n  33%      { border-radius: 60% 40% 30% 70% / 60% 70% 30% 40%; }\n  66%      { border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%; }\n}"
+    },
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius",
+    "sourceName": "MDN",
+    "publishedDate": "2012-01-01",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "border-radius",
+    "browserSupport": {
+      "chrome": "4",
+      "firefox": "3",
+      "safari": "3.1",
+      "edge": "12"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "trig-functions",
+    "title": "Positioning elements around a circle with sin() and cos()",
+    "description": "CSS trigonometric functions (sin(), cos(), and friends) compute coordinates directly in CSS, so dots on a dial or items in a radial menu can be placed around a circle from one angle custom property instead of hand-typed positions or a JavaScript loop.",
+    "category": "functions-values",
+    "cssFeature": "sin(), cos()",
+    "demo": {
+      "html": "<div class=\"dial\">\n  <span class=\"tick\" style=\"--i: 0\"></span>\n  <span class=\"tick\" style=\"--i: 1\"></span>\n  <span class=\"tick\" style=\"--i: 2\"></span>\n  <span class=\"tick\" style=\"--i: 3\"></span>\n  <span class=\"tick\" style=\"--i: 4\"></span>\n  <span class=\"tick\" style=\"--i: 5\"></span>\n  <span class=\"tick\" style=\"--i: 6\"></span>\n  <span class=\"tick\" style=\"--i: 7\"></span>\n  <span class=\"tick\" style=\"--i: 8\"></span>\n  <span class=\"tick\" style=\"--i: 9\"></span>\n  <span class=\"tick\" style=\"--i: 10\"></span>\n  <span class=\"tick\" style=\"--i: 11\"></span>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.dial {\n  position: relative;\n  width: 200px;\n  height: 200px;\n  border-radius: 50%;\n  border: 2px solid #e5e7eb;\n}\n.tick {\n  --angle: calc(360deg / 12 * var(--i));\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background: #2563eb;\n  transform:\n    translate(-50%, -50%)\n    translate(calc(sin(var(--angle)) * 88px), calc(cos(var(--angle)) * -88px));\n}"
+    },
+    "sourceUrl": "https://css-irl.info/radial-gradients-and-css-trigonometric-functions/",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "publishedDate": "2023-11-14",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "css-math-functions",
+    "browserSupport": {
+      "chrome": "79",
+      "firefox": "75",
+      "safari": "13.1",
+      "edge": "79"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "sibling-index-count",
+    "title": "Staggered bar chart from sibling-index() and sibling-count()",
+    "description": "sibling-index() and sibling-count() expose an element's position and total sibling count directly as CSS numbers, so per-item height, hue, and animation delay can be derived with plain calc() math instead of inline custom properties, nth-child selectors, or a scripting loop.",
+    "category": "functions-values",
+    "cssFeature": "sibling-index(), sibling-count()",
+    "demo": {
+      "html": "<ul class=\"bars\">\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n  <li class=\"bar\"></li>\n</ul>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.bars {\n  display: flex;\n  align-items: flex-end;\n  gap: 8px;\n  height: 140px;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n.bar {\n  width: 22px;\n  border-radius: 4px 4px 0 0;\n  background: hsl(calc(360deg / sibling-count() * sibling-index()) 70% 55%);\n  height: calc(100% / sibling-count() * sibling-index());\n  transform-origin: bottom;\n  animation: rise 0.6s ease both;\n  animation-delay: calc(sibling-index() * 80ms);\n}\n@keyframes rise {\n  from { transform: scaleY(0); }\n  to { transform: scaleY(1); }\n}"
+    },
+    "sourceUrl": "https://theosoti.com/short/sibling-index/",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "publishedDate": "2026-01-13",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null,
+    "replayable": true
+  },
+  {
+    "id": "css-random-function",
+    "title": "Scattering confetti with the CSS random() function",
+    "description": "random() generates a random number natively in CSS, so positions, rotations, and hues for things like confetti or particle effects can vary on every page load straight from a stylesheet, without JavaScript or a hand-rolled custom property per element. Browsers without support fall back to a static pattern via @supports.",
+    "category": "functions-values",
+    "cssFeature": "random()",
+    "demo": {
+      "html": "<div class=\"confetti\">\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n  <span class=\"piece\"></span><span class=\"piece\"></span><span class=\"piece\"></span>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.confetti {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: flex-start;\n  gap: 10px;\n  height: 200px;\n  padding: 16px;\n  overflow: hidden;\n  background: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n}\n.piece {\n  width: 20px;\n  height: 20px;\n  border-radius: 4px;\n  background: #93c5fd; /* static fallback pattern if random() is unsupported */\n}\n.piece:nth-child(3n+1) { background: #86efac; }\n.piece:nth-child(3n+2) { background: #f9a8d4; }\n\n@supports (top: random(0%, 100%)) {\n  .confetti { display: block; position: relative; padding: 0; }\n  .piece {\n    position: absolute;\n    top: random(-10%, 100%);\n    left: random(0%, 100%);\n    width: 10px;\n    height: 14px;\n    background: hsl(random(0, 360) 80% 60%);\n    rotate: random(0deg, 360deg);\n    border-radius: 2px;\n  }\n}"
+    },
+    "sourceUrl": "https://css-tricks.com/whats-important-14/",
+    "sourceName": "CSS-Tricks",
+    "publishedDate": "2026-06-30",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null,
+    "replayable": true
+  },
+  {
+    "id": "contrast-color-function",
+    "title": "Automatic accessible text color with contrast-color()",
+    "description": "contrast-color() picks black or white for you, whichever contrasts better against a given color, so a badge painted from a single dynamic background variable keeps readable text automatically instead of a text color hand-picked for every theme.",
+    "category": "color-background",
+    "cssFeature": "contrast-color()",
+    "demo": {
+      "html": "<div class=\"swatches\">\n  <div class=\"swatch\" style=\"--bg: #1d4ed8\">Aa</div>\n  <div class=\"swatch\" style=\"--bg: #fde047\">Aa</div>\n  <div class=\"swatch\" style=\"--bg: #111827\">Aa</div>\n  <div class=\"swatch\" style=\"--bg: #f472b6\">Aa</div>\n  <div class=\"swatch\" style=\"--bg: #10b981\">Aa</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.swatches { display: flex; gap: 0.75rem; flex-wrap: wrap; }\n.swatch {\n  width: 72px;\n  height: 72px;\n  border-radius: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n  background: var(--bg);\n  color: contrast-color(var(--bg));\n}"
+    },
+    "sourceUrl": "https://una.im/modern-css-theming/",
+    "sourceName": "Una Kravets",
+    "publishedDate": "2026-06-22",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "container-style-queries",
+    "title": "Switching styles by a container's custom property with @container style()",
+    "description": "@container style() queries a container's own computed custom-property value, not just its size, so a component can react to a --theme flag set anywhere in its ancestor chain without that flag being repeated as a class name or a media query.",
+    "category": "responsive-container-queries",
+    "cssFeature": "@container style()",
+    "demo": {
+      "html": "<div class=\"panel\" style=\"--theme: light\">\n  <div class=\"card\">Light panel</div>\n</div>\n<div class=\"panel\" style=\"--theme: dark\">\n  <div class=\"card\">Dark panel</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; display: flex; gap: 1rem; }\n.panel {\n  container-type: inline-size;\n  container-name: panel;\n  flex: 1;\n  padding: 1.25rem;\n  border-radius: 10px;\n  background: #f1f5f9;\n}\n.card {\n  padding: 1rem;\n  border-radius: 8px;\n  background: #fff;\n  color: #111827;\n  font-weight: 600;\n  text-align: center;\n}\n@container panel style(--theme: dark) {\n  .card { background: #111827; color: #fff; }\n}"
+    },
+    "sourceUrl": "https://una.im/modern-css-theming/",
+    "sourceName": "Una Kravets",
+    "publishedDate": "2026-06-22",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": "css-container-queries",
+    "browserSupport": {
+      "chrome": "106",
+      "firefox": "110",
+      "safari": "16",
+      "edge": "106"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "css-gap-decorations",
+    "title": "Drawing lines in grid gaps with row-rule and column-rule",
+    "description": "The CSS Gap Decorations module extends column-rule to grid and flexbox and adds a matching row-rule, so dividers between grid cells can be styled directly, without extra spacer elements or background-image tricks.",
+    "category": "layout",
+    "cssFeature": "row-rule, column-rule",
+    "demo": {
+      "html": "<div class=\"grid\">\n  <div class=\"cell\">1</div>\n  <div class=\"cell\">2</div>\n  <div class=\"cell\">3</div>\n  <div class=\"cell\">4</div>\n  <div class=\"cell\">5</div>\n  <div class=\"cell\">6</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; }\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 20px;\n  column-rule: 3px solid #2563eb;\n  row-rule: 3px dashed #f97316;\n}\n.cell {\n  background: #f1f5f9;\n  border-radius: 6px;\n  padding: 1.5rem;\n  text-align: center;\n  font-weight: 600;\n  color: #111827;\n}"
+    },
+    "sourceUrl": "https://css-tricks.com/whats-important-14/",
+    "sourceName": "CSS-Tricks",
+    "publishedDate": "2026-06-30",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "interpolate-size-auto-height",
+    "title": "Animating height: auto with interpolate-size",
+    "description": "interpolate-size: allow-keywords lets a transition genuinely animate toward auto, so an expanding panel no longer needs a guessed max-height or a JavaScript-measured pixel value to animate smoothly to its real content height.",
+    "category": "animation-transitions",
+    "cssFeature": "interpolate-size",
+    "demo": {
+      "html": "<div class=\"expander\">\n  <input type=\"checkbox\" id=\"exp1\" class=\"toggle\">\n  <label for=\"exp1\">Toggle details</label>\n  <div class=\"content\">\n    <p>This panel animates to its natural height using interpolate-size, without a guessed max-height or JavaScript measuring the content.</p>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n:root { interpolate-size: allow-keywords; }\n.toggle { position: absolute; opacity: 0; pointer-events: none; }\nlabel {\n  display: inline-block;\n  cursor: pointer;\n  padding: 0.5rem 1rem;\n  background: #2563eb;\n  color: #fff;\n  border-radius: 6px;\n  font-weight: 600;\n  margin-bottom: 0.75rem;\n}\n.content {\n  height: 0;\n  overflow: hidden;\n  transition: height 0.35s ease;\n  border-radius: 8px;\n  background: #f1f5f9;\n  padding: 0 1rem;\n}\n.toggle:checked ~ .content { height: auto; }\n.toggle:checked ~ .content p { padding: 1rem 0; margin: 0; }"
+    },
+    "sourceUrl": "https://theosoti.com/short/smooth-height-transitions/",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "publishedDate": "2026-08-09",
+    "crawledDate": "2026-08-19",
+    "caniuseSlug": null,
+    "browserSupport": null,
+    "tailwindEquivalent": null
+  }
+]
