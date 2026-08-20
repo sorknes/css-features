@@ -224,14 +224,6 @@
     "excerpt": "Create a CSS-only dark mode with a checkbox and :has(), follow the system preference, or let light-dark() select theme-aware colors."
   },
   {
-    "url": "https://theosoti.com/blog/animated-gradient-borders/",
-    "title": "How to Create Animated Gradient Borders in CSS",
-    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2026-04-02",
-    "excerpt": "Animated gradient borders are easier with modern CSS: conic gradients, pseudo-elements, and @property replace JavaScript-heavy tricks."
-  },
-  {
     "url": "https://theosoti.com/short/scroll-animation/",
     "title": "Scroll-Driven Animations in CSS with @starting-style",
     "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
