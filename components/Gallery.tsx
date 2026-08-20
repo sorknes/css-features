@@ -7,6 +7,7 @@ import { getSupportLevel, type SupportLevel } from "@/lib/supportLevel";
 import FilterBar from "@/components/FilterBar";
 import ExampleCard from "@/components/ExampleCard";
 import SiteFooter from "@/components/SiteFooter";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default function Gallery({ examples }: { examples: CssExample[] }) {
   const [selectedCategories, setSelectedCategories] = useState<Set<Category>>(new Set());
@@ -161,6 +162,8 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
 
         <SiteFooter />
       </div>
+
+      <BackToTopButton />
     </div>
   );
 }
