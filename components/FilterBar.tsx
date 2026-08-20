@@ -145,7 +145,7 @@ export default function FilterBar({
                 >
                   Show new only
                 </span>
-                <span className="ml-auto pr-1 text-xs text-muted">{newCount}</span>
+                <span className="ml-auto pr-3 text-xs text-muted">{newCount}</span>
               </button>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function FilterBar({
                     >
                       {category.label}
                     </span>
-                    <span className="ml-auto pr-1 text-xs text-muted">{count}</span>
+                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
                   </button>
                 );
               })}
@@ -221,7 +221,7 @@ export default function FilterBar({
                     >
                       {level.label}
                     </span>
-                    <span className="ml-auto pr-1 text-xs text-muted">{count}</span>
+                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
                   </button>
                 );
               })}
