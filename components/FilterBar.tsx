@@ -94,7 +94,7 @@ export default function FilterBar({
 
       <div
         id="filter-panel"
-        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-white pt-6 pr-6 pb-4 pl-4 transition-transform duration-200 lg:top-[121px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-121px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-0 lg:transition-none lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-white pt-8 pr-6 pb-4 pl-4 transition-transform duration-200 lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-0 lg:transition-none lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

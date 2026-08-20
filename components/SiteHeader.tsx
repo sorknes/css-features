@@ -19,15 +19,15 @@ export default function SiteHeader({
 
   return (
     <header className="static border-b border-border bg-background/95 backdrop-blur lg:sticky lg:top-0 lg:z-10">
-      <div className="overflow-hidden whitespace-nowrap bg-[#111827] py-1.5">
+      <div className="overflow-hidden whitespace-nowrap bg-accent py-1.5">
         <div className="inline-flex animate-[marquee_80s_linear_infinite] items-center">
           {Array.from({ length: MARQUEE_REPEATS }).flatMap((_, r) =>
             marqueeItems.map((item, i) => (
               <span key={`${r}-${i}`} className="inline-flex shrink-0 items-center">
-                <span aria-hidden={r === 0 ? undefined : true} className="px-4 text-xs text-gray-200">
+                <span aria-hidden={r === 0 ? undefined : true} className="px-4 text-xs text-accent-foreground">
                   {item}
                 </span>
-                <span aria-hidden="true" className="text-gray-500">
+                <span aria-hidden="true" className="text-accent-foreground/50">
                   •
                 </span>
               </span>
@@ -36,7 +36,7 @@ export default function SiteHeader({
         </div>
       </div>
 
-      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-3 sm:px-6">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6">
         <h1 className="text-xs font-semibold tracking-tight sm:text-sm">Modern CSS Features v. 2</h1>
         <nav aria-label="Site" className="flex items-center justify-self-center gap-4 text-xs font-medium sm:text-sm">
           <Link
