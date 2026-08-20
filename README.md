@@ -13,7 +13,7 @@ The pipeline is split into two stages, because turning an article into a good ex
 
 ### Weekly maintenance workflow
 
-[`.github/workflows/weekly-maintenance.yml`](.github/workflows/weekly-maintenance.yml) runs every Monday at 08:00 UTC (and on-demand via `workflow_dispatch`). It does three things, all mechanical — no LLM involved, and it never merges anything itself:
+[`.github/workflows/weekly-maintenance.yml`](.github/workflows/weekly-maintenance.yml) runs every Monday at 08:00 Europe/Oslo time (and on-demand via `workflow_dispatch`). GitHub Actions cron is UTC-only with no timezone/DST support, so this is two cron schedules that switch with daylight saving (06:00 UTC across CEST months, 07:00 UTC across CET months) — accurate to within an hour of the actual DST transition dates, which isn't worth the added complexity to close for a weekly, non-time-critical job. It does three things, all mechanical — no LLM involved, and it never merges anything itself:
 
 1. Runs `scripts/discover.mjs` to queue new candidates into `data/pending.json`.
 2. Runs `scripts/refresh-browser-support.mjs` (after `npx update-browserslist-db@latest`) to re-check every existing example's `browserSupport` against the latest `caniuse-lite` data, updating numbers that changed. It only ever updates an entry when the lookup succeeds with different data — a failed lookup (a `caniuseSlug` not bundled in `caniuse-lite`) never overwrites existing numbers with `null`. Some legacy examples use `caniuseSlug` values that are valid caniuse.com pages but aren't part of `caniuse-lite`'s slimmer bundled dataset; those are intentionally left alone rather than "refreshed" into nothing.
