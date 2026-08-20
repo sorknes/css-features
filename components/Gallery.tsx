@@ -97,6 +97,18 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [examples, selectedCategories, newOnly, query, latestCrawledDate]);
 
+  const newCount = useMemo(() => {
+    return examples
+      .filter((example) => selectedCategories.size === 0 || selectedCategories.has(example.category))
+      .filter(
+        (example) =>
+          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example.browserSupport)),
+      )
+      .filter(matchesQuery)
+      .filter((example) => isNewExample(example.crawledDate, latestCrawledDate)).length;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [examples, selectedCategories, selectedSupportLevels, query, latestCrawledDate]);
+
   return (
     <div className="lg:flex lg:items-start lg:gap-8">
       <FilterBar
@@ -110,6 +122,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
         supportLevelCounts={supportLevelCounts}
         newOnly={newOnly}
         onNewOnlyChange={setNewOnly}
+        newCount={newCount}
         search={search}
         onSearchChange={setSearch}
       />

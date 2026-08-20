@@ -17,6 +17,7 @@ interface FilterBarProps {
   supportLevelCounts: Partial<Record<SupportLevel, number>>;
   newOnly: boolean;
   onNewOnlyChange: (value: boolean) => void;
+  newCount: number;
   search: string;
   onSearchChange: (value: string) => void;
 }
@@ -32,6 +33,7 @@ export default function FilterBar({
   supportLevelCounts,
   newOnly,
   onNewOnlyChange,
+  newCount,
   search,
   onSearchChange,
 }: FilterBarProps) {
@@ -127,6 +129,27 @@ export default function FilterBar({
             </div>
           </div>
 
+          <div>
+            <p className="mb-1.5 text-sm font-bold">New examples</p>
+            <div className="flex flex-col divide-y divide-border">
+              <button
+                type="button"
+                aria-pressed={newOnly}
+                onClick={() => onNewOnlyChange(!newOnly)}
+                className="flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium hover:bg-surface"
+              >
+                <span
+                  className={`rounded-full px-3 py-1 ${
+                    newOnly ? "bg-accent text-accent-foreground" : "text-foreground"
+                  }`}
+                >
+                  Show new only
+                </span>
+                <span className="ml-auto pr-3 text-xs text-muted">{newCount}</span>
+              </button>
+            </div>
+          </div>
+
           <fieldset>
             <div className="mb-1.5 flex items-center justify-between">
               <legend className="text-sm font-bold">Category</legend>
@@ -159,7 +182,7 @@ export default function FilterBar({
                     >
                       {category.label}
                     </span>
-                    <span className="ml-auto pr-1 text-xs text-muted">{count}</span>
+                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
                   </button>
                 );
               })}
@@ -198,22 +221,12 @@ export default function FilterBar({
                     >
                       {level.label}
                     </span>
-                    <span className="ml-auto pr-1 text-xs text-muted">{count}</span>
+                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
                   </button>
                 );
               })}
             </div>
           </fieldset>
-
-          <label className="flex min-h-11 w-fit cursor-pointer items-center gap-2 text-sm font-medium">
-            <input
-              type="checkbox"
-              checked={newOnly}
-              onChange={(e) => onNewOnlyChange(e.target.checked)}
-              className="h-5 w-5 rounded border-border accent-accent"
-            />
-            Show new only
-          </label>
         </div>
       </div>
     </>
