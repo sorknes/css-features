@@ -127,6 +127,19 @@ export default function FilterBar({
             </div>
           </div>
 
+          <div>
+            <p className="mb-1.5 text-sm font-bold">New examples</p>
+            <label className="flex min-h-11 w-fit cursor-pointer items-center gap-2 text-sm font-medium">
+              <input
+                type="checkbox"
+                checked={newOnly}
+                onChange={(e) => onNewOnlyChange(e.target.checked)}
+                className="h-5 w-5 rounded border-border accent-accent"
+              />
+              Show new only
+            </label>
+          </div>
+
           <fieldset>
             <div className="mb-1.5 flex items-center justify-between">
               <legend className="text-sm font-bold">Category</legend>
@@ -204,16 +217,6 @@ export default function FilterBar({
               })}
             </div>
           </fieldset>
-
-          <label className="flex min-h-11 w-fit cursor-pointer items-center gap-2 text-sm font-medium">
-            <input
-              type="checkbox"
-              checked={newOnly}
-              onChange={(e) => onNewOnlyChange(e.target.checked)}
-              className="h-5 w-5 rounded border-border accent-accent"
-            />
-            Show new only
-          </label>
         </div>
       </div>
     </>
