@@ -1314,5 +1314,28 @@
       "edge": "129"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "scroll-marker-carousel",
+    "title": "CSS-only carousel dots with ::scroll-marker",
+    "description": "scroll-marker-group: after generates a ::scroll-marker-group container for a scroll-snap carousel, and giving each slide a ::scroll-marker turns it into a clickable dot placed in that group automatically — the browser tracks which one is current via :target-current, so active-dot highlighting needs no JavaScript at all.",
+    "category": "components-interactivity",
+    "cssFeature": "::scroll-marker, scroll-marker-group, :target-current",
+    "demo": {
+      "html": "<ul class=\"carousel\">\n  <li class=\"slide\">1</li>\n  <li class=\"slide\">2</li>\n  <li class=\"slide\">3</li>\n  <li class=\"slide\">4</li>\n</ul>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 0; background: #fff; }\n.carousel {\n  display: flex;\n  gap: 1rem;\n  list-style: none;\n  margin: 0;\n  padding: 1.5rem 1rem 0.5rem;\n  overflow-x: auto;\n  scroll-snap-type: x mandatory;\n  scroll-behavior: smooth;\n  max-width: 320px;\n  scroll-marker-group: after;\n}\n.slide {\n  flex: 0 0 140px;\n  height: 100px;\n  scroll-snap-align: center;\n  background: #2563eb;\n  color: #fff;\n  border-radius: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  font-weight: 700;\n}\n.carousel::scroll-marker-group {\n  display: flex;\n  justify-content: center;\n  gap: 0.5rem;\n  padding-bottom: 0.75rem;\n}\n.slide::scroll-marker {\n  content: \"\";\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #d1d5db;\n}\n.slide::scroll-marker:target-current {\n  background: #2563eb;\n  scale: 1.2;\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": "mdn-css_selectors_scroll-marker",
+    "browserSupport": {
+      "chrome": "135",
+      "firefox": false,
+      "safari": false,
+      "edge": "135"
+    },
+    "tailwindEquivalent": null
   }
 ]
