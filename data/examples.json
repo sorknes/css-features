@@ -1291,5 +1291,28 @@
       "edge": "79"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "calc-size-function",
+    "title": "Doing math on keyword sizes with calc-size()",
+    "description": "Plain calc() can't accept keyword values like auto, fit-content, or max-content as an operand. calc-size(fit-content, size + 40px) can — its first argument is the keyword to resolve, and size stands in for that resolved value inside the expression, so an element can size itself relative to its own intrinsic content plus a fixed offset.",
+    "category": "functions-values",
+    "cssFeature": "calc-size()",
+    "demo": {
+      "html": "<div class=\"row\">\n  <div class=\"chip\">Hi</div>\n  <div class=\"chip\">Hello there</div>\n  <div class=\"chip\">A much longer label</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.row { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }\n.chip {\n  padding: 0.6rem 1rem;\n  border-radius: 8px;\n  background: #eff6ff;\n  border: 2px dashed #2563eb;\n  font-weight: 600;\n  width: fit-content; /* fallback if calc-size() is unsupported */\n  width: calc-size(fit-content, size + 40px);\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": null,
+    "browserSupport": {
+      "chrome": "129",
+      "firefox": false,
+      "safari": false,
+      "edge": "129"
+    },
+    "tailwindEquivalent": null
   }
 ]
