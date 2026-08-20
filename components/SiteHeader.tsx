@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { BiLogoGithub } from "react-icons/bi";
 import { formatDate } from "@/lib/formatDate";
+
+const GITHUB_URL = "https://github.com/sorknes/css-features";
+const MARQUEE_REPEATS = 8;
 
 export default function SiteHeader({
   current,
@@ -8,25 +12,33 @@ export default function SiteHeader({
   current: "gallery" | "about";
   lastUpdated: string | null;
 }) {
+  const marqueeItems = [
+    "New and emerging CSS, crawled from specs, browser blogs, and expert writeups",
+    ...(lastUpdated ? [`Last updated ${formatDate(lastUpdated)}`] : []),
+  ];
+
   return (
-    <header className="static border-b border-border bg-background/95 backdrop-blur px-4 py-4 sm:px-6 lg:sticky lg:top-0 lg:z-10">
-      {lastUpdated && (
-        <p className="mb-1 text-xs text-muted lg:hidden">
-          Last updated {formatDate(lastUpdated)}
-        </p>
-      )}
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h1 className="text-lg font-semibold tracking-tight sm:text-2xl lg:text-5xl">
-            Modern CSS Features v. 2
-          </h1>
-          {lastUpdated && (
-            <span className="hidden text-xs text-muted lg:inline">
-              Last updated {formatDate(lastUpdated)}
-            </span>
+    <header className="static border-b border-border bg-background/95 backdrop-blur lg:sticky lg:top-0 lg:z-10">
+      <div className="overflow-hidden whitespace-nowrap bg-accent py-1.5">
+        <div className="inline-flex animate-[marquee_80s_linear_infinite] items-center">
+          {Array.from({ length: MARQUEE_REPEATS }).flatMap((_, r) =>
+            marqueeItems.map((item, i) => (
+              <span key={`${r}-${i}`} className="inline-flex shrink-0 items-center">
+                <span aria-hidden={r === 0 ? undefined : true} className="px-4 text-xs text-accent-foreground">
+                  {item}
+                </span>
+                <span aria-hidden="true" className="text-accent-foreground/50">
+                  •
+                </span>
+              </span>
+            )),
           )}
         </div>
-        <nav aria-label="Site" className="flex shrink-0 items-center gap-4 text-xs font-medium sm:text-sm">
+      </div>
+
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6">
+        <h1 className="text-sm font-bold tracking-tight">Modern CSS Features v. 2</h1>
+        <nav aria-label="Site" className="flex items-center justify-self-center gap-4 text-xs font-medium sm:text-sm">
           <Link
             href="/"
             aria-current={current === "gallery" ? "page" : undefined}
@@ -46,11 +58,17 @@ export default function SiteHeader({
             About
           </Link>
         </nav>
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 justify-self-end text-xs text-muted transition-colors hover:text-foreground sm:text-sm"
+        >
+          <BiLogoGithub aria-hidden="true" className="h-4 w-4" />
+          GitHub
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
       </div>
-      <p className="mt-3 max-w-2xl text-sm text-muted">
-        New and emerging CSS, crawled from specs, browser blogs, and expert
-        writeups &mdash; with live demos and browser support.
-      </p>
     </header>
   );
 }
