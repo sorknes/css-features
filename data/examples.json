@@ -1383,5 +1383,28 @@
       "edge": "12"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "back-to-top-button",
+    "title": "A back-to-top button that hides itself with @container scroll-state()",
+    "description": "container-type: scroll-state on the root element exposes whether the page has more content to scroll toward a given edge, so @container scroll-state(scrollable: top) can slide a back-to-top link into view only once the user has actually scrolled down — no scroll event listener, no JavaScript.",
+    "category": "components-interactivity",
+    "cssFeature": "@container scroll-state(scrollable)",
+    "demo": {
+      "html": "<div class=\"page-content\">\n  <p>Scroll down to reveal the back-to-top button ↓</p>\n  <p>Paragraph two of filler content to make this page scrollable.</p>\n  <p>Paragraph three of filler content.</p>\n  <p>Paragraph four of filler content.</p>\n  <p>Paragraph five of filler content.</p>\n  <p>Paragraph six of filler content.</p>\n  <p>Paragraph seven of filler content.</p>\n  <p>Paragraph eight of filler content.</p>\n  <p>Paragraph nine of filler content.</p>\n  <p>Paragraph ten of filler content.</p>\n  <p>Paragraph eleven of filler content.</p>\n  <p>Paragraph twelve of filler content.</p>\n  <p>Paragraph thirteen of filler content.</p>\n  <p>Paragraph fourteen of filler content.</p>\n  <p>Paragraph fifteen — end of content.</p>\n</div>\n<a href=\"#top\" class=\"back-to-top\" aria-label=\"Back to top\">↑</a>",
+      "css": "html {\n  container-type: scroll-state;\n  container-name: page;\n  scroll-behavior: smooth;\n}\nbody { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; background: #fff; color: #111827; }\n.page-content p { margin: 0 0 2rem; }\n.back-to-top {\n  position: fixed;\n  bottom: 1.5rem;\n  right: 1.5rem;\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  background: #2563eb;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  text-decoration: none;\n  translate: 0 100px;\n  transition: translate 0.3s ease-in-out;\n}\n@container page scroll-state(scrollable: top) {\n  .back-to-top {\n    translate: 0 0;\n  }\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": null,
+    "browserSupport": {
+      "chrome": "133",
+      "firefox": false,
+      "safari": false,
+      "edge": "133"
+    },
+    "tailwindEquivalent": null
   }
 ]
