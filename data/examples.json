@@ -1268,5 +1268,28 @@
       "edge": "133"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "css-motion-path",
+    "title": "Animating an element along a curve with offset-path",
+    "description": "offset-path, offset-distance, and offset-rotate move an element along an arbitrary SVG path — a Bézier curve, a loop, any custom shape — with offset-rotate: auto keeping it tangent to the curve as it travels, so a single @keyframes animation on offset-distance replaces manual left/top math or a JS animation library.",
+    "category": "animation-transitions",
+    "cssFeature": "offset-path, offset-distance, offset-rotate",
+    "demo": {
+      "html": "<div class=\"stage\">\n  <svg class=\"guide\" viewBox=\"0 0 280 140\"><path d=\"M 20 120 C 20 20 260 20 260 120\" /></svg>\n  <div class=\"mover\"></div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 0; background: #fff; display: flex; align-items: center; justify-content: center; height: 240px; }\n.stage { position: relative; width: 280px; height: 140px; }\n.guide { position: absolute; inset: 0; width: 100%; height: 100%; }\n.guide path { fill: none; stroke: #e5e7eb; stroke-width: 2; }\n.mover {\n  position: absolute;\n  width: 18px;\n  height: 18px;\n  background: #2563eb;\n  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);\n  offset-path: path(\"M 20 120 C 20 20 260 20 260 120\");\n  offset-rotate: auto;\n  animation: travel 3s ease-in-out infinite alternate;\n}\n@keyframes travel {\n  0% { offset-distance: 0%; }\n  100% { offset-distance: 100%; }\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": "css-motion-paths",
+    "browserSupport": {
+      "chrome": "46",
+      "firefox": "72",
+      "safari": "16",
+      "edge": "79"
+    },
+    "tailwindEquivalent": null
   }
 ]
