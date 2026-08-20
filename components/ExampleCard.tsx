@@ -86,7 +86,7 @@ export default function ExampleCard({
         <p className="mt-2 text-sm text-foreground/90">{example.description}</p>
       </div>
 
-      <div className="relative mx-4 mt-3 overflow-hidden rounded-md border border-border">
+      <div className="relative mx-4 mt-3 max-w-full min-w-[140px] resize-x overflow-auto rounded-md border border-border">
         <iframe
           key={replayKey}
           srcDoc={buildSrcDoc(example.demo)}
