@@ -468,7 +468,7 @@
     "category": "forms-ui",
     "cssFeature": "appearance: base-select",
     "demo": {
-      "html": "<select class=\"base-select\">\n  <option>Customized ✓</option>\n  <option>Option two</option>\n  <option>Option three</option>\n</select>",
+      "html": "<label for=\"base-select-demo\" style=\"display:block;margin-bottom:0.5rem;\">Choose a plan</label>\n<select id=\"base-select-demo\" class=\"base-select\">\n  <option>Customized ✓</option>\n  <option>Option two</option>\n  <option>Option three</option>\n</select>",
       "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nselect.base-select {\n  appearance: base-select;\n  padding: 0.6rem 1rem;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n  font: inherit;\n  background: #fff;\n}\nselect.base-select::picker(select) {\n  border-radius: 10px;\n  border: 1px solid #d1d5db;\n  padding: 0.25rem;\n}\nselect.base-select option {\n  padding: 0.5rem 0.75rem;\n  border-radius: 6px;\n}\nselect.base-select option:checked {\n  background: #eff6ff;\n  color: #1d4ed8;\n}"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
@@ -491,7 +491,7 @@
     "category": "components-interactivity",
     "cssFeature": "commandfor, command",
     "demo": {
-      "html": "<button commandfor=\"dlg\" command=\"show-modal\">Show dialog (no JS!)</button>\n<dialog id=\"dlg\">\n  <p>Opened declaratively via <code>commandfor</code> + <code>command</code>.</p>\n  <button commandfor=\"dlg\" command=\"close\">Close</button>\n</dialog>",
+      "html": "<button commandfor=\"dlg\" command=\"show-modal\">Show dialog (no JS!)</button>\n<dialog id=\"dlg\" aria-label=\"Example dialog\">\n  <p>Opened declaratively via <code>commandfor</code> + <code>command</code>.</p>\n  <button commandfor=\"dlg\" command=\"close\">Close</button>\n</dialog>",
       "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nbutton { padding: 0.6rem 1.2rem; border: none; border-radius: 8px; background: #2563eb; color: #fff; font: inherit; cursor: pointer; }\ndialog { border: none; border-radius: 12px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }\ndialog::backdrop { background: rgba(17,24,39,0.4); }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
@@ -537,7 +537,7 @@
     "category": "forms-ui",
     "cssFeature": ":user-valid, :user-invalid",
     "demo": {
-      "html": "<form>\n  <label>Phone number (10 digits)\n    <input type=\"tel\" pattern=\"[0-9]{10}\" placeholder=\"5551234567\" required>\n  </label>\n  <p class=\"msg invalid-msg\">✗ Enter exactly 10 digits</p>\n  <p class=\"msg valid-msg\">✓ Looks good!</p>\n</form>",
+      "html": "<form>\n  <label>Phone number (10 digits)\n    <input type=\"tel\" pattern=\"[0-9]{10}\" placeholder=\"5551234567\" required aria-describedby=\"phone-invalid-msg phone-valid-msg\">\n  </label>\n  <p class=\"msg invalid-msg\" id=\"phone-invalid-msg\">✗ Enter exactly 10 digits</p>\n  <p class=\"msg valid-msg\" id=\"phone-valid-msg\">✓ Looks good!</p>\n</form>",
       "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\nform { display: flex; flex-direction: column; gap: 0.5rem; max-width: 280px; }\nlabel { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.9rem; }\ninput { font: inherit; padding: 0.5rem 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; }\n.msg { margin: 0; font-size: 0.85rem; display: none; }\ninput:user-invalid ~ .invalid-msg { display: block; color: #b91c1c; }\ninput:user-valid ~ .valid-msg { display: block; color: #15803d; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
@@ -583,7 +583,7 @@
     "category": "forms-ui",
     "cssFeature": "accent-color",
     "demo": {
-      "html": "<label><input type=\"checkbox\" checked class=\"branded\"> Branded checkbox</label>\n<label><input type=\"radio\" name=\"r\" checked class=\"branded\"> Option A</label>\n<label><input type=\"radio\" name=\"r\" class=\"branded\"> Option B</label>\n<input type=\"range\" class=\"branded\" value=\"60\">",
+      "html": "<label><input type=\"checkbox\" checked class=\"branded\"> Branded checkbox</label>\n<label><input type=\"radio\" name=\"r\" checked class=\"branded\"> Option A</label>\n<label><input type=\"radio\" name=\"r\" class=\"branded\"> Option B</label>\n<label>Volume <input type=\"range\" class=\"branded\" value=\"60\"></label>",
       "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }\n.branded { accent-color: #db2777; }\nlabel { display: flex; align-items: center; gap: 0.5rem; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
@@ -629,7 +629,7 @@
     "category": "animation-transitions",
     "cssFeature": "details[name] + grid-template-rows: 0fr → 1fr",
     "demo": {
-      "html": "<div class=\"accordion\">\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        What is the 0fr &rarr; 1fr trick?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Wrapping the content in a grid row and transitioning <code>grid-template-rows</code> from <code>0fr</code> to <code>1fr</code> collapses and reveals it smoothly — CSS can interpolate <code>fr</code> track sizes even though it still can't transition <code>height: auto</code>.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        Why put the content outside &lt;details&gt;?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Placing the animated div as a sibling of <code>&lt;details&gt;</code> sidesteps Chrome's <code>::details-content</code> / <code>content-visibility</code> mechanism, which would otherwise block a custom height transition from running.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary>\n        How do exclusive groups work?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\">\n      <div class=\"body\">\n        Give each <code>&lt;details&gt;</code> element the same <code>name</code> attribute and the browser enforces that only one can be open at a time — try opening this one, the others will close automatically, no JavaScript required.\n      </div>\n    </div>\n  </div>\n</div>",
+      "html": "<div class=\"accordion\">\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary aria-controls=\"accordion-content-1\">\n        What is the 0fr &rarr; 1fr trick?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\" id=\"accordion-content-1\">\n      <div class=\"body\">\n        Wrapping the content in a grid row and transitioning <code>grid-template-rows</code> from <code>0fr</code> to <code>1fr</code> collapses and reveals it smoothly — CSS can interpolate <code>fr</code> track sizes even though it still can't transition <code>height: auto</code>.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary aria-controls=\"accordion-content-2\">\n        Why put the content outside &lt;details&gt;?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\" id=\"accordion-content-2\">\n      <div class=\"body\">\n        Placing the animated div as a sibling of <code>&lt;details&gt;</code> sidesteps Chrome's <code>::details-content</code> / <code>content-visibility</code> mechanism, which would otherwise block a custom height transition from running.\n      </div>\n    </div>\n  </div>\n  <div class=\"accordion-item\">\n    <details name=\"accordion-demo\">\n      <summary aria-controls=\"accordion-content-3\">\n        How do exclusive groups work?\n        <svg class=\"chevron\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n        <polyline points=\"6 9 12 15 18 9\"></polyline>\n      </svg>\n      </summary>\n    </details>\n    <div class=\"content\" id=\"accordion-content-3\">\n      <div class=\"body\">\n        Give each <code>&lt;details&gt;</code> element the same <code>name</code> attribute and the browser enforces that only one can be open at a time — try opening this one, the others will close automatically, no JavaScript required.\n      </div>\n    </div>\n  </div>\n</div>",
       "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #1f1f1f; }\n.accordion { max-width: 320px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }\n.accordion-item + .accordion-item { border-top: 1px solid #e0e0e0; }\n\nsummary {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  list-style: none;\n  cursor: pointer;\n  user-select: none;\n  padding: 0.625rem 1rem;\n  font-weight: 500;\n  transition: background-color 0.15s ease, color 0.15s ease;\n}\nsummary::-webkit-details-marker { display: none; }\nsummary:hover,\ndetails[open] summary {\n  background: #171717;\n  color: #fff;\n}\nsummary:focus-visible {\n  outline: 2px solid #171717;\n  outline-offset: -2px;\n}\n\n.chevron {\n  margin-left: auto;\n  flex-shrink: 0;\n  transition: rotate 0.3s ease;\n}\ndetails[open] .chevron {\n  rotate: 180deg;\n}\n\n/* Animated div is a sibling of <details>, not inside it — this sidesteps */\n/* Chrome's ::details-content / content-visibility mechanism, which would */\n/* otherwise block a custom height transition. */\n.content {\n  display: grid;\n  grid-template-rows: 0fr;\n  transition: grid-template-rows 0.3s ease;\n}\ndetails[open] + .content {\n  grid-template-rows: 1fr;\n  border-top: 1px solid #e0e0e0;\n}\n.body { overflow: hidden; padding: 0 1rem; font-size: 0.9rem; color: #4b4b4b; }\ndetails[open] + .content .body { padding-block: 0.75rem; }\n\ncode { background: #eeeeee; padding: 0 0.25rem; border-radius: 4px; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
@@ -637,7 +637,12 @@
     "publishedDate": "2023-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "120",
+      "firefox": "130",
+      "safari": "17.2",
+      "edge": "120"
+    },
     "tailwindEquivalent": "grid-rows-[0fr] + peer-open:grid-rows-[1fr] on the sibling element"
   },
   {
@@ -648,14 +653,19 @@
     "cssFeature": "::search-text, ::search-text:current",
     "demo": {
       "html": "<p>The <span class=\"match\">accent-color</span> property. Current match: <span class=\"match current\">accent</span> styled with <code>:current</code>.</p>\n<p class=\"note\">These highlights are simulated here — <code>::search-text</code> only applies to real matches from the browser's Ctrl/Cmd+F Find in Page.</p>",
-      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; max-width: 360px; }\n/* Real usage (applies to actual Find in Page matches):\n::search-text { background: yellow; }\n::search-text:current { background: orange; }\n*/\n.match { background: #fef08a; border-radius: 2px; padding: 0 2px; }\n.match.current { background: #fb923c; color: #fff; }\n.note { font-size: 0.8rem; color: #6b7280; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; max-width: 360px; }\n/* Real usage (applies to actual Find in Page matches):\n::search-text { background: yellow; }\n::search-text:current { background: orange; }\n*/\n.match { background: #fef08a; border-radius: 2px; padding: 0 2px; }\n.match.current { background: #fb923c; color: #111827; }\n.note { font-size: 0.8rem; color: #6b7280; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
     "sourceName": "Modern CSS Features (sorknes.github.io)",
     "publishedDate": "2025-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "144",
+      "firefox": false,
+      "safari": false,
+      "edge": "144"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -688,8 +698,8 @@
     "category": "scroll-view-transitions",
     "cssFeature": "view-timeline-name, animation-timeline",
     "demo": {
-      "html": "<div class=\"layout\">\n  <nav class=\"toc\">\n    <a href=\"#s1\" class=\"toc-link\">① Intro</a>\n    <a href=\"#s2\" class=\"toc-link\">② Methods</a>\n    <a href=\"#s3\" class=\"toc-link\">③ Results</a>\n  </nav>\n  <div class=\"sections\">\n    <section class=\"section\">\n      <strong>Introduction</strong>\n      <p>Scroll down — the active link updates with no JavaScript at all.</p>\n    </section>\n    <section class=\"section\">\n      <strong>Methods</strong>\n      <p>Each section has a named <code>view-timeline-name</code>. The wrapper shares it with <code>timeline-scope</code>.</p>\n    </section>\n    <section class=\"section\">\n      <strong>Results</strong>\n      <p>The matching nav link consumes the timeline via <code>animation-timeline</code>.</p>\n    </section>\n  </div>\n</div>",
-      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.layout {\n  display: flex;\n  gap: 1rem;\n  /* Common ancestor of both the nav links (consumers) and sections (sources) */\n  timeline-scope: --s1-visible, --s2-visible, --s3-visible;\n}\n.toc { display: flex; flex-direction: column; gap: 0.35rem; min-width: 90px; flex-shrink: 0; }\n.toc-link {\n  padding: 0.3rem 0.5rem;\n  border-radius: 4px;\n  border-left: 2px solid transparent;\n  color: #9ca3af;\n  text-decoration: none;\n  font-size: 0.85rem;\n  animation: mark-active linear both;\n  animation-range: entry 0% exit 100%;\n}\n.toc-link:nth-child(1) { animation-timeline: --s1-visible; }\n.toc-link:nth-child(2) { animation-timeline: --s2-visible; }\n.toc-link:nth-child(3) { animation-timeline: --s3-visible; }\n@keyframes mark-active {\n  0%, 100% { color: #9ca3af; font-weight: 400; border-left-color: transparent; }\n  20%, 80% { color: #2563eb; font-weight: 700; border-left-color: #2563eb; }\n}\n.sections { flex: 1; height: 200px; overflow-y: auto; border-left: 1px solid #e5e7eb; padding-left: 1rem; }\n.section { display: block; min-height: 180px; padding-block: 0.5rem; border-bottom: 1px dashed #e5e7eb; }\n.section:nth-child(1) { view-timeline-name: --s1-visible; }\n.section:nth-child(2) { view-timeline-name: --s2-visible; }\n.section:nth-child(3) { view-timeline-name: --s3-visible; }\n.section strong { display: block; margin-bottom: 0.35rem; }\n.section p { margin: 0; font-size: 0.85rem; color: #4b5563; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+      "html": "<div class=\"layout\">\n  <nav class=\"toc\">\n    <a href=\"#s1\" class=\"toc-link\">① Intro</a>\n    <a href=\"#s2\" class=\"toc-link\">② Methods</a>\n    <a href=\"#s3\" class=\"toc-link\">③ Results</a>\n  </nav>\n  <div class=\"sections\">\n    <section class=\"section\">\n      <h3>Introduction</h3>\n      <p>Scroll down — the active link updates with no JavaScript at all.</p>\n    </section>\n    <section class=\"section\">\n      <h3>Methods</h3>\n      <p>Each section has a named <code>view-timeline-name</code>. The wrapper shares it with <code>timeline-scope</code>.</p>\n    </section>\n    <section class=\"section\">\n      <h3>Results</h3>\n      <p>The matching nav link consumes the timeline via <code>animation-timeline</code>.</p>\n    </section>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.layout {\n  display: flex;\n  gap: 1rem;\n  /* Common ancestor of both the nav links (consumers) and sections (sources) */\n  timeline-scope: --s1-visible, --s2-visible, --s3-visible;\n}\n.toc { display: flex; flex-direction: column; gap: 0.35rem; min-width: 90px; flex-shrink: 0; }\n.toc-link {\n  padding: 0.3rem 0.5rem;\n  border-radius: 4px;\n  border-left: 2px solid transparent;\n  color: #9ca3af;\n  text-decoration: none;\n  font-size: 0.85rem;\n  animation: mark-active linear both;\n  animation-range: entry 0% exit 100%;\n}\n.toc-link:nth-child(1) { animation-timeline: --s1-visible; }\n.toc-link:nth-child(2) { animation-timeline: --s2-visible; }\n.toc-link:nth-child(3) { animation-timeline: --s3-visible; }\n@keyframes mark-active {\n  0%, 100% { color: #9ca3af; font-weight: 400; border-left-color: transparent; }\n  20%, 80% { color: #2563eb; font-weight: 700; border-left-color: #2563eb; }\n}\n.sections { flex: 1; height: 200px; overflow-y: auto; border-left: 1px solid #e5e7eb; padding-left: 1rem; }\n.section { display: block; min-height: 180px; padding-block: 0.5rem; border-bottom: 1px dashed #e5e7eb; }\n.section:nth-child(1) { view-timeline-name: --s1-visible; }\n.section:nth-child(2) { view-timeline-name: --s2-visible; }\n.section:nth-child(3) { view-timeline-name: --s3-visible; }\n.section h3 { display: block; margin: 0 0 0.35rem; font-size: 1em; font-weight: 700; }\n.section p { margin: 0; font-size: 0.85rem; color: #4b5563; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
     "sourceName": "Modern CSS Features (sorknes.github.io)",
@@ -765,7 +775,12 @@
     "publishedDate": "2025-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "147",
+      "firefox": false,
+      "safari": false,
+      "edge": "147"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -805,8 +820,13 @@
     "sourceName": "Modern CSS Features (sorknes.github.io)",
     "publishedDate": "2026-01-01",
     "crawledDate": "2026-08-18",
-    "caniuseSlug": null,
-    "browserSupport": null,
+    "caniuseSlug": "css-sticky",
+    "browserSupport": {
+      "chrome": "91",
+      "firefox": "59",
+      "safari": "7.1",
+      "edge": "91"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -825,7 +845,12 @@
     "publishedDate": "2026-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "123",
+      "firefox": "120",
+      "safari": "17.4",
+      "edge": "123"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -835,8 +860,8 @@
     "category": "functions-values",
     "cssFeature": "@supports at-rule(@keyword)",
     "demo": {
-      "html": "<ul class=\"checks\">\n  <li>@keyframes <span class=\"badge\"></span></li>\n  <li>@layer <span class=\"badge\"></span></li>\n  <li>@scope <span class=\"badge\"></span></li>\n</ul>",
-      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.checks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-family: ui-monospace, monospace; }\n.badge::after { content: \"?\"; color: #9ca3af; }\n\n@supports at-rule(@keyframes) {\n  .checks li:nth-child(1) .badge::after { content: \"✓\"; color: #15803d; }\n}\n@supports at-rule(@layer) {\n  .checks li:nth-child(2) .badge::after { content: \"✓\"; color: #15803d; }\n}\n@supports at-rule(@scope) {\n  .checks li:nth-child(3) .badge::after { content: \"✓\"; color: #15803d; }\n}"
+      "html": "<ul class=\"checks\">\n  <li>@keyframes <span class=\"badge\" aria-hidden=\"true\"></span><span class=\"status unsupported\">not supported</span><span class=\"status supported\">supported</span></li>\n  <li>@layer <span class=\"badge\" aria-hidden=\"true\"></span><span class=\"status unsupported\">not supported</span><span class=\"status supported\">supported</span></li>\n  <li>@scope <span class=\"badge\" aria-hidden=\"true\"></span><span class=\"status unsupported\">not supported</span><span class=\"status supported\">supported</span></li>\n</ul>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.checks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; font-family: ui-monospace, monospace; font-size: 0.9rem; }\n.badge::after { content: \"?\"; color: #9ca3af; }\n.status { font-family: system-ui, sans-serif; font-size: 0.8rem; }\n.status.supported { display: none; color: #15803d; }\n.status.unsupported { display: inline; color: #9ca3af; }\n\n@supports at-rule(@keyframes) {\n  .checks li:nth-child(1) .badge::after { content: \"✓\"; color: #15803d; }\n  .checks li:nth-child(1) .status.supported { display: inline; }\n  .checks li:nth-child(1) .status.unsupported { display: none; }\n}\n@supports at-rule(@layer) {\n  .checks li:nth-child(2) .badge::after { content: \"✓\"; color: #15803d; }\n  .checks li:nth-child(2) .status.supported { display: inline; }\n  .checks li:nth-child(2) .status.unsupported { display: none; }\n}\n@supports at-rule(@scope) {\n  .checks li:nth-child(3) .badge::after { content: \"✓\"; color: #15803d; }\n  .checks li:nth-child(3) .status.supported { display: inline; }\n  .checks li:nth-child(3) .status.unsupported { display: none; }\n}"
     },
     "sourceUrl": "https://sorknes.github.io/modern-css-features/",
     "sourceName": "Modern CSS Features (sorknes.github.io)",
@@ -866,7 +891,12 @@
     "publishedDate": "2026-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "150",
+      "firefox": false,
+      "safari": false,
+      "edge": "150"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -939,24 +969,6 @@
     "tailwindEquivalent": null
   },
   {
-    "id": "nth-letter",
-    "title": "Styling individual letters by position",
-    "description": "::nth-letter targets a specific letter within an element's text by its position, enabling drop-cap and per-letter text effects without wrapping each character in its own <span>.",
-    "category": "typography-text",
-    "cssFeature": "::nth-letter",
-    "demo": {
-      "html": "<p class=\"dropcap\">Hello World</p>",
-      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.dropcap { font-size: 1.75rem; }\n.dropcap::nth-letter(1) {\n  font-size: 3rem;\n  color: #2563eb;\n  font-weight: 700;\n}"
-    },
-    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
-    "sourceName": "Modern CSS Features (sorknes.github.io)",
-    "publishedDate": "2026-01-01",
-    "crawledDate": "2026-08-18",
-    "caniuseSlug": null,
-    "browserSupport": null,
-    "tailwindEquivalent": null
-  },
-  {
     "id": "checkmark-pseudo-element",
     "title": "Customizing the checkbox tick with ::checkmark",
     "description": "::checkmark exposes the checkmark/tick glyph inside a native checkbox or radio button as a styleable pseudo-element, so its shape and color can be customized without discarding native accessibility.",
@@ -971,7 +983,12 @@
     "publishedDate": "2026-01-01",
     "crawledDate": "2026-08-18",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "133",
+      "firefox": false,
+      "safari": "27",
+      "edge": "133"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -1035,7 +1052,12 @@
     "publishedDate": "2026-01-13",
     "crawledDate": "2026-08-19",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "138",
+      "firefox": false,
+      "safari": "26.2",
+      "edge": "138"
+    },
     "tailwindEquivalent": null,
     "replayable": true
   },
@@ -1054,7 +1076,12 @@
     "publishedDate": "2026-06-30",
     "crawledDate": "2026-08-19",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": false,
+      "firefox": false,
+      "safari": "26.2",
+      "edge": false
+    },
     "tailwindEquivalent": null,
     "replayable": true
   },
@@ -1073,7 +1100,12 @@
     "publishedDate": "2026-06-22",
     "crawledDate": "2026-08-19",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "147",
+      "firefox": "146",
+      "safari": "26",
+      "edge": "147"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -1114,7 +1146,12 @@
     "publishedDate": "2026-06-30",
     "crawledDate": "2026-08-19",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "149",
+      "firefox": false,
+      "safari": false,
+      "edge": "149"
+    },
     "tailwindEquivalent": null
   },
   {
@@ -1132,7 +1169,12 @@
     "publishedDate": "2026-08-09",
     "crawledDate": "2026-08-19",
     "caniuseSlug": null,
-    "browserSupport": null,
+    "browserSupport": {
+      "chrome": "129",
+      "firefox": false,
+      "safari": false,
+      "edge": "129"
+    },
     "tailwindEquivalent": null
   },
   {
