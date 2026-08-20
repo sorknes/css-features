@@ -34,6 +34,7 @@ function buildSrcDoc(demo: CssExample["demo"]): string {
 <html>
 <head>
 <meta charset="utf-8">
+<base href="about:srcdoc">
 <style>${demo.css}</style>
 </head>
 <body>
