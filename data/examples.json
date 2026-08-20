@@ -1337,5 +1337,28 @@
       "edge": "135"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "star-rating-widget",
+    "title": "A CSS-only star rating widget with :has()",
+    "description": "Real radio inputs and labels form an accessible rating control, styled entirely with :has() and general sibling selectors — :has(~ .star:hover) reaches backwards to light up every star before the hovered one, the same trick fills stars up to whichever value is :checked, and a CSS counter turns that fill state directly into a live rating number, all without JavaScript.",
+    "category": "forms-ui",
+    "cssFeature": ":has(), counter-increment",
+    "demo": {
+      "html": "<fieldset class=\"widget\">\n  <legend>Rate this product</legend>\n  <div class=\"stars\">\n    <input type=\"radio\" id=\"star1\" name=\"rating\" value=\"1\">\n    <label for=\"star1\" class=\"star\">★</label>\n    <input type=\"radio\" id=\"star2\" name=\"rating\" value=\"2\">\n    <label for=\"star2\" class=\"star\">★</label>\n    <input type=\"radio\" id=\"star3\" name=\"rating\" value=\"3\">\n    <label for=\"star3\" class=\"star\">★</label>\n    <input type=\"radio\" id=\"star4\" name=\"rating\" value=\"4\">\n    <label for=\"star4\" class=\"star\">★</label>\n    <input type=\"radio\" id=\"star5\" name=\"rating\" value=\"5\">\n    <label for=\"star5\" class=\"star\">★</label>\n  </div>\n  <p class=\"rating-display\">Rating: <span class=\"rating-num\"></span>/5</p>\n</fieldset>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.widget { border: none; padding: 0; counter-reset: rating; }\n.stars { display: flex; gap: 0.25rem; font-size: 2rem; }\n.stars input {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  opacity: 0;\n}\n.star {\n  color: #d1d5db;\n  cursor: pointer;\n  transition: color 0.15s;\n}\n.stars input:focus-visible + .star {\n  outline: 2px solid #2563eb;\n  outline-offset: 2px;\n  border-radius: 4px;\n}\n.star:has(~ input:checked),\n.stars input:checked + .star,\n.star:has(~ .star:hover),\n.star:hover {\n  color: #f59e0b;\n  counter-increment: rating;\n}\n.rating-display { margin-top: 0.5rem; font-size: 0.95rem; }\n.rating-num::after { content: counter(rating); }"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": "css-has",
+    "browserSupport": {
+      "chrome": "105",
+      "firefox": "121",
+      "safari": "15.4",
+      "edge": "105"
+    },
+    "tailwindEquivalent": null
   }
 ]
