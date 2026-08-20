@@ -1406,5 +1406,29 @@
       "edge": "133"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "stagger-delay-custom-property",
+    "title": "Staggering a list reveal with an inline custom-property index",
+    "description": "Each item carries its own position as an inline custom property (style=\"--i: 2\"), and a single shared animation-delay: calc(var(--i) * 90ms) rule turns that index into a staggered entrance — one keyframe animation and one CSS rule cover every item, with no per-item rules or JavaScript needed.",
+    "category": "animation-transitions",
+    "cssFeature": "custom properties, calc(), animation-delay",
+    "demo": {
+      "html": "<ul class=\"stagger\">\n  <li class=\"item\" style=\"--i: 0\">Fade in</li>\n  <li class=\"item\" style=\"--i: 1\">one item</li>\n  <li class=\"item\" style=\"--i: 2\">at a time</li>\n  <li class=\"item\" style=\"--i: 3\">in a neat</li>\n  <li class=\"item\" style=\"--i: 4\">staggered</li>\n  <li class=\"item\" style=\"--i: 5\">sequence</li>\n</ul>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.stagger {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  max-width: 220px;\n}\n.item {\n  padding: 0.65rem 1rem;\n  border-radius: 8px;\n  background: #eff6ff;\n  border: 1px solid #bfdbfe;\n  font-weight: 600;\n  color: #1d4ed8;\n  opacity: 0;\n  translate: 0 12px;\n  animation: stagger-in 0.5s ease both;\n  animation-delay: calc(var(--i) * 90ms);\n}\n@keyframes stagger-in {\n  to { opacity: 1; translate: 0 0; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .item { animation: none; opacity: 1; translate: 0 0; }\n}"
+    },
+    "sourceUrl": "https://sorknes.github.io/modern-css-features/",
+    "sourceName": "Modern CSS Features (sorknes.github.io)",
+    "publishedDate": "2026-08-20",
+    "crawledDate": "2026-08-20",
+    "caniuseSlug": "css-variables",
+    "browserSupport": {
+      "chrome": "49",
+      "firefox": "31",
+      "safari": "10",
+      "edge": "16"
+    },
+    "tailwindEquivalent": null,
+    "replayable": true
   }
 ]
