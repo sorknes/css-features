@@ -2,8 +2,15 @@ name: Weekly CSS feature maintenance
 
 on:
   schedule:
-    # 08:00 UTC every Monday
-    - cron: "0 8 * * 1"
+    # 08:00 Europe/Oslo every Monday. GitHub Actions cron is UTC-only and has no
+    # timezone/DST support, so this is approximated with two schedules that switch
+    # with daylight saving — only one fires on any given Monday, based on month:
+    - cron: "0 6 * 4-10 1"      # Apr–Oct ≈ CEST (UTC+2) → 06:00 UTC = 08:00 Oslo
+    - cron: "0 7 * 1-3,11,12 1" # Nov–Mar ≈ CET  (UTC+1) → 07:00 UTC = 08:00 Oslo
+    # This is off by an hour for the handful of days right around the actual DST
+    # transition (last Sunday of March / October), since it switches on calendar
+    # month rather than the exact transition date — not worth the added complexity
+    # for a weekly, non-time-critical job.
   workflow_dispatch: {}
 
 permissions:
