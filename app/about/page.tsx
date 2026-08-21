@@ -10,7 +10,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "About — Modern CSS Features v. 2",
+  title: "About — CSS Edge",
 };
 
 const examples = examplesData as CssExample[];
@@ -75,6 +75,11 @@ export default function AboutPage() {
               real live demo &mdash; not just a code snippet &mdash; along with a category, a
               browser-support tag, a caniuse.com link when one exists, and the date the example
               was added.
+            </p>
+            <p>
+              The site itself &mdash; not just the examples in it &mdash; is almost entirely built
+              by Claude Code: the components, the styling, the pipeline scripts, this sentence. A
+              human still picks the domain, reviews every pull request, and clicks merge.
             </p>
           </Section>
 

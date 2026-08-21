@@ -14,6 +14,7 @@ export default function SiteHeader({
 }) {
   const marqueeItems = [
     "New and emerging CSS, crawled from specs, browser blogs, and expert writeups",
+    "Almost entirely built by Claude Code",
     ...(lastUpdated ? [`Last updated ${formatDate(lastUpdated)}`] : []),
   ];
 
@@ -37,7 +38,7 @@ export default function SiteHeader({
       </div>
 
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6">
-        <h1 className="text-sm font-bold tracking-tight">Modern CSS Features v. 2</h1>
+        <h1 className="text-sm font-bold tracking-tight">CSS Edge</h1>
         <nav aria-label="Site" className="flex items-center justify-self-center gap-4 text-xs font-medium sm:text-sm">
           <Link
             href="/"

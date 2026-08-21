@@ -1,4 +1,4 @@
-# Modern CSS Features v. 2
+# CSS Edge
 
 A gallery of new and emerging CSS features, crawled from a curated list of specs, browser blogs, and expert writeups. Every example gets a live demo, a category, browser-support tags, a "new" badge, a caniuse.com link (when one exists), and an "Updated" date from its source article.
 
