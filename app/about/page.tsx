@@ -46,7 +46,7 @@ const TECH_STACK = [
   },
   {
     name: "GitHub Actions",
-    detail: "Runs the discovery script on a daily schedule and commits the results straight to the repo.",
+    detail: "Runs the discovery script on a weekly schedule and commits the results straight to the repo.",
   },
   {
     name: "A flat JSON file",
@@ -76,8 +76,7 @@ export default function AboutPage() {
             <p>
               A gallery of new and emerging CSS features. Every card is a small, self-contained,
               real live demo &mdash; not just a code snippet &mdash; along with a category, a
-              browser-support tag, a caniuse.com link when one exists, and the date the example
-              was added.
+              browser-support tag, and a caniuse.com link when one exists.
             </p>
             <p>
               The site itself &mdash; not just the examples in it &mdash; is almost entirely built
@@ -100,7 +99,7 @@ export default function AboutPage() {
                 A script checks each source below for its RSS/Atom feed (or scrapes links from the
                 page if it has none), keeps items that mention a known new-CSS-feature keyword, and
                 queues them for review. It never re-queues a URL it&rsquo;s already seen or already
-                published. This runs on a daily schedule and commits its results straight to the
+                published. This runs on a weekly schedule and commits its results straight to the
                 repo &mdash; no server involved.
               </li>
               <li>
@@ -108,8 +107,9 @@ export default function AboutPage() {
                 Periodically, the queued articles get reviewed by hand (with Claude Code): is this
                 genuinely a new CSS feature worth showcasing? If so, it gets a title, description,
                 category, caniuse slug, and a small original demo. A script then mechanically stamps
-                the date it was added and looks up real per-browser support numbers &mdash; the
-                parts that shouldn&rsquo;t be hand-typed.
+                the date it was added (used for sorting and the NEW badge, not shown as a literal
+                date on the card) and looks up real per-browser support numbers &mdash; the parts
+                that shouldn&rsquo;t be hand-typed.
               </li>
             </ol>
           </Section>
