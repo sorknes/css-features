@@ -1454,5 +1454,28 @@
       "edge": "102"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "file-input-selector-button",
+    "title": "Styling file input buttons with ::file-selector-button",
+    "description": "input[type=\"file\"] styles the field's own border and padding, while ::file-selector-button targets just the native \"choose file\" button inside it — background, border-radius, hover states, anything a normal button accepts. No hidden-input-plus-styled-label workaround needed to get past the default OS-styled button.",
+    "category": "forms-ui",
+    "cssFeature": "::file-selector-button",
+    "demo": {
+      "html": "<label for=\"file-upload\" class=\"field-label\">Choose a file to upload</label>\n<input type=\"file\" id=\"file-upload\">",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.field-label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }\ninput[type=\"file\"] {\n  display: block;\n  max-width: 320px;\n  padding: 0.5rem;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font: inherit;\n  font-size: 0.85rem;\n  color: #4b5563;\n}\ninput[type=\"file\"]::file-selector-button {\n  margin-right: 0.75rem;\n  padding: 0.5rem 1rem;\n  border: none;\n  border-radius: 6px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: background-color 0.15s ease;\n}\ninput[type=\"file\"]::file-selector-button:hover {\n  background: #1d4ed8;\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-21",
+    "crawledDate": "2026-08-21",
+    "caniuseSlug": "mdn-css_selectors_file-selector-button",
+    "browserSupport": {
+      "chrome": "89",
+      "firefox": "82",
+      "safari": "14.1",
+      "edge": "89"
+    },
+    "tailwindEquivalent": "file:mr-3 file:rounded-md file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-white"
   }
 ]
