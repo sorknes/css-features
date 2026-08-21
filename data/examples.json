@@ -1430,5 +1430,29 @@
     },
     "tailwindEquivalent": null,
     "replayable": true
+  },
+  {
+    "id": "inert-attribute-modal",
+    "title": "Making the background inert while a modal is open",
+    "description": "Setting inert on an element — via the plain HTML attribute or the matching el.inert JS property — removes it and everything inside it from click handling, tab order, text selection, and the accessibility tree, all in one step. Opening the modal below marks the background section inert instead of juggling tabindex=\"-1\" on every focusable descendant by hand; closing it restores normal interaction.",
+    "category": "components-interactivity",
+    "cssFeature": "inert",
+    "demo": {
+      "html": "<div class=\"demo-area\">\n  <div id=\"background\" class=\"panel\">\n    <p style=\"margin:0\">Background content</p>\n    <input type=\"text\" placeholder=\"Try typing or tabbing here\">\n    <button id=\"bg-btn\">Click me</button>\n  </div>\n  <button id=\"open-btn\" class=\"open-btn\">Open modal</button>\n\n  <div id=\"modal\" class=\"modal\">\n    <p style=\"margin:0\">I'm a modal. The background is now inert — try tabbing, clicking, or typing behind me.</p>\n    <button id=\"close-btn\">Close</button>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.demo-area { position: relative; min-height: 220px; max-width: 260px; }\n.panel {\n  display: flex;\n  flex-direction: column;\n  gap: 0.5rem;\n  padding: 1rem;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: opacity 0.2s;\n}\n.panel[inert] { opacity: 0.45; }\n.panel input, .panel button {\n  font: inherit;\n  padding: 0.4rem 0.6rem;\n  border-radius: 6px;\n  border: 1px solid #d1d5db;\n}\n.open-btn {\n  margin-top: 0.75rem;\n  padding: 0.5rem 1rem;\n  border: none;\n  border-radius: 6px;\n  background: #111827;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.modal {\n  position: absolute;\n  inset: 0;\n  display: none;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 0.75rem;\n  padding: 1.25rem;\n  background: #fff;\n  border: 2px solid #2563eb;\n  border-radius: 10px;\n  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);\n}\n.modal.is-open { display: flex; }\n.modal button {\n  padding: 0.5rem 1rem;\n  border: none;\n  border-radius: 6px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n@media (prefers-reduced-motion: reduce) {\n  .panel { transition: none; }\n}",
+      "js": "const background = document.getElementById('background');\nconst modal = document.getElementById('modal');\nconst openBtn = document.getElementById('open-btn');\nconst closeBtn = document.getElementById('close-btn');\n\nopenBtn.addEventListener('click', () => {\n  background.inert = true;\n  openBtn.inert = true;\n  modal.classList.add('is-open');\n  closeBtn.focus();\n});\n\ncloseBtn.addEventListener('click', () => {\n  background.inert = false;\n  openBtn.inert = false;\n  modal.classList.remove('is-open');\n  openBtn.focus();\n});"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-08-21",
+    "crawledDate": "2026-08-21",
+    "caniuseSlug": "mdn-html_global_attributes_inert",
+    "browserSupport": {
+      "chrome": "102",
+      "firefox": "112",
+      "safari": "15.5",
+      "edge": "102"
+    },
+    "tailwindEquivalent": null
   }
 ]
