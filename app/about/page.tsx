@@ -199,8 +199,7 @@ export default function AboutPage() {
                 <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>{" "}
-              &mdash; copy, adapt, and ship them, including commercially, as long as the copyright
-              notice stays attached.
+              &mdash; copy, adapt, and ship them, including commercially.
             </p>
             <p>
               Found a bug, a broken demo, or a feature you think belongs here?{" "}

@@ -38,7 +38,11 @@ export default function SiteHeader({
       </div>
 
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6">
-        <h1 className="text-sm font-bold tracking-tight">CSS Edge</h1>
+        <h1 className="text-sm font-bold tracking-tight">
+          <Link href="/" className="underline-offset-2 hover:underline">
+            CSS Edge
+          </Link>
+        </h1>
         <nav aria-label="Site" className="flex items-center justify-self-center gap-4 text-xs font-medium sm:text-sm">
           <Link
             href="/"
