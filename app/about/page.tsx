@@ -79,7 +79,9 @@ export default function AboutPage() {
             <p>
               The site itself &mdash; not just the examples in it &mdash; is almost entirely built
               by Claude Code: the components, the styling, the pipeline scripts, this sentence. A
-              human still picks the domain, reviews every pull request, and clicks merge.
+              human still picks the domain, reviews every pull request, and clicks merge &mdash;
+              that&rsquo;s me, Knut Sorknes, a frontend developer in Oslo working at NoA Ignite
+              Norway.
             </p>
           </Section>
 
