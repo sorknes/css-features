@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { IconType } from "react-icons";
 import {
   BiCode,
+  BiCodeCurly,
   BiChevronDown,
   BiLinkExternal,
   BiLogoChrome,
@@ -76,15 +77,18 @@ export default function ExampleCard({
       </div>
 
       <div className="px-4 pt-3">
-        <h2 className="text-base font-semibold leading-snug">{example.title}</h2>
-        <p className="my-3 font-mono text-xs text-muted">{example.cssFeature}</p>
+        <h2 className="text-xl font-semibold leading-snug">{example.title}</h2>
+        <p className="my-3 flex items-center gap-1.5 font-mono text-xs text-muted">
+          <BiCodeCurly aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+          {example.cssFeature}
+        </p>
         {example.tailwindEquivalent && (
           <p className="mt-1 text-xs text-muted">
             <span className="font-medium text-foreground/80">Tailwind: </span>
             {example.tailwindEquivalent}
           </p>
         )}
-        <p className="mt-2 text-sm text-foreground/90">{example.description}</p>
+        <p className="mt-2 text-base text-foreground/90">{example.description}</p>
       </div>
 
       <div className="relative mx-4 mt-3 max-w-full min-w-[140px] resize-x overflow-auto rounded-md border border-border">

@@ -132,10 +132,10 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
 
       <div className="flex min-w-0 flex-1 flex-col gap-6">
         <div className="flex items-center justify-between gap-3">
-          <p aria-live="polite" className="text-sm text-muted">
+          <p aria-live="polite" className="text-sm text-foreground">
             Showing {filtered.length} of {examples.length} example{examples.length === 1 ? "" : "s"}
           </p>
-          <label className="flex items-center gap-2 text-sm text-muted">
+          <label className="flex items-center gap-2 text-sm text-foreground">
             Sort by
             <select
               value={sortBy}
