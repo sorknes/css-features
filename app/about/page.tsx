@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { BiLinkExternal } from "react-icons/bi";
 import examplesData from "@/data/examples.json";
 import type { CssExample } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
@@ -8,6 +9,8 @@ import { SUPPORT_LEVELS, SUPPORT_LEVEL_STYLES } from "@/lib/supportLevel";
 import { SOURCES } from "@/lib/sources";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+
+const REPO_URL = "https://github.com/sorknes/css-features";
 
 export const metadata: Metadata = {
   title: "About — CSS Edge",
@@ -181,6 +184,38 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+          </Section>
+
+          <Section title="License & feedback">
+            <p>
+              The code and every demo in this gallery are{" "}
+              <a
+                href={`${REPO_URL}/blob/main/LICENSE`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+              >
+                MIT licensed
+                <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>{" "}
+              &mdash; copy, adapt, and ship them, including commercially, as long as the copyright
+              notice stays attached.
+            </p>
+            <p>
+              Found a bug, a broken demo, or a feature you think belongs here?{" "}
+              <a
+                href={`${REPO_URL}/issues`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+              >
+                Open an issue on GitHub
+                <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              .
+            </p>
           </Section>
         </div>
       </main>
