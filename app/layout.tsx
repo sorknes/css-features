@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Modern CSS Features v. 2",
+  title: "CSS Edge",
   description:
     "A gallery of new and emerging CSS features, crawled from official specs, browser blogs, and expert writeups, with live demos and browser support.",
 };
