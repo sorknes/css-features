@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const interTight = Inter_Tight({
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         {children}
+        <Analytics />
       </body>
     </html>
   );
