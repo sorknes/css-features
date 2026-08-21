@@ -57,7 +57,7 @@ const TECH_STACK = [
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
+      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
       <div className="flex flex-col gap-3 text-base text-foreground/90">{children}</div>
     </section>
   );

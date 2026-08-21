@@ -76,7 +76,7 @@ export default function ExampleCard({
       </div>
 
       <div className="px-4 pt-3">
-        <h2 className="text-lg font-semibold leading-snug">{example.title}</h2>
+        <h2 className="text-xl font-semibold leading-snug">{example.title}</h2>
         <p className="my-3 font-mono text-xs text-muted">{example.cssFeature}</p>
         {example.tailwindEquivalent && (
           <p className="mt-1 text-xs text-muted">
