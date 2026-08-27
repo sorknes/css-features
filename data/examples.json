@@ -1500,5 +1500,122 @@
       "edge": "104"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "scroll-target-group-toc",
+    "title": "A native CSS scroll-spy with scroll-target-group",
+    "description": "scroll-target-group: auto turns every fragment link inside a container into a scroll marker, and :target-current styles whichever one points at the section currently scrolled into view — a different, more direct mechanism than sharing a named view-timeline (as the site's other scroll-spy example does), built from plain anchor links with real fragment navigation.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "scroll-target-group, :target-current",
+    "demo": {
+      "html": "<div class=\"layout\">\n  <nav class=\"toc\">\n    <a href=\"#s1\">① Intro</a>\n    <a href=\"#s2\">② Methods</a>\n    <a href=\"#s3\">③ Results</a>\n  </nav>\n  <div class=\"sections\">\n    <section id=\"s1\">\n      <h3>Introduction</h3>\n      <p>Scroll down — the active link updates as you scroll, no JS at all.</p>\n    </section>\n    <section id=\"s2\">\n      <h3>Methods</h3>\n      <p>scroll-target-group: auto turns every fragment link inside this nav into a scroll marker.</p>\n    </section>\n    <section id=\"s3\">\n      <h3>Results</h3>\n      <p>:target-current styles whichever marker points at the section currently in view.</p>\n    </section>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.layout {\n  display: flex;\n  gap: 1rem;\n}\n.toc {\n  display: flex;\n  flex-direction: column;\n  gap: 0.35rem;\n  min-width: 90px;\n  flex-shrink: 0;\n  scroll-target-group: auto;\n}\n.toc a {\n  padding: 0.3rem 0.5rem;\n  border-radius: 4px;\n  border-left: 2px solid transparent;\n  color: #9ca3af;\n  text-decoration: none;\n  font-size: 0.85rem;\n  transition: color 0.2s, border-color 0.2s;\n}\n.toc a:target-current {\n  color: #2563eb;\n  font-weight: 700;\n  border-left-color: #2563eb;\n}\n.sections {\n  flex: 1;\n  height: 200px;\n  overflow-y: auto;\n  scroll-behavior: smooth;\n  border-left: 1px solid #e5e7eb;\n  padding-left: 1rem;\n}\n.sections section {\n  display: block;\n  min-height: 180px;\n  padding-block: 0.5rem;\n  border-bottom: 1px dashed #e5e7eb;\n}\n.sections h3 { margin: 0 0 0.35rem; font-size: 1em; font-weight: 700; }\n.sections p { margin: 0; font-size: 0.85rem; color: #4b5563; }"
+    },
+    "sourceUrl": "https://una.im/scroll-target-group/",
+    "sourceName": "Una Kravets",
+    "publishedDate": "2025-07-29",
+    "crawledDate": "2026-08-27",
+    "caniuseSlug": "mdn-css_properties_scroll-target-group",
+    "browserSupport": {
+      "chrome": "140",
+      "firefox": false,
+      "safari": false,
+      "edge": "140"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "if-hypot-hover-proximity",
+    "title": "Scaling nearby items with if() and hypot()",
+    "description": "hypot() computes each tile's straight-line distance from the cursor from its own grid coordinates and two mouse-tracking custom properties, and the new if(style(...): ...; else: ...) function reads that distance directly to decide whether the tile should scale up — a conditional value baked into the declaration itself, no :hover selector or extra class needed for the threshold logic.",
+    "category": "functions-values",
+    "cssFeature": "if(), hypot()",
+    "demo": {
+      "html": "<div class=\"grid\" id=\"grid\">\n  <div class=\"item\" style=\"--gx:0;--gy:0\"></div>\n  <div class=\"item\" style=\"--gx:1;--gy:0\"></div>\n  <div class=\"item\" style=\"--gx:2;--gy:0\"></div>\n  <div class=\"item\" style=\"--gx:3;--gy:0\"></div>\n  <div class=\"item\" style=\"--gx:0;--gy:1\"></div>\n  <div class=\"item\" style=\"--gx:1;--gy:1\"></div>\n  <div class=\"item\" style=\"--gx:2;--gy:1\"></div>\n  <div class=\"item\" style=\"--gx:3;--gy:1\"></div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.grid {\n  --mx: -99;\n  --my: -99;\n  display: grid;\n  grid-template-columns: repeat(4, 44px);\n  gap: 8px;\n  padding: 12px;\n  width: max-content;\n}\n.item {\n  width: 44px;\n  height: 44px;\n  border-radius: 8px;\n  transition: scale 0.15s ease, background 0.15s ease;\n  --d: hypot(var(--gx) - var(--mx), var(--gy) - var(--my));\n  scale: 1;\n  scale: if(style(--d <= 1.2): 1.35; else: 1);\n  background: #dbeafe;\n  background: if(style(--d <= 1.2): #2563eb; else: #dbeafe);\n}",
+      "js": "const grid = document.getElementById('grid');\nconst cell = 52;\ngrid.addEventListener('mousemove', (e) => {\n  const rect = grid.getBoundingClientRect();\n  const mx = (e.clientX - rect.left - 22) / cell;\n  const my = (e.clientY - rect.top - 22) / cell;\n  grid.style.setProperty('--mx', mx.toFixed(2));\n  grid.style.setProperty('--my', my.toFixed(2));\n});\ngrid.addEventListener('mouseleave', () => {\n  grid.style.setProperty('--mx', '-99');\n  grid.style.setProperty('--my', '-99');\n});"
+    },
+    "sourceUrl": "https://css-tip.com/hover-proximity/",
+    "sourceName": "CSS-Tip (Temani Afif)",
+    "publishedDate": "2026-08-19",
+    "crawledDate": "2026-08-27",
+    "caniuseSlug": null,
+    "browserSupport": {
+      "chrome": "142",
+      "firefox": false,
+      "safari": false,
+      "edge": "142"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "anchored-container-query-fallback",
+    "title": "Detecting which anchor fallback got used",
+    "description": "container-type: anchored turns an anchor-positioned element into a query container, so @container anchored(fallback: flip-block) can restyle its own descendants based on whether a position-try-fallbacks tactic actually kicked in — here, flipping a tooltip's arrow to match whichever side the tooltip ended up on, without guessing from JS or duplicating the tooltip for each case.",
+    "category": "responsive-container-queries",
+    "cssFeature": "container-type: anchored, @container anchored(fallback)",
+    "demo": {
+      "html": "<button id=\"anchor-btn\" class=\"anchor-btn\">Anchor element</button>\n<div id=\"tooltip\" class=\"tooltip\" role=\"tooltip\">\n  <span class=\"arrow\"></span>\n  Flipped — no room below\n</div>",
+      "css": "body {\n  font-family: system-ui, sans-serif;\n  margin: 0;\n  background: #fff;\n  color: #111827;\n  height: 220px;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  padding-bottom: 2rem;\n}\n.anchor-btn {\n  anchor-name: --btn;\n  padding: 0.6rem 1.2rem;\n  border: none;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.tooltip {\n  position: fixed;\n  position-anchor: --btn;\n  top: anchor(bottom);\n  left: anchor(center);\n  translate: -50% 8px;\n  position-try-fallbacks: flip-block;\n  container-type: anchored;\n  background: #2563eb;\n  color: #fff;\n  padding: 0.5rem 0.85rem;\n  border-radius: 6px;\n  font-size: 0.8rem;\n  white-space: nowrap;\n}\n.arrow {\n  position: absolute;\n  left: 50%;\n  translate: -50% 0;\n  top: -5px;\n  width: 0;\n  height: 0;\n  border-left: 5px solid transparent;\n  border-right: 5px solid transparent;\n  border-bottom: 5px solid #2563eb;\n}\n@container anchored(fallback: flip-block) {\n  .arrow {\n    top: auto;\n    bottom: -5px;\n    border-bottom: none;\n    border-top: 5px solid #2563eb;\n  }\n}"
+    },
+    "sourceUrl": "https://una.im/2025-10-29-anchored-queries/",
+    "sourceName": "Una Kravets",
+    "publishedDate": "2025-10-29",
+    "crawledDate": "2026-08-27",
+    "caniuseSlug": "mdn-css_properties_container-type_anchored",
+    "browserSupport": {
+      "chrome": "143",
+      "firefox": false,
+      "safari": false,
+      "edge": "143"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "popover-hint",
+    "title": "A hint popover that doesn't dismiss the menu behind it",
+    "description": "popover=\"hint\" behaves like a lightweight, hover/focus-triggered tooltip that lives in its own top-layer stack, separate from popover=\"auto\" — so showing a hint over an open auto popover (like a menu) doesn't close the menu the way opening a second auto popover would. Only one hint can be open at a time, but auto popovers are unaffected.",
+    "category": "components-interactivity",
+    "cssFeature": "popover=\"hint\"",
+    "demo": {
+      "html": "<button popovertarget=\"menu\" class=\"menu-btn\">Open menu ▾</button>\n<div id=\"menu\" popover class=\"menu\">\n  <button id=\"opt-a\" class=\"menu-item\">Option A</button>\n  <button id=\"opt-b\" class=\"menu-item\">Option B</button>\n</div>\n<div id=\"tip-a\" popover=\"hint\" class=\"hint\">Info about Option A</div>\n<div id=\"tip-b\" popover=\"hint\" class=\"hint\">Info about Option B</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.menu-btn {\n  anchor-name: --menu-btn;\n  padding: 0.6rem 1.2rem;\n  border: none;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.menu {\n  position: fixed;\n  position-anchor: --menu-btn;\n  top: anchor(bottom);\n  left: anchor(left);\n  margin: 0.4rem 0 0;\n  padding: 0.4rem;\n  min-width: 160px;\n  border: none;\n  border-radius: 8px;\n  background: #fff;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);\n  flex-direction: column;\n  gap: 2px;\n}\n.menu:popover-open { display: flex; }\n.menu-item {\n  padding: 0.5rem 0.75rem;\n  border: none;\n  background: none;\n  text-align: left;\n  font: inherit;\n  border-radius: 6px;\n  cursor: pointer;\n}\n#opt-a { anchor-name: --opt-a; }\n#opt-b { anchor-name: --opt-b; }\n.menu-item:hover, .menu-item:focus-visible { background: #f1f5f9; }\n.hint {\n  position: fixed;\n  margin: 0;\n  inset: auto;\n  padding: 0.4rem 0.7rem;\n  border: none;\n  border-radius: 6px;\n  background: #2563eb;\n  color: #fff;\n  font-size: 0.75rem;\n  white-space: nowrap;\n}\n#tip-a { position-anchor: --opt-a; top: anchor(top); left: anchor(right); margin-left: 0.5rem; }\n#tip-b { position-anchor: --opt-b; top: anchor(top); left: anchor(right); margin-left: 0.5rem; }",
+      "js": "function wireHint(trigger, hint) {\n  trigger.addEventListener('mouseenter', () => hint.showPopover());\n  trigger.addEventListener('mouseleave', () => hint.hidePopover());\n  trigger.addEventListener('focus', () => hint.showPopover());\n  trigger.addEventListener('blur', () => hint.hidePopover());\n}\nwireHint(document.getElementById('opt-a'), document.getElementById('tip-a'));\nwireHint(document.getElementById('opt-b'), document.getElementById('tip-b'));"
+    },
+    "sourceUrl": "https://una.im/popover-hint/",
+    "sourceName": "Una Kravets",
+    "publishedDate": "2025-07-07",
+    "crawledDate": "2026-08-27",
+    "caniuseSlug": "mdn-html_global_attributes_popover_hint",
+    "browserSupport": {
+      "chrome": "133",
+      "firefox": "149",
+      "safari": false,
+      "edge": "133"
+    },
+    "tailwindEquivalent": null
+  },
+  {
+    "id": "timeline-scope-state-transfer",
+    "title": "Sharing interaction state across unrelated elements with timeline-scope",
+    "description": "timeline-scope re-exposes a named timeline to every descendant of a shared ancestor, not just the timeline's own subtree — and a named timeline only needs to exist, not scroll, to work as a signal. Attaching view-timeline: --linked to an element only while it's :hover/:focus-visible, then reading animation-timeline: --linked on a completely unrelated element elsewhere in the scope, turns that presence/absence into a live cross-DOM toggle with no JavaScript, distinct from this site's other timeline-scope examples, which all share actual scroll position between siblings.",
+    "category": "scroll-view-transitions",
+    "cssFeature": "timeline-scope",
+    "demo": {
+      "html": "<div class=\"scope\">\n  <span class=\"term\" tabindex=\"0\">Hover this term</span>\n  <div class=\"highlight-target\">I highlight when the unrelated term above is hovered/focused</div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.scope {\n  timeline-scope: --linked;\n}\n.term {\n  display: inline-block;\n  padding: 0.4rem 0.75rem;\n  border-radius: 6px;\n  background: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n  cursor: default;\n}\n.term:is(:hover, :focus-visible) {\n  view-timeline: --linked;\n}\n.highlight-target {\n  margin-top: 1rem;\n  padding: 0.75rem 1rem;\n  border-radius: 8px;\n  border: 2px solid transparent;\n  background: #fff;\n  animation: toggle-highlight 1ms linear both;\n  animation-timeline: --linked;\n}\n@keyframes toggle-highlight {\n  to {\n    border-color: #2563eb;\n    background: #eff6ff;\n  }\n}"
+    },
+    "sourceUrl": "https://kizu.dev/scroll-driven-state-transfer/",
+    "sourceName": "Kizu.dev",
+    "publishedDate": "2026-08-27",
+    "crawledDate": "2026-08-27",
+    "caniuseSlug": "mdn-css_properties_timeline-scope",
+    "browserSupport": {
+      "chrome": "116",
+      "firefox": "157",
+      "safari": "26.0",
+      "edge": "116"
+    },
+    "tailwindEquivalent": null
   }
 ]
