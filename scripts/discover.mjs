@@ -198,7 +198,9 @@ async function main() {
   console.log(`\nDiscovery complete. Added ${addedCount} new candidate(s) to pending.json (${pending.length} total pending).`);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main()
+  .then(() => process.exit(0))
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
