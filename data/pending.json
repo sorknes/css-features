@@ -160,14 +160,6 @@
     "excerpt": null
   },
   {
-    "url": "https://kizu.dev/scroll-driven-state-transfer/",
-    "title": "Scroll-Driven State Transfer",
-    "sourceName": "Kizu.dev",
-    "discoveredAt": "2026-08-18",
-    "publishedDate": null,
-    "excerpt": null
-  },
-  {
     "url": "https://kizu.dev/scroll-driven-animations/",
     "title": "Future CSS: Wishes Granted by Scroll-driven Animations",
     "sourceName": "Kizu.dev",
@@ -360,36 +352,12 @@
     "excerpt": "CSS container queries let elements adapt to their container, not just the viewport. Making layouts more flexible and reusable."
   },
   {
-    "url": "https://una.im/2025-10-29-anchored-queries/",
-    "title": "Detect fallback positions with anchored container queries from Chrome 143",
-    "sourceName": "Una Kravets",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2025-10-29",
-    "excerpt": "Identify and style an anchored element in a fallback anchor position."
-  },
-  {
     "url": "https://una.im/follow-the-anchor/",
     "title": "Follow-the-leader pattern with CSS anchor positioning",
     "sourceName": "Una Kravets",
     "discoveredAt": "2026-08-19",
     "publishedDate": "2025-09-11",
     "excerpt": "Learn how to create a dynamically re-anchored pointer element."
-  },
-  {
-    "url": "https://una.im/scroll-target-group/",
-    "title": "Creating a scroll-spy with 2 lines of CSS",
-    "sourceName": "Una Kravets",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2025-07-29",
-    "excerpt": "scroll-target-group is a new CSS feature that lets you create scroll-spy table of contents with basically 2 lines of CSS."
-  },
-  {
-    "url": "https://una.im/popover-hint/",
-    "title": "What is popover=hint?",
-    "sourceName": "Una Kravets",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2025-07-07",
-    "excerpt": "Learn about what exactly this new popover feature does and how it relates to interest invokers."
   },
   {
     "url": "https://una.im/2024-07-12-at-property-baseline/",
@@ -694,14 +662,6 @@
     "discoveredAt": "2026-08-19",
     "publishedDate": "2019-05-26",
     "excerpt": "Support for subgrid (part of the CSS Grid Level 2 specification) has just landed in Firefox Nightly! To start experimenting with it you’ll need to enable the feature by going to about:config in the browser, then searching for subgrid. Toggle layout.css.grid-template-subgrid-value.enabled and subgrid"
-  },
-  {
-    "url": "https://css-tip.com/hover-proximity/",
-    "title": "Hover Proximity with Scroll-Driven Animations",
-    "sourceName": "CSS-Tip (Temani Afif)",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": null,
-    "excerpt": null
   },
   {
     "url": "https://www.oddbird.net/2026/04/16/winging-it-31/",
