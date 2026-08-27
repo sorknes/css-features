@@ -15,7 +15,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   maintenance:
@@ -25,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - run: npm ci
 
@@ -50,36 +49,43 @@ jobs:
         run: npm run build
         continue-on-error: true
 
-      - name: Write PR body
+      # GitHub Actions' own GITHUB_TOKEN is blocked from opening pull requests
+      # unless a repo/org setting ("Allow GitHub Actions to create and approve
+      # pull requests") is turned on — and PRs from this workflow should be
+      # reviewed and opened by hand anyway, so this just pushes a branch and
+      # stops. Re-pushes (force) to the same branch name each run, same as
+      # the old create-or-update PR behavior, so nothing accumulates.
+      - name: Commit and push changes
         run: |
+          if git diff --quiet -- data/ package.json package-lock.json; then
+            echo "No changes to commit — nothing to push." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          DIFF_STAT=$(git diff --stat -- data/ package.json package-lock.json)
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B automated/weekly-maintenance
+          git add data/pending.json data/seen-urls.json data/examples.json package.json package-lock.json
+          git commit -m "chore: weekly CSS feature maintenance"
+          git push --force origin automated/weekly-maintenance
+
           {
-            echo "Automated weekly maintenance run."
+            echo "## Weekly CSS feature maintenance"
+            echo ""
+            echo "Branch \`automated/weekly-maintenance\` pushed — [open a PR manually](https://github.com/${{ github.repository }}/compare/main...automated/weekly-maintenance?expand=1) to review and merge."
             echo ""
             echo "- Lint: ${{ steps.lint.outcome == 'success' && '✅ passed' || '❌ FAILED — check the workflow log before merging' }}"
             echo "- Build: ${{ steps.build.outcome == 'success' && '✅ passed' || '❌ FAILED — check the workflow log before merging' }}"
             echo ""
             echo "### Data changes"
             echo '```'
-            git diff --stat -- data/ package.json package-lock.json
+            echo "$DIFF_STAT"
             echo '```'
             echo ""
-            echo "New candidates land in \`data/pending.json\` for a later manual/Claude Code pass — this PR does not turn them into gallery examples by itself. Review the diff, then merge to deploy."
-          } > /tmp/pr-body.md
-
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "chore: weekly CSS feature maintenance"
-          title: "Weekly CSS feature maintenance"
-          body-path: /tmp/pr-body.md
-          branch: automated/weekly-maintenance
-          delete-branch: true
-          add-paths: |
-            data/pending.json
-            data/seen-urls.json
-            data/examples.json
-            package.json
-            package-lock.json
+            echo "New candidates land in \`data/pending.json\` for a later manual/Claude Code pass — this doesn't turn them into gallery examples by itself."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Fail the run if lint or build broke
         if: steps.lint.outcome != 'success' || steps.build.outcome != 'success'
