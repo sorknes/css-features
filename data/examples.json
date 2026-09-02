@@ -1617,5 +1617,28 @@
       "edge": "116"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "details-content-height-animation",
+    "title": "Animating <details> to its real height with ::details-content",
+    "description": "::details-content exposes the native content box a <details> element already shows/hides, so it can be styled and transitioned directly — and interpolate-size: allow-keywords lets height itself animate all the way to auto, no fixed max-height guess needed. Unlike a grid-template-rows trick, the content stays a real descendant of <details>, keeping the browser's native disclosure semantics (and features like find-in-page auto-expanding a match) intact. Where interpolate-size isn't supported, it still opens and closes correctly — just as an instant cut instead of a smooth animation.",
+    "category": "animation-transitions",
+    "cssFeature": "::details-content, interpolate-size",
+    "demo": {
+      "html": "<div class=\"accordion\">\n  <details open>\n    <summary>Item one (starts open)</summary>\n    <p>The content stays a real descendant of &lt;details&gt; this time — no sibling div, no aria-controls bridge needed.</p>\n  </details>\n  <details>\n    <summary>Item two</summary>\n    <p>::details-content plus interpolate-size: allow-keywords lets height animate all the way to auto.</p>\n  </details>\n</div>",
+      "css": ":root {\n  interpolate-size: allow-keywords;\n}\nbody { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.accordion { max-width: 320px; display: flex; flex-direction: column; gap: 0.5rem; }\ndetails {\n  border: 1px solid #e0e0e0;\n  border-radius: 8px;\n  overflow: clip;\n}\nsummary {\n  cursor: pointer;\n  padding: 0.625rem 1rem;\n  font-weight: 500;\n  list-style: none;\n}\nsummary::-webkit-details-marker { display: none; }\nsummary:hover { background: #2563eb; color: #fff; }\ndetails::details-content {\n  height: 0;\n  overflow: clip;\n  padding: 0 1rem;\n  font-size: 0.9rem;\n  color: #4b4b4b;\n  transition: height 0.3s ease-in, content-visibility 0.3s ease-in allow-discrete, padding 0.3s ease-in;\n}\ndetails[open]::details-content {\n  height: auto;\n  padding: 0 1rem 0.75rem;\n}"
+    },
+    "sourceUrl": "https://modern-css.com/animating-details-without-javascript-height/",
+    "sourceName": "modern-css.com (distinct from the moderncss.dev source already tracked)",
+    "publishedDate": "2026-09-01",
+    "crawledDate": "2026-09-01",
+    "caniuseSlug": "mdn-css_properties_interpolate-size",
+    "browserSupport": {
+      "chrome": "129",
+      "firefox": false,
+      "safari": false,
+      "edge": "129"
+    },
+    "tailwindEquivalent": null
   }
 ]
