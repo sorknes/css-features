@@ -8,28 +8,12 @@
     "excerpt": "The Navigation API is now Baseline Newly available, providing a better way to handle navigation in single-page applications."
   },
   {
-    "url": "https://css-tricks.com/whats-important-16/",
-    "title": "What’s !important #16: sibling-index() Animations, Use Cases for the infinity Keyword, Container Stuck Queries, and More",
-    "sourceName": "CSS-Tricks",
-    "discoveredAt": "2026-08-18",
-    "publishedDate": "2026-07-31",
-    "excerpt": "The soon-Baseline sibling-index() function for animations, CSS and the 2026 FIFA World Cup, use cases for the infinity keyword, container \"stuck\" queries, and more.\nWhat’s !important #16: sibling-index() Animations, Use Cases for the infinity Keyword, Container Stuck Queries, and More originally han"
-  },
-  {
     "url": "https://www.bram.us/2026/06/25/cranking-view-transtions-up-to-11-2026-05-07-all-day-hey/",
     "title": "Cranking View Transtions up to 11 (2026.05.07 @ All Day Hey!)",
     "sourceName": "Bram.us",
     "discoveredAt": "2026-08-18",
     "publishedDate": "2026-06-25",
     "excerpt": "In May I spoke at the 10th (and final 😔) edition All Day Hey! in Leeds, UK. I opened the conference with a talk on View Transitions."
-  },
-  {
-    "url": "https://www.bram.us/2026/06/19/view-transition-name-attr-or-match-element/",
-    "title": "View Transitions: Use the new attr() or match-element for the view-transition-name?",
-    "sourceName": "Bram.us",
-    "discoveredAt": "2026-08-18",
-    "publishedDate": "2026-06-19",
-    "excerpt": "At CSS Day, “YouTube guy” Kevin Powell showed a lot of demos that relied on the advanced attr() function. In one of the examples he used attr() to set view-transition-name values — a technique I covered in my article on advanced attr() function.\nBut then during the Q&A, Cyd Stumpel wondered if he co"
   },
   {
     "url": "https://www.bram.us/2026/04/02/view-transitions-toolkit/",
@@ -384,14 +368,6 @@
     "excerpt": "Popover provides so many great developer affordances for building layered interfaces like tooltips, menus, teaching UIs, and more."
   },
   {
-    "url": "https://una.im/2023-08-16-entry-exit-animations/",
-    "title": "Four new CSS features for smooth entry and exit animations",
-    "sourceName": "Una Kravets",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2023-08-16",
-    "excerpt": "These four new features include: animating display and content-visibility on a keyframe timeline, the transition-behavior property, the @starting-style rule, and the overlay property."
-  },
-  {
     "url": "https://una.im/radial-menu/",
     "title": "Building a no-JS radial menu with CSS trigonometry, popover, and anchor positioning",
     "sourceName": "Una Kravets",
@@ -550,14 +526,6 @@
     "discoveredAt": "2026-08-19",
     "publishedDate": "2023-04-16",
     "excerpt": "It’s been a while since my last article on here (well, a month is a while for me, anyway 😅), as I’ve been busy with my head down preparing for my talk on modern CSS layout at Beyond Tellerand, which is (checks notes) tomorrow!\nAlthough I haven’t had much time for blogging, it has given me a chance "
-  },
-  {
-    "url": "https://css-irl.info/resizing-with-css/",
-    "title": "Resizing with CSS",
-    "sourceName": "CSS { In Real Life } (Michelle Barker)",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2023-02-17",
-    "excerpt": "In case you missed it, container queries landed in all stable browsers this week! It’s a pretty exciting time to be working with CSS, seeing this long-awaited feature finally become useable.\nUna’s post on web.dev includes a rundown of how to use container queries, as well as some nifty demos. By coi"
   },
   {
     "url": "https://css-irl.info/interop-2023/",
