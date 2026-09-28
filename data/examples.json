@@ -292,10 +292,10 @@
     "crawledDate": "2026-08-18",
     "caniuseSlug": "css-anchor-positioning",
     "browserSupport": {
-      "chrome": "125",
-      "firefox": "147",
-      "safari": "26",
-      "edge": "125"
+      "chrome": false,
+      "firefox": false,
+      "safari": "27",
+      "edge": false
     },
     "tailwindEquivalent": null
   },
@@ -1193,10 +1193,10 @@
     "crawledDate": "2026-08-19",
     "caniuseSlug": "css-anchor-positioning",
     "browserSupport": {
-      "chrome": "125",
-      "firefox": "147",
-      "safari": "26",
-      "edge": "125"
+      "chrome": false,
+      "firefox": false,
+      "safari": "27",
+      "edge": false
     },
     "tailwindEquivalent": null
   },
