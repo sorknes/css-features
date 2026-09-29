@@ -1757,5 +1757,29 @@
       "edge": "118"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "anchor-scope-grid-animation",
+    "title": "Animating content into place as a CSS grid reflows",
+    "description": "Each grid cell gets its own anchor-name, and anchor-scope keeps that name from colliding across the repeated cells — no manual numbering needed. Content is then absolutely positioned to its own cell via position-anchor and inset: anchor(inside), with a transition on inset, so as the grid reflows (here, by resizing its container) each piece of content glides to its new slot instead of snapping instantly. A distinct use of anchor positioning from this site's other examples: those anchor a tooltip, a dropdown, and a fallback-detecting arrow to a single element each, while this one anchors many repeated, self-scoped instances at once to animate a whole layout change. Firefox supports anchor-scope itself but doesn't yet do the style/layout interleaving anchor positioning needs to animate smoothly (tracked as bug 1924226), so the reflow there is correct but instant rather than eased.",
+    "category": "layout",
+    "cssFeature": "anchor-scope, inset: anchor(inside)",
+    "demo": {
+      "html": "<button id=\"toggle\" class=\"toggle-btn\">Toggle width</button>\n<div class=\"wrapper\" id=\"wrapper\">\n  <div class=\"grid\">\n    <div class=\"cell\"><div class=\"content\">1</div></div>\n    <div class=\"cell\"><div class=\"content\">2</div></div>\n    <div class=\"cell\"><div class=\"content\">3</div></div>\n    <div class=\"cell\"><div class=\"content\">4</div></div>\n    <div class=\"cell\"><div class=\"content\">5</div></div>\n    <div class=\"cell\"><div class=\"content\">6</div></div>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 1rem; background: #fff; color: #111827; }\n.toggle-btn {\n  margin-bottom: 1rem;\n  padding: 0.5rem 1rem;\n  border: none;\n  border-radius: 6px;\n  background: #2563eb;\n  color: #fff;\n  font: inherit;\n  cursor: pointer;\n}\n.wrapper {\n  width: 120px;\n  overflow: hidden;\n  transition: width 0.4s ease;\n}\n.wrapper.wide {\n  width: 210px;\n}\n.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, 44px);\n  gap: 0.5rem;\n}\n.cell {\n  height: auto;\n  aspect-ratio: 1;\n  anchor-scope: --slot;\n  anchor-name: --slot;\n}\n.content {\n  position: absolute;\n  position-anchor: --slot;\n  inset: anchor(inside);\n  width: 44px;\n  height: 44px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 8px;\n  background: #2563eb;\n  color: #fff;\n  font-weight: 700;\n  font-size: 0.85rem;\n  transition: inset 0.4s ease;\n}",
+      "js": "document.getElementById('toggle').addEventListener('click', () => {\n  document.getElementById('wrapper').classList.toggle('wide');\n});"
+    },
+    "sourceUrl": "https://www.bram.us/2026/09/07/animating-css-grid-layouts-with-css-anchor-positioning/",
+    "sourceName": "Bram.us",
+    "publishedDate": "2026-09-07",
+    "crawledDate": "2026-09-29",
+    "caniuseSlug": "mdn-css_properties_anchor-scope",
+    "browserSupport": {
+      "chrome": "131",
+      "firefox": false,
+      "safari": "26.0",
+      "edge": "131"
+    },
+    "tailwindEquivalent": null
   }
 ]

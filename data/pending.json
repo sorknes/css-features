@@ -14,13 +14,5 @@
     "discoveredAt": "2026-08-19",
     "publishedDate": "2020-09-15",
     "excerpt": "3D transforms, despite being available in CSS for a while, are one area I’ve never understood well. I think if they were new to CSS now, I’d spend a lot more time playing around with them, like I have with Motion Path and some other new CSS features. As things stand, I’ve never had much cause to use"
-  },
-  {
-    "url": "https://www.bram.us/2026/09/07/animating-css-grid-layouts-with-css-anchor-positioning/",
-    "title": "Animating CSS Grid Layouts with CSS Anchor Positioning",
-    "sourceName": "Bram.us",
-    "discoveredAt": "2026-09-28",
-    "publishedDate": "2026-09-07",
-    "excerpt": "At CSS Day (back in June), someone asked me how Brave (the browser) might have built their New Tab Page which features some tiles laid out in a grid. While the grid is nothing spectacular, something special happens with it when you resize the viewport: as the available space changes, the grid nicely"
   }
 ]
