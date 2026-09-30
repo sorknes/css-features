@@ -112,7 +112,7 @@ export default function ExampleCard({
         )}
       </div>
 
-      <details className="group mx-4 mt-3 overflow-hidden rounded-md border border-border">
+      <details className="group mx-4 mt-3 mb-3 overflow-hidden rounded-md border border-border">
         <summary className="flex w-full cursor-pointer select-none list-none items-center gap-2 px-4 py-2.5 text-sm font-medium transition-colors [&::-webkit-details-marker]:hidden hover:bg-accent hover:text-accent-foreground group-open:bg-accent group-open:text-accent-foreground focus-visible:outline-offset-[-2px]">
           <BiCode aria-hidden="true" className="h-4 w-4 shrink-0" />
           View code
@@ -125,40 +125,42 @@ export default function ExampleCard({
         </div>
       </details>
 
-      <div className="mt-auto flex flex-col pt-3">
-        {example.browserSupport && (
-          <div className="flex flex-wrap items-center gap-1.5 px-4">
-            <span className="sr-only">Browser support:</span>
-            {BROWSER_LABELS.map(({ key, label, Icon }) => {
-              const version = example.browserSupport![key];
-              return (
-                <span
-                  key={key}
-                  className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
-                >
-                  <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-                  {label} {version ? `${version}+` : "—"}
-                </span>
-              );
-            })}
-          </div>
-        )}
+      {(example.browserSupport || example.caniuseSlug) && (
+        <div className="mt-auto flex flex-col gap-3 border-t border-border px-4 pt-3 pb-4">
+          {example.browserSupport && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="sr-only">Browser support:</span>
+              {BROWSER_LABELS.map(({ key, label, Icon }) => {
+                const version = example.browserSupport![key];
+                return (
+                  <span
+                    key={key}
+                    className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
+                  >
+                    <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                    {label} {version ? `${version}+` : "—"}
+                  </span>
+                );
+              })}
+            </div>
+          )}
 
-        {example.caniuseSlug && (
-          <div className={`border-t border-border px-4 py-3 text-sm ${example.browserSupport ? "mt-3" : ""}`}>
-            <a
-              href={`https://caniuse.com/${example.caniuseSlug}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
-            >
-              View on caniuse.com
-              <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          </div>
-        )}
-      </div>
+          {example.caniuseSlug && (
+            <div className="text-sm">
+              <a
+                href={`https://caniuse.com/${example.caniuseSlug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+              >
+                View on caniuse.com
+                <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </div>
+          )}
+        </div>
+      )}
     </article>
   );
 }
