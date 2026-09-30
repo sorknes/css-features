@@ -9,7 +9,7 @@ export default function SiteHeader({
   current,
   lastUpdated,
 }: {
-  current: "gallery" | "about";
+  current: "gallery" | "about" | "reading-list";
   lastUpdated: string | null;
 }) {
   const marqueeItems = [
@@ -61,6 +61,15 @@ export default function SiteHeader({
             }`}
           >
             About
+          </Link>
+          <Link
+            href="/reading-list"
+            aria-current={current === "reading-list" ? "page" : undefined}
+            className={`underline-offset-2 transition-colors hover:underline ${
+              current === "reading-list" ? "text-foreground" : "text-muted hover:text-foreground"
+            }`}
+          >
+            Reading List
           </Link>
         </nav>
         <a

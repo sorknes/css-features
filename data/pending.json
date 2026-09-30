@@ -1,18 +1,1 @@
-[
-  {
-    "url": "https://css-irl.info/aspect-ratio-is-great/",
-    "title": "Aspect Ratio is Great",
-    "sourceName": "CSS { In Real Life } (Michelle Barker)",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2022-02-08",
-    "excerpt": "Maybe it’s just me, but I feel like a lot of the time learning new CSS features doesn’t involve just learning a what a single property does, more like getting to grips with a collection of properties and how they work together — even learning a whole specification. That’s certainly not a complaint f"
-  },
-  {
-    "url": "https://css-irl.info/learning-about-css-3d-transforms/",
-    "title": "Learning About CSS 3D Transforms and Perspective",
-    "sourceName": "CSS { In Real Life } (Michelle Barker)",
-    "discoveredAt": "2026-08-19",
-    "publishedDate": "2020-09-15",
-    "excerpt": "3D transforms, despite being available in CSS for a while, are one area I’ve never understood well. I think if they were new to CSS now, I’d spend a lot more time playing around with them, like I have with Motion Path and some other new CSS features. As things stand, I’ve never had much cause to use"
-  }
-]
+[]
