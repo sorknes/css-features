@@ -60,6 +60,15 @@ export interface CssExample {
   replayable?: boolean;
 }
 
+export interface ReadingListItem {
+  title: string;
+  url: string;
+  sourceName: string;
+  /** One-line, original note on what the piece covers and why it's worth reading. */
+  note: string;
+  publishedDate: string | null;
+}
+
 export interface PendingItem {
   url: string;
   title: string;

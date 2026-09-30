@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Aspect Ratio is Great",
+    "url": "https://css-irl.info/aspect-ratio-is-great/",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "note": "A clear walkthrough of the aspect-ratio property: how it interacts with object-fit on replaced elements, replaces old padding-hack tricks, and where it still needs a fallback.",
+    "publishedDate": "2022-02-08"
+  },
+  {
+    "title": "Learning About CSS 3D Transforms and Perspective",
+    "url": "https://css-irl.info/learning-about-css-3d-transforms/",
+    "sourceName": "CSS { In Real Life } (Michelle Barker)",
+    "note": "A practical primer on perspective, transform-style: preserve-3d, and rotateX/rotateY for anyone who's never quite gotten comfortable with 3D transforms.",
+    "publishedDate": "2020-09-15"
+  }
+]
