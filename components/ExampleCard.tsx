@@ -125,38 +125,40 @@ export default function ExampleCard({
         </div>
       </details>
 
-      {example.browserSupport && (
-        <div className="mt-3 flex flex-wrap items-center gap-1.5 px-4">
-          <span className="sr-only">Browser support:</span>
-          {BROWSER_LABELS.map(({ key, label, Icon }) => {
-            const version = example.browserSupport![key];
-            return (
-              <span
-                key={key}
-                className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
-              >
-                <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-                {label} {version ? `${version}+` : "—"}
-              </span>
-            );
-          })}
-        </div>
-      )}
+      <div className="mt-auto flex flex-col pt-3">
+        {example.browserSupport && (
+          <div className="flex flex-wrap items-center gap-1.5 px-4">
+            <span className="sr-only">Browser support:</span>
+            {BROWSER_LABELS.map(({ key, label, Icon }) => {
+              const version = example.browserSupport![key];
+              return (
+                <span
+                  key={key}
+                  className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
+                >
+                  <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                  {label} {version ? `${version}+` : "—"}
+                </span>
+              );
+            })}
+          </div>
+        )}
 
-      {example.caniuseSlug && (
-        <div className="mt-3 border-t border-border px-4 py-3 text-sm">
-          <a
-            href={`https://caniuse.com/${example.caniuseSlug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
-          >
-            View on caniuse.com
-            <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        </div>
-      )}
+        {example.caniuseSlug && (
+          <div className={`border-t border-border px-4 py-3 text-sm ${example.browserSupport ? "mt-3" : ""}`}>
+            <a
+              href={`https://caniuse.com/${example.caniuseSlug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+            >
+              View on caniuse.com
+              <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        )}
+      </div>
     </article>
   );
 }
