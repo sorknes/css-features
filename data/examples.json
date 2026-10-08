@@ -1781,5 +1781,28 @@
       "edge": "131"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "if-supports-fallback-notice",
+    "title": "A CSS-only browser support notice with if(supports())",
+    "description": "The supports() test inside if() picks a value based on whether the browser understands a property/value pair, so a pseudo-element's content can show an unsupported-feature warning with no JavaScript. The catch: a browser that doesn't know if() throws away the entire declaration, so the else branch never runs there. Put a plain fallback declaration before the if() one and the warning reaches the browsers that actually need it.",
+    "category": "functions-values",
+    "cssFeature": "if(supports())",
+    "demo": {
+      "html": "<div class=\"panels\">\n  <figure class=\"panel\">\n    <figcaption><code>if()</code> only</figcaption>\n    <div class=\"notice naive\"></div>\n  </figure>\n  <figure class=\"panel\">\n    <figcaption>Fallback first, then <code>if()</code></figcaption>\n    <div class=\"notice safe\"></div>\n  </figure>\n</div>\n<p class=\"note\">Both boxes test <code>interpolate-size</code> with <code>if(supports(...))</code>. Where <code>if()</code> itself is unknown, the left box's declaration is dropped and it renders nothing; the right box falls back to the plain warning. (A real notice would use <code>\"\"</code> for the supported branch — the demo prints a muted line so you can see which branch ran.)</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.panels { display: flex; flex-wrap: wrap; gap: 1rem; }\n.panel { margin: 0; flex: 1 1 200px; max-width: 260px; }\nfigcaption { font-size: 0.8rem; color: #4b5563; margin-bottom: 0.4rem; }\n.notice { min-height: 3.25rem; padding: 0.6rem 0.75rem; border: 1px dashed #93c5fd; border-radius: 8px; font-size: 0.85rem; line-height: 1.35; display: flex; align-items: center; }\n\n/* As in the original snippet: no fallback. Browsers without if()\n   drop the whole declaration, so the warning never appears. */\n.naive::after {\n  content: if(\n    supports(interpolate-size: allow-keywords): \"✓ Supported — no notice needed\";\n    else: \"⚠️ Your browser doesn't support interpolate-size\"\n  );\n}\n\n/* Plain declaration first; if() overrides it only where if() parses. */\n.safe::after {\n  content: \"⚠️ Your browser doesn't support interpolate-size\";\n  content: if(\n    supports(interpolate-size: allow-keywords): \"✓ Supported — no notice needed\";\n    else: \"⚠️ Your browser doesn't support interpolate-size\"\n  );\n}\n\n.note { margin-top: 1rem; font-size: 0.8rem; color: #4b5563; max-width: 540px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-10-08",
+    "crawledDate": "2026-10-08",
+    "caniuseSlug": "css-if",
+    "browserSupport": {
+      "chrome": "137",
+      "firefox": false,
+      "safari": false,
+      "edge": "137"
+    },
+    "tailwindEquivalent": null
   }
 ]
