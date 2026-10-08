@@ -1804,5 +1804,28 @@
       "edge": "137"
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "anchor-size-nav-underline",
+    "title": "A sliding nav underline with anchor() and anchor-size()",
+    "description": "Give whichever nav link is active an anchor-name, and a single underline element can read that link's left edge with anchor(left) and its width with anchor-size(width) — no measuring with getBoundingClientRect(). Because those are ordinary left and width values, a plain transition slides and resizes the line when the anchor moves to another link. Here a :has() selector hands the anchor to the hovered or focused link and back to the current page, so it works with zero JavaScript. Where the link changing to 'active' is driven by a router, the CSS stays the same.",
+    "category": "layout",
+    "cssFeature": "anchor(), anchor-size()",
+    "demo": {
+      "html": "<nav class=\"nav\">\n  <a href=\"#overview\">Overview</a>\n  <a href=\"#docs\" aria-current=\"page\">Docs</a>\n  <a href=\"#examples\">Examples</a>\n  <a href=\"#changelog\">Changelog</a>\n  <span class=\"underline\" aria-hidden=\"true\"></span>\n</nav>\n<p class=\"note\">Hover or tab through the links. The underline is a single element that follows whichever link currently holds <code>anchor-name</code>, and falls back to the current page when you leave the nav.</p>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 2rem; background: #fff; color: #111827; }\n.nav { position: relative; display: flex; flex-wrap: wrap; gap: 0.25rem; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; }\n.nav a { padding: 0.5rem 0.75rem; color: #374151; text-decoration: none; border-radius: 6px; font-weight: 500; }\n.nav a:hover, .nav a:focus-visible { color: #2563eb; }\n.nav a[aria-current=\"page\"] { color: #2563eb; }\n\n/* Exactly one link holds the anchor name at a time: the hovered or\n   focused one, or the current page when nothing else is targeted. */\n.nav:not(:has(a:hover, a:focus-visible)) a[aria-current=\"page\"],\n.nav a:hover,\n.nav a:focus-visible {\n  anchor-name: --active-link;\n}\n\n.underline {\n  position: absolute;\n  position-anchor: --active-link;\n  top: anchor(bottom);\n  left: anchor(left);\n  width: anchor-size(width);\n  height: 3px;\n  border-radius: 3px;\n  background: #2563eb;\n  transition: left 0.3s ease, width 0.3s ease;\n}\n\n/* No anchor positioning: underline the current page statically. */\n@supports not (anchor-name: --x) {\n  .underline { display: none; }\n  .nav a[aria-current=\"page\"] { text-decoration: underline 3px #2563eb; text-underline-offset: 0.6em; }\n}\n\n.note { margin-top: 1rem; font-size: 0.8rem; color: #4b5563; max-width: 420px; }\ncode { background: #f3f4f6; padding: 0 0.25rem; border-radius: 4px; }"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-10-08",
+    "crawledDate": "2026-10-08",
+    "caniuseSlug": "css-anchor-positioning",
+    "browserSupport": {
+      "chrome": false,
+      "firefox": false,
+      "safari": "27",
+      "edge": false
+    },
+    "tailwindEquivalent": null
   }
 ]
