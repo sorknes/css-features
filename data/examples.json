@@ -1827,5 +1827,28 @@
       "edge": false
     },
     "tailwindEquivalent": null
+  },
+  {
+    "id": "has-layout-switcher",
+    "title": "Switching grid layouts with radio inputs and :has()",
+    "description": "A Grid / Compact / List toggle for a product listing, built without any JavaScript. The toggle is just a group of radio inputs; the wrapping container uses :has(input[value=\"…\"]:checked) to find out which one is selected and swaps the product grid's grid-template-columns accordingly — three columns by default, a denser four-column grid in compact mode, and a single column of horizontal cards in list mode. Because they're real radios, the switcher is keyboard-navigable with arrow keys for free. The same pattern works for galleries, dashboards, or blog indexes.",
+    "category": "selectors-combinators",
+    "cssFeature": ":has(), :checked, grid-template-columns",
+    "demo": {
+      "html": "<div class=\"shop\">\n  <fieldset class=\"switcher\">\n    <legend>Layout</legend>\n    <label><input type=\"radio\" name=\"layout\" value=\"grid\" checked> Grid</label>\n    <label><input type=\"radio\" name=\"layout\" value=\"compact\"> Compact</label>\n    <label><input type=\"radio\" name=\"layout\" value=\"list\"> List</label>\n  </fieldset>\n  <div class=\"products\">\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 210\"></div>\n      <div class=\"info\">\n        <h3>Lamp</h3>\n        <p>$19.00</p>\n      </div>\n    </article>\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 25\"></div>\n      <div class=\"info\">\n        <h3>Notebook</h3>\n        <p>$26.00</p>\n      </div>\n    </article>\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 150\"></div>\n      <div class=\"info\">\n        <h3>Mug</h3>\n        <p>$33.00</p>\n      </div>\n    </article>\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 280\"></div>\n      <div class=\"info\">\n        <h3>Clock</h3>\n        <p>$40.00</p>\n      </div>\n    </article>\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 45\"></div>\n      <div class=\"info\">\n        <h3>Plant</h3>\n        <p>$47.00</p>\n      </div>\n    </article>\n    <article class=\"card\">\n      <div class=\"thumb\" style=\"--h: 330\"></div>\n      <div class=\"info\">\n        <h3>Bottle</h3>\n        <p>$54.00</p>\n      </div>\n    </article>\n  </div>\n</div>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 1rem; background: #fff; color: #111827; }\n.switcher {\n  display: inline-flex;\n  gap: 0.25rem;\n  padding: 0.25rem;\n  margin: 0 0 0.75rem;\n  border: 1px solid #e5e7eb;\n  border-radius: 999px;\n}\n.switcher legend {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip-path: inset(50%);\n}\n.switcher label {\n  padding: 0.25rem 0.65rem;\n  border-radius: 999px;\n  font-size: 0.8rem;\n  cursor: pointer;\n  transition: background 0.15s, color 0.15s;\n}\n.switcher input {\n  position: absolute;\n  opacity: 0;\n  pointer-events: none;\n}\n.switcher label:has(:checked) { background: #2563eb; color: #fff; }\n.switcher label:has(:focus-visible) { outline: 2px solid #2563eb; outline-offset: 2px; }\n\n/* Default: regular grid */\n.products {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 0.5rem;\n}\n.card {\n  border: 1px solid #e5e7eb;\n  border-radius: 0.5rem;\n  overflow: hidden;\n}\n.thumb {\n  height: 2.5rem;\n  background: linear-gradient(135deg, hsl(var(--h) 80% 70%), hsl(var(--h) 70% 50%));\n}\n.info { padding: 0.35rem 0.5rem; min-width: 0; }\n.info h3 { margin: 0; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n.info p { margin: 0.15rem 0 0; font-size: 0.75rem; color: #2563eb; font-weight: 600; }\n\n/* The parent reacts to whichever radio is :checked */\n.shop:has(input[value=\"compact\"]:checked) .products {\n  grid-template-columns: repeat(4, 1fr);\n  gap: 0.35rem;\n}\n.shop:has(input[value=\"compact\"]:checked) .info h3 { font-size: 0.7rem; }\n.shop:has(input[value=\"compact\"]:checked) .info p { display: none; }\n\n.shop:has(input[value=\"list\"]:checked) .products {\n  grid-template-columns: 1fr;\n  gap: 0.35rem;\n}\n.shop:has(input[value=\"list\"]:checked) .card {\n  display: grid;\n  grid-template-columns: 3rem 1fr;\n  align-items: center;\n}\n.shop:has(input[value=\"list\"]:checked) .thumb { height: 100%; }"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-10-09",
+    "crawledDate": "2026-10-09",
+    "caniuseSlug": "css-has",
+    "browserSupport": {
+      "chrome": "105",
+      "firefox": "121",
+      "safari": "15.4",
+      "edge": "105"
+    },
+    "tailwindEquivalent": "Tailwind's has-[] variant, e.g. has-[input[value=compact]:checked]:grid-cols-4 on the container (or group-has-[…] on a child)."
   }
 ]
