@@ -48,7 +48,7 @@ typography:
     fontVariation: "'wdth' 88"
   title-card:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.375rem"
+    fontSize: "1.5rem"
     fontWeight: 800
     lineHeight: 1.05
     letterSpacing: "-0.02em"
@@ -67,9 +67,14 @@ typography:
     lineHeight: 1.625
   body-card:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.9375rem"
+    fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.625
+  row:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.47
   body-small:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
@@ -77,18 +82,18 @@ typography:
     lineHeight: 1.43
   caption:
     fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.75rem"
+    fontSize: "0.8125rem"
     fontWeight: 400
-    lineHeight: 1.33
+    lineHeight: 1.54
   label:
     fontFamily: "Geist Mono, ui-monospace, monospace"
-    fontSize: "0.75rem"
+    fontSize: "0.8125rem"
     fontWeight: 400
-    lineHeight: 1.33
+    lineHeight: 1.38
     letterSpacing: "0.04em"
   code:
     fontFamily: "Geist Mono, ui-monospace, monospace"
-    fontSize: "0.75rem"
+    fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.625
 rounded:
@@ -252,14 +257,15 @@ Warm paper and ink with a single deep forest green that means "act here" or "thi
 - **Display, stat** (800, 2.25rem rising to 3rem from 640px, 1): The About page's figure cells.
 - **Headline** (800, 1.875rem, 1.05): The empty-results message.
 - **Headline, section** (800, 1.5rem, 1): About page section headings.
-- **Title, card** (800, 1.375rem, 1.05, balanced): Feature names on gallery cells.
+- **Title, card** (800, 1.5rem, 1.05, balanced): Feature names on gallery cells.
 - **Title, list** (800, 1.25rem): The CSS EDGE wordmark (line-height 1) and reading-list entry titles (1.25).
 - **Body** (400, 1rem, 1.625, max about 42rem): About and reading-list prose, the search field text.
-- **Body, card** (400, 0.9375rem, 1.625): Feature descriptions on cards, always shown in full.
-- **Body, small** (400, 0.875rem): Filter option rows, the Tailwind line, footer source links, reading-list notes.
-- **Caption** (400, 0.75rem): Source and date lines, the "not yet tracked" note, the readiness help text.
-- **Label** (Geist Mono 400, 0.75rem, 1rem line, 0.04em, uppercase): Every tag, control label, count, nav cell, group legend, ticker item and the skip link.
-- **Code** (Geist Mono 400, 0.75rem, 1.625, wrapping): Code blocks and the feature line under card titles (sentence case, not uppercase).
+- **Body, card** (400, 1rem, 1.625): Feature descriptions on cards, clamped to three lines with More/Less.
+- **Row** (400, 0.9375rem, `text-row`): Filter option rows.
+- **Body, small** (400, 0.875rem): The Tailwind line, footer source links, reading-list notes.
+- **Caption** (400, 0.8125rem, `text-meta`): Source and date lines, the "not yet tracked" note, the readiness help text.
+- **Label** (Geist Mono 400, 0.8125rem, 1.125rem line, 0.04em, uppercase): Every tag, control label, count, nav cell, group legend, ticker item and the skip link.
+- **Code** (Geist Mono 400, 0.8125rem, 1.625, wrapping): Code blocks and the feature line under card titles (sentence case, not uppercase).
 
 All display, headline and title roles share one treatment: weight 800, width 88%, uppercase, -0.02em tracking. Emphasis inside prose uses weight 600.
 
@@ -343,7 +349,7 @@ On About and Reading list, the left rail holds a forest disc (80px, 96px from 64
 - **Do** keep every corner square; reserve the circle for the solid forest disc.
 - **Do** use forest for every selected, ready, primary or link state, and nothing else.
 - **Do** code readiness by shape as well as colour: solid forest, outlined forest, dashed ink.
-- **Do** set names in heavy condensed uppercase Archivo (800, wdth 88, -0.02em) and every label in Geist Mono uppercase at 0.75rem with 0.04em tracking.
+- **Do** set names in heavy condensed uppercase Archivo (800, wdth 88, -0.02em) and every label in Geist Mono uppercase at 0.8125rem with 0.04em tracking.
 - **Do** give every standalone control an ink edge or a forest fill and a 44px minimum target.
 - **Do** put demos on drawing paper (paper) inside a ruled panel, and let them keep their own blue.
 

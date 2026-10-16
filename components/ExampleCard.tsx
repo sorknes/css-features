@@ -118,12 +118,12 @@ export default function ExampleCard({
       </div>
 
       <div className="px-5 pt-4">
-        <h2 className="font-display text-[1.375rem] leading-[1.05] text-balance">
+        <h2 className="font-display text-2xl leading-[1.05] text-balance">
           <a href={`#${example.id}`} className="underline-offset-4 hover:underline">
             {example.title}
           </a>
         </h2>
-        <p className="mt-2.5 flex items-center gap-1.5 font-mono text-xs text-muted">
+        <p className="mt-2.5 flex items-center gap-1.5 font-mono text-meta text-muted">
           <BiCodeCurly aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
           {example.cssFeature}
         </p>
@@ -155,7 +155,7 @@ export default function ExampleCard({
         <p
           ref={descriptionRef}
           id={`${example.id}-description`}
-          className={`text-[0.9375rem] leading-relaxed ${expanded ? "" : "line-clamp-3"}`}
+          className={`text-base leading-relaxed ${expanded ? "" : "line-clamp-3"}`}
         >
           {example.description}
         </p>
@@ -219,14 +219,14 @@ export default function ExampleCard({
               })}
             </div>
           ) : (
-            <p className="text-xs text-muted">Browser support not yet tracked on caniuse</p>
+            <p className="text-meta text-muted">Browser support not yet tracked on caniuse</p>
           )}
 
           <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
             {isManualSource(example.sourceUrl) ? (
-              <p className="text-xs text-muted">Added manually</p>
+              <p className="text-meta text-muted">Added manually</p>
             ) : (
-              <p className="text-xs text-muted">
+              <p className="text-meta text-muted">
                 From{" "}
                 <a
                   href={example.sourceUrl}

@@ -55,7 +55,7 @@ function OptionRow({
       aria-pressed={selected}
       disabled={disabled}
       onClick={onToggle}
-      className="flex min-h-11 w-full items-center gap-3 px-4 text-left text-sm transition-colors enabled:hover:bg-surface disabled:cursor-not-allowed disabled:text-muted"
+      className="flex min-h-11 w-full items-center gap-3 px-4 text-left text-row transition-colors enabled:hover:bg-surface disabled:cursor-not-allowed disabled:text-muted"
     >
       <span
         aria-hidden="true"
@@ -246,7 +246,7 @@ export default function FilterBar({
             >
               Browser support
             </GroupHeading>
-            <p id="support-level-help" className="px-4 pb-2 text-xs leading-relaxed text-muted">
+            <p id="support-level-help" className="px-4 pb-2 text-meta leading-relaxed text-muted">
               Production ready means full support in Chrome, Edge, Firefox and Safari, on browsers used by at least{" "}
               {PRODUCTION_READY_MIN_USAGE}% of people. A dashed browser chip means partial support.
             </p>
