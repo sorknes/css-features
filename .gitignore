@@ -44,3 +44,6 @@ next-env.d.ts
 # settings.local.json holds personal Claude Code hooks
 .claude/skills/impeccable/scripts/bin/
 .claude/settings.local.json
+
+# impeccable: local critique snapshots (per-run scores and reports)
+.impeccable/critique/
