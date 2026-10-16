@@ -214,7 +214,7 @@ The world refuses the category default of rounded floating cards on a grey canva
 - Heavy condensed uppercase Archivo for names; mono uppercase for every label.
 - Readiness is shape-coded: solid forest, outlined forest, dashed ink.
 - Flat: no shadows for depth; the drawing paper panel is set into the sheet, not lifted.
-- Motion is limited to the ticker, short colour transitions and the mobile filter drawer.
+- Motion has one authored moment: filter and sort changes glide each sheet cell to its new place (View Transitions, 400ms on cubic-bezier(0.16, 1, 0.3, 1)); cells that arrive are drawn in top to bottom with a clip-path, cells that leave fade out in 150ms. Supporting motion: the code disclosure opens with ::details-content + interpolate-size (300ms in, 200ms out), the mobile drawer slides in over 300ms and out over 200ms with a fading backdrop, the ticker, and 150ms colour feedback (filter boxes, Copy turning forest when it succeeds). Reduced motion skips the cell transition and the disclosure animation and keeps colour feedback.
 
 ## Colors
 
@@ -354,4 +354,4 @@ On About and Reading list, the left rail holds a forest disc (80px, 96px from 64
 - **Don't** introduce a second interface hue, including green/amber/red status colours.
 - **Don't** use dashed edges except for Experimental readiness and partial browser support.
 - **Don't** add type sizes outside the documented ramp.
-- **Don't** animate anything beyond the ticker, 150ms colour transitions and the drawer slide.
+- **Don't** add motion beyond the cell glide on filter/sort, the code disclosure, the drawer, the ticker and 150ms colour feedback; no page-load choreography, scroll reveals or hover lifts.
