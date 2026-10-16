@@ -6,7 +6,6 @@ import type { Category } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import {
   PRODUCTION_READY_MIN_USAGE,
-  SUPPORT_LEVELS,
   SUPPORT_LEVEL_STYLES,
   type SupportLevel,
 } from "@/lib/supportLevel";
@@ -19,6 +18,7 @@ interface FilterBarProps {
   selectedSupportLevels: Set<SupportLevel>;
   onToggleSupportLevel: (level: SupportLevel) => void;
   onClearSupportLevels: () => void;
+  supportLevels: { value: SupportLevel; label: string }[];
   supportLevelCounts: Partial<Record<SupportLevel, number>>;
   newOnly: boolean;
   onNewOnlyChange: (value: boolean) => void;
@@ -43,6 +43,7 @@ export default function FilterBar({
   selectedSupportLevels,
   onToggleSupportLevel,
   onClearSupportLevels,
+  supportLevels,
   supportLevelCounts,
   newOnly,
   onNewOnlyChange,
@@ -249,7 +250,7 @@ export default function FilterBar({
               {PRODUCTION_READY_MIN_USAGE}% of people. A dashed browser chip means partial support.
             </p>
             <div className="flex flex-col divide-y divide-border">
-              {SUPPORT_LEVELS.map((level) => {
+              {supportLevels.map((level) => {
                 const isSelected = selectedSupportLevels.has(level.value);
                 const count = supportLevelCounts[level.value] ?? 0;
                 return (

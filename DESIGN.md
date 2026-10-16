@@ -232,7 +232,7 @@ Corners scale with an element's role. **Pills** (full radius) are used for every
 The station on the bench, quiet and complete.
 - **Corner Style:** 8px; the card clips its children.
 - **Background:** Bench Grey (the same as the page), with a 1px Hairline border.
-- **Structure, top to bottom:** a tag row (NEW, category, support level) separated by a hairline; title; the CSS feature in mono with a curly-brace icon; an optional "Tailwind:" note; the description; the live demo frame; the "View code" drawer; a footer with browser version chips and a "View on caniuse.com" link, set off by a hairline.
+- **Structure, top to bottom:** a tag row (NEW, category, support level) separated by a hairline; title; the CSS feature in mono with a curly-brace icon; an optional "Tailwind:" note; the description; the live demo frame; the "View code" drawer; a footer with browser version chips, a source line ("From *source* · *date*", or "Added manually" for hand-added examples whose source is the site itself or a post with no public link) and a "View on caniuse.com" link, set off by a hairline.
 - **Internal Padding:** 16px on the sides, with 12px vertical steps between parts.
 
 ### Demo Frame
@@ -242,7 +242,7 @@ The station on the bench, quiet and complete.
 ### Tags
 - **Category:** a Tray Grey pill with a Pencil Grey border and Graphite text.
 - **NEW:** a Bench Black pill with white text, semibold and uppercase.
-- **Support level:** a signal pair (wash fill with a border and text in the same hue), followed by the global usage figure when known ("Production ready · 94%"). The same styling is reused for the selected state of the sidebar filter.
+- **Support level:** a signal pair (wash fill with a border and text in the same hue), followed by the global usage figure for full support ("Production ready · 94%"), "usage n/a" when it isn't tracked, and nothing when it's 0% but some browser has partial support. Support levels with no examples are left out of the filters. The same styling is reused for the selected state of the sidebar filter.
 - **Browser version chip:** a 4px-radius chip with a hairline border, the browser logo and "Chrome 125+" (or an em dash when unsupported). Partial support (caniuse "a") uses a dashed Pencil Grey border and reads "Chrome 125+ partial", with "partial" in Pencil Grey. Partial support counts toward Growing support, never Production ready. When an example has no support data, the chip row is replaced by "Browser support not yet tracked on caniuse".
 
 ### Buttons
