@@ -127,13 +127,13 @@ components:
   button-outline-hover:
     backgroundColor: "{colors.forest}"
     textColor: "{colors.forest-foreground}"
-  disclosure-code:
+  code-trigger:
     backgroundColor: "{colors.background}"
     textColor: "{colors.foreground}"
     typography: "{typography.label}"
     rounded: "{rounded.none}"
     height: "{spacing.control}"
-  disclosure-code-open:
+  code-trigger-open:
     backgroundColor: "{colors.foreground}"
     textColor: "{colors.background}"
   tag-production-ready:
@@ -219,7 +219,7 @@ The world refuses the category default of rounded floating cards on a grey canva
 - Heavy condensed uppercase Archivo for names; mono uppercase for every label.
 - Readiness is shape-coded: solid forest, outlined forest, dashed ink.
 - Flat: no shadows for depth; the drawing paper panel is set into the sheet, not lifted.
-- Motion has one authored moment: filter and sort changes glide each sheet cell to its new place (View Transitions, 400ms on cubic-bezier(0.16, 1, 0.3, 1)); cells that arrive are drawn in top to bottom with a clip-path, cells that leave fade out in 150ms. Supporting motion: the code disclosure opens with ::details-content + interpolate-size (300ms in, 200ms out), the mobile drawer slides in over 300ms and out over 200ms with a fading backdrop, the ticker, and 150ms colour feedback (filter boxes, Copy turning forest when it succeeds). Reduced motion skips the cell transition and the disclosure animation and keeps colour feedback.
+- Motion has one authored moment: filter and sort changes glide each sheet cell to its new place (View Transitions, 400ms on cubic-bezier(0.16, 1, 0.3, 1)); cells that arrive are drawn in top to bottom with a clip-path, cells that leave fade out in 150ms. Supporting motion: the code popover fades and rises in over 250ms (@starting-style) and out over 150ms, the mobile drawer slides in over 300ms and out over 200ms with a fading backdrop, the ticker, and 150ms colour feedback (filter boxes, Copy turning forest when it succeeds). Reduced motion skips the cell transition and keeps colour feedback.
 
 ## Colors
 
@@ -231,7 +231,7 @@ Warm paper and ink with a single deep forest green that means "act here" or "thi
 
 ### Neutral
 - **Cream Sheet** (background): The page ground and the fill of every cell, header band, rail and drawer.
-- **Sheet Ink** (foreground): All primary text, the edges of operable controls (outlined buttons, search input, sort select, code disclosure), the dashed Experimental tag, the New tag fill, and the open code-disclosure bar.
+- **Sheet Ink** (foreground): All primary text, the edges of operable controls (outlined buttons, search input, sort select, View code button, code popover), the dashed Experimental tag, the New tag fill and the open View code button.
 - **Pencil** (muted): Secondary text: counts, inactive nav cells, category tags, source lines, helper copy, placeholder text, the "partial" note and the dashed partial-support chip edge. Holds 5.2:1 or better on cream, surface and paper.
 - **Warm Rule** (border): Hairline dividers between cells and regions, and the edge of passive chips (category tag, browser chips) and the demo panel. Decorative at 1.37:1 against cream; never the only edge of a standalone control.
 - **Tray** (surface): Hover fill for nav cells, option rows, reading-list rows and outlined secondary buttons; the code block background; the scrollbar track.
@@ -242,7 +242,7 @@ Warm paper and ink with a single deep forest green that means "act here" or "thi
 
 **The Demo Blue Rule.** Demos keep their own blue accent (#2563eb), and the interface never uses it. Blue inside a demo panel is the feature; blue in the frame would compete with it.
 
-**The Ink Edge Rule.** A standalone control (button, input, select, disclosure) has a sheet-ink edge or a forest fill. Warm rules divide cells and frame passive chips; they never carry an interactive edge alone.
+**The Ink Edge Rule.** A standalone control (button, input, select, popover) has a sheet-ink edge or a forest fill. Warm rules divide cells and frame passive chips; they never carry an interactive edge alone.
 
 ## Typography
 
@@ -278,7 +278,7 @@ All display, headline and title roles share one treatment: weight 800, width 88%
 
 The page is one sheet. The header is a ruled band: a 56px wordmark cell, nav as mono cells (44px tall, full-width equal cells on a second row below 640px, inline from 640px), and a GitHub cell pushed right; under it, a full-width mono ticker strip. Below the header, the gallery runs as a row: the filter rail (288px, right rule, sticky at full viewport height from 1024px; an off-canvas drawer below 1024px) beside a results column.
 
-The results column starts with a ruled results bar (live count, Clear all filters, Sort select) and then the card grid immediately: one column, two from 640px, three from 1280px, four from 1536px. Cells have no gap; each cell draws its own bottom and right rule so rules collapse into a single hairline grid. Inside a cell, content sits on a 20px inset: tag row, title, feature line, then the 260px demo panel, description, the code disclosure, and a bottom zone separated by a full-bleed rule.
+The results column starts with a ruled results bar (live count, Clear all filters, Sort select) and then the card grid immediately: one column, two from 640px, three from 1280px, four from 1536px. Cells have no gap; each cell draws its own bottom and right rule so rules collapse into a single hairline grid. Inside a cell, content sits on a 20px inset: tag row, title, feature line, then the 300px demo panel, the clamped description, and a bottom zone pinned to the cell's foot: a full-bleed rule, browser chips, source line, and the View code button last.
 
 Reading pages (About, Reading list) reuse the sheet: a 288px left rail holding a large forest disc and the page title, and a body column of ruled cells divided by hairlines, each padded 40px vertically and 16/24/40px horizontally by breakpoint, with prose capped near 42rem.
 
@@ -286,10 +286,10 @@ Spacing steps by 4px (4, 8, 12, 16), with 20px cell insets, 24px band gutters fr
 
 ## Elevation & Depth
 
-The system is flat. Depth comes from rules and from the paper panel set into the cream sheet, never from shadows. The one blurred shadow in the build is a cream fade on the ticker's pause button, which masks scrolling text behind it; it is a fade, not elevation. The mobile filter drawer is a full-height cream panel with a right rule over a 40% ink scrim.
+The system is flat. Depth comes from rules and from the paper panel set into the cream sheet, never from shadows. Two blurred shadows exist. The ticker's pause button carries a cream fade that masks scrolling text behind it; it is a fade, not elevation. The code popover is the one element that floats over live content, so it carries a soft ink shadow (0 16px 40px -16px, 35% ink) on top of its 1px ink edge. The mobile filter drawer is a full-height cream panel with a right rule over a 40% ink scrim.
 
 ### Named Rules
-**The Set-In Rule.** Panels are set into the sheet with a 1px rule, never lifted off it. No drop shadows, no hover lift, no glow.
+**The Set-In Rule.** Panels are set into the sheet with a 1px rule, never lifted off it. No drop shadows, no hover lift, no glow. The only exception is the code popover, which floats above other cells.
 
 ## Shapes
 
@@ -324,8 +324,13 @@ Rectangular, ruled and quiet until touched.
 - **Border:** Bottom and right warm rules only, so adjacent cells share one hairline.
 - **Internal Padding:** 20px inset; the footer zone's top rule bleeds to the cell edges.
 
-### Code disclosure
-A full-width ink-edged bar reading "View code" with a 44px chevron cell behind a vertical rule. Hover and open states invert to an ink field with cream text; the chevron rotates 180deg when open. Inside, HTML/CSS/JS blocks on tray with a pencil mono label and an outline Copy button each.
+### Code popover
+"View code" is a full-width ink-edged button at the bottom of each cell (mono label, 44px arrow cell behind a vertical rule); hover and open states invert to an ink field with cream text. It opens a `popover="auto"` panel (Esc and outside click close it, focus returns to the button) that never moves the grid:
+- **From 640px, with CSS anchor positioning:** beside the button (`position-area: right span-top`, growing upward from the button's bottom edge), flipping left when the right side has no room (`flip-inline`), above as a last resort; up to 36rem wide and 40rem tall.
+- **Without anchor positioning:** the browser's centred popover.
+- **Below 640px:** a full-width bottom sheet, up to 85dvh.
+
+Inside: a sticky ink-ruled header with the feature line in mono and a 44px close cell, then HTML/CSS/JS blocks on tray, each with a pencil mono label and an outline Copy button.
 
 ### Inputs / Fields
 - **Style:** Drawing-paper fill, 1px ink edge, square corners. Search carries a pencil magnifier inset at 12px and 16px text; Sort is a mono select with a custom ink chevron.
@@ -355,9 +360,9 @@ On About and Reading list, the left rail holds a forest disc (80px, 96px from 64
 
 ### Don't:
 - **Don't** use rounded cards, pill tags or floating cards on a grey canvas.
-- **Don't** add drop shadows, hover lift or glow; panels are set in, not raised.
+- **Don't** add drop shadows, hover lift or glow; panels are set in, not raised. The code popover is the single floating exception.
 - **Don't** use the demo blue (#2563eb) anywhere in the interface frame.
 - **Don't** introduce a second interface hue, including green/amber/red status colours.
 - **Don't** use dashed edges except for Experimental readiness and partial browser support.
 - **Don't** add type sizes outside the documented ramp.
-- **Don't** add motion beyond the cell glide on filter/sort, the code disclosure, the drawer, the ticker and 150ms colour feedback; no page-load choreography, scroll reveals or hover lifts.
+- **Don't** add motion beyond the cell glide on filter/sort, the code popover, the drawer, the ticker and 150ms colour feedback; no page-load choreography, scroll reveals or hover lifts.
