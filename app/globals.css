@@ -21,6 +21,12 @@
   --color-paper: var(--paper);
   --color-forest: var(--forest);
   --color-forest-foreground: var(--forest-foreground);
+  /* Type roles below body size: meta = metadata and secondary lines (13px),
+     row = filter option rows and card descriptions sit at body/near-body size. */
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.25rem;
+  --text-row: 0.9375rem;
+  --text-row--line-height: 1.375rem;
   --font-sans: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
 }
@@ -54,8 +60,8 @@ body {
 /* Mono uppercase: every label, tag, control, count and the ticker. */
 .label {
   font-family: var(--font-geist-mono);
-  font-size: 0.75rem;
-  line-height: 1rem;
+  font-size: var(--text-meta);
+  line-height: 1.125rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -99,7 +105,7 @@ body {
   padding: 0.75rem 1.25rem;
   font-family: var(--font-geist-mono);
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: var(--text-meta);
 }
 
 .skip-link:focus {

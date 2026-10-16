@@ -35,7 +35,7 @@ export default function CodeBlock({ label, code }: { label: string; code: string
           {copied ? `${label} code copied` : ""}
         </span>
       </div>
-      <pre className="bg-surface p-3 text-xs leading-relaxed break-words whitespace-pre-wrap">
+      <pre className="bg-surface p-3 text-meta leading-relaxed break-words whitespace-pre-wrap">
         <code className="font-mono">{code}</code>
       </pre>
     </div>
