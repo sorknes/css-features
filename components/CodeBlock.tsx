@@ -24,7 +24,7 @@ export default function CodeBlock({ label, code }: { label: string; code: string
           type="button"
           onClick={handleCopy}
           aria-live="polite"
-          className="inline-flex items-center gap-1 rounded-full border border-border bg-white px-2.5 py-1 text-xs font-medium text-foreground hover:bg-surface"
+          className="relative inline-flex items-center gap-1 rounded-full border border-border bg-paper px-2.5 py-1 text-xs font-medium text-foreground after:absolute after:-inset-2 after:content-[''] hover:bg-surface"
         >
           {copied ? <BiCheck aria-hidden="true" className="h-3.5 w-3.5" /> : <BiCopy aria-hidden="true" className="h-3.5 w-3.5" />}
           {copied ? "Copied!" : "Copy"}

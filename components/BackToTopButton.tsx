@@ -24,7 +24,7 @@ export default function BackToTopButton() {
       aria-label="Back to top"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      className={`fixed right-6 bottom-6 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black bg-accent text-accent-foreground shadow-lg transition-opacity duration-200 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
+      className={`fixed right-6 bottom-6 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-accent bg-accent text-accent-foreground shadow-lg transition-opacity duration-200 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${
         visible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >

@@ -58,11 +58,11 @@ export default function ExampleCard({
   const [replayKey, setReplayKey] = useState(0);
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-background">
+    <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-background [contain-intrinsic-size:auto_640px] [content-visibility:auto]">
       <div className="flex flex-wrap items-center gap-2 border-b border-border px-4 pt-4 pb-3">
         {isNew && (
           <span
-            className="rounded-full border border-black bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground"
+            className="rounded-full border border-accent bg-accent px-2.5 py-1 text-xs font-semibold text-accent-foreground"
             aria-label="New addition to the gallery"
           >
             NEW
@@ -98,13 +98,13 @@ export default function ExampleCard({
           title={`Live demo: ${example.title}`}
           sandbox={example.demo.js ? "allow-scripts" : ""}
           loading="lazy"
-          className="h-[240px] w-full bg-white"
+          className="h-[240px] w-full bg-paper"
         />
         {example.replayable && (
           <button
             type="button"
             onClick={() => setReplayKey((k) => k + 1)}
-            className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border border-border bg-white/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur hover:bg-white"
+            className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border border-border bg-paper/90 px-2.5 py-1 text-xs font-medium text-foreground shadow-sm backdrop-blur after:absolute after:-inset-2 after:content-[''] hover:bg-paper"
           >
             <BiRefresh aria-hidden="true" className="h-3.5 w-3.5" />
             Replay
@@ -138,7 +138,15 @@ export default function ExampleCard({
                     className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
                   >
                     <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-                    {label} {version ? `${version}+` : "—"}
+                    {label}{" "}
+                    {version ? (
+                      `${version}+`
+                    ) : (
+                      <>
+                        <span aria-hidden="true">—</span>
+                        <span className="sr-only">not supported</span>
+                      </>
+                    )}
                   </span>
                 );
               })}
@@ -151,7 +159,7 @@ export default function ExampleCard({
                 href={`https://caniuse.com/${example.caniuseSlug}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+                className="relative inline-flex items-center gap-1 font-medium text-accent underline-offset-2 after:absolute after:-inset-y-3 after:-inset-x-1 after:content-[''] hover:underline"
               >
                 View on caniuse.com
                 <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />

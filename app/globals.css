@@ -8,6 +8,7 @@
   --accent: #171717;
   --accent-foreground: #ffffff;
   --surface: #eeeeee;
+  --paper: #ffffff;
   --success: #ecfdf3;
   --success-foreground: #15803d;
   --warning: #fff7ed;
@@ -24,6 +25,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-surface: var(--surface);
+  --color-paper: var(--paper);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
