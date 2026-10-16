@@ -13,7 +13,6 @@ import BackToTopButton from "@/components/BackToTopButton";
 type SortBy = "newest" | "title";
 
 const CATEGORY_VALUES = new Set<string>(CATEGORIES.map((c) => c.value));
-const SUPPORT_LEVEL_VALUES = new Set<string>(SUPPORT_LEVELS.map((l) => l.value));
 
 function listParam(params: URLSearchParams, key: string, allowed: Set<string>) {
   return (params.get(key) ?? "").split(",").filter((value) => allowed.has(value));
@@ -31,19 +30,27 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
 
   const latestCrawledDate = useMemo(() => getLatestCrawledDate(examples), [examples]);
 
+  // Support levels with no examples at all (e.g. no experimental features right now)
+  // would only ever be a disabled "0" row, so they're left out of the filters.
+  const availableSupportLevels = useMemo(
+    () => SUPPORT_LEVELS.filter((level) => examples.some((example) => getSupportLevel(example) === level.value)),
+    [examples],
+  );
+
   // The page is statically rendered, so filters from a shared URL can only be
   // read after hydration. Read them once, then keep the URL in sync below.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     /* eslint-disable react-hooks/set-state-in-effect -- syncing from the URL, an external source */
     setSelectedCategories(new Set(listParam(params, "category", CATEGORY_VALUES) as Category[]));
-    setSelectedSupportLevels(new Set(listParam(params, "support", SUPPORT_LEVEL_VALUES) as SupportLevel[]));
+    const supportLevelValues = new Set<string>(availableSupportLevels.map((l) => l.value));
+    setSelectedSupportLevels(new Set(listParam(params, "support", supportLevelValues) as SupportLevel[]));
     setNewOnly(params.get("new") === "1");
     setSearch(params.get("q") ?? "");
     setSortBy(params.get("sort") === "title" ? "title" : "newest");
     setRestoredFromUrl(true);
     /* eslint-enable react-hooks/set-state-in-effect */
-  }, []);
+  }, [availableSupportLevels]);
 
   useEffect(() => {
     if (!restoredFromUrl) return;
@@ -106,7 +113,17 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
 
   function matchesQuery(example: CssExample) {
     if (!query) return true;
-    const haystack = `${example.title} ${example.description} ${example.cssFeature} ${example.sourceName}`.toLowerCase();
+    const categoryLabel = CATEGORIES.find((c) => c.value === example.category)?.label ?? "";
+    const haystack = [
+      example.title,
+      example.description,
+      example.cssFeature,
+      example.sourceName,
+      categoryLabel,
+      example.tailwindEquivalent ?? "",
+    ]
+      .join(" ")
+      .toLowerCase();
     return haystack.includes(query);
   }
 
@@ -180,6 +197,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
         selectedSupportLevels={selectedSupportLevels}
         onToggleSupportLevel={toggleSupportLevel}
         onClearSupportLevels={() => setSelectedSupportLevels(new Set())}
+        supportLevels={availableSupportLevels}
         supportLevelCounts={supportLevelCounts}
         newOnly={newOnly}
         onNewOnlyChange={setNewOnly}
