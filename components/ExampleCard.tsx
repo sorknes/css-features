@@ -82,7 +82,9 @@ export default function ExampleCard({
   return (
     <article
       id={example.id}
-      className="flex scroll-mt-4 flex-col border-b border-border sm:border-r [contain-intrinsic-size:auto_960px] [content-visibility:auto]"
+      // Named so filter and sort changes can glide each cell to its new place (see withViewTransition).
+      style={{ viewTransitionName: `card-${example.id}` }}
+      className="gallery-cell flex scroll-mt-4 flex-col border-b border-border sm:border-r [contain-intrinsic-size:auto_960px] [content-visibility:auto]"
     >
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-5 pt-5">
         {isNew && (
@@ -255,7 +257,7 @@ export default function ExampleCard({
           </div>
         </div>
 
-        <details className="group mx-5 mb-5 border border-foreground">
+        <details className="code-disclosure group mx-5 mb-5 border border-foreground">
           {/* The summary keeps its native display so it's still exposed as a disclosure button; the row layout lives on the inner div. */}
           <summary className="block cursor-pointer list-none transition-colors select-none [&::-webkit-details-marker]:hidden hover:bg-foreground hover:text-background group-open:bg-foreground group-open:text-background focus-visible:outline-offset-[-4px]">
             <div className="flex min-h-11 items-stretch">

@@ -34,8 +34,12 @@
     "motion": [
       { "name": "colour-transition", "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Background and text colour changes on hover for cells, rows and buttons." },
       { "name": "ticker", "value": "marquee 80s linear infinite", "purpose": "Header ticker; translateX(0) to translateX(-50%). Pauses on hover, focus-within or the pause button." },
-      { "name": "drawer-slide", "value": "translate 200ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Mobile filter drawer in and out below 1024px." },
-      { "name": "reduced-motion", "value": "animation and transition durations 0.001ms", "purpose": "prefers-reduced-motion stops the ticker and all transitions." }
+      { "name": "cell-glide", "value": "view-transition group 400ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Filter and sort changes move each gallery cell (view-transition-class: cell) to its new place; root crossfade disabled." },
+      { "name": "cell-draw-in", "value": "clip-path inset(0 0 100% 0) to inset(0), 400ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Cells that appear after a filter change are drawn in top to bottom." },
+      { "name": "cell-fade-out", "value": "opacity 150ms ease-in", "purpose": "Cells removed by a filter change." },
+      { "name": "code-disclosure", "value": "::details-content height 300ms cubic-bezier(0.16, 1, 0.3, 1) open, 200ms ease-in close; interpolate-size: allow-keywords", "purpose": "View code panel opens and closes smoothly where supported; instant elsewhere." },
+      { "name": "drawer-slide", "value": "translate 300ms cubic-bezier(0.16, 1, 0.3, 1) in, 200ms ease-in out; backdrop fade-in 300ms", "purpose": "Mobile filter drawer below 1024px." },
+      { "name": "reduced-motion", "value": "animation and transition durations 0.001ms", "purpose": "prefers-reduced-motion stops the ticker and all transitions; the cell glide and code-disclosure animation are skipped entirely." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -120,7 +124,7 @@
       "Heavy condensed uppercase Archivo for names; mono uppercase for every label.",
       "Readiness is shape-coded: solid forest, outlined forest, dashed ink.",
       "Flat: no shadows for depth; the drawing paper panel is set into the sheet, not lifted.",
-      "Motion is limited to the ticker, short colour transitions and the mobile filter drawer."
+      "Motion has one authored moment: filter and sort changes glide each sheet cell to its new place (View Transitions, 400ms on cubic-bezier(0.16, 1, 0.3, 1)); cells that arrive are drawn in top to bottom with a clip-path, cells that leave fade out in 150ms. Supporting motion: the code disclosure opens with ::details-content + interpolate-size (300ms in, 200ms out), the mobile drawer slides in over 300ms and out over 200ms with a fading backdrop, the ticker, and 150ms colour feedback (filter boxes, Copy turning forest when it succeeds). Reduced motion skips the cell transition and the disclosure animation and keeps colour feedback."
     ],
     "rules": [
       { "name": "The One Green Rule", "body": "Forest is the only interface hue. Anything that is selected, ready, primary or a link is forest; everything else is ink, pencil or a warm neutral. Do not introduce a second accent, a warning colour or a status red.", "section": "colors" },

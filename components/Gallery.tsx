@@ -10,6 +10,7 @@ import FilterBar from "@/components/FilterBar";
 import ExampleCard from "@/components/ExampleCard";
 import SiteFooter from "@/components/SiteFooter";
 import BackToTopButton from "@/components/BackToTopButton";
+import { withViewTransition } from "@/lib/viewTransition";
 
 type SortBy = "newest" | "title";
 
@@ -80,34 +81,40 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
     selectedCategories.size + selectedSupportLevels.size + (newOnly ? 1 : 0) + (search.trim() ? 1 : 0);
 
   function clearAllFilters() {
-    setSelectedCategories(new Set());
-    setSelectedSupportLevels(new Set());
-    setNewOnly(false);
-    setSearch("");
+    withViewTransition(() => {
+      setSelectedCategories(new Set());
+      setSelectedSupportLevels(new Set());
+      setNewOnly(false);
+      setSearch("");
+    });
   }
 
   function toggleCategory(category: Category) {
-    setSelectedCategories((prev) => {
-      const next = new Set(prev);
-      if (next.has(category)) {
-        next.delete(category);
-      } else {
-        next.add(category);
-      }
-      return next;
-    });
+    withViewTransition(() =>
+      setSelectedCategories((prev) => {
+        const next = new Set(prev);
+        if (next.has(category)) {
+          next.delete(category);
+        } else {
+          next.add(category);
+        }
+        return next;
+      }),
+    );
   }
 
   function toggleSupportLevel(level: SupportLevel) {
-    setSelectedSupportLevels((prev) => {
-      const next = new Set(prev);
-      if (next.has(level)) {
-        next.delete(level);
-      } else {
-        next.add(level);
-      }
-      return next;
-    });
+    withViewTransition(() =>
+      setSelectedSupportLevels((prev) => {
+        const next = new Set(prev);
+        if (next.has(level)) {
+          next.delete(level);
+        } else {
+          next.add(level);
+        }
+        return next;
+      }),
+    );
   }
 
   const query = search.trim().toLowerCase();
@@ -193,15 +200,15 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
       <FilterBar
         selectedCategories={selectedCategories}
         onToggleCategory={toggleCategory}
-        onClearCategories={() => setSelectedCategories(new Set())}
+        onClearCategories={() => withViewTransition(() => setSelectedCategories(new Set()))}
         categoryCounts={categoryCounts}
         selectedSupportLevels={selectedSupportLevels}
         onToggleSupportLevel={toggleSupportLevel}
-        onClearSupportLevels={() => setSelectedSupportLevels(new Set())}
+        onClearSupportLevels={() => withViewTransition(() => setSelectedSupportLevels(new Set()))}
         supportLevels={availableSupportLevels}
         supportLevelCounts={supportLevelCounts}
         newOnly={newOnly}
-        onNewOnlyChange={setNewOnly}
+        onNewOnlyChange={(value) => withViewTransition(() => setNewOnly(value))}
         newCount={newCount}
         search={search}
         onSearchChange={setSearch}
@@ -235,7 +242,10 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
             <span className="relative inline-flex">
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortBy)}
+                onChange={(e) => {
+                  const value = e.target.value as SortBy;
+                  withViewTransition(() => setSortBy(value));
+                }}
                 className="label appearance-none border border-foreground bg-paper py-1.5 pr-8 pl-2 text-foreground"
               >
                 <option value="newest">Newest</option>

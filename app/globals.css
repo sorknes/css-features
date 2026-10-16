@@ -107,6 +107,78 @@ body {
   translate: -50% 0;
 }
 
+/* ---- Motion ----
+   One authored moment: filter and sort changes glide each sheet cell to its new
+   place (View Transitions; see lib/viewTransition.ts). Cells that arrive are
+   drawn in top to bottom; cells that leave fade out fast. */
+.gallery-cell {
+  view-transition-class: cell;
+}
+
+/* Only the cells move; the rest of the page swaps without a crossfade. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(.cell) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-new(.cell):only-child {
+  animation: cell-draw-in 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+::view-transition-old(.cell):only-child {
+  animation: fade-out 150ms ease-in both;
+}
+
+@keyframes cell-draw-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* The code disclosure opens with the same technique as the gallery's own
+   details-content demo: ::details-content plus interpolate-size. Browsers
+   without it open instantly. */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  .code-disclosure::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 200ms ease-in,
+      content-visibility 200ms allow-discrete;
+  }
+
+  .code-disclosure[open]::details-content {
+    height: auto;
+    transition:
+      height 300ms cubic-bezier(0.16, 1, 0.3, 1),
+      content-visibility 300ms allow-discrete;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

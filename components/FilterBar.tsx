@@ -59,7 +59,7 @@ function OptionRow({
     >
       <span
         aria-hidden="true"
-        className={`size-3.5 shrink-0 border ${selected ? "border-forest bg-forest" : disabled ? "border-border" : "border-foreground"}`}
+        className={`size-3.5 shrink-0 border transition-colors duration-150 ${selected ? "border-forest bg-forest" : disabled ? "border-border" : "border-foreground"}`}
       />
       {tagClassName ? (
         <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${tagClassName} ${disabled ? "opacity-50" : ""}`}>
@@ -183,7 +183,13 @@ export default function FilterBar({
         </button>
       </div>
 
-      {isOpen && <div className="fixed inset-0 z-30 bg-foreground/40 lg:hidden" onClick={close} aria-hidden="true" />}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-30 animate-[fade-in_300ms_ease-out] bg-foreground/40 lg:hidden"
+          onClick={close}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Below lg this is an off-canvas drawer: hidden (and out of the tab order) while closed,
           a modal dialog while open. At lg and up it's the sheet's left column, sticky at full height. */}
@@ -193,10 +199,13 @@ export default function FilterBar({
         role={isOpen ? "dialog" : undefined}
         aria-modal={isOpen ? true : undefined}
         aria-label={isOpen ? "Filters" : undefined}
-        className={`fixed inset-y-0 left-0 z-40 flex w-72 max-w-[85vw] flex-col overflow-y-auto border-r border-border bg-background duration-200 lg:visible lg:sticky lg:top-0 lg:z-auto lg:h-dvh lg:max-w-none lg:shrink-0 lg:translate-x-0 lg:transition-none ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-72 max-w-[85vw] flex-col overflow-y-auto border-r border-border bg-background lg:visible lg:sticky lg:top-0 lg:z-auto lg:h-dvh lg:max-w-none lg:shrink-0 lg:translate-x-0 lg:transition-none ${
           // Visibility only transitions on close (so the slide-out still plays); on open it must flip
           // immediately or the close button can't take focus.
-          isOpen ? "visible translate-x-0 transition-[translate]" : "invisible -translate-x-full transition-[translate,visibility]"
+          // Enter on a confident deceleration; exit faster.
+          isOpen
+            ? "visible translate-x-0 transition-[translate] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            : "invisible -translate-x-full transition-[translate,visibility] duration-200 ease-in"
         }`}
       >
         <div className="flex min-h-14 items-center justify-between border-b border-border pl-4 lg:hidden">

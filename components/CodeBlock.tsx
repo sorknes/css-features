@@ -23,7 +23,9 @@ export default function CodeBlock({ label, code }: { label: string; code: string
         <button
           type="button"
           onClick={handleCopy}
-          className="label relative inline-flex items-center gap-1.5 border border-foreground px-2 py-1 transition-colors after:absolute after:-inset-2 after:content-[''] hover:bg-forest hover:text-forest-foreground"
+          className={`label relative inline-flex items-center gap-1.5 border px-2 py-1 transition-colors duration-150 after:absolute after:-inset-2 after:content-[''] hover:bg-forest hover:text-forest-foreground ${
+            copied ? "border-forest bg-forest text-forest-foreground" : "border-foreground"
+          }`}
         >
           {copied ? <BiCheck aria-hidden="true" className="h-3.5 w-3.5" /> : <BiCopy aria-hidden="true" className="h-3.5 w-3.5" />}
           {copied ? "Copied" : "Copy"}
