@@ -18,20 +18,22 @@ export default function CodeBlock({ label, code }: { label: string; code: string
 
   return (
     <div>
-      <div className="mb-1 flex items-center justify-between gap-2">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted">{label}</p>
+      <div className="mb-1.5 flex items-center justify-between gap-2">
+        <p className="label text-muted">{label}</p>
         <button
           type="button"
           onClick={handleCopy}
-          aria-live="polite"
-          className="relative inline-flex items-center gap-1 rounded-full border border-border bg-paper px-2.5 py-1 text-xs font-medium text-foreground after:absolute after:-inset-2 after:content-[''] hover:bg-surface"
+          className="label relative inline-flex items-center gap-1.5 border border-foreground px-2 py-1 transition-colors after:absolute after:-inset-2 after:content-[''] hover:bg-forest hover:text-forest-foreground"
         >
           {copied ? <BiCheck aria-hidden="true" className="h-3.5 w-3.5" /> : <BiCopy aria-hidden="true" className="h-3.5 w-3.5" />}
-          {copied ? "Copied!" : "Copy"}
+          {copied ? "Copied" : "Copy"}
           <span className="sr-only"> {label} code</span>
         </button>
+        <span aria-live="polite" className="sr-only">
+          {copied ? `${label} code copied` : ""}
+        </span>
       </div>
-      <pre className="overflow-x-auto rounded-md bg-surface p-2.5 text-xs leading-relaxed">
+      <pre className="bg-surface p-3 text-xs leading-relaxed break-words whitespace-pre-wrap">
         <code className="font-mono">{code}</code>
       </pre>
     </div>

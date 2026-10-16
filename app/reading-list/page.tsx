@@ -7,6 +7,7 @@ import { getLatestCrawledDate } from "@/lib/isNew";
 import { formatDate } from "@/lib/formatDate";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import SheetPage from "@/components/SheetPage";
 
 export const metadata: Metadata = {
   title: "Reading List — CSS Edge",
@@ -22,48 +23,42 @@ export default function ReadingListPage() {
   return (
     <>
       <SiteHeader current="reading-list" lastUpdated={lastUpdated} />
-      <main id="main-content" className="flex-1 px-4 py-8 sm:px-6">
-        <div className="mx-auto flex max-w-[32rem] flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-xl font-semibold tracking-tight">Reading list</h1>
-            <p className="text-base text-foreground/90">
-              Not every good CSS writeup discovered by this site&rsquo;s crawler is about a{" "}
-              <em>new</em> feature &mdash; some are well-written pieces on properties that have
-              been around for years. Rather than discard those, they land here instead of in the
-              gallery.
-            </p>
-          </div>
-
-          <ul className="flex flex-col divide-y divide-border rounded-md border border-border">
-            {readingList.map((item) => (
-              <li key={item.url}>
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start justify-between gap-4 p-4 transition-colors hover:bg-foreground/5"
-                >
-                  <div className="flex flex-col gap-1">
-                    <p className="font-medium text-foreground group-hover:text-accent">
-                      {item.title}
-                    </p>
-                    <p className="text-sm text-foreground/90">{item.note}</p>
-                    <p className="text-xs text-muted">
-                      {item.sourceName}
-                      {item.publishedDate ? ` · ${formatDate(item.publishedDate)}` : ""}
-                    </p>
-                  </div>
-                  <BiLinkExternal
-                    aria-hidden="true"
-                    className="mt-1 h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-accent"
-                  />
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+      <SheetPage title="Reading list">
+        <div className="px-4 py-10 sm:px-6 lg:px-10">
+          <p className="max-w-2xl text-base leading-relaxed">
+            Not every good CSS writeup discovered by this site&rsquo;s crawler is about a{" "}
+            <em>new</em> feature &mdash; some are well-written pieces on properties that have
+            been around for years. Rather than discard those, they land here instead of in the
+            gallery.
+          </p>
         </div>
-      </main>
+        <ul className="divide-y divide-border">
+          {readingList.map((item) => (
+            <li key={item.url}>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start justify-between gap-6 px-4 py-6 transition-colors hover:bg-surface sm:px-6 lg:px-10"
+              >
+                <div className="flex max-w-2xl flex-col gap-1.5">
+                  <p className="font-display text-xl leading-tight group-hover:text-forest">{item.title}</p>
+                  <p className="text-sm leading-relaxed">{item.note}</p>
+                  <p className="label mt-1 text-muted">
+                    {item.sourceName}
+                    {item.publishedDate ? ` · ${formatDate(item.publishedDate)}` : ""}
+                  </p>
+                </div>
+                <BiLinkExternal
+                  aria-hidden="true"
+                  className="mt-1 h-4 w-4 shrink-0 text-muted transition-colors group-hover:text-forest"
+                />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </SheetPage>
       <SiteFooter />
     </>
   );

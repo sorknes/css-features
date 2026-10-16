@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { BiChevronDown, BiRightArrowAlt } from "react-icons/bi";
 import type { Category, CssExample } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import { getLatestCrawledDate, isNewExample } from "@/lib/isNew";
@@ -188,7 +189,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
   }, [examples, selectedCategories, selectedSupportLevels, query, latestCrawledDate]);
 
   return (
-    <div className="lg:flex lg:items-start lg:gap-8">
+    <div className="lg:flex lg:items-start">
       <FilterBar
         selectedCategories={selectedCategories}
         onToggleCategory={toggleCategory}
@@ -209,56 +210,64 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
         resultCount={filtered.length}
       />
 
-      <div aria-hidden="true" className="hidden lg:block lg:w-72 lg:shrink-0" />
-
-      <div className="flex min-w-0 flex-1 flex-col gap-6">
-        <div data-gallery-results ref={resultsRef} className="flex scroll-mt-4 flex-wrap items-center justify-between gap-x-3 lg:scroll-mt-28">
-          <div className="flex flex-wrap items-center gap-x-3">
-            <p aria-live="polite" className="text-sm text-foreground">
-              Showing {filtered.length} of {examples.length} example{examples.length === 1 ? "" : "s"}
+      <div className="flex min-w-0 flex-1 flex-col">
+        <div
+          data-gallery-results
+          ref={resultsRef}
+          className="flex scroll-mt-0 flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-border px-4 py-1.5 sm:px-6"
+        >
+          <div className="flex flex-wrap items-center gap-x-4">
+            <p aria-live="polite" className="label">
+              Showing {filtered.length} <span className="text-muted">of {examples.length}</span>
             </p>
             {activeFilterCount > 0 && (
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="relative text-sm font-medium text-accent underline-offset-2 after:absolute after:-inset-x-1 after:-inset-y-3 after:content-[''] hover:underline"
+                className="label relative text-forest underline-offset-4 after:absolute after:-inset-x-1 after:-inset-y-3 after:content-[''] hover:underline"
               >
                 Clear all filters
               </button>
             )}
           </div>
-          <label className="flex min-h-11 items-center gap-2 text-sm text-foreground">
-            Sort by
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortBy)}
-              className="rounded-md border border-border bg-background px-2 py-1 text-sm text-foreground focus-visible:outline-2 focus-visible:outline-accent"
-            >
-              <option value="newest">Newest</option>
-              <option value="title">Title (A–Z)</option>
-            </select>
+          <label className="label flex min-h-11 items-center gap-2 text-muted">
+            Sort
+            <span className="relative inline-flex">
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as SortBy)}
+                className="label appearance-none border border-foreground bg-paper py-1.5 pr-8 pl-2 text-foreground"
+              >
+                <option value="newest">Newest</option>
+                <option value="title">Title (A–Z)</option>
+              </select>
+              <BiChevronDown
+                aria-hidden="true"
+                className="pointer-events-none absolute top-1/2 right-2 h-4 w-4 -translate-y-1/2 text-foreground"
+              />
+            </span>
           </label>
         </div>
 
         {filtered.length === 0 ? (
-          <div className="flex flex-col items-center gap-4 rounded-md border border-dashed border-border px-4 py-10 text-center">
-            <div className="flex flex-col gap-1">
-              <p className="text-base font-semibold text-foreground">
+          <div className="flex flex-col items-start gap-5 border-b border-border px-4 py-16 sm:px-6">
+            <div className="flex max-w-xl flex-col gap-2">
+              <p className="font-display text-3xl leading-[1.05] text-balance">
                 {search.trim() ? <>No examples match “{search.trim()}”</> : "No examples match these filters"}
                 {search.trim() && activeFilterCount > 1 && " with these filters"}
               </p>
-              <p className="text-sm text-muted">
+              <p className="text-muted">
                 {search.trim()
-                  ? "Search looks at titles, descriptions, feature names and sources. Try a shorter term or a property name."
+                  ? "Search looks at titles, descriptions, feature names, categories and sources. Try a shorter term or a property name."
                   : "Remove a filter to see more examples."}
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap gap-2">
               {search.trim() && activeFilterCount > 1 && (
                 <button
                   type="button"
                   onClick={() => setSearch("")}
-                  className="inline-flex min-h-11 items-center rounded-full border border-border bg-paper px-4 text-sm font-medium hover:bg-surface"
+                  className="label inline-flex min-h-11 items-center border border-foreground px-4 transition-colors hover:bg-surface"
                 >
                   Clear search
                 </button>
@@ -266,14 +275,19 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="inline-flex min-h-11 items-center rounded-full bg-accent px-4 text-sm font-medium text-accent-foreground"
+                className="label inline-flex min-h-11 items-stretch bg-forest text-forest-foreground"
               >
-                {activeFilterCount > 1 ? "Clear all filters" : search.trim() ? "Clear search" : "Clear filter"}
+                <span className="flex items-center px-4">
+                  {activeFilterCount > 1 ? "Clear all filters" : search.trim() ? "Clear search" : "Clear filter"}
+                </span>
+                <span aria-hidden="true" className="flex w-10 items-center justify-center border-l border-forest-foreground/40">
+                  <BiRightArrowAlt className="h-4 w-4" />
+                </span>
               </button>
             </div>
           </div>
         ) : (
-          <div data-gallery-results className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <div data-gallery-results className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {filtered.map((example) => (
               <ExampleCard key={example.id} example={example} latestCrawledDate={latestCrawledDate} />
             ))}
