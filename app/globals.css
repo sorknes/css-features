@@ -161,27 +161,81 @@ body {
   }
 }
 
-/* The code disclosure opens with the same technique as the gallery's own
-   details-content demo: ::details-content plus interpolate-size. Browsers
-   without it open instantly. */
-@media (prefers-reduced-motion: no-preference) {
-  :root {
-    interpolate-size: allow-keywords;
+/* ---- Code popover ----
+   "View code" opens a popover (Popover API) anchored beside its card with CSS
+   anchor positioning, so nothing in the grid moves. Without anchor positioning
+   it stays the UA's centred popover; on phones it's a bottom sheet. Entry uses
+   @starting-style; exit is faster. */
+.code-popover {
+  width: min(36rem, calc(100vw - 2rem));
+  max-height: min(40rem, calc(100dvh - 2rem));
+  overflow: auto;
+  padding: 0;
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
+  /* Floats over live content, so it needs separation the flat sheet never does. */
+  box-shadow: 0 16px 40px -16px rgb(21 22 18 / 0.35);
+  opacity: 0;
+  translate: 0 8px;
+  transition:
+    opacity 150ms ease-in,
+    translate 150ms ease-in,
+    overlay 150ms allow-discrete,
+    display 150ms allow-discrete;
+}
+
+.code-popover:popover-open {
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    translate 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    overlay 250ms allow-discrete,
+    display 250ms allow-discrete;
+}
+
+@starting-style {
+  .code-popover:popover-open {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+/* The trigger reads as pressed while its popover is open. */
+.code-trigger:has(+ .code-popover:popover-open) {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+@media (min-width: 640px) {
+  @supports (anchor-name: --a) {
+    .code-popover {
+      inset: auto;
+      margin: 0 12px;
+      /* Beside the trigger, growing upward from its bottom edge; flip to the
+         left when the right side has no room, or sit above as a last resort. */
+      position-area: right span-top;
+      position-try-fallbacks: flip-inline, top;
+    }
+  }
+}
+
+@media (max-width: 639px) {
+  .code-popover {
+    inset: auto 0 0 0;
+    width: 100%;
+    max-width: none;
+    max-height: 85dvh;
+    margin: 0;
+    border-width: 1px 0 0;
+    translate: 0 24px;
   }
 
-  .code-disclosure::details-content {
-    height: 0;
-    overflow: clip;
-    transition:
-      height 200ms ease-in,
-      content-visibility 200ms allow-discrete;
-  }
-
-  .code-disclosure[open]::details-content {
-    height: auto;
-    transition:
-      height 300ms cubic-bezier(0.16, 1, 0.3, 1),
-      content-visibility 300ms allow-discrete;
+  @starting-style {
+    .code-popover:popover-open {
+      translate: 0 24px;
+    }
   }
 }
 

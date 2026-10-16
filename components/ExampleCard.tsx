@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import type { IconType } from "react-icons";
 import {
   BiCode,
   BiCodeCurly,
-  BiChevronDown,
   BiLinkExternal,
   BiLogoChrome,
   BiLogoFirefox,
   BiLogoApple,
   BiLogoEdge,
   BiRefresh,
+  BiRightArrowAlt,
+  BiX,
 } from "react-icons/bi";
 import type { Browser, CssExample } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
@@ -64,6 +65,7 @@ export default function ExampleCard({
   // The figure counts full support only, so "0%" next to partial-support chips reads as broken data.
   const showUsage = usage !== null && !(usage === 0 && hasPartialSupport);
   const [replayKey, setReplayKey] = useState(0);
+  const popoverId = `${example.id}-code`;
   const [expanded, setExpanded] = useState(false);
   const [overflowing, setOverflowing] = useState(false);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
@@ -179,7 +181,7 @@ export default function ExampleCard({
         )}
       </div>
 
-      {/* Pinned to the bottom, with View code last, so the code bars line up across a grid row. */}
+      {/* Pinned to the bottom, with View code last, so the code buttons line up across a grid row. */}
       <div className="mt-auto pt-4">
 
         <div className="flex flex-col gap-3 px-5 pb-4">
@@ -257,25 +259,51 @@ export default function ExampleCard({
           </div>
         </div>
 
-        <details className="code-disclosure group mx-5 mb-5 border border-foreground">
-          {/* The summary keeps its native display so it's still exposed as a disclosure button; the row layout lives on the inner div. */}
-          <summary className="block cursor-pointer list-none transition-colors select-none [&::-webkit-details-marker]:hidden hover:bg-foreground hover:text-background group-open:bg-foreground group-open:text-background focus-visible:outline-offset-[-4px]">
-            <div className="flex min-h-11 items-stretch">
-              <span className="label flex flex-1 items-center gap-2 px-3">
-                <BiCode aria-hidden="true" className="h-4 w-4 shrink-0" />
-                View code
-              </span>
-              <span aria-hidden="true" className="flex w-11 items-center justify-center border-l border-current">
-                <BiChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
-              </span>
-            </div>
-          </summary>
-          <div className="flex flex-col gap-4 border-t border-foreground p-3">
+        {/* Opens beside the card (see .code-popover in globals.css). The popover follows its
+            trigger in the DOM, so Tab moves straight from the button into the code. */}
+        <button
+          type="button"
+          popoverTarget={popoverId}
+          style={{ anchorName: `--code-${example.id}` } as CSSProperties}
+          className="code-trigger mx-5 mb-5 flex min-h-11 w-[calc(100%-2.5rem)] items-stretch border border-foreground text-left transition-colors hover:bg-foreground hover:text-background"
+        >
+          <span className="label flex flex-1 items-center gap-2 px-3">
+            <BiCode aria-hidden="true" className="h-4 w-4 shrink-0" />
+            View code
+          </span>
+          <span aria-hidden="true" className="flex w-11 items-center justify-center border-l border-current">
+            <BiRightArrowAlt className="h-4 w-4" />
+          </span>
+        </button>
+        <div
+          id={popoverId}
+          popover="auto"
+          role="dialog"
+          aria-label={`Code for ${example.title}`}
+          style={{ positionAnchor: `--code-${example.id}` } as CSSProperties}
+          className="code-popover"
+        >
+          <div className="sticky top-0 z-10 flex min-h-11 items-stretch border-b border-foreground bg-background">
+            <p className="flex min-w-0 flex-1 items-center gap-2 px-3 font-mono text-meta">
+              <BiCodeCurly aria-hidden="true" className="h-4 w-4 shrink-0" />
+              <span className="truncate">{example.cssFeature}</span>
+            </p>
+            <button
+              type="button"
+              popoverTarget={popoverId}
+              popoverTargetAction="hide"
+              aria-label="Close code"
+              className="flex w-11 shrink-0 items-center justify-center border-l border-foreground transition-colors hover:bg-surface"
+            >
+              <BiX aria-hidden="true" className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="flex flex-col gap-4 p-4">
             <CodeBlock label="HTML" code={example.demo.html} />
             <CodeBlock label="CSS" code={example.demo.css} />
             {example.demo.js && <CodeBlock label="JS" code={example.demo.js} />}
           </div>
-        </details>
+        </div>
       </div>
     </article>
   );
