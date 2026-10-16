@@ -9,7 +9,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
-import * as caniuse from "caniuse-api";
+import { lookupBrowserSupport } from "./lib/browser-support.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const EXAMPLES_PATH = path.join(ROOT, "data", "examples.json");
@@ -50,27 +50,6 @@ function readJson(filePath, fallback) {
 
 function writeJson(filePath, value) {
   writeFileSync(filePath, JSON.stringify(value, null, 2) + "\n");
-}
-
-function minVersion(entry) {
-  if (!entry || entry.y == null) return false;
-  return String(entry.y);
-}
-
-function lookupBrowserSupport(caniuseSlug) {
-  if (!caniuseSlug) return null;
-  let support;
-  try {
-    support = caniuse.getSupport(caniuseSlug);
-  } catch {
-    return null; // not tracked in the bundled caniuse-lite dataset
-  }
-  return {
-    chrome: minVersion(support.chrome),
-    firefox: minVersion(support.firefox),
-    safari: minVersion(support.safari),
-    edge: minVersion(support.edge),
-  };
 }
 
 function validateDraft(draft) {

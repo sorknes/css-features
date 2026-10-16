@@ -23,7 +23,7 @@ It then opens (or updates, if one's still open) a single PR on the `automated/we
 
 ### Why browser support is sometimes "not tracked"
 
-Browser-support tags come from the `caniuse-lite` package (via `caniuse-api`), which only bundles ~580 well-established features — not the full caniuse.com dataset. Bleeding-edge features (e.g. `@property`, `field-sizing`) often don't have local data yet even though caniuse.com has a page for them. In that case the card still links out to caniuse.com but shows "Browser support not yet tracked on caniuse" instead of guessing.
+Browser-support tags come from the `caniuse-lite` package (via `caniuse-api`), which only bundles ~580 well-established features — not the full caniuse.com dataset. Bleeding-edge features (e.g. `@property`, `field-sizing`) often don't have local data yet even though caniuse.com has a page for them. In that case the card still links out to caniuse.com but shows "Browser support not yet tracked on caniuse" instead of guessing. When caniuse reports only *partial* support for a browser (shipped with gaps or known bugs), the lookup records the earliest partial version under `browserSupport.partial` and the card shows it as a dashed "125+ partial" chip; partial support counts toward "Growing support" but never "Production ready". The lookup lives in [`scripts/lib/browser-support.mjs`](scripts/lib/browser-support.mjs), shared by both scripts.
 
 ## Development
 

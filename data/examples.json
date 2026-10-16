@@ -295,7 +295,12 @@
       "chrome": false,
       "firefox": false,
       "safari": "27",
-      "edge": false
+      "edge": false,
+      "partial": {
+        "chrome": "125",
+        "firefox": "147",
+        "edge": "125"
+      }
     },
     "tailwindEquivalent": null
   },
@@ -1196,7 +1201,12 @@
       "chrome": false,
       "firefox": false,
       "safari": "27",
-      "edge": false
+      "edge": false,
+      "partial": {
+        "chrome": "125",
+        "firefox": "147",
+        "edge": "125"
+      }
     },
     "tailwindEquivalent": null
   },
@@ -1824,7 +1834,12 @@
       "chrome": false,
       "firefox": false,
       "safari": "27",
-      "edge": false
+      "edge": false,
+      "partial": {
+        "chrome": "125",
+        "firefox": "147",
+        "edge": "125"
+      }
     },
     "tailwindEquivalent": null
   },

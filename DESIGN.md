@@ -243,7 +243,7 @@ The station on the bench, quiet and complete.
 - **Category:** a Tray Grey pill with a Pencil Grey border and Graphite text.
 - **NEW:** a Bench Black pill with white text, semibold and uppercase.
 - **Support level:** a signal pair (wash fill with a border and text in the same hue). The same styling is reused for the selected state of the sidebar filter.
-- **Browser version chip:** a 4px-radius chip with a hairline border, the browser logo and "Chrome 125+" (or an em dash when unsupported).
+- **Browser version chip:** a 4px-radius chip with a hairline border, the browser logo and "Chrome 125+" (or an em dash when unsupported). Partial support (caniuse "a") uses a dashed Pencil Grey border and reads "Chrome 125+ partial", with "partial" in Pencil Grey. Partial support counts toward Growing support, never Production ready. When an example has no support data, the chip row is replaced by "Browser support not yet tracked on caniuse".
 
 ### Buttons
 - **Pill button** (Copy, Replay, Filters): Paper White fill, hairline border, 0.75rem medium text with a leading 14px icon. On hover the fill changes to Tray Grey.
