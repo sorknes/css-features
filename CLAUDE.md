@@ -6,7 +6,7 @@ Full pipeline docs are in [README.md](README.md). The short version, for when th
 
 1. Read `data/pending.json` and `data/examples.json` first. Most pending candidates turn out to be duplicates of a feature the gallery already covers (check `cssFeature` and `title` across existing examples, not just an exact string match — e.g. a "Getting Started With The Popover API" article is a duplicate if `popover, popovertarget` is already an example). Skip duplicates rather than force-adding them; leave them queued in `pending.json` as backlog. If a candidate is a genuinely good, non-duplicate writeup but about a feature that isn't new/emerging (shipped years ago, full support for ages), it doesn't belong in the gallery — add it to `data/reading-list.json` instead (see `ReadingListItem` in `lib/types.ts`; keep the `note` field original, not copied from the source) and remove it from `pending.json`, same as a published example would be.
 2. For a genuinely new candidate, fetch the actual article. For anything cutting-edge or unfamiliar, verify exact current syntax against MDN or the spec (WebFetch/WebSearch) before writing the demo — bleeding-edge CSS syntax shifts during standardization and is easy to get subtly wrong.
-3. Write a draft object matching `CssExample` (see `lib/types.ts`) minus `crawledDate`/`browserSupport` (auto-filled), then run:
+3. Write a draft object matching `CssExample` (see `lib/types.ts`) minus `crawledDate`/`browserSupport`/`globalUsage` (auto-filled), then run:
    ```bash
    node scripts/add-example.mjs path/to/draft.json
    ```

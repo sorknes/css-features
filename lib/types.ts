@@ -61,6 +61,11 @@ export interface CssExample {
   crawledDate: string;
   caniuseSlug: string | null;
   browserSupport: BrowserSupportEntry | null;
+  /**
+   * Percent of global users (one decimal) whose browser version fully supports the
+   * feature, from caniuse usage data. Null when caniuseSlug can't be resolved.
+   */
+  globalUsage: number | null;
   /** Short note on the Tailwind utility/variant that covers this feature, when one genuinely exists. */
   tailwindEquivalent: string | null;
   /** True when the demo's effect only plays once on load (or produces a one-time random result), so the card should offer a way to re-trigger it. */

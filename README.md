@@ -25,6 +25,8 @@ It then opens (or updates, if one's still open) a single PR on the `automated/we
 
 Browser-support tags come from the `caniuse-lite` package (via `caniuse-api`), which only bundles ~580 well-established features — not the full caniuse.com dataset. Bleeding-edge features (e.g. `@property`, `field-sizing`) often don't have local data yet even though caniuse.com has a page for them. In that case the card still links out to caniuse.com but shows "Browser support not yet tracked on caniuse" instead of guessing. When caniuse reports only *partial* support for a browser (shipped with gaps or known bugs), the lookup records the earliest partial version under `browserSupport.partial` and the card shows it as a dashed "125+ partial" chip; partial support counts toward "Growing support" but never "Production ready". The lookup lives in [`scripts/lib/browser-support.mjs`](scripts/lib/browser-support.mjs), shared by both scripts.
 
+Each example also stores `globalUsage`: the percentage of global users whose browser version fully supports the feature, the same figure caniuse.com shows. It's computed in [`scripts/lib/global-usage.mjs`](scripts/lib/global-usage.mjs) from `caniuse-lite`'s per-version usage data; for caniuse's `mdn-*` pages (which `caniuse-lite` doesn't bundle) support comes from `@mdn/browser-compat-data`, the source caniuse.com uses for those pages. A feature is "Production ready" only with full support in all four engines **and** at least 90% global usage (`PRODUCTION_READY_MIN_USAGE` in [`lib/supportLevel.ts`](lib/supportLevel.ts)); otherwise it's "Growing support". Both scripts fill and refresh `globalUsage` automatically.
+
 ## Development
 
 ```bash
@@ -52,7 +54,7 @@ Safe to re-run any time — it only overwrites an example's `browserSupport` whe
 
 ## Adding an example by hand
 
-Write one or more draft objects (see `CssExample` minus `crawledDate`/`browserSupport` in [`lib/types.ts`](lib/types.ts)) to a JSON file, then:
+Write one or more draft objects (see `CssExample` minus `crawledDate`/`browserSupport`/`globalUsage` in [`lib/types.ts`](lib/types.ts)) to a JSON file, then:
 
 ```bash
 node scripts/add-example.mjs path/to/draft.json

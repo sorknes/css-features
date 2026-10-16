@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Appends one or more draft CSS examples to data/examples.json, filling in the
 // fields that should be computed mechanically rather than hand-typed: crawledDate
-// and browserSupport (looked up from caniuse-lite via caniuse-api, keyed by
-// caniuseSlug). Also removes any matching entries from data/pending.json.
+// browserSupport (looked up from caniuse-lite via caniuse-api, keyed by
+// caniuseSlug) and globalUsage (see scripts/lib/global-usage.mjs). Also removes any matching entries from data/pending.json.
 //
 // Usage: node scripts/add-example.mjs path/to/draft.json
 // draft.json may be a single draft object or an array of draft objects.
@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { lookupBrowserSupport } from "./lib/browser-support.mjs";
+import { lookupGlobalUsage } from "./lib/global-usage.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const EXAMPLES_PATH = path.join(ROOT, "data", "examples.json");
@@ -108,6 +109,7 @@ function main() {
       crawledDate: draft.crawledDate ?? now,
       caniuseSlug,
       browserSupport: lookupBrowserSupport(caniuseSlug),
+      globalUsage: lookupGlobalUsage(caniuseSlug),
       tailwindEquivalent: draft.tailwindEquivalent ?? null,
       ...(draft.replayable ? { replayable: true } : {}),
     };
