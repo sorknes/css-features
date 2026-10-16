@@ -20,7 +20,15 @@ interface FilterBarProps {
   newCount: number;
   search: string;
   onSearchChange: (value: string) => void;
+  activeFilterCount: number;
+  onClearAll: () => void;
+  resultCount: number;
 }
+
+// An option that would lead to zero results is disabled, unless it's already
+// selected (it must stay clickable so it can be turned off again).
+const OPTION_ROW =
+  "flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium enabled:hover:bg-surface disabled:cursor-not-allowed";
 
 export default function FilterBar({
   selectedCategories,
@@ -36,14 +44,14 @@ export default function FilterBar({
   newCount,
   search,
   onSearchChange,
+  activeFilterCount,
+  onClearAll,
+  resultCount,
 }: FilterBarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-
-  const activeFilterCount =
-    selectedCategories.size + selectedSupportLevels.size + (newOnly ? 1 : 0) + (search.trim() ? 1 : 0);
 
   function close() {
     setIsOpen(false);
@@ -119,7 +127,7 @@ export default function FilterBar({
         role={isOpen ? "dialog" : undefined}
         aria-modal={isOpen ? true : undefined}
         aria-label={isOpen ? "Filters" : undefined}
-        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-paper pt-8 pr-6 pb-4 pl-4 duration-200 lg:visible lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-2 lg:transition-none lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-paper pt-8 pr-6 pb-0 pl-4 lg:pb-4 duration-200 lg:visible lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-2 lg:transition-none lg:translate-x-0 ${
           // Visibility only transitions on close (so the slide-out still plays); on open it must flip
           // immediately or the close button can't take focus.
           isOpen ? "visible translate-x-0 transition-[translate]" : "invisible -translate-x-full transition-[translate,visibility]"
@@ -162,12 +170,13 @@ export default function FilterBar({
               <button
                 type="button"
                 aria-pressed={newOnly}
+                disabled={!newOnly && newCount === 0}
                 onClick={() => onNewOnlyChange(!newOnly)}
-                className="flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium hover:bg-surface"
+                className={OPTION_ROW}
               >
                 <span
                   className={`rounded-full px-3 py-1 ${
-                    newOnly ? "bg-accent text-accent-foreground" : "text-foreground"
+                    newOnly ? "bg-accent text-accent-foreground" : newCount === 0 ? "text-muted" : "text-foreground"
                   }`}
                 >
                   Show new only
@@ -199,12 +208,13 @@ export default function FilterBar({
                     key={category.value}
                     type="button"
                     aria-pressed={isSelected}
+                    disabled={!isSelected && count === 0}
                     onClick={() => onToggleCategory(category.value)}
-                    className="flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium hover:bg-surface"
+                    className={OPTION_ROW}
                   >
                     <span
                       className={`rounded-full px-3 py-1 ${
-                        isSelected ? "bg-accent text-accent-foreground" : "text-foreground"
+                        isSelected ? "bg-accent text-accent-foreground" : count === 0 ? "text-muted" : "text-foreground"
                       }`}
                     >
                       {category.label}
@@ -238,12 +248,13 @@ export default function FilterBar({
                     key={level.value}
                     type="button"
                     aria-pressed={isSelected}
+                    disabled={!isSelected && count === 0}
                     onClick={() => onToggleSupportLevel(level.value)}
-                    className="flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium hover:bg-surface"
+                    className={OPTION_ROW}
                   >
                     <span
                       className={`rounded-full px-3 py-1 ${
-                        isSelected ? SUPPORT_LEVEL_STYLES[level.value] : "text-foreground"
+                        isSelected ? SUPPORT_LEVEL_STYLES[level.value] : count === 0 ? "text-muted" : "text-foreground"
                       }`}
                     >
                       {level.label}
@@ -254,6 +265,26 @@ export default function FilterBar({
               })}
             </div>
           </fieldset>
+        </div>
+
+        {/* Filters apply live behind the drawer; this footer shows the result and closes it. */}
+        <div className="sticky bottom-0 -mr-6 -ml-4 flex items-center gap-3 border-t border-border bg-paper px-4 pt-3 pb-4 lg:hidden">
+          {activeFilterCount > 0 && (
+            <button
+              type="button"
+              onClick={onClearAll}
+              className="inline-flex min-h-11 items-center text-sm font-medium text-accent underline-offset-2 hover:underline"
+            >
+              Clear all
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={close}
+            className="ml-auto inline-flex min-h-11 items-center rounded-full bg-accent px-4 text-sm font-medium text-accent-foreground"
+          >
+            {resultCount === 0 ? "No examples to show" : `Show ${resultCount} example${resultCount === 1 ? "" : "s"}`}
+          </button>
         </div>
       </div>
     </>
