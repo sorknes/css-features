@@ -10,30 +10,10 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import * as caniuse from "caniuse-api";
+import { lookupBrowserSupport } from "./lib/browser-support.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const EXAMPLES_PATH = path.join(ROOT, "data", "examples.json");
-
-function minVersion(entry) {
-  if (!entry || entry.y == null) return false;
-  return String(entry.y);
-}
-
-function lookupBrowserSupport(caniuseSlug) {
-  let support;
-  try {
-    support = caniuse.getSupport(caniuseSlug);
-  } catch {
-    return null; // no longer resolvable in the current caniuse-lite dataset
-  }
-  return {
-    chrome: minVersion(support.chrome),
-    firefox: minVersion(support.firefox),
-    safari: minVersion(support.safari),
-    edge: minVersion(support.edge),
-  };
-}
 
 function main() {
   const examples = JSON.parse(readFileSync(EXAMPLES_PATH, "utf8"));

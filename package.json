@@ -12,6 +12,7 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "caniuse-api": "^4.0.0",
+    "caniuse-lite": "^1.0.30001812",
     "cheerio": "^1.2.0",
     "next": "16.3.1",
     "react": "19.2.8",

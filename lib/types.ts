@@ -31,7 +31,14 @@ export interface BrowserSupportEntry {
   firefox: string | false;
   safari: string | false;
   edge: string | false;
+  /**
+   * Earliest partially-supporting version, only for browsers without full support
+   * (caniuse "a": shipped, but with spec gaps or known bugs). Omitted when none.
+   */
+  partial?: Partial<Record<Browser, string>>;
 }
+
+export type Browser = "chrome" | "firefox" | "safari" | "edge";
 
 export interface CssExampleDemo {
   html: string;

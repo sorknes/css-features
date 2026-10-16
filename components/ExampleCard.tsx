@@ -13,14 +13,14 @@ import {
   BiLogoEdge,
   BiRefresh,
 } from "react-icons/bi";
-import type { CssExample } from "@/lib/types";
+import type { Browser, CssExample } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import { isNewExample } from "@/lib/isNew";
 import { getSupportLevel, SUPPORT_LEVEL_LABELS, SUPPORT_LEVEL_STYLES } from "@/lib/supportLevel";
 import CodeBlock from "@/components/CodeBlock";
 
 const BROWSER_LABELS: {
-  key: keyof NonNullable<CssExample["browserSupport"]>;
+  key: Browser;
   label: string;
   Icon: IconType;
 }[] = [
@@ -125,50 +125,60 @@ export default function ExampleCard({
         </div>
       </details>
 
-      {(example.browserSupport || example.caniuseSlug) && (
-        <div className="mt-auto flex flex-col gap-3 border-t border-border px-4 pt-3 pb-4">
-          {example.browserSupport && (
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="sr-only">Browser support:</span>
-              {BROWSER_LABELS.map(({ key, label, Icon }) => {
-                const version = example.browserSupport![key];
-                return (
-                  <span
-                    key={key}
-                    className="inline-flex items-center gap-1 rounded border border-border px-2 py-0.5 text-xs text-foreground/80"
-                  >
-                    <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-                    {label}{" "}
-                    {version ? (
-                      `${version}+`
-                    ) : (
-                      <>
-                        <span aria-hidden="true">—</span>
-                        <span className="sr-only">not supported</span>
-                      </>
-                    )}
-                  </span>
-                );
-              })}
-            </div>
-          )}
+      <div className="mt-auto flex flex-col gap-3 border-t border-border px-4 pt-3 pb-4">
+        {example.browserSupport ? (
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="sr-only">Browser support:</span>
+            {BROWSER_LABELS.map(({ key, label, Icon }) => {
+              const version = example.browserSupport![key];
+              const partialVersion = example.browserSupport!.partial?.[key];
+              return (
+                <span
+                  key={key}
+                  className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs text-foreground/80 ${
+                    partialVersion ? "border-dashed border-muted" : "border-border"
+                  }`}
+                >
+                  <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                  {label}{" "}
+                  {version ? (
+                    `${version}+`
+                  ) : partialVersion ? (
+                    <>
+                      <span aria-hidden="true">
+                        {partialVersion}+ <span className="text-muted">partial</span>
+                      </span>
+                      <span className="sr-only">partial support from version {partialVersion}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span aria-hidden="true">—</span>
+                      <span className="sr-only">not supported</span>
+                    </>
+                  )}
+                </span>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="text-xs text-muted">Browser support not yet tracked on caniuse</p>
+        )}
 
-          {example.caniuseSlug && (
-            <div className="text-sm">
-              <a
-                href={`https://caniuse.com/${example.caniuseSlug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-flex items-center gap-1 font-medium text-accent underline-offset-2 after:absolute after:-inset-y-3 after:-inset-x-1 after:content-[''] hover:underline"
-              >
-                View on caniuse.com
-                <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </div>
-          )}
-        </div>
-      )}
+        {example.caniuseSlug && (
+          <div className="text-sm">
+            <a
+              href={`https://caniuse.com/${example.caniuseSlug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-1 font-medium text-accent underline-offset-2 after:absolute after:-inset-y-3 after:-inset-x-1 after:content-[''] hover:underline"
+            >
+              View on caniuse.com
+              <BiLinkExternal aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        )}
+      </div>
     </article>
   );
 }

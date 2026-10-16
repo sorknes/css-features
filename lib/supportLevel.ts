@@ -21,22 +21,22 @@ export const SUPPORT_LEVEL_STYLES: Record<SupportLevel, string> = {
   experimental: "border border-danger-foreground bg-danger text-danger-foreground",
 };
 
+const BROWSERS = ["chrome", "firefox", "safari", "edge"] as const;
+
 /**
  * Not tracked by caniuse-lite (browserSupport is null) means bleeding-edge
  * enough that no browser support data exists yet — treat as experimental.
- * Otherwise, the level reflects how many of the 4 major engines support it.
+ * Otherwise, the level reflects how many of the 4 major engines support it:
+ * production-ready needs full support everywhere, while partial support counts
+ * toward growing support but never toward production-ready.
  */
 export function getSupportLevel(browserSupport: BrowserSupportEntry | null): SupportLevel {
   if (!browserSupport) return "experimental";
 
-  const supportedCount = [
-    browserSupport.chrome,
-    browserSupport.firefox,
-    browserSupport.safari,
-    browserSupport.edge,
-  ].filter(Boolean).length;
+  const fullCount = BROWSERS.filter((b) => browserSupport[b]).length;
+  const anyCount = BROWSERS.filter((b) => browserSupport[b] || browserSupport.partial?.[b]).length;
 
-  if (supportedCount === 0) return "experimental";
-  if (supportedCount === 4) return "production-ready";
+  if (anyCount === 0) return "experimental";
+  if (fullCount === 4) return "production-ready";
   return "growing-support";
 }
