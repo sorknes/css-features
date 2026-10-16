@@ -230,30 +230,7 @@ export default function FilterBar({
             </div>
           </div>
 
-          <fieldset className="relative border-b border-border pb-2">
-            <GroupHeading>New examples</GroupHeading>
-            <OptionRow label="Show new only" count={newCount} selected={newOnly} onToggle={() => onNewOnlyChange(!newOnly)} />
-          </fieldset>
-
-          <fieldset className="relative border-b border-border pb-2">
-            <GroupHeading
-              onClear={selectedCategories.size > 0 ? onClearCategories : undefined}
-              clearLabel="Clear categories"
-            >
-              Category
-            </GroupHeading>
-            {CATEGORIES.map((category) => (
-              <OptionRow
-                key={category.value}
-                label={category.label}
-                count={categoryCounts[category.value] ?? 0}
-                selected={selectedCategories.has(category.value)}
-                onToggle={() => onToggleCategory(category.value)}
-              />
-            ))}
-          </fieldset>
-
-          <fieldset aria-describedby="support-level-help" className="relative pb-2">
+          <fieldset aria-describedby="support-level-help" className="relative border-b border-border pb-2">
             <GroupHeading
               onClear={selectedSupportLevels.size > 0 ? onClearSupportLevels : undefined}
               clearLabel="Clear browser support"
@@ -276,6 +253,29 @@ export default function FilterBar({
               />
             ))}
           </fieldset>
+          <fieldset className="relative border-b border-border pb-2">
+            <GroupHeading>New examples</GroupHeading>
+            <OptionRow label="Show new only" count={newCount} selected={newOnly} onToggle={() => onNewOnlyChange(!newOnly)} />
+          </fieldset>
+
+          <fieldset className="relative pb-2">
+            <GroupHeading
+              onClear={selectedCategories.size > 0 ? onClearCategories : undefined}
+              clearLabel="Clear categories"
+            >
+              Category
+            </GroupHeading>
+            {CATEGORIES.map((category) => (
+              <OptionRow
+                key={category.value}
+                label={category.label}
+                count={categoryCounts[category.value] ?? 0}
+                selected={selectedCategories.has(category.value)}
+                onToggle={() => onToggleCategory(category.value)}
+              />
+            ))}
+          </fieldset>
+
         </div>
 
         {/* Filters apply live behind the drawer; this footer shows the result and closes it. */}
