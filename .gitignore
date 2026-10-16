@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable: the engine binary is platform-specific and re-downloaded on first run;
+# settings.local.json holds personal Claude Code hooks
+.claude/skills/impeccable/scripts/bin/
+.claude/settings.local.json
