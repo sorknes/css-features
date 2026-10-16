@@ -187,7 +187,7 @@ components:
   demo-panel:
     backgroundColor: "{colors.paper}"
     rounded: "{rounded.none}"
-    height: "260px"
+    height: "300px"
   code-block:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.foreground}"
@@ -313,7 +313,7 @@ Rectangular, ruled and quiet until touched.
 
 ### Cards / Containers
 - **Corner Style:** Square (0px).
-- **Background:** Cream sheet; the demo sits in a drawing-paper panel with a warm rule edge, 260px tall and horizontally resizable.
+- **Background:** Cream sheet; the demo sits in a drawing-paper panel with a warm rule edge, 300px tall and horizontally resizable. Order inside a cell: tags, title, feature line, demo, description clamped to three lines with a forest mono More/Less toggle (only when the clamp hides text), Tailwind note, then a bottom zone pinned with `mt-auto`: browser chips, source line and caniuse link, and the View code bar last, so code bars line up across a grid row.
 - **Shadow Strategy:** None (see Elevation & Depth).
 - **Border:** Bottom and right warm rules only, so adjacent cells share one hairline.
 - **Internal Padding:** 20px inset; the footer zone's top rule bleeds to the cell edges.
@@ -327,7 +327,7 @@ A full-width ink-edged bar reading "View code" with a 44px chevron cell behind a
 
 ### Navigation
 - **Header nav:** Mono cells divided by warm rules. Inactive cells are pencil and hover to tray with ink text; the current page is ink with a 2px forest bar along the cell bottom.
-- **Filter rail:** Fieldsets divided by rules, each with a mono legend and an optional forest Clear pinned right. Option rows are 44px: a 14px square box (ink edge, or solid forest when selected), the label (semibold when selected) and a pencil mono count. Options that would yield nothing are disabled in pencil; readiness rows render their label as the matching readiness tag.
+- **Filter rail:** Order is Search, Browser support (readiness first, since "can I ship this?" is the main question), New examples, Category. Fieldsets divided by rules, each with a mono legend and an optional forest Clear pinned right. Option rows are 44px: a 14px square box (ink edge, or solid forest when selected), the label (semibold when selected) and a pencil mono count. Options that would yield nothing are disabled in pencil; readiness rows render their label as the matching readiness tag.
 - **Mobile:** The rail becomes a left drawer (288px, max 85vw) that slides in over 200ms with a focus-trapped close cell and a sticky footer holding Clear all and the primary "Show N examples" button.
 
 ### Ticker
