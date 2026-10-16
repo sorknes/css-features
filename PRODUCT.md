@@ -29,7 +29,7 @@ CSS Edge is a gallery of new and emerging CSS features. Each entry has a live de
 ## Capabilities and Constraints
 
 - Next.js App Router, React, TypeScript, Tailwind CSS v4 and react-icons. Statically rendered from flat JSON (`data/examples.json`, `data/reading-list.json`), with no server-side state.
-- Gallery cards can be filtered by category (11 categories in `lib/types.ts`) and by support level ("Production ready" / "Growing support"). Examples can show a code block and, for one-shot effects, a Replay button.
+- Gallery cards can be filtered by category (11 categories in `lib/types.ts`) and by support level ("Production ready" / "Growing support"; production ready means full support in all four engines and at least 90% global usage). Examples can show a code block and, for one-shot effects, a Replay button.
 - Browser-support numbers come from `caniuse-lite`. When a feature isn't in its bundled dataset, the card says so ("not yet tracked") rather than guessing.
 - Demos for features that no browser ships yet must fall back gracefully (for example with `@supports`) instead of rendering nothing.
 - Demo text is written in the site's own words and never copied from the source article.

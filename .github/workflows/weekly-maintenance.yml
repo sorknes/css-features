@@ -37,6 +37,11 @@ jobs:
       - name: Update caniuse-lite data
         run: npx update-browserslist-db@latest
 
+      # MDN's browser-compat-data backs the global-usage figures for caniuse's
+      # mdn-* pages, which caniuse-lite doesn't bundle.
+      - name: Update MDN browser-compat-data
+        run: npm install --save-dev @mdn/browser-compat-data@latest
+
       - name: Discover new candidate articles
         run: node scripts/discover.mjs
 

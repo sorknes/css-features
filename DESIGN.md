@@ -171,8 +171,8 @@ A near-monochrome bench of greys and graphite, with three semantic signal hues a
 - **Paper White** (`paper-white`, CSS `--paper`): the demo canvas (iframe background), the mobile filter drawer, pill buttons and text on Bench Black.
 
 ### Signal (support level)
-- **Ready Green** (`ready-green` on `ready-green-wash`): "Production ready", supported in all four tracked engines.
-- **Growing Amber** (`growing-amber` on `growing-amber-wash`): "Growing support", supported in one to three engines.
+- **Ready Green** (`ready-green` on `ready-green-wash`): "Production ready", full support in all four tracked engines on browsers used by at least 90% of global users.
+- **Growing Amber** (`growing-amber` on `growing-amber-wash`): "Growing support", supported (fully or partially) somewhere but not yet production ready.
 - **Experimental Red** (`experimental-red` on `experimental-red-wash`): "Experimental", supported nowhere or not tracked by caniuse-lite.
 
 ### Named Rules
@@ -242,7 +242,7 @@ The station on the bench, quiet and complete.
 ### Tags
 - **Category:** a Tray Grey pill with a Pencil Grey border and Graphite text.
 - **NEW:** a Bench Black pill with white text, semibold and uppercase.
-- **Support level:** a signal pair (wash fill with a border and text in the same hue). The same styling is reused for the selected state of the sidebar filter.
+- **Support level:** a signal pair (wash fill with a border and text in the same hue), followed by the global usage figure when known ("Production ready · 94%"). The same styling is reused for the selected state of the sidebar filter.
 - **Browser version chip:** a 4px-radius chip with a hairline border, the browser logo and "Chrome 125+" (or an em dash when unsupported). Partial support (caniuse "a") uses a dashed Pencil Grey border and reads "Chrome 125+ partial", with "partial" in Pencil Grey. Partial support counts toward Growing support, never Production ready. When an example has no support data, the chip row is replaced by "Browser support not yet tracked on caniuse".
 
 ### Buttons

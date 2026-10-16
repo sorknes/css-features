@@ -114,7 +114,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
       .filter((example) => selectedCategories.size === 0 || selectedCategories.has(example.category))
       .filter(
         (example) =>
-          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example.browserSupport)),
+          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example)),
       )
       .filter((example) => !newOnly || isNewExample(example.crawledDate, latestCrawledDate))
       .filter(matchesQuery)
@@ -131,7 +131,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
     const base = examples
       .filter(
         (example) =>
-          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example.browserSupport)),
+          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example)),
       )
       .filter((example) => !newOnly || isNewExample(example.crawledDate, latestCrawledDate))
       .filter(matchesQuery);
@@ -150,7 +150,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
       .filter(matchesQuery);
     const counts = {} as Record<SupportLevel, number>;
     for (const example of base) {
-      const level = getSupportLevel(example.browserSupport);
+      const level = getSupportLevel(example);
       counts[level] = (counts[level] ?? 0) + 1;
     }
     return counts;
@@ -162,7 +162,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
       .filter((example) => selectedCategories.size === 0 || selectedCategories.has(example.category))
       .filter(
         (example) =>
-          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example.browserSupport)),
+          selectedSupportLevels.size === 0 || selectedSupportLevels.has(getSupportLevel(example)),
       )
       .filter(matchesQuery)
       .filter((example) => isNewExample(example.crawledDate, latestCrawledDate)).length;

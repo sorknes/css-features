@@ -1,4 +1,4 @@
-import type { BrowserSupportEntry } from "./types";
+import type { CssExample } from "./types";
 
 export type SupportLevel = "production-ready" | "growing-support" | "experimental";
 
@@ -23,20 +23,27 @@ export const SUPPORT_LEVEL_STYLES: Record<SupportLevel, string> = {
 
 const BROWSERS = ["chrome", "firefox", "safari", "edge"] as const;
 
+/** Minimum global usage (percent of users with full support) for "Production ready". */
+export const PRODUCTION_READY_MIN_USAGE = 90;
+
 /**
  * Not tracked by caniuse-lite (browserSupport is null) means bleeding-edge
  * enough that no browser support data exists yet — treat as experimental.
- * Otherwise, the level reflects how many of the 4 major engines support it:
- * production-ready needs full support everywhere, while partial support counts
- * toward growing support but never toward production-ready.
+ * Otherwise, production-ready needs full support in all 4 major engines AND a
+ * known global usage of at least PRODUCTION_READY_MIN_USAGE, since a version
+ * that shipped last month isn't in most visitors' hands yet. Anything supported
+ * (fully or partially) somewhere is growing support.
  */
-export function getSupportLevel(browserSupport: BrowserSupportEntry | null): SupportLevel {
+export function getSupportLevel({
+  browserSupport,
+  globalUsage,
+}: Pick<CssExample, "browserSupport" | "globalUsage">): SupportLevel {
   if (!browserSupport) return "experimental";
 
   const fullCount = BROWSERS.filter((b) => browserSupport[b]).length;
   const anyCount = BROWSERS.filter((b) => browserSupport[b] || browserSupport.partial?.[b]).length;
 
   if (anyCount === 0) return "experimental";
-  if (fullCount === 4) return "production-ready";
+  if (fullCount === 4 && globalUsage !== null && globalUsage >= PRODUCTION_READY_MIN_USAGE) return "production-ready";
   return "growing-support";
 }

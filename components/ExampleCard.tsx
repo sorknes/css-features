@@ -16,6 +16,7 @@ import {
 import type { Browser, CssExample } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import { isNewExample } from "@/lib/isNew";
+import { formatDate } from "@/lib/formatDate";
 import { getSupportLevel, SUPPORT_LEVEL_LABELS, SUPPORT_LEVEL_STYLES } from "@/lib/supportLevel";
 import CodeBlock from "@/components/CodeBlock";
 
@@ -54,7 +55,8 @@ export default function ExampleCard({
 }) {
   const categoryLabel = CATEGORIES.find((c) => c.value === example.category)?.label ?? example.category;
   const isNew = isNewExample(example.crawledDate, latestCrawledDate);
-  const supportLevel = getSupportLevel(example.browserSupport);
+  const supportLevel = getSupportLevel(example);
+  const usage = example.globalUsage === null ? null : Math.round(example.globalUsage);
   const [replayKey, setReplayKey] = useState(0);
 
   return (
@@ -73,6 +75,12 @@ export default function ExampleCard({
         </span>
         <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${SUPPORT_LEVEL_STYLES[supportLevel]}`}>
           {SUPPORT_LEVEL_LABELS[supportLevel]}
+          {usage !== null && (
+            <>
+              <span aria-hidden="true"> · {usage}%</span>
+              <span className="sr-only">, supported for {usage}% of global users</span>
+            </>
+          )}
         </span>
       </div>
 
@@ -163,6 +171,21 @@ export default function ExampleCard({
         ) : (
           <p className="text-xs text-muted">Browser support not yet tracked on caniuse</p>
         )}
+
+        <p className="text-xs text-muted">
+          From{" "}
+          <a
+            href={example.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative font-medium text-foreground underline-offset-2 after:absolute after:-inset-y-3 after:-inset-x-1 after:content-[''] hover:underline"
+          >
+            {example.sourceName}
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          {" · "}
+          <time dateTime={example.publishedDate}>{formatDate(example.publishedDate)}</time>
+        </p>
 
         {example.caniuseSlug && (
           <div className="text-sm">

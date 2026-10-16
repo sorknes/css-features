@@ -4,7 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { BiSearch, BiFilterAlt, BiX } from "react-icons/bi";
 import type { Category } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
-import { SUPPORT_LEVELS, SUPPORT_LEVEL_STYLES, type SupportLevel } from "@/lib/supportLevel";
+import {
+  PRODUCTION_READY_MIN_USAGE,
+  SUPPORT_LEVELS,
+  SUPPORT_LEVEL_STYLES,
+  type SupportLevel,
+} from "@/lib/supportLevel";
 
 interface FilterBarProps {
   selectedCategories: Set<Category>;
@@ -226,7 +231,7 @@ export default function FilterBar({
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset aria-describedby="support-level-help">
             <div className="mb-1.5 flex items-center justify-between">
               <legend className="text-sm font-bold">Browser support</legend>
               {selectedSupportLevels.size > 0 && (
@@ -239,6 +244,10 @@ export default function FilterBar({
                 </button>
               )}
             </div>
+            <p id="support-level-help" className="mb-2 text-xs text-muted">
+              Production ready means full support in Chrome, Edge, Firefox and Safari, on browsers used by at least{" "}
+              {PRODUCTION_READY_MIN_USAGE}% of people. A dashed browser chip means partial support.
+            </p>
             <div className="flex flex-col divide-y divide-border">
               {SUPPORT_LEVELS.map((level) => {
                 const isSelected = selectedSupportLevels.has(level.value);
