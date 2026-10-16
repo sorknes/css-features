@@ -58,7 +58,7 @@ export default function ExampleCard({
   const [replayKey, setReplayKey] = useState(0);
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-lg border border-border bg-background [contain-intrinsic-size:auto_640px] [content-visibility:auto]">
+    <article id={example.id} className="flex scroll-mt-4 flex-col lg:scroll-mt-28 overflow-hidden rounded-lg border border-border bg-background [contain-intrinsic-size:auto_640px] [content-visibility:auto]">
       <div className="flex flex-wrap items-center gap-2 border-b border-border px-4 pt-4 pb-3">
         {isNew && (
           <span
@@ -77,7 +77,11 @@ export default function ExampleCard({
       </div>
 
       <div className="px-4 pt-3">
-        <h2 className="text-xl font-semibold leading-snug">{example.title}</h2>
+        <h2 className="text-xl font-semibold leading-snug">
+          <a href={`#${example.id}`} className="underline-offset-4 hover:underline">
+            {example.title}
+          </a>
+        </h2>
         <p className="my-3 flex items-center gap-1.5 font-mono text-xs text-muted">
           <BiCodeCurly aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
           {example.cssFeature}

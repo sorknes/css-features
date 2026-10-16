@@ -61,6 +61,19 @@ body {
   }
 }
 
+/* See app/page.tsx: hidden until Gallery has applied URL filters, with a fallback
+   reveal in case its JavaScript never runs. */
+[data-restoring-filters] [data-gallery-results] {
+  visibility: hidden;
+  animation: reveal-gallery-results 0s 3s forwards;
+}
+
+@keyframes reveal-gallery-results {
+  to {
+    visibility: visible;
+  }
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;

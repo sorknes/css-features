@@ -47,6 +47,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
 
   useEffect(() => {
     if (!restoredFromUrl) return;
+    document.documentElement.removeAttribute("data-restoring-filters");
     const params = new URLSearchParams();
     if (search.trim()) params.set("q", search.trim());
     if (selectedCategories.size) params.set("category", [...selectedCategories].join(","));
@@ -56,7 +57,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
     const next = params.toString().replaceAll("%2C", ",");
     if (next === previousParams.current) return;
 
-    window.history.replaceState(null, "", next ? `?${next}` : window.location.pathname);
+    window.history.replaceState(null, "", `${next ? `?${next}` : window.location.pathname}${window.location.hash}`);
 
     // When the results change while the reader is scrolled down, bring them back
     // to the top of the list so the new results aren't changing off-screen.
@@ -193,7 +194,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
       <div aria-hidden="true" className="hidden lg:block lg:w-72 lg:shrink-0" />
 
       <div className="flex min-w-0 flex-1 flex-col gap-6">
-        <div ref={resultsRef} className="flex scroll-mt-4 flex-wrap items-center justify-between gap-x-3 lg:scroll-mt-28">
+        <div data-gallery-results ref={resultsRef} className="flex scroll-mt-4 flex-wrap items-center justify-between gap-x-3 lg:scroll-mt-28">
           <div className="flex flex-wrap items-center gap-x-3">
             <p aria-live="polite" className="text-sm text-foreground">
               Showing {filtered.length} of {examples.length} example{examples.length === 1 ? "" : "s"}
@@ -254,7 +255,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <div data-gallery-results className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {filtered.map((example) => (
               <ExampleCard key={example.id} example={example} latestCrawledDate={latestCrawledDate} />
             ))}

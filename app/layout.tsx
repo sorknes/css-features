@@ -23,6 +23,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      // app/page.tsx may flag <html> before hydration while filters load from the URL.
+      suppressHydrationWarning
       className={`${interTight.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
