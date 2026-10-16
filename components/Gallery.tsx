@@ -135,7 +135,7 @@ export default function Gallery({ examples }: { examples: CssExample[] }) {
           <p aria-live="polite" className="text-sm text-foreground">
             Showing {filtered.length} of {examples.length} example{examples.length === 1 ? "" : "s"}
           </p>
-          <label className="flex items-center gap-2 text-sm text-foreground">
+          <label className="flex min-h-11 items-center gap-2 text-sm text-foreground">
             Sort by
             <select
               value={sortBy}

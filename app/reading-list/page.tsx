@@ -23,9 +23,9 @@ export default function ReadingListPage() {
     <>
       <SiteHeader current="reading-list" lastUpdated={lastUpdated} />
       <main id="main-content" className="flex-1 px-4 py-8 sm:px-6">
-        <div className="mx-auto flex max-w-2xl flex-col gap-6">
+        <div className="mx-auto flex max-w-[32rem] flex-col gap-6">
           <div className="flex flex-col gap-3">
-            <h2 className="text-xl font-semibold tracking-tight">Reading list</h2>
+            <h1 className="text-xl font-semibold tracking-tight">Reading list</h1>
             <p className="text-base text-foreground/90">
               Not every good CSS writeup discovered by this site&rsquo;s crawler is about a{" "}
               <em>new</em> feature &mdash; some are well-written pieces on properties that have

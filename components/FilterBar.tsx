@@ -40,6 +40,7 @@ export default function FilterBar({
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const activeFilterCount =
     selectedCategories.size + selectedSupportLevels.size + (newOnly ? 1 : 0) + (search.trim() ? 1 : 0);
@@ -54,7 +55,25 @@ export default function FilterBar({
     closeRef.current?.focus();
     document.body.style.overflow = "hidden";
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") {
+        close();
+        return;
+      }
+      // Keep Tab focus inside the open drawer, since the page behind it is covered by the overlay.
+      if (e.key !== "Tab" || !panelRef.current) return;
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>("button, input");
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!panelRef.current.contains(document.activeElement)) {
+        e.preventDefault();
+        first.focus();
+      } else if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
     document.addEventListener("keydown", onKeyDown);
     return () => {
@@ -72,7 +91,7 @@ export default function FilterBar({
           aria-expanded={isOpen}
           aria-controls="filter-panel"
           onClick={() => setIsOpen(true)}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-sm font-medium"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-paper px-4 py-2 text-sm font-medium"
         >
           <BiFilterAlt aria-hidden="true" className="h-4 w-4" />
           Filters
@@ -92,10 +111,18 @@ export default function FilterBar({
         />
       )}
 
+      {/* Below lg this is an off-canvas drawer: hidden (and out of the tab order) while closed,
+          a modal dialog while open. At lg and up it's the always-visible sidebar. */}
       <div
+        ref={panelRef}
         id="filter-panel"
-        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-white pt-8 pr-6 pb-4 pl-4 transition-transform duration-200 lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-2 lg:transition-none lg:translate-x-0 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        role={isOpen ? "dialog" : undefined}
+        aria-modal={isOpen ? true : undefined}
+        aria-label={isOpen ? "Filters" : undefined}
+        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-paper pt-8 pr-6 pb-4 pl-4 duration-200 lg:visible lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-2 lg:transition-none lg:translate-x-0 ${
+          // Visibility only transitions on close (so the slide-out still plays); on open it must flip
+          // immediately or the close button can't take focus.
+          isOpen ? "visible translate-x-0 transition-[translate]" : "invisible -translate-x-full transition-[translate,visibility]"
         }`}
       >
         <div className="mb-4 flex items-center justify-between lg:hidden">
@@ -124,7 +151,7 @@ export default function FilterBar({
                 value={search}
                 onChange={(e) => onSearchChange(e.target.value)}
                 placeholder="e.g. subgrid, has(), container queries…"
-                className="w-full rounded-md border border-border py-2 pr-3 pl-9 text-sm focus-visible:outline-2 focus-visible:outline-accent"
+                className="w-full rounded-md border border-border py-2 pr-3 pl-9 text-sm placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent"
               />
             </div>
           </div>

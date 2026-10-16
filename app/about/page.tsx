@@ -71,7 +71,8 @@ export default function AboutPage() {
     <>
       <SiteHeader current="about" lastUpdated={lastUpdated} />
       <main id="main-content" className="flex-1 px-4 py-8 sm:px-6">
-        <div className="mx-auto flex max-w-2xl flex-col gap-10">
+        <div className="mx-auto flex max-w-[32rem] flex-col gap-10">
+          <h1 className="sr-only">About CSS Edge</h1>
           <Section title="What this is">
             <p>
               A gallery of new and emerging CSS features. Every card is a small, self-contained,

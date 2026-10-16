@@ -12,6 +12,7 @@ export default function Home() {
     <>
       <SiteHeader current="gallery" lastUpdated={lastUpdated} />
       <main id="main-content" className="flex-1 px-4 py-6 sm:px-6">
+        <h1 className="sr-only">CSS Edge: new and emerging CSS features</h1>
         <Gallery examples={examples} />
       </main>
     </>
