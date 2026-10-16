@@ -10,6 +10,7 @@ import { SOURCES } from "@/lib/sources";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SheetPage from "@/components/SheetPage";
+import { SUPPORT_LEVEL_ICONS } from "@/lib/tagIcons";
 
 const REPO_URL = "https://github.com/sorknes/css-features";
 
@@ -27,15 +28,19 @@ const TECH_STACK = [
   },
   {
     name: "Tailwind CSS v4",
-    detail: "Styling, using its CSS-first theme tokens for the color palette (including the status-tag colors below).",
+    detail: "Styling, using its CSS-first theme tokens for the cream, ink and forest-green palette.",
   },
   {
     name: "react-icons (Box Icons)",
-    detail: "The browser logos, code/search/copy icons, and external-link markers used throughout the UI.",
+    detail: "The browser logos, the icons on each card's tags, the code/search/copy icons, and external-link markers.",
   },
   {
     name: "caniuse-lite + caniuse-api",
-    detail: "The offline browser-support dataset behind every version number and the Production ready / Growing support split.",
+    detail: "The offline browser-support dataset behind every version number and the global usage figure on each tag.",
+  },
+  {
+    name: "MDN browser-compat-data",
+    detail: "Support data for features caniuse-lite doesn't bundle (caniuse's mdn-* pages), used for their global usage figure.",
   },
   {
     name: "rss-parser",
@@ -47,7 +52,7 @@ const TECH_STACK = [
   },
   {
     name: "GitHub Actions",
-    detail: "Runs the discovery script on a weekly schedule and commits the results straight to the repo.",
+    detail: "Runs discovery and refreshes browser-support numbers every week, then opens a pull request with the results for review. It never pushes to main.",
   },
   {
     name: "A flat JSON file",
@@ -101,8 +106,8 @@ export default function AboutPage() {
               A script checks each source below for its RSS/Atom feed (or scrapes links from the
               page if it has none), keeps items that mention a known new-CSS-feature keyword, and
               queues them for review. It never re-queues a URL it&rsquo;s already seen or already
-              published. This runs on a weekly schedule and commits its results straight to the
-              repo &mdash; no server involved.
+              published. This runs on a weekly schedule and opens a pull request with its results
+              for review &mdash; no server involved.
             </li>
             <li>
               <strong className="font-semibold">Process (manual, LLM-in-the-loop).</strong>{" "}
@@ -125,25 +130,31 @@ export default function AboutPage() {
           <div className="flex flex-col gap-2">
             <p>
               <strong className="font-semibold">Browser support</strong> is derived
-              automatically from real caniuse-lite data, not opinion:
+              automatically from caniuse data (via caniuse-lite) and MDN&rsquo;s browser-compat-data,
+              not opinion. The percentage on a tag is the share of global users whose browser
+              fully supports the feature:
             </p>
             <ul className="flex flex-col gap-1.5">
-              {SUPPORT_LEVELS.map((level) => (
-                <li key={level.value} className="flex items-start gap-3">
-                  <span
-                    className={`label shrink-0 px-2 py-1 ${SUPPORT_LEVEL_STYLES[level.value]}`}
-                  >
-                    {level.label}
-                  </span>
-                  <span>
-                    {level.value === "production-ready" &&
-                      `full support in all 4 major engines (Chrome, Firefox, Safari, Edge), on browsers used by at least ${PRODUCTION_READY_MIN_USAGE}% of people`}
-                    {level.value === "growing-support" && "supported somewhere, fully or partially, but not production ready yet"}
-                    {level.value === "experimental" &&
-                      "none support it yet, or it isn't tracked by caniuse-lite at all"}
-                  </span>
-                </li>
-              ))}
+              {SUPPORT_LEVELS.map((level) => {
+                const Icon = SUPPORT_LEVEL_ICONS[level.value];
+                return (
+                  <li key={level.value} className="flex items-start gap-3">
+                    <span
+                      className={`label inline-flex shrink-0 items-center gap-1.5 px-2 py-1 ${SUPPORT_LEVEL_STYLES[level.value]}`}
+                    >
+                      <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+                      {level.label}
+                    </span>
+                    <span>
+                      {level.value === "production-ready" &&
+                        `full support in all 4 major engines (Chrome, Firefox, Safari, Edge), on browsers used by at least ${PRODUCTION_READY_MIN_USAGE}% of people`}
+                      {level.value === "growing-support" && "supported somewhere, fully or partially, but not production ready yet"}
+                      {level.value === "experimental" &&
+                        "none support it yet, or it isn't tracked by caniuse-lite at all"}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
             <p className="text-muted">
               caniuse-lite only bundles the ~580 most established features, so a brand-new

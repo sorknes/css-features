@@ -19,6 +19,7 @@ import { isNewExample } from "@/lib/isNew";
 import { formatDate } from "@/lib/formatDate";
 import { isManualSource } from "@/lib/sources";
 import { getSupportLevel, SUPPORT_LEVEL_LABELS, SUPPORT_LEVEL_STYLES } from "@/lib/supportLevel";
+import { NEW_TAG_ICON, SUPPORT_LEVEL_ICONS } from "@/lib/tagIcons";
 import CodeBlock from "@/components/CodeBlock";
 
 const BROWSER_LABELS: {
@@ -56,6 +57,7 @@ export default function ExampleCard({
 }) {
   const categoryLabel = CATEGORIES.find((c) => c.value === example.category)?.label ?? example.category;
   const isNew = isNewExample(example.crawledDate, latestCrawledDate);
+  const SupportIcon = SUPPORT_LEVEL_ICONS[getSupportLevel(example)];
   const supportLevel = getSupportLevel(example);
   const usage = example.globalUsage === null ? null : Math.round(example.globalUsage);
   const hasPartialSupport = Object.keys(example.browserSupport?.partial ?? {}).length > 0;
@@ -70,11 +72,16 @@ export default function ExampleCard({
     >
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 px-5 pt-5">
         {isNew && (
-          <span className="label bg-foreground px-2 py-1 text-background" aria-label="New addition to the gallery">
+          <span
+            className="label inline-flex items-center gap-1.5 bg-foreground px-2 py-1 text-background"
+            aria-label="New addition to the gallery"
+          >
+            <NEW_TAG_ICON aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
             New
           </span>
         )}
-        <span className={`label px-2 py-1 ${SUPPORT_LEVEL_STYLES[supportLevel]}`}>
+        <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${SUPPORT_LEVEL_STYLES[supportLevel]}`}>
+          <SupportIcon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
           {SUPPORT_LEVEL_LABELS[supportLevel]}
           {showUsage ? (
             <>

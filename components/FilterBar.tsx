@@ -5,6 +5,8 @@ import { BiSearch, BiFilterAlt, BiRightArrowAlt, BiX } from "react-icons/bi";
 import type { Category } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import { PRODUCTION_READY_MIN_USAGE, SUPPORT_LEVEL_STYLES, type SupportLevel } from "@/lib/supportLevel";
+import { SUPPORT_LEVEL_ICONS } from "@/lib/tagIcons";
+import type { IconType } from "react-icons";
 
 interface FilterBarProps {
   selectedCategories: Set<Category>;
@@ -36,6 +38,7 @@ function OptionRow({
   selected,
   onToggle,
   tagClassName,
+  tagIcon: TagIcon,
 }: {
   label: string;
   count: number;
@@ -43,6 +46,7 @@ function OptionRow({
   onToggle: () => void;
   /** Render the label in a readiness tag's shape, so the filter matches the tags on the cards. */
   tagClassName?: string;
+  tagIcon?: IconType;
 }) {
   const disabled = !selected && count === 0;
   return (
@@ -58,7 +62,10 @@ function OptionRow({
         className={`size-3.5 shrink-0 border ${selected ? "border-forest bg-forest" : disabled ? "border-border" : "border-foreground"}`}
       />
       {tagClassName ? (
-        <span className={`label px-2 py-1 ${tagClassName} ${disabled ? "opacity-50" : ""}`}>{label}</span>
+        <span className={`label inline-flex items-center gap-1.5 px-2 py-1 ${tagClassName} ${disabled ? "opacity-50" : ""}`}>
+          {TagIcon && <TagIcon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />}
+          {label}
+        </span>
       ) : (
         <span className={selected ? "font-semibold" : undefined}>{label}</span>
       )}
@@ -265,6 +272,7 @@ export default function FilterBar({
                 selected={selectedSupportLevels.has(level.value)}
                 onToggle={() => onToggleSupportLevel(level.value)}
                 tagClassName={SUPPORT_LEVEL_STYLES[level.value]}
+                tagIcon={SUPPORT_LEVEL_ICONS[level.value]}
               />
             ))}
           </fieldset>

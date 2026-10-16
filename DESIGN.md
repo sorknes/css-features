@@ -306,9 +306,9 @@ Rectangular, ruled and quiet until touched.
 - **Focus:** 2px forest outline at 2px offset everywhere; inset where the control fills its cell.
 
 ### Chips (tags)
-- **Readiness:** Mono label padded 4px 8px. Production ready is solid forest with cream text; Growing support is a 1px forest outline with forest text; Experimental is a 1px dashed ink outline with ink text. The same three shapes appear on cards, in the About legend and inside the readiness filter rows.
-- **New:** Solid ink field with cream text.
-- **Category:** 1px warm rule edge, pencil text.
+- **Readiness:** Mono label padded 4px 8px. Production ready is solid forest with cream text; Growing support is a 1px forest outline with forest text; Experimental is a 1px dashed ink outline with ink text. Each carries a leading 14px Box Icon (check-circle, trending-up, test-tube, from `lib/tagIcons.ts`). The same three shapes and icons appear on cards, in the About legend and inside the readiness filter rows.
+- **New:** Solid ink field with cream text and a leading 14px solid star.
+- **Category:** 1px warm rule edge, pencil text, no icon.
 - **Browser chips:** 1px warm rule edge with brand icon, name and version; a dashed pencil edge marks partial support.
 
 ### Cards / Containers
