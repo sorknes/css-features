@@ -1,283 +1,357 @@
 ---
 name: CSS Edge
-description: A gallery of new and emerging CSS features, each with a live demo and real browser-support data.
+description: A gallery of new and emerging CSS features, each with a live demo and real browser-support data, laid out as a ruled drawing sheet.
 colors:
-  bench-grey: "#f8f8f8"
-  graphite-ink: "#1f1f1f"
-  bench-black: "#171717"
-  paper-white: "#ffffff"
-  pencil-grey: "#6b6b6b"
-  hairline: "#e0e0e0"
-  tray-grey: "#eeeeee"
-  ready-green-wash: "#ecfdf3"
-  ready-green: "#15803d"
-  growing-amber-wash: "#fff7ed"
-  growing-amber: "#c2410c"
-  experimental-red-wash: "#fef2f2"
-  experimental-red: "#b91c1c"
-  demo-blue: "#2563eb"
+  background: "#f1ece1"
+  foreground: "#151612"
+  muted: "#5f5a4e"
+  border: "#d3cbb8"
+  surface: "#e7e0d0"
+  paper: "#fffdf8"
+  forest: "#1f4a35"
+  forest-foreground: "#f1ece1"
 typography:
-  title:
-    fontFamily: "Inter Tight, ui-sans-serif, system-ui, sans-serif"
+  display-rail:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "3rem"
+    fontWeight: 800
+    lineHeight: 0.92
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  display-rail-wide:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.75rem"
+    fontWeight: 800
+    lineHeight: 0.92
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  display-stat:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.25rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  headline:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  headline-section:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  title-card:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.375rem"
+    fontWeight: 800
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
+  title-list:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.375
-  section:
-    fontFamily: "Inter Tight, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.4
-    letterSpacing: "-0.025em"
+    fontWeight: 800
+    lineHeight: 1.25
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
   body:
-    fontFamily: "Inter Tight, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.5
-  label:
-    fontFamily: "Inter Tight, ui-sans-serif, system-ui, sans-serif"
+    lineHeight: 1.625
+  body-card:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.625
+  body-small:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
-    fontWeight: 700
+    fontWeight: 400
     lineHeight: 1.43
-  tag:
-    fontFamily: "Inter Tight, ui-sans-serif, system-ui, sans-serif"
+  caption:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.75rem"
-    fontWeight: 500
+    fontWeight: 400
     lineHeight: 1.33
+  label:
+    fontFamily: "Geist Mono, ui-monospace, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.33
+    letterSpacing: "0.04em"
   code:
     fontFamily: "Geist Mono, ui-monospace, monospace"
     fontSize: "0.75rem"
     fontWeight: 400
     lineHeight: 1.625
 rounded:
-  chip: "4px"
-  inset: "6px"
-  card: "8px"
-  pill: "9999px"
+  none: "0px"
+  disc: "9999px"
 spacing:
   xs: "4px"
   sm: "8px"
   md: "12px"
   lg: "16px"
-  xl: "20px"
-  2xl: "24px"
-  3xl: "32px"
+  cell: "20px"
+  gutter: "24px"
+  section: "40px"
+  control: "44px"
+  band: "56px"
+  rail: "288px"
 components:
-  card:
-    backgroundColor: "{colors.bench-grey}"
-    rounded: "{rounded.card}"
-    padding: "16px"
-  tag-category:
-    backgroundColor: "{colors.tray-grey}"
-    textColor: "{colors.graphite-ink}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  tag-new:
-    backgroundColor: "{colors.bench-black}"
-    textColor: "{colors.paper-white}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  tag-production-ready:
-    backgroundColor: "{colors.ready-green-wash}"
-    textColor: "{colors.ready-green}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  tag-growing-support:
-    backgroundColor: "{colors.growing-amber-wash}"
-    textColor: "{colors.growing-amber}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  tag-experimental:
-    backgroundColor: "{colors.experimental-red-wash}"
-    textColor: "{colors.experimental-red}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  chip-browser-version:
-    textColor: "{colors.graphite-ink}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.chip}"
-    padding: "2px 8px"
-  button-pill:
-    backgroundColor: "{colors.paper-white}"
-    textColor: "{colors.graphite-ink}"
-    typography: "{typography.tag}"
-    rounded: "{rounded.pill}"
-    padding: "4px 10px"
-  button-pill-hover:
-    backgroundColor: "{colors.tray-grey}"
-  filter-option-selected:
-    backgroundColor: "{colors.bench-black}"
-    textColor: "{colors.paper-white}"
-    rounded: "{rounded.pill}"
-    padding: "4px 12px"
+  button-primary:
+    backgroundColor: "{colors.forest}"
+    textColor: "{colors.forest-foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    height: "{spacing.control}"
+    padding: "0 16px"
+  button-outline:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
+  button-outline-hover:
+    backgroundColor: "{colors.forest}"
+    textColor: "{colors.forest-foreground}"
+  disclosure-code:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    height: "{spacing.control}"
   disclosure-code-open:
-    backgroundColor: "{colors.bench-black}"
-    textColor: "{colors.paper-white}"
-    padding: "10px 16px"
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.background}"
+  tag-production-ready:
+    backgroundColor: "{colors.forest}"
+    textColor: "{colors.forest-foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
+  tag-growing-support:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.forest}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
+  tag-experimental:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
+  tag-new:
+    backgroundColor: "{colors.foreground}"
+    textColor: "{colors.background}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
+  tag-category:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.muted}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "4px 8px"
   input-search:
-    textColor: "{colors.graphite-ink}"
-    rounded: "{rounded.inset}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.body}"
+    rounded: "{rounded.none}"
     padding: "8px 12px 8px 36px"
-  demo-frame:
-    backgroundColor: "{colors.paper-white}"
-    rounded: "{rounded.inset}"
-    height: "240px"
+  nav-cell:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.muted}"
+    typography: "{typography.label}"
+    height: "{spacing.control}"
+    padding: "0 20px"
+  nav-cell-hover:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.foreground}"
+  filter-option-row:
+    backgroundColor: "{colors.background}"
+    textColor: "{colors.foreground}"
+    typography: "{typography.body-small}"
+    height: "{spacing.control}"
+    padding: "0 16px"
+  filter-option-row-hover:
+    backgroundColor: "{colors.surface}"
+  demo-panel:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.none}"
+    height: "260px"
   code-block:
-    backgroundColor: "{colors.tray-grey}"
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.foreground}"
     typography: "{typography.code}"
-    rounded: "{rounded.inset}"
-    padding: "10px"
+    padding: "12px"
 ---
 
 # Design System: CSS Edge
 
 ## Overview
 
-**Creative North Star: "The Lab Bench"**
+**Creative North Star: "The Drawing Sheet"**
 
-CSS Edge is a working surface laid out with instruments. Each card is a station on the bench: a labelled demo under glass (the white iframe), a row of readings (browser version chips), a drawer of source (the code disclosure) and a tag that grades readiness. The bench is uniform pale grey and graphite, so the only real color comes from the experiments running on it.
+The site is a technical drawing sheet: a cream plate divided by hairline rules into cells, each cell holding one CSS feature with its live demo as the drawing. Nothing floats. Cards, filters, header, ticker, results bar and reading pages are all regions of the same ruled plate, separated by 1px warm rules that collapse between neighbours rather than by gaps and shadows.
 
-The system is quiet and precise. Hairline borders (1px `hairline`) do the structural work, pill-shaped tags carry the metadata, and nothing is raised by shadows at rest. Near-black ink (`bench-black`) marks active state: a selected filter, an open code drawer, the NEW tag, the marquee strip. Density is practical rather than airy. A card packs tags, a title, the feature name, an optional Tailwind note, a description, the demo, the code and support data into one column without decoration.
+The frame is deliberately quiet so the demos lead. One forest green carries every piece of state and action: the wordmark disc, the Production ready tag, selected filters, primary actions, links, the focus ring and the ticker separators. Everything else is ink on cream. Type splits into two voices: a heavy, slightly condensed, uppercase Archivo for names (wordmark, card titles, page headings) and Geist Mono uppercase for every label, tag, control, count and the ticker. Running prose stays in sentence-case Archivo at regular weight.
 
-Color in the interface has a meaning. Green, amber and red appear only as support-level signals, always as a pale wash with a darker border and text in the same hue, never as decoration.
+The world refuses the category default of rounded floating cards on a grey canvas with pill tags. Corners are square; the only curve in the system is the solid forest disc.
 
 **Key Characteristics:**
-- A monochrome frame (graphite on pale grey) so the live demos supply the color.
-- Hairline borders instead of shadows; flat at rest.
-- Pill tags for metadata; small square-cornered chips for data readings.
-- Near-black ink as the single active-state signal.
-- Mono type is used only for code and CSS feature names.
+- Cream sheet, near-black ink, one forest green; no other interface hue.
+- 1px warm rules divide every region; cells share edges instead of sitting apart.
+- Square corners on everything except the forest disc motif.
+- Heavy condensed uppercase Archivo for names; mono uppercase for every label.
+- Readiness is shape-coded: solid forest, outlined forest, dashed ink.
+- Flat: no shadows for depth; the drawing paper panel is set into the sheet, not lifted.
+- Motion is limited to the ticker, short colour transitions and the mobile filter drawer.
 
 ## Colors
 
-A near-monochrome bench of greys and graphite, with three semantic signal hues and one blue kept for the demos.
+Warm paper and ink with a single deep forest green that means "act here" or "this is selected/ready".
 
 ### Primary
-- **Bench Black** (`bench-black`): the interface's active-state ink. Used for the selected filter pill, the open "View code" drawer and its hover state, the NEW tag, the marquee strip, the back-to-top button, the focus ring and text links. In the interface it is the only "accent".
-
-### Tertiary
-- **Demo Blue** (`demo-blue`): the main accent *inside* live demos only. New example demos use it instead of black. The interface itself does not use it today.
+- **Forest** (forest): The one interface colour. Solid fields for the wordmark disc, the Production ready tag, selected filter checkboxes, primary action buttons, the active-filter count badge, hover fill on outlined buttons and the ticker's disc separators. Also the outline and text colour of the Growing support tag, link-style actions (Clear, Clear all filters, caniuse.com, About links), the current-page nav underline, the focus ring, text caret, selection background and native accent colour.
+- **Forest Foreground** (forest-foreground): Text and icons on forest fields. It is the cream sheet colour, so a forest field reads as a hole punched through to colour, not a new surface.
 
 ### Neutral
-- **Bench Grey** (`bench-grey`): page background and card background. Cards share the page color and are separated by their hairline border, not by fill.
-- **Graphite Ink** (`graphite-ink`): body text and headings. Secondary copy is softened with opacity (90% for descriptions, 80% for chips), not with a separate color.
-- **Pencil Grey** (`pencil-grey`): muted text such as feature names, counts, inactive nav links, the search icon and footer links.
-- **Hairline** (`hairline`): every border and divider.
-- **Tray Grey** (`tray-grey`): recessed surfaces such as code blocks, the category tag fill and hover backgrounds on filter rows and pill buttons.
-- **Paper White** (`paper-white`, CSS `--paper`): the demo canvas (iframe background), the mobile filter drawer, pill buttons and text on Bench Black.
-
-### Signal (support level)
-- **Ready Green** (`ready-green` on `ready-green-wash`): "Production ready", full support in all four tracked engines on browsers used by at least 90% of global users.
-- **Growing Amber** (`growing-amber` on `growing-amber-wash`): "Growing support", supported (fully or partially) somewhere but not yet production ready.
-- **Experimental Red** (`experimental-red` on `experimental-red-wash`): "Experimental", supported nowhere or not tracked by caniuse-lite.
+- **Cream Sheet** (background): The page ground and the fill of every cell, header band, rail and drawer.
+- **Sheet Ink** (foreground): All primary text, the edges of operable controls (outlined buttons, search input, sort select, code disclosure), the dashed Experimental tag, the New tag fill, and the open code-disclosure bar.
+- **Pencil** (muted): Secondary text: counts, inactive nav cells, category tags, source lines, helper copy, placeholder text, the "partial" note and the dashed partial-support chip edge. Holds 5.2:1 or better on cream, surface and paper.
+- **Warm Rule** (border): Hairline dividers between cells and regions, and the edge of passive chips (category tag, browser chips) and the demo panel. Decorative at 1.37:1 against cream; never the only edge of a standalone control.
+- **Tray** (surface): Hover fill for nav cells, option rows, reading-list rows and outlined secondary buttons; the code block background; the scrollbar track.
+- **Drawing Paper** (paper): The demo canvas and the fill of text inputs and selects. The near-white panel where the "drawing" sits.
 
 ### Named Rules
-**The Demos Bring the Color Rule.** The interface stays graphite and grey. Saturated color belongs to the live demos and the three support-level signals. Any other hue in the interface needs a reason.
+**The One Green Rule.** Forest is the only interface hue. Anything that is selected, ready, primary or a link is forest; everything else is ink, pencil or a warm neutral. Do not introduce a second accent, a warning colour or a status red.
 
-**The Signal Pair Rule.** A support-level color always appears as a set: a pale wash fill, plus a border and text in the darker shade of the same hue. Never use the dark hue as a solid fill.
+**The Demo Blue Rule.** Demos keep their own blue accent (#2563eb), and the interface never uses it. Blue inside a demo panel is the feature; blue in the frame would compete with it.
 
-**The Accent Split (current, open to change).** Today the interface accent is Bench Black and the demo accent is Demo Blue. This is the documented current state, not a permanent rule. If the interface moves to blue later, update this section and the tokens together.
+**The Ink Edge Rule.** A standalone control (button, input, select, disclosure) has a sheet-ink edge or a forest fill. Warm rules divide cells and frame passive chips; they never carry an interactive edge alone.
 
 ## Typography
 
-**Display/Body Font:** Inter Tight (with ui-sans-serif, system-ui)
-**Mono Font:** Geist Mono (with ui-monospace)
+**Display Font:** Archivo (variable, with the wdth axis; ui-sans-serif, system-ui fallback)
+**Body Font:** Archivo
+**Label/Mono Font:** Geist Mono (ui-monospace fallback)
 
-**Character:** a tight, slightly condensed grotesque for everything readable, paired with a clean mono that marks anything you could paste into a stylesheet. The pairing reads like a technical manual: no display face and no flourish.
+**Character:** A heavy, slightly condensed grotesque set uppercase and tight, like lettering on a drawing's title block, against a small mono that reads as dimension callouts. The same Archivo family relaxes to regular weight and sentence case for prose.
 
 ### Hierarchy
-- **Title** (600, 1.25rem, 1.375): example card titles. This is the largest type on the gallery; the wordmark is deliberately small.
-- **Section** (600, 1.25rem, tight tracking): section headings on the About and Reading List pages.
-- **Body** (400, 1rem, 1.5): card descriptions and page prose. Long-form pages are capped at `max-w-2xl` (42rem).
-- **Label** (700, 0.875rem): filter group headings and form labels. The site wordmark "CSS Edge" uses the same bold weight at 1rem with tight tracking.
-- **Tag** (500–600, 0.75rem): pills, browser chips, counts, Replay/Copy buttons. Code block labels (HTML/CSS/JS) use this size in uppercase with wide tracking.
-- **Code** (Geist Mono, 0.75rem, 1.625): code blocks and the `cssFeature` line under each title.
+- **Display, rail** (800, 3rem below 1024px and 2.75rem at 1024px and up, 0.92): The page title in the reading pages' left rail, under the large forest disc.
+- **Display, stat** (800, 2.25rem rising to 3rem from 640px, 1): The About page's figure cells.
+- **Headline** (800, 1.875rem, 1.05): The empty-results message.
+- **Headline, section** (800, 1.5rem, 1): About page section headings.
+- **Title, card** (800, 1.375rem, 1.05, balanced): Feature names on gallery cells.
+- **Title, list** (800, 1.25rem): The CSS EDGE wordmark (line-height 1) and reading-list entry titles (1.25).
+- **Body** (400, 1rem, 1.625, max about 42rem): About and reading-list prose, the search field text.
+- **Body, card** (400, 0.9375rem, 1.625): Feature descriptions on cards, always shown in full.
+- **Body, small** (400, 0.875rem): Filter option rows, the Tailwind line, footer source links, reading-list notes.
+- **Caption** (400, 0.75rem): Source and date lines, the "not yet tracked" note, the readiness help text.
+- **Label** (Geist Mono 400, 0.75rem, 1rem line, 0.04em, uppercase): Every tag, control label, count, nav cell, group legend, ticker item and the skip link.
+- **Code** (Geist Mono 400, 0.75rem, 1.625, wrapping): Code blocks and the feature line under card titles (sentence case, not uppercase).
+
+All display, headline and title roles share one treatment: weight 800, width 88%, uppercase, -0.02em tracking. Emphasis inside prose uses weight 600.
 
 ### Named Rules
-**The Mono Means CSS Rule.** Geist Mono is reserved for literal code: demo source and CSS feature names. Never use mono for decoration or labels.
+**The Two Voices Rule.** Names are heavy condensed uppercase Archivo; labels are mono uppercase. Prose is the only sentence-case text. A new element picks one of the three; it never mixes a third style in.
 
-**The Small Wordmark Rule.** The brand name is 1rem bold, not a hero headline. The cards are the content and should carry the visual weight.
+**The Ramp Is Closed Rule.** The sizes above are the full ramp. A new surface reuses one of them rather than adding an in-between size.
 
 ## Layout
 
-- **Gallery:** on desktop (`lg`, 1024px and up), a fixed 18rem (`w-72`) filter sidebar on the left with a hairline right border, sticky beneath the header. The content column holds a card grid: 1 column on mobile, 2 from `sm` (640px), 3 from `xl` (1280px), 4 from `2xl` (1536px), with a 20px gap. Below `lg`, filters move into an off-canvas drawer (18rem, max 85vw) behind a "Filters" pill that shows a count of active filters.
-- **Header:** sticky on desktop with a 95%-opaque blurred background. It has two bands: a thin black marquee strip, then a three-column grid (wordmark | centered nav | GitHub link).
-- **Reading pages** (About, Reading List): one centered column, `max-w-2xl`, with 40px between sections.
-- **Rhythm:** a 4px base. 16px is the standard inset (card padding, page gutter on mobile), 24px the page gutter from `sm`, 12px the vertical gap inside cards, and 32px between filter groups.
-- **Touch targets:** filter rows, the Filters trigger and the sort control are at least 44px tall (`min-h-11`). Small pills and text links keep their visual size but extend their hit area with an invisible `::after` inset.
-- **Header on phones:** below `sm` the wordmark and GitHub link share the first row and the nav moves to a second row, so the wordmark never wraps.
+The page is one sheet. The header is a ruled band: a 56px wordmark cell, nav as mono cells (44px tall, full-width equal cells on a second row below 640px, inline from 640px), and a GitHub cell pushed right; under it, a full-width mono ticker strip. Below the header, the gallery runs as a row: the filter rail (288px, right rule, sticky at full viewport height from 1024px; an off-canvas drawer below 1024px) beside a results column.
+
+The results column starts with a ruled results bar (live count, Clear all filters, Sort select) and then the card grid immediately: one column, two from 640px, three from 1280px, four from 1536px. Cells have no gap; each cell draws its own bottom and right rule so rules collapse into a single hairline grid. Inside a cell, content sits on a 20px inset: tag row, title, feature line, then the 260px demo panel, description, the code disclosure, and a bottom zone separated by a full-bleed rule.
+
+Reading pages (About, Reading list) reuse the sheet: a 288px left rail holding a large forest disc and the page title, and a body column of ruled cells divided by hairlines, each padded 40px vertically and 16/24/40px horizontally by breakpoint, with prose capped near 42rem.
+
+Spacing steps by 4px (4, 8, 12, 16), with 20px cell insets, 24px band gutters from 640px and 40px section padding. Every touch target is at least 44px.
 
 ## Elevation & Depth
 
-The bench is flat. Depth comes from hairline borders and tonal steps: Tray Grey for recessed areas (code), Paper White for the demo canvas and drawer, Bench Grey for everything else. Shadows appear only on elements that float over content.
-
-### Shadow Vocabulary
-- **Float small** (`box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05)`): the Replay button, which sits inside a demo frame over live content with a translucent white, blurred background.
-- **Float large** (`box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)`): the fixed back-to-top button.
+The system is flat. Depth comes from rules and from the paper panel set into the cream sheet, never from shadows. The one blurred shadow in the build is a cream fade on the ticker's pause button, which masks scrolling text behind it; it is a fade, not elevation. The mobile filter drawer is a full-height cream panel with a right rule over a 40% ink scrim.
 
 ### Named Rules
-**The Flat Bench Rule.** Cards, tags, inputs and panels have no shadow. A shadow is reserved for something floating above live content or the page (Replay, back-to-top).
+**The Set-In Rule.** Panels are set into the sheet with a 1px rule, never lifted off it. No drop shadows, no hover lift, no glow.
 
 ## Shapes
 
-Corners scale with an element's role. **Pills** (full radius) are used for everything you tag or tap: metadata tags, filter selections, Copy, Replay, Filters, the close button and back-to-top. **Gently rounded rectangles** hold content: cards (8px), and demo frames, code blocks, the code drawer and inputs (6px). **Small chips** (4px) are used for data readings, the browser version tags. All borders are 1px. The demo frame has a native horizontal resize handle, so visitors can test responsive demos by dragging.
+Square corners everywhere: cells, tags, chips, buttons, inputs, the demo panel, the code block, the drawer. The single curved form is the solid forest disc, used at three scales as the system's mark: 16px beside the wordmark, 8px between ticker items, and 80 to 144px at the top of reading-page rails. Edges are 1px: warm rule for dividers and passive chips, ink for operable controls, dashed ink for Experimental and dashed pencil for partial browser support. Compound buttons split into rectangles with a vertical rule between label and arrow or chevron.
+
+### Named Rules
+**The Only Curve Rule.** Nothing is rounded except the forest disc. A disc is always solid forest and decorative; it is never a button, avatar or badge.
+
+**The Dashed Means Partial Rule.** A dashed edge means "not fully there": Experimental readiness and partial browser support. Do not use dashes decoratively.
 
 ## Components
 
-### Example Card (signature)
-The station on the bench, quiet and complete.
-- **Corner Style:** 8px; the card clips its children.
-- **Background:** Bench Grey (the same as the page), with a 1px Hairline border.
-- **Structure, top to bottom:** a tag row (NEW, category, support level) separated by a hairline; title; the CSS feature in mono with a curly-brace icon; an optional "Tailwind:" note; the description; the live demo frame; the "View code" drawer; a footer with browser version chips, a source line ("From *source* · *date*", or "Added manually" for hand-added examples whose source is the site itself or a post with no public link) and a "View on caniuse.com" link, set off by a hairline.
-- **Internal Padding:** 16px on the sides, with 12px vertical steps between parts.
-
-### Demo Frame
-- A sandboxed iframe on Paper White, 240px tall, with a 6px radius, a hairline border and horizontal resizing (minimum 140px).
-- **Replay** (only for one-shot demos): a pill in the top-right corner with a translucent white, blurred fill and the small float shadow.
-
-### Tags
-- **Category:** a Tray Grey pill with a Pencil Grey border and Graphite text.
-- **NEW:** a Bench Black pill with white text, semibold and uppercase.
-- **Support level:** a signal pair (wash fill with a border and text in the same hue), followed by the global usage figure for full support ("Production ready · 94%"), "usage n/a" when it isn't tracked, and nothing when it's 0% but some browser has partial support. Support levels with no examples are left out of the filters. The same styling is reused for the selected state of the sidebar filter.
-- **Browser version chip:** a 4px-radius chip with a hairline border, the browser logo and "Chrome 125+" (or an em dash when unsupported). Partial support (caniuse "a") uses a dashed Pencil Grey border and reads "Chrome 125+ partial", with "partial" in Pencil Grey. Partial support counts toward Growing support, never Production ready. When an example has no support data, the chip row is replaced by "Browser support not yet tracked on caniuse".
-
 ### Buttons
-- **Pill button** (Copy, Replay, Filters): Paper White fill, hairline border, 0.75rem medium text with a leading 14px icon. On hover the fill changes to Tray Grey.
-- **Back to top:** a 44px round Bench Black button with white icon and the large float shadow. It fades in after 400px of scrolling.
-- **Text link action** (Clear categories, caniuse link): Bench Black, medium weight, underlined on hover with a 2px offset.
+Rectangular, ruled and quiet until touched.
+- **Shape:** Square corners (0px), 1px edge.
+- **Primary:** Solid forest field with cream mono label, 44px tall, label cell padded 12 to 16px, then a 40px arrow cell divided by a 1px cream rule at 40% opacity. Used for the drawer's "Show N examples" and the empty state's clear action.
+- **Outline:** 1px ink edge on cream, mono label, padded 4px 8px (Copy, Replay, back-to-top as a 44px square). Hover fills forest with cream text; 150ms colour transition.
+- **Secondary outline:** 44px tall ink-edged rectangle that hovers to tray (Clear search; the mobile Filters trigger, which appends a forest count cell when filters are active).
+- **Link action:** Forest mono label, no edge, underline on hover (Clear, Clear all filters, caniuse.com).
+- **Focus:** 2px forest outline at 2px offset everywhere; inset where the control fills its cell.
 
-### Code Drawer
-- A native `<details>` element with a 6px radius and hairline border. The summary row (code icon, "View code", chevron) turns Bench Black with white text on hover and when open, and the chevron rotates 180°.
-- Inside: labelled code blocks (an uppercase tracked label plus a Copy pill) on a Tray Grey `pre` in Geist Mono at 0.75rem.
+### Chips (tags)
+- **Readiness:** Mono label padded 4px 8px. Production ready is solid forest with cream text; Growing support is a 1px forest outline with forest text; Experimental is a 1px dashed ink outline with ink text. The same three shapes appear on cards, in the About legend and inside the readiness filter rows.
+- **New:** Solid ink field with cream text.
+- **Category:** 1px warm rule edge, pencil text.
+- **Browser chips:** 1px warm rule edge with brand icon, name and version; a dashed pencil edge marks partial support.
 
-### Filter Sidebar
-- Group headings in Label type. Options are full-width rows at least 44px tall, separated by hairline dividers, with a Tray Grey hover. The option text sits in a pill that fills with Bench Black when selected (or with the signal pair for support levels). Counts are right-aligned in Pencil Grey.
-- **Search input:** a hairline border, 6px radius and a leading search icon in Pencil Grey.
+### Cards / Containers
+- **Corner Style:** Square (0px).
+- **Background:** Cream sheet; the demo sits in a drawing-paper panel with a warm rule edge, 260px tall and horizontally resizable.
+- **Shadow Strategy:** None (see Elevation & Depth).
+- **Border:** Bottom and right warm rules only, so adjacent cells share one hairline.
+- **Internal Padding:** 20px inset; the footer zone's top rule bleeds to the cell edges.
+
+### Code disclosure
+A full-width ink-edged bar reading "View code" with a 44px chevron cell behind a vertical rule. Hover and open states invert to an ink field with cream text; the chevron rotates 180deg when open. Inside, HTML/CSS/JS blocks on tray with a pencil mono label and an outline Copy button each.
+
+### Inputs / Fields
+- **Style:** Drawing-paper fill, 1px ink edge, square corners. Search carries a pencil magnifier inset at 12px and 16px text; Sort is a mono select with a custom ink chevron.
+- **Focus:** The global 2px forest outline; caret is forest.
 
 ### Navigation
-- The header nav uses 1rem medium text. Inactive links are Pencil Grey and turn Graphite on hover, with an underline offset by 2px. The current page is Graphite and has `aria-current`.
-- **Marquee strip:** a Bench Black band with 0.75rem white text scrolling continuously (80s linear loop), with items separated by 50%-white bullets. It pauses on hover and focus, and a pause/play toggle is pinned to its right end (WCAG 2.2.2).
+- **Header nav:** Mono cells divided by warm rules. Inactive cells are pencil and hover to tray with ink text; the current page is ink with a 2px forest bar along the cell bottom.
+- **Filter rail:** Fieldsets divided by rules, each with a mono legend and an optional forest Clear pinned right. Option rows are 44px: a 14px square box (ink edge, or solid forest when selected), the label (semibold when selected) and a pencil mono count. Options that would yield nothing are disabled in pencil; readiness rows render their label as the matching readiness tag.
+- **Mobile:** The rail becomes a left drawer (288px, max 85vw) that slides in over 200ms with a focus-trapped close cell and a sticky footer holding Clear all and the primary "Show N examples" button.
 
-### Focus
-- Every element gets the same focus ring: a 2px solid Bench Black outline offset by 2px. The code drawer summary uses a negative offset so the ring stays inside its clipped corners.
+### Ticker
+A full-width mono strip under the header band: ink uppercase items separated by 8px forest discs, scrolling linearly over 80s. It pauses on hover, on focus within, and from a 44px pause/play cell pinned right behind a warm rule. Reduced motion stops it.
+
+### Sheet rail
+On About and Reading list, the left rail holds a forest disc (80px, 96px from 640px, 144px from 1024px) above the rail-size display title, sticky from 1024px.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** separate surfaces with 1px Hairline borders and tonal steps (Tray Grey, Paper White), not shadows.
-- **Do** use pills (full radius) for tags and small actions, 6–8px radius for content containers and 4px for data chips.
-- **Do** show support level only through the three signal pairs, and keep them consistent between card badges and filter selections.
-- **Do** use Demo Blue as the main accent inside new demos.
-- **Do** keep every interactive row at least 44px tall and keep the global 2px Bench Black focus ring.
-- **Do** make motion respect `prefers-reduced-motion`; the global rule already reduces animation and transition durations to near zero.
+- **Do** divide regions with 1px warm rules (border) and let neighbouring cells share one rule.
+- **Do** keep every corner square; reserve the circle for the solid forest disc.
+- **Do** use forest for every selected, ready, primary or link state, and nothing else.
+- **Do** code readiness by shape as well as colour: solid forest, outlined forest, dashed ink.
+- **Do** set names in heavy condensed uppercase Archivo (800, wdth 88, -0.02em) and every label in Geist Mono uppercase at 0.75rem with 0.04em tracking.
+- **Do** give every standalone control an ink edge or a forest fill and a 44px minimum target.
+- **Do** put demos on drawing paper (paper) inside a ruled panel, and let them keep their own blue.
 
 ### Don't:
-- **Don't** add saturated color to the interface beyond the signal hues; the demos bring the color.
-- **Don't** put shadows on cards, tags or panels at rest.
-- **Don't** use Geist Mono for anything that isn't literal code or a CSS feature name.
-- **Don't** fill a surface with a solid signal hue (dark green, amber or red); use the wash fill with a darker border and text.
-- **Don't** enlarge the wordmark into a hero; the cards carry the page.
+- **Don't** use rounded cards, pill tags or floating cards on a grey canvas.
+- **Don't** add drop shadows, hover lift or glow; panels are set in, not raised.
+- **Don't** use the demo blue (#2563eb) anywhere in the interface frame.
+- **Don't** introduce a second interface hue, including green/amber/red status colours.
+- **Don't** use dashed edges except for Experimental readiness and partial browser support.
+- **Don't** add type sizes outside the documented ramp.
+- **Don't** animate anything beyond the ticker, 150ms colour transitions and the drawer slide.

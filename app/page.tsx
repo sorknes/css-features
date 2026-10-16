@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader current="gallery" lastUpdated={lastUpdated} />
-      <main id="main-content" className="flex-1 px-4 py-6 sm:px-6">
+      <main id="main-content" className="flex-1">
         <h1 className="sr-only">CSS Edge: new and emerging CSS features</h1>
         <script dangerouslySetInnerHTML={{ __html: hideResultsWhileRestoring }} />
         <Gallery examples={examples} />

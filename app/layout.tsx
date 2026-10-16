@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Geist_Mono } from "next/font/google";
+import { Archivo, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       // app/page.tsx may flag <html> before hydration while filters load from the URL.
       suppressHydrationWarning
-      className={`${interTight.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a href="#main-content" className="skip-link">

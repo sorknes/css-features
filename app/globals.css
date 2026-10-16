@@ -1,20 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f8f8;
-  --foreground: #1f1f1f;
-  --muted: #6b6b6b;
-  --border: #e0e0e0;
-  --accent: #171717;
-  --accent-foreground: #ffffff;
-  --surface: #eeeeee;
-  --paper: #ffffff;
-  --success: #ecfdf3;
-  --success-foreground: #15803d;
-  --warning: #fff7ed;
-  --warning-foreground: #c2410c;
-  --danger: #fef2f2;
-  --danger-foreground: #b91c1c;
+  /* Cream sheet, near-black ink, one forest green used as solid fields. */
+  --background: #f1ece1;
+  --foreground: #151612;
+  --muted: #5f5a4e;
+  --border: #d3cbb8;
+  --surface: #e7e0d0;
+  --paper: #fffdf8;
+  --forest: #1f4a35;
+  --forest-foreground: #f1ece1;
 }
 
 @theme inline {
@@ -22,22 +17,19 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-surface: var(--surface);
   --color-paper: var(--paper);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-danger: var(--danger);
-  --color-danger-foreground: var(--danger-foreground);
-  --font-sans: var(--font-inter-tight);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+  --font-sans: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
 }
 
 html {
   color-scheme: light;
+  scrollbar-color: var(--muted) var(--surface);
+  caret-color: var(--forest);
+  accent-color: var(--forest);
 }
 
 body {
@@ -45,9 +37,32 @@ body {
   color: var(--foreground);
 }
 
+::selection {
+  background: var(--forest);
+  color: var(--forest-foreground);
+}
+
+/* Heavy, slightly condensed uppercase: wordmark, card titles, page headings. */
+.font-display {
+  font-family: var(--font-archivo);
+  font-weight: 800;
+  font-stretch: 88%;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Mono uppercase: every label, tag, control, count and the ticker. */
+.label {
+  font-family: var(--font-geist-mono);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* Consistent, visible keyboard focus ring everywhere, independent of Tailwind utility choices per element. */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--forest);
   outline-offset: 2px;
 }
 
@@ -79,11 +94,12 @@ body {
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--forest);
+  color: var(--forest-foreground);
   padding: 0.75rem 1.25rem;
-  border-radius: 0 0 0.5rem 0.5rem;
-  font-weight: 600;
+  font-family: var(--font-geist-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .skip-link:focus {

@@ -14,11 +14,15 @@ export const SUPPORT_LEVELS: { value: SupportLevel; label: string }[] = [
   { value: "experimental", label: SUPPORT_LEVEL_LABELS.experimental },
 ];
 
-/** Soft badge styling per level — shared by the card badge and the filter toggle. */
+/**
+ * Readiness is shape-coded as well as colour-coded, shared by the card tag and the
+ * About legend: solid forest = production ready, outlined forest = growing support,
+ * dashed ink = experimental.
+ */
 export const SUPPORT_LEVEL_STYLES: Record<SupportLevel, string> = {
-  "production-ready": "border border-success-foreground bg-success text-success-foreground",
-  "growing-support": "border border-warning-foreground bg-warning text-warning-foreground",
-  experimental: "border border-danger-foreground bg-danger text-danger-foreground",
+  "production-ready": "border border-forest bg-forest text-forest-foreground",
+  "growing-support": "border border-forest text-forest",
+  experimental: "border border-dashed border-foreground text-foreground",
 };
 
 const BROWSERS = ["chrome", "firefox", "safari", "edge"] as const;

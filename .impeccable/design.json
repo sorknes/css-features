@@ -4,37 +4,38 @@
   "title": "Design System: CSS Edge",
   "extensions": {
     "colorMeta": {
-      "bench-grey": { "role": "neutral", "displayName": "Bench Grey", "canonical": "#f8f8f8", "tonalRamp": ["#0a0a0a", "#171717", "#262626", "#404040", "#6b6b6b", "#a3a3a3", "#e0e0e0", "#f8f8f8"] },
-      "graphite-ink": { "role": "neutral", "displayName": "Graphite Ink", "canonical": "#1f1f1f", "tonalRamp": ["#0a0a0a", "#171717", "#262626", "#404040", "#6b6b6b", "#a3a3a3", "#e0e0e0", "#f8f8f8"] },
-      "bench-black": { "role": "primary", "displayName": "Bench Black", "canonical": "#171717", "tonalRamp": ["#0a0a0a", "#171717", "#262626", "#404040", "#6b6b6b", "#a3a3a3", "#e0e0e0", "#f8f8f8"] },
-      "paper-white": { "role": "neutral", "displayName": "Paper White", "canonical": "#ffffff" },
-      "pencil-grey": { "role": "neutral", "displayName": "Pencil Grey", "canonical": "#6b6b6b", "tonalRamp": ["#0a0a0a", "#171717", "#262626", "#404040", "#6b6b6b", "#a3a3a3", "#e0e0e0", "#f8f8f8"] },
-      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#e0e0e0" },
-      "tray-grey": { "role": "neutral", "displayName": "Tray Grey", "canonical": "#eeeeee" },
-      "ready-green-wash": { "role": "signal", "displayName": "Ready Green Wash", "canonical": "#ecfdf3" },
-      "ready-green": { "role": "signal", "displayName": "Ready Green", "canonical": "#15803d", "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#16a34a", "#4ade80", "#bbf7d0", "#f0fdf4"] },
-      "growing-amber-wash": { "role": "signal", "displayName": "Growing Amber Wash", "canonical": "#fff7ed" },
-      "growing-amber": { "role": "signal", "displayName": "Growing Amber", "canonical": "#c2410c", "tonalRamp": ["#431407", "#7c2d12", "#9a3412", "#c2410c", "#ea580c", "#fb923c", "#fed7aa", "#fff7ed"] },
-      "experimental-red-wash": { "role": "signal", "displayName": "Experimental Red Wash", "canonical": "#fef2f2" },
-      "experimental-red": { "role": "signal", "displayName": "Experimental Red", "canonical": "#b91c1c", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#f87171", "#fecaca", "#fef2f2"] },
-      "demo-blue": { "role": "tertiary", "displayName": "Demo Blue", "canonical": "#2563eb", "tonalRamp": ["#172554", "#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#60a5fa", "#bfdbfe", "#eff6ff"] }
+      "forest": { "role": "primary", "displayName": "Forest", "canonical": "#1f4a35", "tonalRamp": ["#122b1f", "#214f39", "#307352", "#44a274", "#68c095", "#9ad5b8", "#c9e8d9", "#edf7f2"] },
+      "forest-foreground": { "role": "primary", "displayName": "Forest Foreground", "canonical": "#f1ece1", "tonalRamp": ["#2a2313", "#4c4024", "#6f5d34", "#9c8249", "#bba36d", "#d2c19e", "#e7decb", "#f7f4ee"] },
+      "background": { "role": "neutral", "displayName": "Cream Sheet", "canonical": "#f1ece1", "tonalRamp": ["#2a2313", "#4c4024", "#6f5d34", "#9c8249", "#bba36d", "#d2c19e", "#e7decb", "#f7f4ee"] },
+      "foreground": { "role": "neutral", "displayName": "Sheet Ink", "canonical": "#151612", "tonalRamp": ["#20221c", "#3b3e32", "#565a49", "#787e67", "#999f89", "#bbbfb0", "#dbddd5", "#f3f4f1"] },
+      "muted": { "role": "neutral", "displayName": "Pencil", "canonical": "#5f5a4e", "tonalRamp": ["#22201c", "#3e3a33", "#5a554a", "#7e7767", "#9e9889", "#bfbab1", "#dddad5", "#f4f3f1"] },
+      "border": { "role": "neutral", "displayName": "Warm Rule", "canonical": "#d3cbb8", "tonalRamp": ["#262217", "#453d2b", "#65593e", "#8e7e58", "#ad9e7b", "#c8bea7", "#e2dcd0", "#f5f3ef"] },
+      "surface": { "role": "neutral", "displayName": "Tray", "canonical": "#e7e0d0", "tonalRamp": ["#292215", "#4a3f26", "#6c5c37", "#98814e", "#b7a171", "#cfc1a0", "#e5decc", "#f6f4ee"] },
+      "paper": { "role": "neutral", "displayName": "Drawing Paper", "canonical": "#fffdf8", "tonalRamp": ["#2b2720", "#4a453a", "#6b6455", "#8f8775", "#b3ab98", "#d5cfc0", "#eeeadf", "#fffdf8"] }
     },
     "typographyMeta": {
-      "title": { "displayName": "Title", "purpose": "Example card titles; the largest type on the gallery." },
-      "section": { "displayName": "Section", "purpose": "Section headings on About and Reading List." },
-      "body": { "displayName": "Body", "purpose": "Card descriptions and page prose (max-w-2xl on reading pages)." },
-      "label": { "displayName": "Label", "purpose": "Filter group headings, form labels; wordmark uses the same bold weight at 1rem." },
-      "tag": { "displayName": "Tag", "purpose": "Pills, browser chips, counts, small buttons." },
-      "code": { "displayName": "Code", "purpose": "Code blocks and the cssFeature line; mono means literal CSS." }
+      "display-rail": { "displayName": "Display, rail", "purpose": "Reading-page title in the left rail below 1024px; also the About figures from 640px." },
+      "display-rail-wide": { "displayName": "Display, rail (wide)", "purpose": "Reading-page rail title at 1024px and up." },
+      "display-stat": { "displayName": "Display, stat", "purpose": "About page figure cells below 640px." },
+      "headline": { "displayName": "Headline", "purpose": "Empty-results message." },
+      "headline-section": { "displayName": "Headline, section", "purpose": "About page section headings." },
+      "title-card": { "displayName": "Title, card", "purpose": "Feature names on gallery cells." },
+      "title-list": { "displayName": "Title, list", "purpose": "CSS EDGE wordmark and reading-list entry titles." },
+      "body": { "displayName": "Body", "purpose": "Reading-page prose and the search field." },
+      "body-card": { "displayName": "Body, card", "purpose": "Full feature descriptions on cards." },
+      "body-small": { "displayName": "Body, small", "purpose": "Filter option rows, Tailwind line, footer links, reading-list notes." },
+      "caption": { "displayName": "Caption", "purpose": "Source and date lines, helper notes." },
+      "label": { "displayName": "Label", "purpose": "Mono uppercase for every tag, control, count, nav cell, legend and the ticker." },
+      "code": { "displayName": "Code", "purpose": "Code blocks and the feature line under card titles." }
     },
     "shadows": [
-      { "name": "float-small", "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)", "purpose": "Replay button floating over a live demo." },
-      { "name": "float-large", "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)", "purpose": "Fixed back-to-top button." }
+      { "name": "ticker-fade", "value": "-16px 0 16px var(--background)", "purpose": "Cream fade masking ticker text behind the pause/play cell. A fade, not elevation." }
     ],
     "motion": [
-      { "name": "marquee", "value": "80s linear infinite", "purpose": "Header strip scroll." },
-      { "name": "drawer", "value": "transform 200ms", "purpose": "Mobile filter drawer slide-in; back-to-top fade." },
-      { "name": "reduced-motion", "value": "durations forced to 0.001ms", "purpose": "Global prefers-reduced-motion override." }
+      { "name": "colour-transition", "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Background and text colour changes on hover for cells, rows and buttons." },
+      { "name": "ticker", "value": "marquee 80s linear infinite", "purpose": "Header ticker; translateX(0) to translateX(-50%). Pauses on hover, focus-within or the pause button." },
+      { "name": "drawer-slide", "value": "translate 200ms cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Mobile filter drawer in and out below 1024px." },
+      { "name": "reduced-motion", "value": "animation and transition durations 0.001ms", "purpose": "prefers-reduced-motion stops the ticker and all transitions." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -45,102 +46,109 @@
   },
   "components": [
     {
-      "name": "Example Card",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "The signature station: tag row, title, mono feature line, description, live demo frame.",
-      "html": "<article class=\"ds-card\"><div class=\"ds-card-tags\"><span class=\"ds-tag-new\">NEW</span><span class=\"ds-tag-cat\">Layout</span><span class=\"ds-tag-ready\">Production ready</span></div><div class=\"ds-card-body\"><h2 class=\"ds-card-title\">Subgrid card alignment</h2><p class=\"ds-card-feature\">grid-template-rows: subgrid</p><p class=\"ds-card-desc\">Align nested content across sibling cards without fixed heights.</p></div><div class=\"ds-demo\"></div></article>",
-      "css": ".ds-card { display:flex; flex-direction:column; max-width:360px; overflow:hidden; border:1px solid var(--border, #e0e0e0); border-radius:8px; background:var(--background, #f8f8f8); color:var(--foreground, #1f1f1f); font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-card-tags { display:flex; flex-wrap:wrap; gap:8px; padding:16px 16px 12px; border-bottom:1px solid var(--border, #e0e0e0); } .ds-tag-new { border-radius:9999px; border:1px solid #000; background:var(--accent, #171717); color:#fff; padding:4px 10px; font-size:12px; font-weight:600; } .ds-tag-cat { border-radius:9999px; border:1px solid var(--muted, #6b6b6b); background:var(--surface, #eee); padding:4px 10px; font-size:12px; font-weight:500; } .ds-tag-ready { border-radius:9999px; border:1px solid var(--success-foreground, #15803d); background:var(--success, #ecfdf3); color:var(--success-foreground, #15803d); padding:4px 10px; font-size:12px; font-weight:500; } .ds-card-body { padding:12px 16px 0; } .ds-card-title { margin:0; font-size:20px; font-weight:600; line-height:1.375; } .ds-card-feature { margin:12px 0; font-family:var(--font-geist-mono, 'Geist Mono', monospace); font-size:12px; color:var(--muted, #6b6b6b); } .ds-card-desc { margin:8px 0 0; font-size:16px; line-height:1.5; opacity:.9; } .ds-demo { margin:12px 16px 16px; height:120px; border:1px solid var(--border, #e0e0e0); border-radius:6px; background:#fff; }"
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid forest action with a ruled arrow cell; the drawer's Show N examples and the empty state's clear action.",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-btn-primary-label\">Show 24 examples</span><span class=\"ds-btn-primary-arrow\" aria-hidden=\"true\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z\"/></svg></span></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: stretch; min-height: 44px; background: var(--forest, #1f4a35); color: var(--forest-foreground, #f1ece1); border: 0; border-radius: 0; font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; padding: 0; } .ds-btn-primary-label { display: flex; align-items: center; padding: 0 16px; } .ds-btn-primary-arrow { display: flex; align-items: center; justify-content: center; width: 40px; border-left: 1px solid rgb(241 236 225 / 0.4); } .ds-btn-primary:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: 2px; }"
     },
     {
-      "name": "Support Level Tags",
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Small ink-edged rectangle (Copy, Replay); hover fills forest.",
+      "html": "<button class=\"ds-btn-outline\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z\"/></svg>Copy</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; background: var(--background, #f1ece1); color: var(--foreground, #151612); border: 1px solid var(--foreground, #151612); border-radius: 0; font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: background-color 150ms, color 150ms; } .ds-btn-outline:hover { background: var(--forest, #1f4a35); color: var(--forest-foreground, #f1ece1); } .ds-btn-outline:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: 2px; }"
+    },
+    {
+      "name": "Readiness Tags",
       "kind": "chip",
       "refersTo": "tag-production-ready",
-      "description": "Signal pairs: wash fill plus same-hue darker border and text.",
-      "html": "<div class=\"ds-row\"><span class=\"ds-sig ds-sig-ready\">Production ready</span><span class=\"ds-sig ds-sig-growing\">Growing support</span><span class=\"ds-sig ds-sig-exp\">Experimental</span></div>",
-      "css": ".ds-row { display:flex; flex-wrap:wrap; gap:8px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-sig { border-radius:9999px; padding:4px 10px; font-size:12px; font-weight:500; border:1px solid; } .ds-sig-ready { background:var(--success, #ecfdf3); color:var(--success-foreground, #15803d); border-color:var(--success-foreground, #15803d); } .ds-sig-growing { background:var(--warning, #fff7ed); color:var(--warning-foreground, #c2410c); border-color:var(--warning-foreground, #c2410c); } .ds-sig-exp { background:var(--danger, #fef2f2); color:var(--danger-foreground, #b91c1c); border-color:var(--danger-foreground, #b91c1c); }"
-    },
-    {
-      "name": "Browser Version Chip",
-      "kind": "chip",
-      "refersTo": "chip-browser-version",
-      "description": "Small square-cornered data reading with browser logo and minimum version.",
-      "html": "<span class=\"ds-chip-ver\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"3.5\" fill=\"currentColor\"/></svg>Chrome 125+</span>",
-      "css": ".ds-chip-ver { display:inline-flex; align-items:center; gap:4px; border:1px solid var(--border, #e0e0e0); border-radius:4px; padding:2px 8px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); font-size:12px; color:var(--foreground, #1f1f1f); opacity:.8; }"
-    },
-    {
-      "name": "Pill Button",
-      "kind": "button",
-      "refersTo": "button-pill",
-      "description": "Copy / Replay / Filters: white pill with hairline border, tray-grey hover.",
-      "html": "<button class=\"ds-btn-pill\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" aria-hidden=\"true\"><rect x=\"8\" y=\"8\" width=\"12\" height=\"12\" rx=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M4 16V6a2 2 0 0 1 2-2h10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>Copy</button>",
-      "css": ".ds-btn-pill { display:inline-flex; align-items:center; gap:4px; border:1px solid var(--border, #e0e0e0); border-radius:9999px; background:#fff; color:var(--foreground, #1f1f1f); padding:4px 10px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); font-size:12px; font-weight:500; cursor:pointer; } .ds-btn-pill:hover { background:var(--surface, #eee); } .ds-btn-pill:focus-visible { outline:2px solid var(--accent, #171717); outline-offset:2px; }"
-    },
-    {
-      "name": "Code Drawer Summary",
-      "kind": "custom",
-      "refersTo": "disclosure-code-open",
-      "description": "The 'View code' disclosure row; inverts to bench black on hover and when open.",
-      "html": "<details class=\"ds-drawer\"><summary><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M8 7l-5 5 5 5M16 7l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>View code<span class=\"ds-chev\">&#9662;</span></summary><pre class=\"ds-code\"><code>.card { container-type: inline-size; }</code></pre></details>",
-      "css": ".ds-drawer { max-width:360px; overflow:hidden; border:1px solid var(--border, #e0e0e0); border-radius:6px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-drawer summary { display:flex; align-items:center; gap:8px; padding:10px 16px; font-size:14px; font-weight:500; cursor:pointer; list-style:none; transition:background-color .15s, color .15s; } .ds-drawer summary::-webkit-details-marker { display:none; } .ds-drawer summary:hover, .ds-drawer[open] summary { background:var(--accent, #171717); color:#fff; } .ds-drawer summary:focus-visible { outline:2px solid var(--accent, #171717); outline-offset:-2px; } .ds-chev { margin-left:auto; transition:transform .15s; } .ds-drawer[open] .ds-chev { transform:rotate(180deg); } .ds-code { margin:12px; padding:10px; border-radius:6px; background:var(--surface, #eee); font-family:var(--font-geist-mono, 'Geist Mono', monospace); font-size:12px; line-height:1.625; overflow-x:auto; }"
-    },
-    {
-      "name": "Filter Option",
-      "kind": "custom",
-      "refersTo": "filter-option-selected",
-      "description": "Sidebar filter row: 44px min height, hairline divider, label pill fills bench black when selected, count right-aligned.",
-      "html": "<div class=\"ds-filter\"><button class=\"ds-filter-row\" aria-pressed=\"true\"><span class=\"ds-filter-label\">Layout</span><span class=\"ds-filter-count\">12</span></button><button class=\"ds-filter-row\" aria-pressed=\"false\"><span class=\"ds-filter-label\">Color &amp; Backgrounds</span><span class=\"ds-filter-count\">7</span></button></div>",
-      "css": ".ds-filter { display:flex; flex-direction:column; width:288px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-filter-row { display:flex; align-items:center; min-height:44px; width:100%; padding:6px 0; border:0; border-bottom:1px solid var(--border, #e0e0e0); background:transparent; text-align:left; font-size:14px; font-weight:500; color:var(--foreground, #1f1f1f); cursor:pointer; } .ds-filter-row:hover { background:var(--surface, #eee); } .ds-filter-row:focus-visible { outline:2px solid var(--accent, #171717); outline-offset:2px; } .ds-filter-label { border-radius:9999px; padding:4px 12px; } .ds-filter-row[aria-pressed=true] .ds-filter-label { background:var(--accent, #171717); color:#fff; } .ds-filter-count { margin-left:auto; padding-right:12px; font-size:12px; color:var(--muted, #6b6b6b); }"
+      "description": "Shape-coded readiness: solid forest, outlined forest, dashed ink. Shared by cards, the About legend and the readiness filter.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag ds-tag-ready\">Production ready · 94%</span><span class=\"ds-tag ds-tag-growing\">Growing support · 71%</span><span class=\"ds-tag ds-tag-experimental\">Experimental</span><span class=\"ds-tag ds-tag-new\">New</span><span class=\"ds-tag ds-tag-category\">Layout</span></div>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 8px; } .ds-tag { display: inline-block; padding: 4px 8px; border: 1px solid transparent; border-radius: 0; font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; } .ds-tag-ready { background: var(--forest, #1f4a35); border-color: var(--forest, #1f4a35); color: var(--forest-foreground, #f1ece1); } .ds-tag-growing { border-color: var(--forest, #1f4a35); color: var(--forest, #1f4a35); } .ds-tag-experimental { border: 1px dashed var(--foreground, #151612); color: var(--foreground, #151612); } .ds-tag-new { background: var(--foreground, #151612); color: var(--background, #f1ece1); } .ds-tag-category { border-color: var(--border, #d3cbb8); color: var(--muted, #5f5a4e); }"
     },
     {
       "name": "Search Input",
       "kind": "input",
       "refersTo": "input-search",
-      "description": "Hairline field with leading pencil-grey search icon.",
-      "html": "<label class=\"ds-search\"><span class=\"ds-search-label\">Search examples</span><span class=\"ds-search-wrap\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M20 20l-4-4\" stroke=\"currentColor\" stroke-width=\"2\"/></svg><input type=\"search\" placeholder=\"e.g. subgrid, has(), container queries…\"></span></label>",
-      "css": ".ds-search { display:block; width:288px; font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-search-label { display:block; margin-bottom:6px; font-size:14px; font-weight:700; } .ds-search-wrap { position:relative; display:block; } .ds-search-wrap svg { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--muted, #6b6b6b); pointer-events:none; } .ds-search input { width:100%; box-sizing:border-box; border:1px solid var(--border, #e0e0e0); border-radius:6px; padding:8px 12px 8px 36px; font:inherit; font-size:14px; background:transparent; } .ds-search input:focus-visible { outline:2px solid var(--accent, #171717); outline-offset:2px; }"
+      "description": "Drawing-paper field with an ink edge and inset magnifier, under a mono label.",
+      "html": "<label class=\"ds-search\"><span class=\"ds-search-label\">Search</span><span class=\"ds-search-field\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z\"/></svg><input type=\"search\" placeholder=\"has(), subgrid, anchor…\"></span></label>",
+      "css": ".ds-search { display: block; max-width: 256px; } .ds-search-label { display: block; margin-bottom: 8px; font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--foreground, #151612); } .ds-search-field { position: relative; display: block; } .ds-search-field svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted, #5f5a4e); pointer-events: none; } .ds-search-field input { width: 100%; padding: 8px 12px 8px 36px; background: var(--paper, #fffdf8); color: var(--foreground, #151612); border: 1px solid var(--foreground, #151612); border-radius: 0; font-family: var(--font-archivo, Archivo, ui-sans-serif, system-ui, sans-serif); font-size: 1rem; caret-color: var(--forest, #1f4a35); } .ds-search-field input::placeholder { color: var(--muted, #5f5a4e); } .ds-search-field input:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: 2px; }"
     },
     {
-      "name": "Site Navigation",
+      "name": "Header Nav Cells",
       "kind": "nav",
-      "refersTo": "nav",
-      "description": "Marquee strip over a three-column header: wordmark, centered nav, GitHub link.",
-      "html": "<header class=\"ds-header\"><div class=\"ds-marquee\">New and emerging CSS • Almost entirely built by Claude Code •</div><div class=\"ds-bar\"><a class=\"ds-wordmark\" href=\"#\">CSS Edge</a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Gallery</a><a href=\"#\">About</a><a href=\"#\">Reading List</a></nav><a class=\"ds-gh\" href=\"#\">GitHub</a></div></header>",
-      "css": ".ds-header { border-bottom:1px solid var(--border, #e0e0e0); background:var(--background, #f8f8f8); font-family:var(--font-inter-tight, 'Inter Tight', system-ui, sans-serif); } .ds-marquee { background:var(--accent, #171717); color:#fff; font-size:12px; padding:6px 16px; white-space:nowrap; overflow:hidden; } .ds-bar { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:12px; padding:16px 24px; } .ds-wordmark { font-size:16px; font-weight:700; letter-spacing:-0.025em; color:var(--foreground, #1f1f1f); text-decoration:none; } .ds-nav { display:flex; gap:16px; font-size:16px; font-weight:500; } .ds-nav a { color:var(--muted, #6b6b6b); text-decoration:none; text-underline-offset:2px; transition:color .15s; } .ds-nav a:hover { color:var(--foreground, #1f1f1f); text-decoration:underline; } .ds-nav a[aria-current=page] { color:var(--foreground, #1f1f1f); } .ds-nav a:focus-visible, .ds-wordmark:focus-visible, .ds-gh:focus-visible { outline:2px solid var(--accent, #171717); outline-offset:2px; } .ds-gh { justify-self:end; font-size:14px; color:var(--muted, #6b6b6b); text-decoration:none; } .ds-gh:hover { color:var(--foreground, #1f1f1f); }"
+      "refersTo": "nav-cell",
+      "description": "Ruled band: disc wordmark cell, mono nav cells with a forest bar on the current page.",
+      "html": "<header class=\"ds-band\"><a class=\"ds-wordmark\" href=\"#\"><span class=\"ds-disc\" aria-hidden=\"true\"></span>CSS Edge</a><nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Gallery</a><a href=\"#\">About</a><a href=\"#\">Reading list</a></nav></header>",
+      "css": ".ds-band { display: flex; align-items: stretch; border-bottom: 1px solid var(--border, #d3cbb8); background: var(--background, #f1ece1); } .ds-wordmark { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 24px; border-right: 1px solid var(--border, #d3cbb8); color: var(--foreground, #151612); text-decoration: none; font-family: var(--font-archivo, Archivo, sans-serif); font-weight: 800; font-stretch: 88%; text-transform: uppercase; letter-spacing: -0.02em; font-size: 1.25rem; line-height: 1; } .ds-disc { width: 16px; height: 16px; border-radius: 9999px; background: var(--forest, #1f4a35); } .ds-nav { display: flex; } .ds-nav a { position: relative; display: flex; align-items: center; padding: 0 20px; border-right: 1px solid var(--border, #d3cbb8); color: var(--muted, #5f5a4e); text-decoration: none; font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; transition: background-color 150ms, color 150ms; } .ds-nav a:hover { background: var(--surface, #e7e0d0); color: var(--foreground, #151612); } .ds-nav a[aria-current=page] { color: var(--foreground, #151612); } .ds-nav a[aria-current=page]::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--forest, #1f4a35); } .ds-nav a:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: -3px; }"
+    },
+    {
+      "name": "Filter Option Row",
+      "kind": "custom",
+      "refersTo": "filter-option-row",
+      "description": "44px toggle row: square box (forest when selected), label, mono count.",
+      "html": "<div class=\"ds-options\"><button class=\"ds-option\" aria-pressed=\"true\"><span class=\"ds-box\"></span><span class=\"ds-option-label\">Layout</span><span class=\"ds-count\">12</span></button><button class=\"ds-option\" aria-pressed=\"false\"><span class=\"ds-box\"></span><span class=\"ds-option-label\">Typography</span><span class=\"ds-count\">7</span></button><button class=\"ds-option\" disabled><span class=\"ds-box\"></span><span class=\"ds-option-label\">Scroll</span><span class=\"ds-count\">0</span></button></div>",
+      "css": ".ds-options { width: 288px; border-right: 1px solid var(--border, #d3cbb8); background: var(--background, #f1ece1); } .ds-option { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 16px; background: transparent; border: 0; text-align: left; color: var(--foreground, #151612); font-family: var(--font-archivo, Archivo, sans-serif); font-size: 0.875rem; cursor: pointer; transition: background-color 150ms; } .ds-option:hover:enabled { background: var(--surface, #e7e0d0); } .ds-option:disabled { color: var(--muted, #5f5a4e); cursor: not-allowed; } .ds-box { width: 14px; height: 14px; flex-shrink: 0; border: 1px solid var(--foreground, #151612); } .ds-option[aria-pressed=true] .ds-box { background: var(--forest, #1f4a35); border-color: var(--forest, #1f4a35); } .ds-option[aria-pressed=true] .ds-option-label { font-weight: 600; } .ds-option:disabled .ds-box { border-color: var(--border, #d3cbb8); } .ds-count { margin-left: auto; color: var(--muted, #5f5a4e); font-family: var(--font-geist-mono, 'Geist Mono', ui-monospace, monospace); font-size: 0.75rem; letter-spacing: 0.04em; } .ds-option:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: 2px; }"
+    },
+    {
+      "name": "Gallery Cell",
+      "kind": "card",
+      "refersTo": "demo-panel",
+      "description": "One ruled cell: tags, condensed uppercase title, mono feature line, paper demo panel, description, code disclosure.",
+      "html": "<article class=\"ds-cell\"><div class=\"ds-cell-tags\"><span class=\"ds-cell-tag\">Production ready · 94%</span></div><h2 class=\"ds-cell-title\">Container scroll-state queries</h2><p class=\"ds-cell-feature\">@container scroll-state()</p><div class=\"ds-cell-demo\"></div><p class=\"ds-cell-desc\">Style an element based on whether its scroll container is stuck, snapped or scrollable, without JavaScript.</p><button class=\"ds-cell-code\"><span>View code</span><span class=\"ds-cell-chev\" aria-hidden=\"true\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z\"/></svg></span></button></article>",
+      "css": ".ds-cell { width: 340px; padding-bottom: 20px; background: var(--background, #f1ece1); border-right: 1px solid var(--border, #d3cbb8); border-bottom: 1px solid var(--border, #d3cbb8); color: var(--foreground, #151612); font-family: var(--font-archivo, Archivo, sans-serif); } .ds-cell-tags { padding: 20px 20px 0; } .ds-cell-tag { display: inline-block; padding: 4px 8px; background: var(--forest, #1f4a35); color: var(--forest-foreground, #f1ece1); font-family: var(--font-geist-mono, 'Geist Mono', monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; } .ds-cell-title { margin: 16px 20px 0; font-size: 1.375rem; line-height: 1.05; font-weight: 800; font-stretch: 88%; text-transform: uppercase; letter-spacing: -0.02em; text-wrap: balance; } .ds-cell-feature { margin: 10px 20px 0; color: var(--muted, #5f5a4e); font-family: var(--font-geist-mono, 'Geist Mono', monospace); font-size: 0.75rem; } .ds-cell-demo { margin: 16px 20px 0; height: 160px; background: var(--paper, #fffdf8); border: 1px solid var(--border, #d3cbb8); } .ds-cell-desc { margin: 16px 20px 0; font-size: 0.9375rem; line-height: 1.625; } .ds-cell-code { display: flex; align-items: stretch; width: calc(100% - 40px); min-height: 44px; margin: 16px 20px 0; padding: 0; background: var(--background, #f1ece1); color: var(--foreground, #151612); border: 1px solid var(--foreground, #151612); border-radius: 0; font-family: var(--font-geist-mono, 'Geist Mono', monospace); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: background-color 150ms, color 150ms; } .ds-cell-code > span:first-child { flex: 1; display: flex; align-items: center; padding: 0 12px; } .ds-cell-chev { display: flex; align-items: center; justify-content: center; width: 44px; border-left: 1px solid currentColor; } .ds-cell-code:hover { background: var(--foreground, #151612); color: var(--background, #f1ece1); } .ds-cell-code:focus-visible { outline: 2px solid var(--forest, #1f4a35); outline-offset: -4px; }"
+    },
+    {
+      "name": "Ticker",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Mono uppercase strip with forest disc separators, scrolling over 80s and pausable.",
+      "html": "<div class=\"ds-ticker\"><div class=\"ds-ticker-track\"><span>New and emerging CSS</span><i></i><span>Last updated 16 Oct 2026</span><i></i><span>New and emerging CSS</span><i></i><span>Last updated 16 Oct 2026</span><i></i></div></div>",
+      "css": ".ds-ticker { overflow: hidden; white-space: nowrap; border-bottom: 1px solid var(--border, #d3cbb8); background: var(--background, #f1ece1); } .ds-ticker-track { display: inline-flex; align-items: center; padding: 10px 0; animation: ds-marquee 80s linear infinite; } .ds-ticker:hover .ds-ticker-track { animation-play-state: paused; } .ds-ticker span { padding: 0 20px; color: var(--foreground, #151612); font-family: var(--font-geist-mono, 'Geist Mono', monospace); font-size: 0.75rem; line-height: 1rem; letter-spacing: 0.04em; text-transform: uppercase; } .ds-ticker i { width: 8px; height: 8px; border-radius: 9999px; background: var(--forest, #1f4a35); } @keyframes ds-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } } @media (prefers-reduced-motion: reduce) { .ds-ticker-track { animation: none; } }"
     }
   ],
   "narrative": {
-    "northStar": "The Lab Bench",
-    "overview": "CSS Edge is a working surface laid out with instruments. Each card is a station on the bench: a labelled demo under glass (the white iframe), a row of readings (browser version chips), a drawer of source (the code disclosure) and a tag that grades readiness. The bench is uniform pale grey and graphite, so the only real color comes from the experiments running on it.\n\nThe system is quiet and precise. Hairline borders (1px `hairline`) do the structural work, pill-shaped tags carry the metadata, and nothing is raised by shadows at rest. Near-black ink (`bench-black`) marks active state: a selected filter, an open code drawer, the NEW tag, the marquee strip. Density is practical rather than airy. A card packs tags, a title, the feature name, an optional Tailwind note, a description, the demo, the code and support data into one column without decoration.\n\nColor in the interface has a meaning. Green, amber and red appear only as support-level signals, always as a pale wash with a darker border and text in the same hue, never as decoration.",
+    "northStar": "The Drawing Sheet",
+    "overview": "The site is a technical drawing sheet: a cream plate divided by hairline rules into cells, each cell holding one CSS feature with its live demo as the drawing. Nothing floats. Cards, filters, header, ticker, results bar and reading pages are all regions of the same ruled plate, separated by 1px warm rules that collapse between neighbours rather than by gaps and shadows.\n\nThe frame is deliberately quiet so the demos lead. One forest green carries every piece of state and action: the wordmark disc, the Production ready tag, selected filters, primary actions, links, the focus ring and the ticker separators. Everything else is ink on cream. Type splits into two voices: a heavy, slightly condensed, uppercase Archivo for names (wordmark, card titles, page headings) and Geist Mono uppercase for every label, tag, control, count and the ticker. Running prose stays in sentence-case Archivo at regular weight.\n\nThe world refuses the category default of rounded floating cards on a grey canvas with pill tags. Corners are square; the only curve in the system is the solid forest disc.",
     "keyCharacteristics": [
-      "A monochrome frame (graphite on pale grey) so the live demos supply the color.",
-      "Hairline borders instead of shadows; flat at rest.",
-      "Pill tags for metadata; small square-cornered chips for data readings.",
-      "Near-black ink as the single active-state signal.",
-      "Mono type is used only for code and CSS feature names."
+      "Cream sheet, near-black ink, one forest green; no other interface hue.",
+      "1px warm rules divide every region; cells share edges instead of sitting apart.",
+      "Square corners on everything except the forest disc motif.",
+      "Heavy condensed uppercase Archivo for names; mono uppercase for every label.",
+      "Readiness is shape-coded: solid forest, outlined forest, dashed ink.",
+      "Flat: no shadows for depth; the drawing paper panel is set into the sheet, not lifted.",
+      "Motion is limited to the ticker, short colour transitions and the mobile filter drawer."
     ],
     "rules": [
-      { "name": "The Demos Bring the Color Rule", "body": "The interface stays graphite and grey. Saturated color belongs to the live demos and the three support-level signals. Any other hue in the interface needs a reason.", "section": "colors" },
-      { "name": "The Signal Pair Rule", "body": "A support-level color always appears as a set: a pale wash fill, plus a border and text in the darker shade of the same hue. Never use the dark hue as a solid fill.", "section": "colors" },
-      { "name": "The Accent Split (current, open to change)", "body": "Today the interface accent is Bench Black and the demo accent is Demo Blue. This is the documented current state, not a permanent rule. If the interface moves to blue later, update this section and the tokens together.", "section": "colors" },
-      { "name": "The Mono Means CSS Rule", "body": "Geist Mono is reserved for literal code: demo source and CSS feature names. Never use mono for decoration or labels.", "section": "typography" },
-      { "name": "The Small Wordmark Rule", "body": "The brand name is 1rem bold, not a hero headline. The cards are the content and should carry the visual weight.", "section": "typography" },
-      { "name": "The Flat Bench Rule", "body": "Cards, tags, inputs and panels have no shadow. A shadow is reserved for something floating above live content or the page (Replay, back-to-top).", "section": "elevation" }
+      { "name": "The One Green Rule", "body": "Forest is the only interface hue. Anything that is selected, ready, primary or a link is forest; everything else is ink, pencil or a warm neutral. Do not introduce a second accent, a warning colour or a status red.", "section": "colors" },
+      { "name": "The Demo Blue Rule", "body": "Demos keep their own blue accent (#2563eb), and the interface never uses it. Blue inside a demo panel is the feature; blue in the frame would compete with it.", "section": "colors" },
+      { "name": "The Ink Edge Rule", "body": "A standalone control (button, input, select, disclosure) has a sheet-ink edge or a forest fill. Warm rules divide cells and frame passive chips; they never carry an interactive edge alone.", "section": "colors" },
+      { "name": "The Two Voices Rule", "body": "Names are heavy condensed uppercase Archivo; labels are mono uppercase. Prose is the only sentence-case text. A new element picks one of the three; it never mixes a third style in.", "section": "typography" },
+      { "name": "The Ramp Is Closed Rule", "body": "The sizes above are the full ramp. A new surface reuses one of them rather than adding an in-between size.", "section": "typography" },
+      { "name": "The Set-In Rule", "body": "Panels are set into the sheet with a 1px rule, never lifted off it. No drop shadows, no hover lift, no glow.", "section": "elevation" },
+      { "name": "The Only Curve Rule", "body": "Nothing is rounded except the forest disc. A disc is always solid forest and decorative; it is never a button, avatar or badge.", "section": "shapes" },
+      { "name": "The Dashed Means Partial Rule", "body": "A dashed edge means \"not fully there\": Experimental readiness and partial browser support. Do not use dashes decoratively.", "section": "shapes" }
     ],
     "dos": [
-      "Do separate surfaces with 1px Hairline borders and tonal steps (Tray Grey, Paper White), not shadows.",
-      "Do use pills (full radius) for tags and small actions, 6–8px radius for content containers and 4px for data chips.",
-      "Do show support level only through the three signal pairs, and keep them consistent between card badges and filter selections.",
-      "Do use Demo Blue as the main accent inside new demos.",
-      "Do keep every interactive row at least 44px tall and keep the global 2px Bench Black focus ring.",
-      "Do make motion respect prefers-reduced-motion; the global rule already reduces animation and transition durations to near zero."
+      "Do divide regions with 1px warm rules (border) and let neighbouring cells share one rule.",
+      "Do keep every corner square; reserve the circle for the solid forest disc.",
+      "Do use forest for every selected, ready, primary or link state, and nothing else.",
+      "Do code readiness by shape as well as colour: solid forest, outlined forest, dashed ink.",
+      "Do set names in heavy condensed uppercase Archivo (800, wdth 88, -0.02em) and every label in Geist Mono uppercase at 0.75rem with 0.04em tracking.",
+      "Do give every standalone control an ink edge or a forest fill and a 44px minimum target.",
+      "Do put demos on drawing paper (paper) inside a ruled panel, and let them keep their own blue."
     ],
     "donts": [
-      "Don't add saturated color to the interface beyond the signal hues; the demos bring the color.",
-      "Don't put shadows on cards, tags or panels at rest.",
-      "Don't use Geist Mono for anything that isn't literal code or a CSS feature name.",
-      "Don't fill a surface with a solid signal hue (dark green, amber or red); use the wash fill with a darker border and text.",
-      "Don't enlarge the wordmark into a hero; the cards carry the page."
+      "Don't use rounded cards, pill tags or floating cards on a grey canvas.",
+      "Don't add drop shadows, hover lift or glow; panels are set in, not raised.",
+      "Don't use the demo blue (#2563eb) anywhere in the interface frame.",
+      "Don't introduce a second interface hue, including green/amber/red status colours.",
+      "Don't use dashed edges except for Experimental readiness and partial browser support.",
+      "Don't add type sizes outside the documented ramp.",
+      "Don't animate anything beyond the ticker, 150ms colour transitions and the drawer slide."
     ]
   }
 }

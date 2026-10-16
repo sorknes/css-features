@@ -1,14 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BiSearch, BiFilterAlt, BiX } from "react-icons/bi";
+import { BiSearch, BiFilterAlt, BiRightArrowAlt, BiX } from "react-icons/bi";
 import type { Category } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
-import {
-  PRODUCTION_READY_MIN_USAGE,
-  SUPPORT_LEVEL_STYLES,
-  type SupportLevel,
-} from "@/lib/supportLevel";
+import { PRODUCTION_READY_MIN_USAGE, SUPPORT_LEVEL_STYLES, type SupportLevel } from "@/lib/supportLevel";
 
 interface FilterBarProps {
   selectedCategories: Set<Category>;
@@ -30,10 +26,73 @@ interface FilterBarProps {
   resultCount: number;
 }
 
-// An option that would lead to zero results is disabled, unless it's already
-// selected (it must stay clickable so it can be turned off again).
-const OPTION_ROW =
-  "flex min-h-11 w-full items-center py-1.5 text-left text-sm font-medium enabled:hover:bg-surface disabled:cursor-not-allowed";
+/**
+ * One filter toggle row. An option that would lead to zero results is disabled,
+ * unless it's already selected (it must stay clickable so it can be turned off).
+ */
+function OptionRow({
+  label,
+  count,
+  selected,
+  onToggle,
+  tagClassName,
+}: {
+  label: string;
+  count: number;
+  selected: boolean;
+  onToggle: () => void;
+  /** Render the label in a readiness tag's shape, so the filter matches the tags on the cards. */
+  tagClassName?: string;
+}) {
+  const disabled = !selected && count === 0;
+  return (
+    <button
+      type="button"
+      aria-pressed={selected}
+      disabled={disabled}
+      onClick={onToggle}
+      className="flex min-h-11 w-full items-center gap-3 px-4 text-left text-sm transition-colors enabled:hover:bg-surface disabled:cursor-not-allowed disabled:text-muted"
+    >
+      <span
+        aria-hidden="true"
+        className={`size-3.5 shrink-0 border ${selected ? "border-forest bg-forest" : disabled ? "border-border" : "border-foreground"}`}
+      />
+      {tagClassName ? (
+        <span className={`label px-2 py-1 ${tagClassName} ${disabled ? "opacity-50" : ""}`}>{label}</span>
+      ) : (
+        <span className={selected ? "font-semibold" : undefined}>{label}</span>
+      )}
+      <span className="label ml-auto text-muted">{count}</span>
+    </button>
+  );
+}
+
+/** The fieldset's legend (it must be the fieldset's first child), plus an optional Clear action pinned to its row. */
+function GroupHeading({
+  children,
+  onClear,
+  clearLabel,
+}: {
+  children: React.ReactNode;
+  onClear?: () => void;
+  clearLabel?: string;
+}) {
+  return (
+    <>
+      <legend className="label px-4 pt-4 pb-2">{children}</legend>
+      {onClear && (
+        <button
+          type="button"
+          onClick={onClear}
+          aria-label={clearLabel}
+          className="label absolute top-0 right-0 flex h-11 items-center px-4 text-forest underline-offset-4 hover:underline"
+        >
+          Clear
+        </button>
+      )}
+    </>
+  );
+}
 
 export default function FilterBar({
   selectedCategories,
@@ -98,64 +157,58 @@ export default function FilterBar({
 
   return (
     <>
-      <div className="mb-4 lg:hidden">
+      <div className="border-b border-border px-4 py-3 lg:hidden">
         <button
           ref={triggerRef}
           type="button"
           aria-expanded={isOpen}
           aria-controls="filter-panel"
           onClick={() => setIsOpen(true)}
-          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-paper px-4 py-2 text-sm font-medium"
+          className="label inline-flex min-h-11 items-stretch border border-foreground"
         >
-          <BiFilterAlt aria-hidden="true" className="h-4 w-4" />
-          Filters
+          <span className="flex items-center gap-2 px-3">
+            <BiFilterAlt aria-hidden="true" className="h-4 w-4" />
+            Filters
+          </span>
           {activeFilterCount > 0 && (
-            <span className="rounded-full bg-accent px-1.5 py-0.5 text-xs font-semibold text-accent-foreground">
-              {activeFilterCount}
-            </span>
+            <span className="flex items-center bg-forest px-2.5 text-forest-foreground">{activeFilterCount}</span>
           )}
         </button>
       </div>
 
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
-          onClick={close}
-          aria-hidden="true"
-        />
-      )}
+      {isOpen && <div className="fixed inset-0 z-30 bg-foreground/40 lg:hidden" onClick={close} aria-hidden="true" />}
 
       {/* Below lg this is an off-canvas drawer: hidden (and out of the tab order) while closed,
-          a modal dialog while open. At lg and up it's the always-visible sidebar. */}
+          a modal dialog while open. At lg and up it's the sheet's left column, sticky at full height. */}
       <div
         ref={panelRef}
         id="filter-panel"
         role={isOpen ? "dialog" : undefined}
         aria-modal={isOpen ? true : undefined}
         aria-label={isOpen ? "Filters" : undefined}
-        className={`fixed inset-y-0 left-0 z-40 w-72 max-w-[85vw] overflow-y-auto bg-paper pt-8 pr-6 pb-0 pl-4 lg:pb-4 duration-200 lg:visible lg:top-[91px] lg:bottom-auto lg:left-6 lg:z-auto lg:h-[calc(100vh-91px)] lg:w-72 lg:shrink-0 lg:border-r lg:border-border lg:bg-transparent lg:pl-2 lg:transition-none lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-72 max-w-[85vw] flex-col overflow-y-auto border-r border-border bg-background duration-200 lg:visible lg:sticky lg:top-0 lg:z-auto lg:h-dvh lg:max-w-none lg:shrink-0 lg:translate-x-0 lg:transition-none ${
           // Visibility only transitions on close (so the slide-out still plays); on open it must flip
           // immediately or the close button can't take focus.
           isOpen ? "visible translate-x-0 transition-[translate]" : "invisible -translate-x-full transition-[translate,visibility]"
         }`}
       >
-        <div className="mb-4 flex items-center justify-between lg:hidden">
-          <p className="text-sm font-bold">Filters</p>
+        <div className="flex min-h-14 items-center justify-between border-b border-border pl-4 lg:hidden">
+          <p className="label">Filters</p>
           <button
             ref={closeRef}
             type="button"
             onClick={close}
             aria-label="Close filters"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border"
+            className="flex h-14 w-14 items-center justify-center border-l border-border transition-colors hover:bg-surface"
           >
             <BiX aria-hidden="true" className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="flex flex-col gap-8 pb-4">
-          <div>
-            <label htmlFor="example-search" className="mb-1.5 block text-sm font-bold">
-              Search examples
+        <div className="flex flex-col">
+          <div className="border-b border-border px-4 pt-3 pb-4">
+            <label htmlFor="example-search" className="label mb-2 block">
+              Search
             </label>
             <div className="relative w-full">
               <BiSearch aria-hidden="true" className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted" />
@@ -164,126 +217,66 @@ export default function FilterBar({
                 type="search"
                 value={search}
                 onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="e.g. subgrid, has(), container queries…"
-                className="w-full rounded-md border border-border py-2 pr-3 pl-9 text-sm placeholder:text-muted focus-visible:outline-2 focus-visible:outline-accent"
+                placeholder="has(), subgrid, anchor…"
+                className="w-full border border-foreground bg-paper py-2 pr-3 pl-9 text-base placeholder:text-muted"
               />
             </div>
           </div>
 
-          <div>
-            <p className="mb-1.5 text-sm font-bold">New examples</p>
-            <div className="flex flex-col divide-y divide-border">
-              <button
-                type="button"
-                aria-pressed={newOnly}
-                disabled={!newOnly && newCount === 0}
-                onClick={() => onNewOnlyChange(!newOnly)}
-                className={OPTION_ROW}
-              >
-                <span
-                  className={`rounded-full px-3 py-1 ${
-                    newOnly ? "bg-accent text-accent-foreground" : newCount === 0 ? "text-muted" : "text-foreground"
-                  }`}
-                >
-                  Show new only
-                </span>
-                <span className="ml-auto pr-3 text-xs text-muted">{newCount}</span>
-              </button>
-            </div>
-          </div>
-
-          <fieldset>
-            <div className="mb-1.5 flex items-center justify-between">
-              <legend className="text-sm font-bold">Category</legend>
-              {selectedCategories.size > 0 && (
-                <button
-                  type="button"
-                  onClick={onClearCategories}
-                  className="text-xs font-medium text-accent underline-offset-2 hover:underline"
-                >
-                  Clear categories
-                </button>
-              )}
-            </div>
-            <div className="flex flex-col divide-y divide-border">
-              {CATEGORIES.map((category) => {
-                const isSelected = selectedCategories.has(category.value);
-                const count = categoryCounts[category.value] ?? 0;
-                return (
-                  <button
-                    key={category.value}
-                    type="button"
-                    aria-pressed={isSelected}
-                    disabled={!isSelected && count === 0}
-                    onClick={() => onToggleCategory(category.value)}
-                    className={OPTION_ROW}
-                  >
-                    <span
-                      className={`rounded-full px-3 py-1 ${
-                        isSelected ? "bg-accent text-accent-foreground" : count === 0 ? "text-muted" : "text-foreground"
-                      }`}
-                    >
-                      {category.label}
-                    </span>
-                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
-                  </button>
-                );
-              })}
-            </div>
+          <fieldset className="relative border-b border-border pb-2">
+            <GroupHeading>New examples</GroupHeading>
+            <OptionRow label="Show new only" count={newCount} selected={newOnly} onToggle={() => onNewOnlyChange(!newOnly)} />
           </fieldset>
 
-          <fieldset aria-describedby="support-level-help">
-            <div className="mb-1.5 flex items-center justify-between">
-              <legend className="text-sm font-bold">Browser support</legend>
-              {selectedSupportLevels.size > 0 && (
-                <button
-                  type="button"
-                  onClick={onClearSupportLevels}
-                  className="text-xs font-medium text-accent underline-offset-2 hover:underline"
-                >
-                  Clear browser support
-                </button>
-              )}
-            </div>
-            <p id="support-level-help" className="mb-2 text-xs text-muted">
+          <fieldset className="relative border-b border-border pb-2">
+            <GroupHeading
+              onClear={selectedCategories.size > 0 ? onClearCategories : undefined}
+              clearLabel="Clear categories"
+            >
+              Category
+            </GroupHeading>
+            {CATEGORIES.map((category) => (
+              <OptionRow
+                key={category.value}
+                label={category.label}
+                count={categoryCounts[category.value] ?? 0}
+                selected={selectedCategories.has(category.value)}
+                onToggle={() => onToggleCategory(category.value)}
+              />
+            ))}
+          </fieldset>
+
+          <fieldset aria-describedby="support-level-help" className="relative pb-2">
+            <GroupHeading
+              onClear={selectedSupportLevels.size > 0 ? onClearSupportLevels : undefined}
+              clearLabel="Clear browser support"
+            >
+              Browser support
+            </GroupHeading>
+            <p id="support-level-help" className="px-4 pb-2 text-xs leading-relaxed text-muted">
               Production ready means full support in Chrome, Edge, Firefox and Safari, on browsers used by at least{" "}
               {PRODUCTION_READY_MIN_USAGE}% of people. A dashed browser chip means partial support.
             </p>
-            <div className="flex flex-col divide-y divide-border">
-              {supportLevels.map((level) => {
-                const isSelected = selectedSupportLevels.has(level.value);
-                const count = supportLevelCounts[level.value] ?? 0;
-                return (
-                  <button
-                    key={level.value}
-                    type="button"
-                    aria-pressed={isSelected}
-                    disabled={!isSelected && count === 0}
-                    onClick={() => onToggleSupportLevel(level.value)}
-                    className={OPTION_ROW}
-                  >
-                    <span
-                      className={`rounded-full px-3 py-1 ${
-                        isSelected ? SUPPORT_LEVEL_STYLES[level.value] : count === 0 ? "text-muted" : "text-foreground"
-                      }`}
-                    >
-                      {level.label}
-                    </span>
-                    <span className="ml-auto pr-3 text-xs text-muted">{count}</span>
-                  </button>
-                );
-              })}
-            </div>
+            {supportLevels.map((level) => (
+              <OptionRow
+                key={level.value}
+                label={level.label}
+                count={supportLevelCounts[level.value] ?? 0}
+                selected={selectedSupportLevels.has(level.value)}
+                onToggle={() => onToggleSupportLevel(level.value)}
+                tagClassName={SUPPORT_LEVEL_STYLES[level.value]}
+              />
+            ))}
           </fieldset>
         </div>
 
         {/* Filters apply live behind the drawer; this footer shows the result and closes it. */}
-        <div className="sticky bottom-0 -mr-6 -ml-4 flex items-center gap-3 border-t border-border bg-paper px-4 pt-3 pb-4 lg:hidden">
+        <div className="sticky bottom-0 mt-auto flex items-center gap-3 border-t border-border bg-background px-4 py-3 lg:hidden">
           {activeFilterCount > 0 && (
             <button
               type="button"
               onClick={onClearAll}
-              className="inline-flex min-h-11 items-center text-sm font-medium text-accent underline-offset-2 hover:underline"
+              className="label inline-flex min-h-11 items-center text-forest underline-offset-4 hover:underline"
             >
               Clear all
             </button>
@@ -291,9 +284,14 @@ export default function FilterBar({
           <button
             type="button"
             onClick={close}
-            className="ml-auto inline-flex min-h-11 items-center rounded-full bg-accent px-4 text-sm font-medium text-accent-foreground"
+            className="label ml-auto inline-flex min-h-11 items-stretch bg-forest text-forest-foreground"
           >
-            {resultCount === 0 ? "No examples to show" : `Show ${resultCount} example${resultCount === 1 ? "" : "s"}`}
+            <span className="flex items-center px-3">
+              {resultCount === 0 ? "No examples to show" : `Show ${resultCount} example${resultCount === 1 ? "" : "s"}`}
+            </span>
+            <span aria-hidden="true" className="flex w-10 items-center justify-center border-l border-forest-foreground/40">
+              <BiRightArrowAlt className="h-4 w-4" />
+            </span>
           </button>
         </div>
       </div>
