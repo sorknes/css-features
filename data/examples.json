@@ -20,7 +20,7 @@
       "safari": "16",
       "edge": "117"
     },
-    "globalUsage": 93.5,
+    "globalUsage": 94.4,
     "tailwindEquivalent": "v3.4+ col-subgrid and row-subgrid utilities"
   },
   {
@@ -44,7 +44,7 @@
       "safari": "16.4",
       "edge": "109"
     },
-    "globalUsage": 94.4,
+    "globalUsage": 95.3,
     "tailwindEquivalent": null
   },
   {
@@ -68,7 +68,7 @@
       "safari": "16.4",
       "edge": "85"
     },
-    "globalUsage": 94.3,
+    "globalUsage": 95.5,
     "tailwindEquivalent": null
   },
   {
@@ -92,7 +92,7 @@
       "safari": "16",
       "edge": "105"
     },
-    "globalUsage": 94.9,
+    "globalUsage": 95.9,
     "tailwindEquivalent": null
   },
   {
@@ -116,7 +116,7 @@
       "safari": "26.2",
       "edge": "123"
     },
-    "globalUsage": 85.8,
+    "globalUsage": 87.2,
     "tailwindEquivalent": null
   },
   {
@@ -140,7 +140,7 @@
       "safari": "15.4",
       "edge": "105"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.9,
     "tailwindEquivalent": "v3.4+ has-* variant, e.g. has-[input:checked]:bg-blue-500"
   },
   {
@@ -164,7 +164,7 @@
       "safari": "17.2",
       "edge": "120"
     },
-    "globalUsage": 91.8,
+    "globalUsage": 92.9,
     "tailwindEquivalent": null
   },
   {
@@ -188,7 +188,7 @@
       "safari": "16",
       "edge": "106"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.8,
     "tailwindEquivalent": "v3.2+ container utility, plus @container responsive variants like @lg:flex"
   },
   {
@@ -212,7 +212,7 @@
       "safari": "15.4",
       "edge": "99"
     },
-    "globalUsage": 96,
+    "globalUsage": 96.9,
     "tailwindEquivalent": null
   },
   {
@@ -236,7 +236,7 @@
       "safari": "15",
       "edge": "89"
     },
-    "globalUsage": 96.1,
+    "globalUsage": 96.9,
     "tailwindEquivalent": "Used natively throughout — px/py map to padding-inline/padding-block, ps/pe to the logical start/end"
   },
   {
@@ -260,7 +260,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -285,7 +285,7 @@
       "safari": "18",
       "edge": "111"
     },
-    "globalUsage": 91.7,
+    "globalUsage": 92.9,
     "tailwindEquivalent": null
   },
   {
@@ -314,7 +314,7 @@
         "edge": "125"
       }
     },
-    "globalUsage": 0,
+    "globalUsage": 0.8,
     "tailwindEquivalent": null
   },
   {
@@ -339,7 +339,7 @@
       "safari": "17.5",
       "edge": "117"
     },
-    "globalUsage": 91.9,
+    "globalUsage": 93.1,
     "tailwindEquivalent": "v4 starting: variant, e.g. starting:opacity-0"
   },
   {
@@ -363,7 +363,7 @@
       "safari": "17.5",
       "edge": "130"
     },
-    "globalUsage": 87.9,
+    "globalUsage": 88.8,
     "tailwindEquivalent": "v3.4+ text-balance and text-pretty utilities"
   },
   {
@@ -387,7 +387,7 @@
       "safari": "15.4",
       "edge": "108"
     },
-    "globalUsage": 95,
+    "globalUsage": 95.9,
     "tailwindEquivalent": "v3.4+ h-dvh, h-svh, h-lvh (and matching min-h-*/max-h-* variants)"
   },
   {
@@ -411,7 +411,7 @@
       "safari": "17",
       "edge": "127"
     },
-    "globalUsage": 88.5,
+    "globalUsage": 89.3,
     "tailwindEquivalent": null
   },
   {
@@ -435,7 +435,7 @@
       "safari": "18.2",
       "edge": "132"
     },
-    "globalUsage": 85.3,
+    "globalUsage": 87.5,
     "tailwindEquivalent": null
   },
   {
@@ -459,7 +459,7 @@
       "safari": "16.2",
       "edge": "111"
     },
-    "globalUsage": 93.9,
+    "globalUsage": 94.8,
     "tailwindEquivalent": null
   },
   {
@@ -483,7 +483,7 @@
       "safari": "15.4",
       "edge": "111"
     },
-    "globalUsage": 94.2,
+    "globalUsage": 95.1,
     "tailwindEquivalent": "v4's entire default color palette is defined in oklch for consistent perceived brightness"
   },
   {
@@ -507,7 +507,7 @@
       "safari": "27",
       "edge": "135"
     },
-    "globalUsage": 71.6,
+    "globalUsage": 71.9,
     "tailwindEquivalent": null
   },
   {
@@ -531,7 +531,7 @@
       "safari": "26.2",
       "edge": "135"
     },
-    "globalUsage": 84.7,
+    "globalUsage": 86.3,
     "tailwindEquivalent": null
   },
   {
@@ -555,7 +555,7 @@
       "safari": "17.0",
       "edge": "114"
     },
-    "globalUsage": 92.5,
+    "globalUsage": 93.6,
     "tailwindEquivalent": null
   },
   {
@@ -579,7 +579,7 @@
       "safari": "16.5",
       "edge": "119"
     },
-    "globalUsage": 93.1,
+    "globalUsage": 94,
     "tailwindEquivalent": "v3.4+ user-valid: and user-invalid: variants"
   },
   {
@@ -603,7 +603,7 @@
       "safari": "17.4",
       "edge": "118"
     },
-    "globalUsage": 91.7,
+    "globalUsage": 92.9,
     "tailwindEquivalent": null
   },
   {
@@ -627,7 +627,7 @@
       "safari": "26.2",
       "edge": "93"
     },
-    "globalUsage": 45.1,
+    "globalUsage": 46,
     "tailwindEquivalent": "v3.2+ accent-* utilities, e.g. accent-blue-500"
   },
   {
@@ -651,7 +651,7 @@
       "safari": "13.1",
       "edge": "79"
     },
-    "globalUsage": 96.2,
+    "globalUsage": 97,
     "tailwindEquivalent": null
   },
   {
@@ -675,7 +675,7 @@
       "safari": "17.2",
       "edge": "120"
     },
-    "globalUsage": 91.1,
+    "globalUsage": 92.5,
     "tailwindEquivalent": "grid-rows-[0fr] + peer-open:grid-rows-[1fr] on the sibling element"
   },
   {
@@ -723,7 +723,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -747,7 +747,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -771,7 +771,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -795,7 +795,7 @@
       "safari": "26.4",
       "edge": false
     },
-    "globalUsage": 10.7,
+    "globalUsage": 12.5,
     "tailwindEquivalent": null
   },
   {
@@ -843,7 +843,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -867,7 +867,7 @@
       "safari": "7.1",
       "edge": "91"
     },
-    "globalUsage": 96.3,
+    "globalUsage": 97.1,
     "tailwindEquivalent": null
   },
   {
@@ -892,7 +892,7 @@
       "safari": "17.4",
       "edge": "123"
     },
-    "globalUsage": 89.9,
+    "globalUsage": 91.3,
     "tailwindEquivalent": null
   },
   {
@@ -916,7 +916,7 @@
       "safari": false,
       "edge": "148"
     },
-    "globalUsage": 64.7,
+    "globalUsage": 67.7,
     "tailwindEquivalent": null
   },
   {
@@ -964,7 +964,7 @@
       "safari": "18",
       "edge": "131"
     },
-    "globalUsage": 87,
+    "globalUsage": 88.1,
     "tailwindEquivalent": null
   },
   {
@@ -988,7 +988,7 @@
       "safari": "16.4",
       "edge": "104"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.9,
     "tailwindEquivalent": null
   },
   {
@@ -1012,7 +1012,7 @@
       "safari": "13.1",
       "edge": "79"
     },
-    "globalUsage": 96.2,
+    "globalUsage": 97,
     "tailwindEquivalent": null
   },
   {
@@ -1060,7 +1060,7 @@
       "safari": "3.1",
       "edge": "12"
     },
-    "globalUsage": 97.3,
+    "globalUsage": 97.5,
     "tailwindEquivalent": null
   },
   {
@@ -1084,7 +1084,7 @@
       "safari": "13.1",
       "edge": "79"
     },
-    "globalUsage": 96.2,
+    "globalUsage": 97,
     "tailwindEquivalent": null
   },
   {
@@ -1158,7 +1158,7 @@
       "safari": "26",
       "edge": "147"
     },
-    "globalUsage": 78.3,
+    "globalUsage": 82.8,
     "tailwindEquivalent": null
   },
   {
@@ -1182,7 +1182,7 @@
       "safari": "16",
       "edge": "106"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.8,
     "tailwindEquivalent": null
   },
   {
@@ -1259,7 +1259,7 @@
         "edge": "125"
       }
     },
-    "globalUsage": 0,
+    "globalUsage": 0.8,
     "tailwindEquivalent": null
   },
   {
@@ -1283,7 +1283,7 @@
       "safari": "26.0",
       "edge": "115"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -1307,7 +1307,7 @@
       "safari": "16.4",
       "edge": "85"
     },
-    "globalUsage": 94.3,
+    "globalUsage": 95.5,
     "tailwindEquivalent": null
   },
   {
@@ -1355,7 +1355,7 @@
       "safari": "16",
       "edge": "79"
     },
-    "globalUsage": 96.3,
+    "globalUsage": 96.8,
     "tailwindEquivalent": null
   },
   {
@@ -1403,7 +1403,7 @@
       "safari": false,
       "edge": "135"
     },
-    "globalUsage": 71.5,
+    "globalUsage": 71.1,
     "tailwindEquivalent": null
   },
   {
@@ -1427,7 +1427,7 @@
       "safari": "15.4",
       "edge": "105"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.9,
     "tailwindEquivalent": null
   },
   {
@@ -1451,7 +1451,7 @@
       "safari": "5.1",
       "edge": "12"
     },
-    "globalUsage": 97.3,
+    "globalUsage": 97.5,
     "tailwindEquivalent": null
   },
   {
@@ -1499,7 +1499,7 @@
       "safari": "10",
       "edge": "16"
     },
-    "globalUsage": 96.8,
+    "globalUsage": 97.3,
     "tailwindEquivalent": null,
     "replayable": true
   },
@@ -1525,7 +1525,7 @@
       "safari": "15.5",
       "edge": "102"
     },
-    "globalUsage": 95.4,
+    "globalUsage": 96.4,
     "tailwindEquivalent": null
   },
   {
@@ -1549,7 +1549,7 @@
       "safari": "14.1",
       "edge": "89"
     },
-    "globalUsage": 95.5,
+    "globalUsage": 96.5,
     "tailwindEquivalent": "file:mr-3 file:rounded-md file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-white"
   },
   {
@@ -1573,7 +1573,7 @@
       "safari": false,
       "edge": "104"
     },
-    "globalUsage": 76.9,
+    "globalUsage": 75.8,
     "tailwindEquivalent": null
   },
   {
@@ -1597,7 +1597,7 @@
       "safari": false,
       "edge": "140"
     },
-    "globalUsage": 71,
+    "globalUsage": 70.4,
     "tailwindEquivalent": null
   },
   {
@@ -1646,7 +1646,7 @@
       "safari": false,
       "edge": "143"
     },
-    "globalUsage": 70.6,
+    "globalUsage": 69.9,
     "tailwindEquivalent": null
   },
   {
@@ -1671,7 +1671,7 @@
       "safari": false,
       "edge": "133"
     },
-    "globalUsage": 59.4,
+    "globalUsage": 67.9,
     "tailwindEquivalent": null
   },
   {
@@ -1695,7 +1695,7 @@
       "safari": "26.0",
       "edge": "116"
     },
-    "globalUsage": 87.2,
+    "globalUsage": 87.8,
     "tailwindEquivalent": null
   },
   {
@@ -1719,7 +1719,7 @@
       "safari": false,
       "edge": "129"
     },
-    "globalUsage": 72.2,
+    "globalUsage": 71.7,
     "tailwindEquivalent": null
   },
   {
@@ -1743,7 +1743,7 @@
       "safari": false,
       "edge": "133"
     },
-    "globalUsage": 71.7,
+    "globalUsage": 71.4,
     "tailwindEquivalent": null
   },
   {
@@ -1768,7 +1768,7 @@
       "safari": "18.4",
       "edge": "137"
     },
-    "globalUsage": 86.8,
+    "globalUsage": 88.6,
     "tailwindEquivalent": null
   },
   {
@@ -1793,7 +1793,7 @@
       "safari": false,
       "edge": "117"
     },
-    "globalUsage": 75.5,
+    "globalUsage": 74.2,
     "tailwindEquivalent": null
   },
   {
@@ -1817,7 +1817,7 @@
       "safari": false,
       "edge": "139"
     },
-    "globalUsage": 71,
+    "globalUsage": 70.5,
     "tailwindEquivalent": null
   },
   {
@@ -1841,7 +1841,7 @@
       "safari": "16.0",
       "edge": "118"
     },
-    "globalUsage": 80.3,
+    "globalUsage": 79.4,
     "tailwindEquivalent": null
   },
   {
@@ -1866,7 +1866,7 @@
       "safari": "26.0",
       "edge": "131"
     },
-    "globalUsage": 85.5,
+    "globalUsage": 87,
     "tailwindEquivalent": null
   },
   {
@@ -1890,7 +1890,7 @@
       "safari": false,
       "edge": "137"
     },
-    "globalUsage": 70.2,
+    "globalUsage": 68.9,
     "tailwindEquivalent": null
   },
   {
@@ -1919,7 +1919,7 @@
         "edge": "125"
       }
     },
-    "globalUsage": 0,
+    "globalUsage": 0.8,
     "tailwindEquivalent": null
   },
   {
@@ -1943,7 +1943,7 @@
       "safari": "15.4",
       "edge": "105"
     },
-    "globalUsage": 94.8,
+    "globalUsage": 95.9,
     "tailwindEquivalent": "Tailwind's has-[] variant, e.g. has-[input[value=compact]:checked]:grid-cols-4 on the container (or group-has-[…] on a child)."
   }
 ]
