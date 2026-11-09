@@ -117,5 +117,9 @@
   "https://github.com/sorknes/css-features/blob/main/components/SiteHeader.tsx",
   "https://css-tricks.com/css-navigation-matching-early-days/",
   "https://modern-css.com/animating-details-without-javascript-height/",
-  "https://www.bram.us/2026/09/07/animating-css-grid-layouts-with-css-anchor-positioning/"
+  "https://www.bram.us/2026/09/07/animating-css-grid-layouts-with-css-anchor-positioning/",
+  "https://css-tricks.com/re-implementing-nth-child-with-modern-css/",
+  "https://theosoti.com/blog/css-layer-scope-bugs-tailwind-prevents/",
+  "https://theosoti.com/blog/css-reading-flow-reading-order-without-javascript/",
+  "https://css-tip.com/spring-connector/"
 ]
