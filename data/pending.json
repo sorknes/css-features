@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "url": "https://css-tricks.com/re-implementing-nth-child-with-modern-css/",
+    "title": "Re-Implementing :nth-child() With Modern CSS",
+    "sourceName": "CSS-Tricks",
+    "discoveredAt": "2026-11-09",
+    "publishedDate": "2026-11-03",
+    "excerpt": "Combining :nth-child with style queries and sibling-index() to conditionally select child elements.\nRe-Implementing :nth-child() With Modern CSS originally handwritten and published with love on CSS-Tricks. You should really get the newsletter as well."
+  },
+  {
+    "url": "https://theosoti.com/blog/css-layer-scope-bugs-tailwind-prevents/",
+    "title": "Leaving Tailwind? 4 CSS Bugs It Was Protecting You From",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-11-09",
+    "publishedDate": "2026-11-01",
+    "excerpt": "Tailwind prevents specificity fights, class collisions, and leaking styles. Reproduce each bug in a live demo, then fix it with native @layer and @scope."
+  },
+  {
+    "url": "https://theosoti.com/blog/css-reading-flow-reading-order-without-javascript/",
+    "title": "CSS reading-flow: Fix Grid and Flexbox Tab Order Without JavaScript",
+    "sourceName": "Theo Soti's Blog (Theodore (Soti) L.)",
+    "discoveredAt": "2026-11-09",
+    "publishedDate": "2026-08-10",
+    "excerpt": "Use CSS reading-flow and reading-order to align keyboard navigation with responsive Grid and Flexbox layouts, without tabindex or JavaScript."
+  },
+  {
+    "url": "https://css-tip.com/spring-connector/",
+    "title": "A Spring Connector Using Anchor Positioning and border-shape",
+    "sourceName": "CSS-Tip (Temani Afif)",
+    "discoveredAt": "2026-11-09",
+    "publishedDate": null,
+    "excerpt": null
+  }
+]
