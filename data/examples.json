@@ -1945,5 +1945,29 @@
     },
     "globalUsage": 95.9,
     "tailwindEquivalent": "Tailwind's has-[] variant, e.g. has-[input[value=compact]:checked]:grid-cols-4 on the container (or group-has-[…] on a child)."
+  },
+  {
+    "id": "alternating-timeline-sibling-index",
+    "title": "An alternating timeline with sibling-index() and mod()",
+    "description": "A zig-zag timeline where entries alternate between the left and right column, without a single :nth-child() rule. Each entry reads its own position with sibling-index(), and mod(sibling-index(), 2) turns that into 1 or 0. Subtracting it from 2 gives column 1 for odd entries and column 2 for even ones. The same index sets the grid row, so a shorthand like grid-area: sibling-index() / var(--column) puts each entry on its own row and side. The connector dot uses the same 0-or-1 value to move to whichever edge faces the center line. Browsers without sibling-index() fall back to a plain single-column list through @supports.",
+    "category": "layout",
+    "cssFeature": "sibling-index(), mod(), grid-area",
+    "demo": {
+      "html": "<ol class=\"timeline\">\n  <li class=\"entry\"><time>2019</time><p>Project kicks off</p></li>\n  <li class=\"entry\"><time>2021</time><p>First public beta</p></li>\n  <li class=\"entry\"><time>2023</time><p>Version 1.0 ships</p></li>\n  <li class=\"entry\"><time>2024</time><p>Plugin system lands</p></li>\n  <li class=\"entry\"><time>2026</time><p>Ten thousand users</p></li>\n</ol>",
+      "css": "body { font-family: system-ui, sans-serif; margin: 1.5rem; background: #fff; color: #111827; }\n.timeline {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: grid;\n  gap: 0.5rem;\n}\n.entry {\n  position: relative;\n  padding: 0.5rem 0.75rem;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  background: #eff6ff;\n}\n.entry time { font-size: 0.75rem; font-weight: 700; color: #2563eb; }\n.entry p { margin: 0.15rem 0 0; font-size: 0.85rem; }\n\n/* Only switch to the two-sided layout where sibling-index() works */\n@supports (order: sibling-index()) {\n  .timeline {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    column-gap: 2rem;\n    row-gap: 0.25rem;\n    /* Center line running between the two columns */\n    background: linear-gradient(#93c5fd, #93c5fd) center / 2px 100% no-repeat;\n  }\n  .entry {\n    /* Odd entries: 2 - 1 = column 1. Even entries: 2 - 0 = column 2. */\n    --column: calc(2 - mod(sibling-index(), 2));\n    /* 0 for the left column, 1 for the right */\n    --side: calc(var(--column) - 1);\n    grid-area: sibling-index() / var(--column);\n  }\n  /* Dot on the edge facing the center line */\n  .entry::before {\n    content: \"\";\n    position: absolute;\n    top: 0.8rem;\n    left: calc((1 - var(--side)) * 100% + 1rem - var(--side) * 2rem - 6px);\n    width: 12px;\n    height: 12px;\n    border-radius: 50%;\n    background: #2563eb;\n    box-shadow: 0 0 0 3px #fff;\n  }\n}"
+    },
+    "sourceUrl": "https://www.linkedin.com/",
+    "sourceName": "LinkedIn post (login required)",
+    "publishedDate": "2026-11-12",
+    "crawledDate": "2026-11-12",
+    "caniuseSlug": null,
+    "browserSupport": {
+      "chrome": "138",
+      "firefox": false,
+      "safari": "26.2",
+      "edge": "138"
+    },
+    "globalUsage": null,
+    "tailwindEquivalent": null
   }
 ]
