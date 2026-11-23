@@ -30,5 +30,13 @@
     "discoveredAt": "2026-11-09",
     "publishedDate": null,
     "excerpt": null
+  },
+  {
+    "url": "https://css-tricks.com/staggering-scroll-driven-animations-with-animation-range-start/",
+    "title": "Staggering Scroll-Driven Animations with animation-range-start",
+    "sourceName": "CSS-Tricks",
+    "discoveredAt": "2026-11-23",
+    "publishedDate": "2026-11-16",
+    "excerpt": "Imagine a CSS karaoke machine that displays a ball bouncing on text that incrementally highlights, based on progress through via speech recognition and running that kind of animation as a single predictable, holistic effect driven by one progress value.\nStaggering Scroll-Driven Animations with anima"
   }
 ]
